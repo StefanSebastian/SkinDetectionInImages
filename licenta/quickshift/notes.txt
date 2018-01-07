@@ -1,0 +1,5 @@
+Distances between each pair of points 
+Calculate weight for each point ; depending on distance
+density = weight ; Parzen density function is used 
+
+Move each point xi to the nearest neighbour for which there is an increment of the density P(x)

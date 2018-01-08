@@ -3,7 +3,7 @@ import numpy as np
 from math import sqrt
 
 # read initial image
-img = cv2.imread('cat.jpg')
+img = cv2.imread('input_data/human.jpg')
 print('Shape of image' + str(img.shape))
 print('Shape of pixel' + str(img[0][0].shape))
 
@@ -103,11 +103,11 @@ def link_neighbours(image, tau, densities):
     return parents
 
 print("Compute densities")
-densitiesC = compute_density(img, 4)
+densitiesC = compute_density(img, 2)
 print("Get parents")
-parentsC = link_neighbours(img, 10, densitiesC)
+parentsC = link_neighbours(img, 4, densitiesC)
 
-img2 = np.zeros(img.shape)
+img2 = img.copy()
 
 for i in range(img.shape[0]):
     for j in range(img.shape[1]):
@@ -117,27 +117,7 @@ for i in range(img.shape[0]):
         y_parent = int(parent[1])
         parentPixel = img[x_parent, y_parent]
         print("parent: " + str(parentPixel))
-        img2[i, j] = parentPixel
+        if x_parent != 0 and y_parent != 0:
+            img2[i, j] = parentPixel
 
 cv2.imwrite('quickshift.png', img2)
-
-
-'''
-exemplu reshape
-# get image as array of pixels - ignore this for a bit
-reshaped = np.reshape(img, (img.shape[0] * img.shape[1], 3))
-print(reshaped.shape)
-'''
-
-''' ex
-def check_reshape():
-    for i in range(rows * cols):
-        print('first')
-        print(res[i])
-        print('second')
-        x = int(i / cols)
-        y = i % cols
-        print(img.item((x, y, 0)))
-        print(img.item((x, y, 1)))
-        print(img.item((x, y, 2)))
-        '''

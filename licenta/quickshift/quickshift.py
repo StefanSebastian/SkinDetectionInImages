@@ -3,7 +3,7 @@ import numpy as np
 from math import sqrt
 
 # read initial image
-img = cv2.imread('input_data/human.jpg')
+img = cv2.imread('input_data/cat.jpg')
 print('Shape of image' + str(img.shape))
 print('Shape of pixel' + str(img[0][0].shape))
 
@@ -23,7 +23,7 @@ def point_distance_3d(x1, y1, z1, x2, y2, z2):
     y2 = int(y2)
     z1 = int(z1)
     z2 = int(z2)
-    return sqrt(((x2 - x1) ** 2) + ((y2 - y1) ** 2) + ((z2 - z1)**2))
+    return sqrt(((x2 - x1) ** 2) + ((y2 - y1) ** 2) + ((z2 - z1) ** 2))
 
 
 def compute_density(image, sigma):
@@ -102,22 +102,52 @@ def link_neighbours(image, tau, densities):
                                 parents[x_pixel, y_pixel] = np.array([x_candidate, y_candidate])
     return parents
 
+
+def get_new_image(image, parents):
+    new_image = image.copy()
+
+    for i in range(image.shape[0]):
+        for j in range(image.shape[1]):
+            parent = parents[i, j]
+            print("parent" + str(parent))
+            x_parent = int(parent[0])
+            y_parent = int(parent[1])
+            parent_pixel = image[x_parent, y_parent]
+            print("parent: " + str(parent_pixel))
+            if x_parent != 0 and y_parent != 0:
+                new_image[i, j] = parent_pixel
+    return new_image
+
+
+def get_root_parent(image, parents, x, y):
+    parent = parents[x, y]
+    x_parent = int(parent[0])
+    y_parent = int(parent[1])
+    # when pixel is root
+    if x_parent == 0 and y_parent == 0:
+        return image[x, y]
+    else:
+        return get_root_parent(image, parents, x_parent, y_parent)
+
+
+'''
+goes all the way to root parent
+'''
+
+
+def get_new_image2(image, parents):
+    new_image = image.copy()
+
+    for i in range(image.shape[0]):
+        for j in range(image.shape[1]):
+            parent_pixel = get_root_parent(image, parents, i, j)
+            new_image[i, j] = parent_pixel
+    return new_image
+
+
 print("Compute densities")
 densitiesC = compute_density(img, 2)
 print("Get parents")
-parentsC = link_neighbours(img, 4, densitiesC)
-
-img2 = img.copy()
-
-for i in range(img.shape[0]):
-    for j in range(img.shape[1]):
-        parent = parentsC[i, j]
-        print("parent" + str(parent))
-        x_parent = int(parent[0])
-        y_parent = int(parent[1])
-        parentPixel = img[x_parent, y_parent]
-        print("parent: " + str(parentPixel))
-        if x_parent != 0 and y_parent != 0:
-            img2[i, j] = parentPixel
-
+parentsC = link_neighbours(img, 10, densitiesC)
+img2 = get_new_image2(img, parentsC)
 cv2.imwrite('quickshift.png', img2)

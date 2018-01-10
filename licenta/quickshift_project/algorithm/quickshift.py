@@ -1,11 +1,11 @@
-import numpy as np
-import cv2
 from math import sqrt
 
+import numpy as np
 
-def quickshift_algorithm(image, sigma, tau):
+
+def quickshift_algorithm(image, sigma, tau, with_position = 0):
     print("Calculating densities")
-    densities = __compute_density(image, sigma)
+    densities = __compute_density(image, sigma, with_position)
 
     print("Linking neighbours")
     parents = __link_neighbours(image, tau, densities)
@@ -32,7 +32,7 @@ def __print_progress(x_pixel, y_pixel, rows, cols):
         print(progress, "%")
 
 
-def point_distance2d(x1, y1, x2, y2):
+def point_distance_2d(x1, y1, x2, y2):
     """
     Euclidean distance between 2 points in 2d space
     """
@@ -43,9 +43,11 @@ def point_distance2d(x1, y1, x2, y2):
     return sqrt(((x2 - x1) ** 2) + ((y2 - y1) ** 2))
 
 
-def point_distance_3d(x1, y1, z1, x2, y2, z2):
+def feature_distance_3d(x1, y1, z1, x2, y2, z2):
     """
     Euclidean distance between 2 points in 3d space
+
+    x, y, z should be the rgb values
     """
     x1 = int(x1)
     x2 = int(x2)
@@ -56,7 +58,27 @@ def point_distance_3d(x1, y1, z1, x2, y2, z2):
     return sqrt(((x2 - x1) ** 2) + ((y2 - y1) ** 2) + ((z2 - z1) ** 2))
 
 
-def __compute_density(image, sigma):
+def feature_distance_5d(r1, g1, b1, r2, g2, b2, x1, y1, x2, y2):
+    """
+    Euclidean distance between 2 points in 5d space
+
+    r, g, b should be the rgb coordinates ; which are scaled
+    x,y are the positions
+    """
+    r1 = 0.5 * int(r1)
+    r2 = 0.5 * int(r2)
+    g1 = 0.5 * int(g1)
+    g2 = 0.5 * int(g2)
+    b1 = 0.5 * int(b1)
+    b2 = 0.5 * int(b2)
+    x1 = int(x1)
+    x2 = int(x2)
+    y1 = int(y1)
+    y2 = int(y2)
+    return sqrt(((r2 - r1) ** 2) + ((g2 - g1) ** 2) + ((b2 - b1) ** 2) + ((x2 - x1) ** 2) + ((y2 - y1) ** 2))
+
+
+def __compute_density(image, sigma, with_position):
     """
     Compute the Parzen density for each pixel
 
@@ -86,10 +108,14 @@ def __compute_density(image, sigma):
                 for y_candidate in range(y_upper, y_lower + 1):
                     # check bounds
                     if 0 <= x_candidate < rows and 0 <= y_candidate < cols:
-                        if point_distance2d(x_pixel, y_pixel, x_candidate, y_candidate) <= 3 * sigma:
+                        if point_distance_2d(x_pixel, y_pixel, x_candidate, y_candidate) <= 3 * sigma:
                             point = image[x_candidate, y_candidate]
                             # distance between pixel values ; f[x] - f[n]
-                            distance = point_distance_3d(point[0], point[1], point[2], pixel[0], pixel[1], pixel[2])
+                            if with_position == 0:
+                                distance = feature_distance_3d(point[0], point[1], point[2], pixel[0], pixel[1], pixel[2])
+                            else:
+                                distance = feature_distance_5d(point[0], point[1], point[2], pixel[0], pixel[1], pixel[2],
+                                                               x_candidate, y_candidate, x_pixel, y_pixel)
                             # update density ; d += e^(-d^2 / 2 * sigma^2)
                             densities[x_pixel, y_pixel] += np.exp((-(distance ** 2)) / (2 * sigma * sigma))
     return densities
@@ -131,7 +157,7 @@ def __link_neighbours(image, tau, densities):
                     # check bounds
                     if 0 <= x_candidate < rows and 0 <= y_candidate < cols:
                         # distance between pixel and neighbour coordinates
-                        distance = point_distance2d(x_pixel, y_pixel, x_candidate, y_candidate)
+                        distance = point_distance_2d(x_pixel, y_pixel, x_candidate, y_candidate)
                         if distance <= tau:
                             # if the neighbour has a higher density and is closer to the current pixel
                             # or is the first neighbour with a higher density
@@ -176,4 +202,3 @@ def __get_image_with_superpixels(image, parents):
             parent_pixel = __get_root_pixel(image, parents, i, j)
             new_image[i, j] = parent_pixel
     return new_image
-

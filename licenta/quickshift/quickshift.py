@@ -3,7 +3,7 @@ import numpy as np
 from math import sqrt
 
 # read initial image
-img = cv2.imread('input_data/cat.jpg')
+img = cv2.imread('input_data/PASCAL2007/human_cat.jpg')
 print('Shape of image' + str(img.shape))
 print('Shape of pixel' + str(img[0][0].shape))
 
@@ -146,7 +146,7 @@ def get_new_image2(image, parents):
 
 
 print("Compute densities")
-densitiesC = compute_density(img, 2)
+densitiesC = compute_density(img, 6)
 print("Get parents")
 parentsC = link_neighbours(img, 10, densitiesC)
 img2 = get_new_image2(img, parentsC)

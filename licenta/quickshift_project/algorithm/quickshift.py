@@ -1,4 +1,4 @@
-from math import sqrt
+from math import sqrt, exp
 
 import numpy as np
 
@@ -28,8 +28,7 @@ def __print_progress(x_pixel, y_pixel, rows, cols):
     progress = x_pixel * cols + y_pixel
     if progress % 300 == 0:  # arbitrary constant ; selected to skip printing progress too often
         progress = progress / (rows * cols)
-        progress *= 100
-        print(progress, "%")
+        print("\rProgress: [{0:50s}] {1:.1f}%".format('#' * int(progress * 50), progress * 100), end="", flush=True)
 
 
 def point_distance_2d(x1, y1, x2, y2):
@@ -117,7 +116,7 @@ def __compute_density(image, sigma, with_position):
                                 distance = feature_distance_5d(point[0], point[1], point[2], pixel[0], pixel[1], pixel[2],
                                                                x_candidate, y_candidate, x_pixel, y_pixel)
                             # update density ; d += e^(-d^2 / 2 * sigma^2)
-                            densities[x_pixel, y_pixel] += np.exp((-(distance ** 2)) / (2 * sigma * sigma))
+                            densities[x_pixel, y_pixel] += exp((-(distance ** 2)) / (2 * sigma * sigma))
     return densities
 
 

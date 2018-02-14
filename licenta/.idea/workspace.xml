@@ -20,7 +20,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="face_detect.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="face_detect.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/face_detection/face_detect.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
@@ -30,6 +30,23 @@
                 <element signature="e#276#945#0" expanded="false" />
               </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="colorspace_conversion.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/color_spaces/colorspace_conversion.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="human_cat.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/input_data/PASCAL2007/human_cat.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
@@ -78,6 +95,7 @@
         <option value="$PROJECT_DIR$/contours_fill_project/face_detect/haar_cascade.xml" />
         <option value="$PROJECT_DIR$/contours_fill_project/face_detect/face_detect.py" />
         <option value="$PROJECT_DIR$/face_detection/face_detect.py" />
+        <option value="$PROJECT_DIR$/color_spaces/colorspace_conversion.py" />
       </list>
     </option>
   </component>
@@ -164,6 +182,46 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="input_data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="licenta" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="licenta" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="input_data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PASCAL2007" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="licenta" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="licenta" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="quickshift_project" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -196,6 +254,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="licenta" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="licenta" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="color_spaces" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -220,7 +292,7 @@
       <recent name="E:\Info\anu3\Licenta-git-2\Licenta\licenta\ignored" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.face_detect (1)">
+  <component name="RunManager" selected="Python.colorspace_conversion">
     <configuration default="false" name="opencvexp" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -234,23 +306,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="licenta" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/contours_fill_project/ignored/opencvexp.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="matplotlibexp" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/contours_fill_project/ignored" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="licenta" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/contours_fill_project/ignored/matplotlibexp.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -302,6 +357,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="licenta" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/face_detection/face_detect.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="colorspace_conversion" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/color_spaces" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="licenta" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/color_spaces/colorspace_conversion.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -442,18 +514,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.opencvexp" />
-      <item index="1" class="java.lang.String" itemvalue="Python.matplotlibexp" />
-      <item index="2" class="java.lang.String" itemvalue="Python.main" />
-      <item index="3" class="java.lang.String" itemvalue="Python.face_detect" />
-      <item index="4" class="java.lang.String" itemvalue="Python.face_detect (1)" />
+      <item index="1" class="java.lang.String" itemvalue="Python.main" />
+      <item index="2" class="java.lang.String" itemvalue="Python.face_detect" />
+      <item index="3" class="java.lang.String" itemvalue="Python.face_detect (1)" />
+      <item index="4" class="java.lang.String" itemvalue="Python.colorspace_conversion" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.face_detect (1)" />
-        <item index="1" class="java.lang.String" itemvalue="Python.face_detect" />
-        <item index="2" class="java.lang.String" itemvalue="Python.main" />
-        <item index="3" class="java.lang.String" itemvalue="Python.opencvexp" />
-        <item index="4" class="java.lang.String" itemvalue="Python.matplotlibexp" />
+        <item index="0" class="java.lang.String" itemvalue="Python.colorspace_conversion" />
+        <item index="1" class="java.lang.String" itemvalue="Python.face_detect (1)" />
+        <item index="2" class="java.lang.String" itemvalue="Python.face_detect" />
+        <item index="3" class="java.lang.String" itemvalue="Python.main" />
+        <item index="4" class="java.lang.String" itemvalue="Python.opencvexp" />
       </list>
     </recent_temporary>
   </component>
@@ -472,9 +544,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16617863" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16617863" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42271292" sideWeight="0.5087848" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -511,9 +583,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/first/processimg.py" />
-    <entry file="file://$PROJECT_DIR$/ignored/quickshift_ugly.py" />
-    <entry file="file://$PROJECT_DIR$/quickshift/mizerie.png" />
     <entry file="file://$PROJECT_DIR$/quickshift/rsz_cat.jpg" />
     <entry file="file://$PROJECT_DIR$/quickshift/cat_small.jpg" />
     <entry file="file://$PROJECT_DIR$/ignored/tests.py" />
@@ -561,6 +630,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-92">
           <caret line="10343" column="4" selection-start-line="10343" selection-start-column="4" selection-end-line="10343" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -650,6 +720,24 @@
             <element signature="e#0#18#0" expanded="true" />
             <element signature="e#276#945#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/input_data/PASCAL2007/human_dog.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/input_data/PASCAL2007/human_cat.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/color_spaces/colorspace_conversion.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>

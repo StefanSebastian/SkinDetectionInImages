@@ -1,20 +1,31 @@
 import cv2
 import os
-import numpy as np
 from collections import namedtuple
 
 
 class BayesSpm:
+    """
+    Class that encapsulates a bayes Skin Probability Map
+    """
     def __init__(self, skin_pixels, non_skin_pixels, appearances, appearances_as_skin):
         self.skin_pixels = skin_pixels
         self.non_skin_pixels = non_skin_pixels
         self.appearances = appearances
         self.appearances_as_skin = appearances_as_skin
 
+"""
+Named tuple representing a pixel ; used as a key for Bayes Map
+"""
 Pixel = namedtuple("Pixel", ["R", "G", "B"])
 
 
 def load_images_from_folder(folder):
+    """
+    Utility method that loads all images from a folder
+
+    :param folder:
+    :return:
+    """
     images = []
     for filename in os.listdir(folder):
         img = cv2.imread(os.path.join(folder, filename))
@@ -24,6 +35,12 @@ def load_images_from_folder(folder):
 
 
 def get_bayes_spm(path_pos, path_neg):
+    """
+    Calculates Bayes SPM
+    :param path_pos: path to positive examples
+    :param path_neg: path to negative examples
+    :return:
+    """
     appearances = {}
     appearances_as_skin = {}
     skin_pixels = 0
@@ -104,23 +121,23 @@ def calculate_pixel_probability_with_neighbours(pixel, spm):
     return max_prob
 
 
-def detect_skin(image, spm, threshold):
+def detect_skin(image, spm, threshold, with_neighbours = 0):
     new_image = image.copy()
+    new_image[:] = (255, 255, 255)
+    cv2.addWeighted(image, 0.4, new_image, 1 - 0.4,
+                    0, new_image)
 
     rows = image.shape[0]
     cols = image.shape[1]
     for x_pixel in range(rows):
         for y_pixel in range(cols):
-            #prob = calculate_pixel_probability(image[x_pixel, y_pixel], spm)
-            prob = calculate_pixel_probability_with_neighbours(image[x_pixel, y_pixel], spm)
+            pixel = image[x_pixel, y_pixel]
+            if with_neighbours == 0:
+                prob = calculate_pixel_probability(pixel, spm)
+            else:
+                prob = calculate_pixel_probability_with_neighbours(pixel, spm)
             print(prob)
             if prob > threshold:
                 new_image[x_pixel, y_pixel] = [0, 0, 0]
-
     return new_image
 
-spm = get_bayes_spm('../../resources/input_data/skin/sfa/SKIN/35', '../../resources/input_data/skin/sfa/NS/35')
-
-image = cv2.imread('../../resources/input_data/skin/girl_drink_3_5.png')
-new_im = detect_skin(image, spm, 0.5)
-cv2.imwrite('test_qs.png', new_im)

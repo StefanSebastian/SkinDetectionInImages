@@ -3,3 +3,4 @@ licenta/resources
 licenta/contours_fill_project/ignored
 licenta/face_detection/results
 licenta/color_spaces/results
+licenta/skin_probability_map/bayes/results

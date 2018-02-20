@@ -2,16 +2,20 @@ import cv2
 import os
 from collections import namedtuple
 
+from skin_probability_map.bayes import config
+
 
 class BayesSpm:
     """
     Class that encapsulates a bayes Skin Probability Map
     """
+
     def __init__(self, skin_pixels, non_skin_pixels, appearances, appearances_as_skin):
         self.skin_pixels = skin_pixels
         self.non_skin_pixels = non_skin_pixels
         self.appearances = appearances
         self.appearances_as_skin = appearances_as_skin
+
 
 """
 Named tuple representing a pixel ; used as a key for Bayes Map
@@ -102,6 +106,12 @@ def calculate_pixel_probability(pixel, spm):
     return (pxs * ps) / px
 
 
+"""
+Global variable ; map that caches pixel probabilities
+"""
+pixel_probability_cache = {}
+
+
 def calculate_pixel_probability_with_neighbours(pixel, spm):
     """
     Calculates the probability of a pixel being a skin pixel by getting the max probability from its neighbours
@@ -111,9 +121,10 @@ def calculate_pixel_probability_with_neighbours(pixel, spm):
     :return:
     """
     max_prob = 0
-    for r_offset in range(-3, 3, 1):
-        for g_offset in range(-3, 3, 1):
-            for b_offset in range(-3, 3, 1):
+    area = config.neighbour_area
+    for r_offset in range(-area, area, 1):
+        for g_offset in range(-area, area, 1):
+            for b_offset in range(-area, area, 1):
                 p = [pixel[0] + r_offset, pixel[1] + g_offset, pixel[2] + b_offset]
                 prob = calculate_pixel_probability(p, spm)
                 if prob > max_prob:
@@ -121,23 +132,30 @@ def calculate_pixel_probability_with_neighbours(pixel, spm):
     return max_prob
 
 
-def detect_skin(image, spm, threshold, with_neighbours = 0):
+def detect_skin(image, spm, threshold):
     new_image = image.copy()
-    new_image[:] = (255, 255, 255)
-    cv2.addWeighted(image, 0.4, new_image, 1 - 0.4,
-                    0, new_image)
+    new_image[:] = (255, 255, 255)  # make image white
+    cv2.addWeighted(image, 0.4, new_image, 1 - 0.4, 0, new_image)  # overlay transparent img
 
     rows = image.shape[0]
     cols = image.shape[1]
     for x_pixel in range(rows):
         for y_pixel in range(cols):
             pixel = image[x_pixel, y_pixel]
-            if with_neighbours == 0:
-                prob = calculate_pixel_probability(pixel, spm)
+
+            # check cache
+            p = Pixel(R=pixel[0], G=pixel[1], B=pixel[2])
+            if p in pixel_probability_cache:
+                prob = pixel_probability_cache[p]
             else:
-                prob = calculate_pixel_probability_with_neighbours(pixel, spm)
+                # calculate using strategy given as param
+                if config.with_neighbours == 0:
+                    prob = calculate_pixel_probability(pixel, spm)
+                else:
+                    prob = calculate_pixel_probability_with_neighbours(pixel, spm)
+                pixel_probability_cache[p] = prob
+
             print(prob)
             if prob > threshold:
                 new_image[x_pixel, y_pixel] = [0, 0, 0]
     return new_image
-

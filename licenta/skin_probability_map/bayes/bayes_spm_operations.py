@@ -1,8 +1,9 @@
-import cv2
-import os
 from collections import namedtuple
 
+import cv2
+
 from skin_probability_map.bayes import config
+from utils import utils
 
 
 class BayesSpm:
@@ -23,21 +24,6 @@ Named tuple representing a pixel ; used as a key for Bayes Map
 Pixel = namedtuple("Pixel", ["R", "G", "B"])
 
 
-def load_images_from_folder(folder):
-    """
-    Utility method that loads all images from a folder
-
-    :param folder:
-    :return:
-    """
-    images = []
-    for filename in os.listdir(folder):
-        img = cv2.imread(os.path.join(folder, filename))
-        if img is not None:
-            images.append(img)
-    return images
-
-
 def get_bayes_spm(path_pos, path_neg):
     """
     Calculates Bayes SPM
@@ -50,7 +36,7 @@ def get_bayes_spm(path_pos, path_neg):
     skin_pixels = 0
     non_skin_pixels = 0
 
-    skin_images = load_images_from_folder(path_pos)
+    skin_images = utils.load_images_from_folder(path_pos)
     for image in skin_images:
         rows = image.shape[0]
         cols = image.shape[1]
@@ -66,7 +52,7 @@ def get_bayes_spm(path_pos, path_neg):
                     appearances[p] = 1
                     appearances_as_skin[p] = 1
 
-    non_skin_images = load_images_from_folder(path_neg)
+    non_skin_images = utils.load_images_from_folder(path_neg)
     for image in non_skin_images:
         rows = image.shape[0]
         cols = image.shape[1]

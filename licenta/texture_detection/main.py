@@ -10,5 +10,5 @@ images = utils.load_images_from_folder('../resources/input_data/PASCAL2007')
 i = 0
 for image in images:
     i += 1
-    res = haralick.get_image_skin_regions(svm_classifier, image, 15)
+    res = haralick.get_image_skin_regions(svm_classifier, image, 4)
     cv2.imwrite(str(i) + '.png', res)

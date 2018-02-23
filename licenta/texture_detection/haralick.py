@@ -106,7 +106,7 @@ def get_image_skin_regions(classifier, image, grid_size):
     for r in range(0, rows - grid_size, grid_size):
         for c in range(0, cols - grid_size, grid_size):
             utils.print_progress(r, c, rows, cols)
-            roi = image[r:r + grid_size, c:c + grid_size]
+            roi = gray[r:r + grid_size, c:c + grid_size]
             feature = extract_features(roi)
             prediction = classifier.predict(feature.reshape(1, -1))[0]
             if prediction == 'skin':

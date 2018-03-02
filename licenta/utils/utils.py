@@ -14,7 +14,7 @@ def print_progress(pos, total):
     print("\rProgress: [{0:50s}] {1:.1f}%".format('#' * int(progress * 50), progress * 100), end="", flush=True)
 
 
-def print_progress(x_pixel, y_pixel, rows, cols):
+def print_progress_pixel(x_pixel, y_pixel, rows, cols):
     """
     Prints the progress of the current pixel operation
     determines the location of the pixel out of the total pixels

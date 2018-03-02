@@ -44,7 +44,7 @@ def get_train_data(path_pos, path_neg):
         labels.append(config.skin_label)
 
         progress += 1
-        utils.print_progress(progress, len(skin_images))
+        utils.print_progress_pixel(progress, len(skin_images))
 
     print("\nNegative images: ")
     progress = 0
@@ -56,7 +56,7 @@ def get_train_data(path_pos, path_neg):
         labels.append(config.non_skin_label)
 
         progress += 1
-        utils.print_progress(progress, len(non_skin_images))
+        utils.print_progress_pixel(progress, len(non_skin_images))
 
     print("\nTraining features: {}".format(np.array(features).shape))
     print("Training labels: {}".format(np.array(labels).shape))
@@ -89,7 +89,7 @@ def train_and_dump():
     joblib.dump(svm_classifier, 'svm_classifier.pkl')
 
 
-def get_image_skin_regions(classifier, image, grid_size):
+def get_image_skin_regions_by_grid(classifier, image, grid_size):
     """
     TODO refactor
 
@@ -98,6 +98,10 @@ def get_image_skin_regions(classifier, image, grid_size):
     :param grid_size:
     :return:
     """
+    new_image = image.copy()
+    new_image[:] = (255, 255, 255)  # make image white
+    cv2.addWeighted(image, 0.4, new_image, 1 - 0.4, 0, new_image)  # overlay transparent img
+
     gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
     rows = gray.shape[0]
     cols = gray.shape[1]
@@ -105,10 +109,35 @@ def get_image_skin_regions(classifier, image, grid_size):
     # cut image in little pieces
     for r in range(0, rows - grid_size, grid_size):
         for c in range(0, cols - grid_size, grid_size):
-            utils.print_progress(r, c, rows, cols)
+            utils.print_progress_pixel(r, c, rows, cols)
             roi = gray[r:r + grid_size, c:c + grid_size]
             feature = extract_features(roi)
             prediction = classifier.predict(feature.reshape(1, -1))[0]
             if prediction == 'skin':
-                cv2.rectangle(gray, (c, r), (c + grid_size, r + grid_size), (0, 255, 0), 2)
-    return gray
+                cv2.rectangle(new_image, (c, r), (c + grid_size, r + grid_size), (0, 0, 0), -1)
+    return new_image
+
+
+def get_image_skin_regions_by_pixels(classifier, image, radius):
+    new_image = image.copy()
+    new_image[:] = (255, 255, 255)  # make image white
+    cv2.addWeighted(image, 0.4, new_image, 1 - 0.4, 0, new_image)  # overlay transparent img
+
+    gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
+    rows = gray.shape[0]
+    cols = gray.shape[1]
+
+    for x_pixel in range(radius, rows - radius):
+        for y_pixel in range(radius, cols - radius):
+            utils.print_progress_pixel(x_pixel, y_pixel, rows, cols)
+
+            r = x_pixel - radius
+            c = y_pixel - radius
+            grid_size = 2 * radius
+            roi = gray[r:r + grid_size, c:c + grid_size]
+            feature = extract_features(roi)
+            prediction = classifier.predict(feature.reshape(1, -1))[0]
+            if prediction == 'skin':
+                new_image[x_pixel, y_pixel] = [0, 0, 0]
+    return new_image
+

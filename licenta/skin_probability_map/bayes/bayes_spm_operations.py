@@ -38,23 +38,17 @@ def train_model():
 
     :return:
     """
-    spm = __get_bayes_spm_components(config.path_pos, config.path_neg)
-    serialization.save_object(spm, config.path_models + '/spm')
-    return spm
+    bayes_spm_components = __get_bayes_spm_components(config.path_pos, config.path_neg)
+    serialization.save_object(bayes_spm_components, config.path_models + '/' + config.selected_model)
+    return bayes_spm_components
 
 
-def detect_skin_spm_default(image):
-    """
-    Skin detection with Bayesian SPM using values set in config file
-
-    :param image:
-    :return:
-    """
-    bayes_spm_components = serialization.load_object(config.path_models + '/' + config.selected_model)
-    return detect_skin(image, bayes_spm_components, config.threshold, config.with_neighbours, config.neighbour_area)
+def detect_skin_spm(image, model_path, threshold, with_neighbours, neighbour_area):
+    bayes_spm_components = serialization.load_object(model_path)
+    return __detect_skin(image, bayes_spm_components, threshold, with_neighbours, neighbour_area)
 
 
-def detect_skin(image, bayes_spm_components, threshold, with_neighbours=1, neighbour_area=8):
+def __detect_skin(image, bayes_spm_components, threshold, with_neighbours=1, neighbour_area=8):
     """
     Builds spm as needed and calculates pixel probabilities
 

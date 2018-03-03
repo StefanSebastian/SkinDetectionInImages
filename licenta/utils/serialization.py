@@ -20,5 +20,5 @@ def load_object(name):
     :param name:
     :return:
     """
-    with open(name + '.pkl', 'rb') as file:
+    with open(name, 'rb') as file:
         return pickle.load(file)

@@ -5,7 +5,7 @@ from sklearn.externals import joblib
 from sklearn.svm import LinearSVC
 
 from texture_detection import config
-from utils import utils, serialization
+from utils import utils
 
 
 def train_model():
@@ -21,21 +21,24 @@ def train_model():
     return svm_classifier
 
 
-def detect_skin_texture_default(image):
+def detect_skin_texture(image, classifier_path, detection_type, detection_window_size):
     """
     Applies skin detection with parameters from config file
 
+    :param classifier_path:
+    :param detection_window_size:
+    :param detection_type:
     :param image:
     :return:
     """
-    classifier = serialization.load_object(config.path_models + '/' + config.selected_classifier)
-    if config.detection_type == 0:
-        return get_image_skin_regions_by_grid(classifier, image, config.detection_window_size)
+    classifier = joblib.load(classifier_path)
+    if detection_type == 0:
+        return __get_image_skin_regions_by_grid(classifier, image, detection_window_size)
     else:
-        return get_image_skin_regions_by_pixels(classifier, image, config.detection_window_size)
+        return __get_image_skin_regions_by_pixels(classifier, image, detection_window_size)
 
 
-def get_image_skin_regions_by_grid(classifier, image, grid_size):
+def __get_image_skin_regions_by_grid(classifier, image, grid_size):
     """
     Gets the skin regions from an image by iterating with a window over the original image
 
@@ -66,7 +69,7 @@ def get_image_skin_regions_by_grid(classifier, image, grid_size):
     return new_image
 
 
-def get_image_skin_regions_by_pixels(classifier, image, radius):
+def __get_image_skin_regions_by_pixels(classifier, image, radius):
     """
     Gets the image skin region by building a window around each pixel
 

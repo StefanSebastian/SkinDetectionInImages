@@ -9,7 +9,7 @@ from utils import serialization, utils
 
 #bayes_spm_operations.train_model()
 
-spm = serialization.load_object("spm15")
+spm = serialization.load_object("spm15.pkl")
 images = utils.load_images_from_folder('E:/Info/anu3/Licenta-git-2/Licenta/licenta/resources/input_data/skin/input_qs')
 
 im = 0

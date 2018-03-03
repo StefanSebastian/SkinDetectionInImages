@@ -1,17 +1,8 @@
 from math import sqrt, exp
+
 import numpy as np
 
 from utils import utils
-from quickshift_project import config
-
-
-def quickshift_algorithm_default(image):
-    """
-    Apply quickshift algorithm with values from config file
-    :param image:
-    :return:
-    """
-    return quickshift_algorithm(image, config.sigma, config.tau, config.with_position)
 
 
 def quickshift_algorithm(image, sigma, tau, with_position=0):

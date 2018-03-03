@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 
+
 def combine_res(image, spm_img, texture_img):
     new_image = image.copy()
     new_image[:] = (255, 255, 255)  # make image white
@@ -14,9 +15,11 @@ def combine_res(image, spm_img, texture_img):
                 new_image[x_pixel, y_pixel] = [0, 0, 0]
     return new_image
 
+'''
 color = cv2.imread('color.png')
 texture = cv2.imread('texture.png')
 orig = cv2.imread('orig.jpg')
 
 res = combine_res(orig, color, texture)
 cv2.imwrite('res.png', res)
+'''

@@ -1,9 +1,29 @@
 from math import sqrt, exp
-
 import numpy as np
 
+from utils import utils
+from quickshift_project import config
 
-def quickshift_algorithm(image, sigma, tau, with_position = 0):
+
+def quickshift_algorithm_default(image):
+    """
+    Apply quickshift algorithm with values from config file
+    :param image:
+    :return:
+    """
+    return quickshift_algorithm(image, config.sigma, config.tau, config.with_position)
+
+
+def quickshift_algorithm(image, sigma, tau, with_position=0):
+    """
+    Apply quickshift algorithm and return the resulting image
+
+    :param image:
+    :param sigma:
+    :param tau:
+    :param with_position:
+    :return:
+    """
     print("Calculating densities")
     densities = __compute_density(image, sigma, with_position)
 
@@ -12,23 +32,6 @@ def quickshift_algorithm(image, sigma, tau, with_position = 0):
 
     print("Creating new image")
     return __get_image_with_superpixels(image, parents)
-
-
-def __print_progress(x_pixel, y_pixel, rows, cols):
-    """
-    Prints the progress of the current pixel operation
-    determines the location of the pixel out of the total pixels
-
-    :param x_pixel: row of pixel
-    :param y_pixel: col of pixel
-    :param rows: nr rows of image
-    :param cols: nr cols of image
-    :return:
-    """
-    progress = x_pixel * cols + y_pixel
-    if progress % 300 == 0:  # arbitrary constant ; selected to skip printing progress too often
-        progress = progress / (rows * cols)
-        print("\rProgress: [{0:50s}] {1:.1f}%".format('#' * int(progress * 50), progress * 100), end="", flush=True)
 
 
 def point_distance_2d(x1, y1, x2, y2):
@@ -94,7 +97,7 @@ def __compute_density(image, sigma, with_position):
         for y_pixel in range(cols):
             pixel = image[x_pixel, y_pixel]
 
-            __print_progress(x_pixel, y_pixel, rows, cols)
+            utils.print_progress_pixel(x_pixel, y_pixel, rows, cols)
 
             # get neighbourhood window
             x_upper = x_pixel - 3 * sigma
@@ -111,9 +114,11 @@ def __compute_density(image, sigma, with_position):
                             point = image[x_candidate, y_candidate]
                             # distance between pixel values ; f[x] - f[n]
                             if with_position == 0:
-                                distance = feature_distance_3d(point[0], point[1], point[2], pixel[0], pixel[1], pixel[2])
+                                distance = feature_distance_3d(point[0], point[1], point[2], pixel[0], pixel[1],
+                                                               pixel[2])
                             else:
-                                distance = feature_distance_5d(point[0], point[1], point[2], pixel[0], pixel[1], pixel[2],
+                                distance = feature_distance_5d(point[0], point[1], point[2], pixel[0], pixel[1],
+                                                               pixel[2],
                                                                x_candidate, y_candidate, x_pixel, y_pixel)
                             # update density ; d += e^(-d^2 / 2 * sigma^2)
                             densities[x_pixel, y_pixel] += exp((-(distance ** 2)) / (2 * sigma * sigma))
@@ -142,7 +147,7 @@ def __link_neighbours(image, tau, densities):
     # iterate pixels
     for x_pixel in range(rows):
         for y_pixel in range(cols):
-            __print_progress(x_pixel, y_pixel, rows, cols)
+            utils.print_progress_pixel(x_pixel, y_pixel, rows, cols)
 
             # get neighbourhood window
             x_upper = x_pixel - tau

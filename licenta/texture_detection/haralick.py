@@ -16,7 +16,7 @@ def train_model():
     features, labels = __get_train_data(config.path_pos, config.path_neg)
     svm_classifier = __train_svm_classifier(features, labels)
     # save to file
-    joblib.dump(svm_classifier, config.path_models + '/svm_classifier.pkl')
+    joblib.dump(svm_classifier, config.path_models + '/' + config.selected_classifier)
 
     return svm_classifier
 
@@ -138,7 +138,7 @@ def __get_train_data(path_pos, path_neg):
         labels.append(config.skin_label)
 
         progress += 1
-        utils.print_progress_pixel(progress, len(skin_images))
+        utils.print_progress(progress, len(skin_images))
 
     print("\nNegative images: ")
     progress = 0
@@ -150,7 +150,7 @@ def __get_train_data(path_pos, path_neg):
         labels.append(config.non_skin_label)
 
         progress += 1
-        utils.print_progress_pixel(progress, len(non_skin_images))
+        utils.print_progress(progress, len(non_skin_images))
 
     print("\nTraining features: {}".format(np.array(features).shape))
     print("Training labels: {}".format(np.array(labels).shape))

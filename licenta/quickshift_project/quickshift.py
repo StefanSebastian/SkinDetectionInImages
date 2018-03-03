@@ -15,13 +15,13 @@ def quickshift_algorithm(image, sigma, tau, with_position=0):
     :param with_position:
     :return:
     """
-    print("Calculating densities")
+    print("\nCalculating densities")
     densities = __compute_density(image, sigma, with_position)
 
-    print("Linking neighbours")
+    print("\nLinking neighbours")
     parents = __link_neighbours(image, tau, densities)
 
-    print("Creating new image")
+    print("\nCreating new image")
     return __get_image_with_superpixels(image, parents)
 
 

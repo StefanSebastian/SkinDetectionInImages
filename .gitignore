@@ -3,3 +3,4 @@ licenta/resources
 **/ignored
 **/*.pyc
 **/results
+**/run_results

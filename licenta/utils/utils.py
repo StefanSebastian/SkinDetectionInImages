@@ -26,9 +26,8 @@ def print_progress_pixel(x_pixel, y_pixel, rows, cols):
     :return:
     """
     progress = x_pixel * cols + y_pixel
-    if progress % 300 == 0:  # arbitrary constant ; selected to skip printing progress too often
-        progress = progress / (rows * cols)
-        print("\rProgress: [{0:50s}] {1:.1f}%".format('#' * int(progress * 50), progress * 100), end="", flush=True)
+    progress = progress / (rows * cols)
+    print("\rProgress: [{0:50s}] {1:.1f}%".format('#' * int(progress * 50), progress * 100), end="", flush=True)
 
 
 def load_images_from_folder(folder):

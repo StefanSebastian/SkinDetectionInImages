@@ -35,7 +35,7 @@ class Stats:
     def get_csv_header():
         header = "image_index,true_positive_rate,false_positive_rate,"
         header += "true_negative_rate,false_negative_rate,"
-        header += "accuracy,precision,recall"
+        header += "accuracy,precision,recall\n"
         return header
 
     def get_as_csv(self):

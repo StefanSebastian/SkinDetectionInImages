@@ -13,7 +13,7 @@ neighbour_area = 8
 
 #  texture params
 use_texture = 1
-texture_model_path = 'E:/Info/anu3/Licenta-git-2/Licenta/licenta/texture_detection/models/svm_classifier_1000.pkl'
+texture_model_path = 'E:/Info/anu3/Licenta-git-2/Licenta/licenta/texture_detection/models/svm_classifier_1000_30area.pkl'
 detection_type = 0  # 0 - sliding window, 1 - builds windows around each pixel
 window_size = 3
 

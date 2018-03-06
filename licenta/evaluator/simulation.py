@@ -9,7 +9,7 @@ from utils import utils
 import cv2
 
 
-def process_image(image, expected, image_index):
+def process_image(image, image_index):
     print("-----------------------------------------------------------")
     print("Processing image : " + str(image_index))
 
@@ -36,14 +36,10 @@ def process_image(image, expected, image_index):
     result = combine_res(image, spm_image, texture_image)
     cv2.imwrite(run_config.results_path + '/' + str(image_index) + 'result.png', result)
 
-    print("\nComparing results")
-    stats = calculate_results.get_stats(expected, result, image_index)
-    print(stats)
-
-    return stats
+    return result
 
 
-def run():
+def run_validation():
     __dump_config()
 
     test_images = utils.load_images_from_folder(run_config.test_path_in)
@@ -59,7 +55,11 @@ def run():
             test_image = cv2.resize(test_image, run_config.size)
             expected_image = cv2.resize(expected_image, run_config.size)
 
-        stats = process_image(test_image, expected_image, image_index)
+        result = process_image(test_image, image_index)
+        print("\nComparing results")
+        stats = calculate_results.get_stats(expected_image, result, image_index)
+        print(stats)
+
         __append_results(stats)
 
 
@@ -79,4 +79,15 @@ def __dump_config():
         with open(run_config.results_path + '/' + "initial_config.txt", "w") as f1:
             f1.writelines(lines)
 
-run()
+
+def run_detection():
+    images = utils.load_images_from_folder(run_config.detection_path)
+
+    image_index = 0
+    for image in images:
+        image_index += 1
+        process_image(image, image_index)
+
+
+#run_validation()
+run_detection()

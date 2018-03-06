@@ -39,7 +39,54 @@ def load_images_from_folder(folder):
     """
     images = []
     for filename in os.listdir(folder):
+        print("reading " + filename)
         img = cv2.imread(os.path.join(folder, filename))
         if img is not None:
             images.append(img)
+        print("Images read " + str(len(images)))
     return images
+
+
+def image_chopper(input_path, result_path, grid_size):
+    image_index = 0
+    images = load_images_from_folder(input_path)
+    for image in images:
+        image_index += 1
+        print("Image : " + str(image_index))
+        chop(image, grid_size, image_index, result_path)
+
+
+def chop(image, grid_size, image_index, result_path):
+    rows = image.shape[0]
+    cols = image.shape[1]
+    grid_position = 0
+    for r in range(0, rows - grid_size, grid_size):
+        for c in range(0, cols - grid_size, grid_size):
+            print_progress_pixel(r, c, rows, cols)
+            grid_position += 1
+            roi = image[r:r + grid_size, c:c + grid_size]
+            cv2.imwrite(result_path + "/" + str(image_index) + "-" + str(grid_position) + ".png", roi)
+
+
+def filter_corrupt_data(input_path, mask_path, output_image_path, output_mask_path):
+    """
+    Used to filter corrupt images from compaq
+
+    :param input_path:
+    :param mask_path:
+    :param output_image_path:
+    :param output_mask_path:
+    :return:
+    """
+    for image_name in os.listdir(input_path):
+        print("reading " + image_name)
+        img = cv2.imread(os.path.join(input_path, image_name))
+
+        if img is not None:
+            search_mask = image_name.split(".")[0] + ".pbm"
+            for mask_name in os.listdir(mask_path):
+                if mask_name == search_mask:
+                    mask = cv2.imread(os.path.join(mask_path, mask_name))
+                    if mask is not None:
+                        cv2.imwrite(output_image_path + "/" + image_name.split(".")[0] + ".png", img)
+                        cv2.imwrite(output_mask_path + "/" + mask_name, mask)

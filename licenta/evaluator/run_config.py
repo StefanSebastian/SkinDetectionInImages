@@ -13,8 +13,8 @@ neighbour_area = 8
 
 #  texture params
 use_texture = 1
-texture_model_path = 'E:/Info/anu3/Licenta-git-2/Licenta/licenta/texture_detection/models/svm_classifier_1000_30area.pkl'
-detection_type = 0  # 0 - sliding window, 1 - builds windows around each pixel
+texture_model_path = 'E:/Info/anu3/Licenta-git-2/Licenta/licenta/texture_detection/models/svm_classifier_1000data_5area.pkl'
+detection_type = 1  # 0 - sliding window, 1 - builds windows around each pixel
 window_size = 3
 
 #  testing data
@@ -27,3 +27,6 @@ results_path = 'E:/Info/anu3/Licenta-git-2/Licenta/licenta/evaluator/run_results
 #  image size
 resize = 1  # 0 for no resize ; 1 for resize
 size = (200, 200)
+
+#  path for images used in live detection, not for calculating stats
+detection_path = 'E:/Info/anu3/Licenta-git-2/Licenta/licenta/resources/input_data/PASCAL2007'

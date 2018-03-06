@@ -1,6 +1,7 @@
 from collections import namedtuple
 
 import cv2
+import numpy as np
 
 from skin_probability_map.bayes import config
 from utils import utils, serialization
@@ -38,7 +39,10 @@ def train_model():
 
     :return:
     """
-    bayes_spm_components = __get_bayes_spm_components(config.path_pos, config.path_neg)
+    if config.database == 'compaq':
+        bayes_spm_components = __get_bayes_spm_components_compaq(config.path_compaq)
+    else:
+        bayes_spm_components = __get_bayes_spm_components_sfa(config.path_pos, config.path_neg)
     serialization.save_object(bayes_spm_components, config.path_models + '/' + config.selected_model)
     return bayes_spm_components
 
@@ -90,9 +94,74 @@ def __detect_skin(image, bayes_spm_components, threshold, with_neighbours=1, nei
     return new_image
 
 
-def __get_bayes_spm_components(path_pos, path_neg):
+def __get_bayes_spm_components_compaq(path_train):
     """
-    Calculates Bayes SPM components
+    Extract bayes spm components from compaq db
+    each image has a corresponding mask
+    a black pixel on a mask means not skin while a white pixel means skin
+    :param path_train:
+    :return:
+    """
+    appearances = {}
+    appearances_as_skin = {}
+    skin_pixels = 0
+    non_skin_pixels = 0
+
+    images = utils.load_images_from_folder(path_train + "/" + "train_images")
+    masks = utils.load_images_from_folder(path_train + "/" + "train_masks")
+
+    for current_index in range(len(images)):
+        utils.print_progress(current_index, len(images))
+        image = images[current_index]
+        mask = masks[current_index]
+
+        img_skin_pixels, img_non_skin_pixels = __get_components_from_image_mask(image, mask, appearances, appearances_as_skin)
+        skin_pixels += img_skin_pixels
+        non_skin_pixels += img_non_skin_pixels
+    return BayesSpmComponents(skin_pixels, non_skin_pixels, appearances, appearances_as_skin)
+
+
+def __get_components_from_image_mask(image, mask, appearances, appearances_as_skin):
+    """
+    Extracts bayes components from an image given a mask
+    :param image:
+    :param mask:
+    :param appearances:
+    :param appearances_as_skin:
+    :return:
+    """
+    skin_pixels = 0
+    non_skin_pixels = 0
+    rows = image.shape[0]
+    cols = image.shape[1]
+    for x_pixel in range(rows):
+        for y_pixel in range(cols):
+            pixel = image[x_pixel, y_pixel]
+            p = Pixel(R=pixel[0], G=pixel[1], B=pixel[2])
+            if np.all(mask[x_pixel, y_pixel] == 0):  # not skin
+                non_skin_pixels += 1
+                if p in appearances:
+                    appearances[p] += 1
+                else:
+                    appearances[p] = 1
+            else:
+                skin_pixels += 1
+
+                if p in appearances:
+                    appearances[p] += 1
+                else:
+                    appearances[p] = 1
+
+                if p in appearances_as_skin:
+                    appearances_as_skin[p] += 1
+                else:
+                    appearances_as_skin[p] = 1
+    return skin_pixels, non_skin_pixels
+
+
+def __get_bayes_spm_components_sfa(path_pos, path_neg):
+    """
+    Calculates Bayes SPM components from sfa ; skin images and non skin images are saved in separate folders
 
     :param path_pos: path to positive examples
     :param path_neg: path to negative examples

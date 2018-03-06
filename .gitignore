@@ -4,3 +4,4 @@ licenta/resources
 **/*.pyc
 **/results
 **/run_results
+**/models

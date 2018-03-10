@@ -29,6 +29,6 @@ for image in images:
     i = 0.3
     while i < 1.0:
         i += 0.05
-        new_im = bayes_spm_operations.detect_skin_spm(image, 'bayes/models/spm_compaq_2000.pkl', i, 1, 4)
+        new_im = bayes_spm_operations.detect_skin_spm(image, 'bayes/models/spm_compaq_2000.pkl', i, 1, 2)
         cv2.imwrite(
-            'image' + str(im) + 'qs_' + str(format(i, '.2f')) + '_thresh_' + str(4) + '_neighb.png', new_im)
+            'image' + str(im) + 'qs_' + str(format(i, '.2f')) + '_thresh_' + str(2) + '_neighb.png', new_im)

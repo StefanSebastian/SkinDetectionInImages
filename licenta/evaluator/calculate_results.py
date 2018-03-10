@@ -56,6 +56,7 @@ def get_stats(expected_image, actual_image, image_index):
     by convention the expected image has every non-skin pixel set in black
 
     actual_image has every predicted skin pixel set in black
+    :param image_index:
     :param expected_image:
     :param actual_image:
     :return:

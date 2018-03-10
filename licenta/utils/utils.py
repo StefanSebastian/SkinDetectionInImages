@@ -1,5 +1,7 @@
 import os
 import cv2
+from collections import namedtuple
+from math import sqrt
 
 
 def print_progress(pos, total):
@@ -90,3 +92,18 @@ def filter_corrupt_data(input_path, mask_path, output_image_path, output_mask_pa
                     if mask is not None:
                         cv2.imwrite(output_image_path + "/" + image_name.split(".")[0] + ".png", img)
                         cv2.imwrite(output_mask_path + "/" + mask_name, mask)
+
+
+def distance2d(p1, p2):
+    x1, x2, y1, y2 = p1[0], p2[0], p1[1], p2[1]
+    return sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+
+"""
+Tuple for position
+"""
+Position = namedtuple("Position", ["X", "Y"])
+
+"""
+Named tuple representing a pixel
+"""
+Pixel = namedtuple("Pixel", ["R", "G", "B"])

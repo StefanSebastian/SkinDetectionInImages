@@ -1,12 +1,12 @@
+import cv2
+from evaluator.combine_results import combine_res
+from texture_detection.haralick import detect_skin_texture
+
+from evaluator import run_config
 from quickshift_project.quickshift import quickshift_algorithm
 from skin_probability_map.bayes.bayes_spm_operations import detect_skin_spm
-from texture_detection.haralick import detect_skin_texture
-from evaluator.combine_results import combine_res
-from evaluator import run_config
-from evaluator import calculate_results
 from utils import utils
-
-import cv2
+from evaluator import calculate_results
 
 
 def process_image(image, image_index):
@@ -89,5 +89,5 @@ def run_detection():
         process_image(image, image_index)
 
 
-#run_validation()
-run_detection()
+run_validation()
+#run_detection()

@@ -1,10 +1,9 @@
-from collections import namedtuple
-
 import cv2
 import numpy as np
 
 from skin_probability_map.bayes import config
 from utils import utils, serialization
+from utils.utils import Pixel
 
 
 class BayesSpmComponents:
@@ -27,10 +26,7 @@ class BayesSpmComponents:
         self.appearances_as_skin = appearances_as_skin
 
 
-"""
-Named tuple representing a pixel ; used as a key for Bayes Map
-"""
-Pixel = namedtuple("Pixel", ["R", "G", "B"])
+
 
 
 def train_model():

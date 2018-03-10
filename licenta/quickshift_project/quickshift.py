@@ -3,6 +3,8 @@ from math import sqrt, exp
 import numpy as np
 
 from utils import utils
+from quickshift_project.superpixel import Superpixel, SuperpixelFeatures
+from utils.utils import Position
 
 
 def quickshift_algorithm(image, sigma, tau, with_position=0):
@@ -163,11 +165,10 @@ def __link_neighbours(image, tau, densities):
     return parents
 
 
-def __get_root_pixel(image, parents, x_pixel, y_pixel):
+def __get_root_pixel(parents, x_pixel, y_pixel):
     """
     Gets the root of the tree the pixel with the coordinates (x_pixel, y_pixel) is in
 
-    :param image: given image
     :param parents: parents matrix
     :param x_pixel: row of current pixel
     :param y_pixel: col of current pixel
@@ -178,9 +179,9 @@ def __get_root_pixel(image, parents, x_pixel, y_pixel):
     y_parent = int(parent[1])
     # when pixel is root
     if x_parent == 0 and y_parent == 0:
-        return image[x_pixel, y_pixel]
+        return x_pixel, y_pixel
     else:
-        return __get_root_pixel(image, parents, x_parent, y_parent)
+        return __get_root_pixel(parents, x_parent, y_parent)
 
 
 def __get_image_with_superpixels(image, parents):
@@ -194,6 +195,40 @@ def __get_image_with_superpixels(image, parents):
     new_image = image.copy()
     for i in range(image.shape[0]):
         for j in range(image.shape[1]):
-            parent_pixel = __get_root_pixel(image, parents, i, j)
+            x_pixel, y_pixel = __get_root_pixel(parents, i, j)
+            parent_pixel = image[x_pixel, y_pixel]
             new_image[i, j] = parent_pixel
     return new_image
+
+
+def get_superpixels(image, sigma, tau, with_position=0):
+    print("\nCalculating densities")
+    densities = __compute_density(image, sigma, with_position)
+
+    print("\nLinking neighbours")
+    parents = __link_neighbours(image, tau, densities)
+
+    print("\nExtracting super pixels")
+    return extract_superpixels(image, parents)
+
+
+def extract_superpixels(image, parents):
+    super_pixels = {}
+
+    for i in range(image.shape[0]):
+        for j in range(image.shape[1]):
+            if parents[i, j][0] == 0 and parents[i, j][1] == 0:
+                pos = Position(X=i, Y=j)
+                super_pixels[pos] = Superpixel([i, j], image)
+
+    for i in range(image.shape[0]):
+        for j in range(image.shape[1]):
+            x_pixel, y_pixel = __get_root_pixel(parents, i, j)
+            pos = Position(X=x_pixel, Y=y_pixel)
+            super_pixels[pos].add_pixel([i, j])
+
+    for key in super_pixels:
+        features = SuperpixelFeatures.calculate_features(super_pixels[key])
+        super_pixels[key].set_features(features)
+
+    return super_pixels

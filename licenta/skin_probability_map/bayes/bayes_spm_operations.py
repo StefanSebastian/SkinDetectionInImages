@@ -1,3 +1,7 @@
+"""
+planning to remove this module and use train + detect modules instead
+"""
+
 import cv2
 import numpy as np
 
@@ -26,9 +30,6 @@ class BayesSpmComponents:
         self.appearances_as_skin = appearances_as_skin
 
 
-
-
-
 def train_model():
     """
     Calculates the bayes components and serializes them
@@ -36,9 +37,9 @@ def train_model():
     :return:
     """
     if config.database == 'compaq':
-        bayes_spm_components = __get_bayes_spm_components_compaq(config.path_compaq)
+        bayes_spm_components = __get_bayes_spm_components_compaq(config.path_compaq, config.color_space)
     else:
-        bayes_spm_components = __get_bayes_spm_components_sfa(config.path_pos, config.path_neg)
+        bayes_spm_components = __get_bayes_spm_components_sfa(config.path_pos, config.path_neg, config.color_space)
     serialization.save_object(bayes_spm_components, config.path_models + '/' + config.selected_model)
     return bayes_spm_components
 
@@ -74,7 +75,7 @@ def __detect_skin(image, bayes_spm_components, threshold, with_neighbours=1, nei
             pixel = image[x_pixel, y_pixel]
 
             # check cache
-            p = Pixel(R=pixel[0], G=pixel[1], B=pixel[2])
+            p = Pixel(F1=pixel[0], F2=pixel[1], F3=pixel[2])
             if p in pixel_probability_cache:
                 prob = pixel_probability_cache[p]
             else:
@@ -90,7 +91,7 @@ def __detect_skin(image, bayes_spm_components, threshold, with_neighbours=1, nei
     return new_image
 
 
-def __get_bayes_spm_components_compaq(path_train):
+def __get_bayes_spm_components_compaq(path_train, color_space):
     """
     Extract bayes spm components from compaq db
     each image has a corresponding mask
@@ -110,6 +111,8 @@ def __get_bayes_spm_components_compaq(path_train):
         utils.print_progress(current_index, len(images))
         image = images[current_index]
         mask = masks[current_index]
+
+        image = utils.convert_color(image, color_space)
 
         img_skin_pixels, img_non_skin_pixels = __get_components_from_image_mask(image, mask, appearances, appearances_as_skin)
         skin_pixels += img_skin_pixels
@@ -133,7 +136,7 @@ def __get_components_from_image_mask(image, mask, appearances, appearances_as_sk
     for x_pixel in range(rows):
         for y_pixel in range(cols):
             pixel = image[x_pixel, y_pixel]
-            p = Pixel(R=pixel[0], G=pixel[1], B=pixel[2])
+            p = Pixel(F1=pixel[0], F2=pixel[1], F3=pixel[2])
             if np.all(mask[x_pixel, y_pixel] == 0):  # not skin
                 non_skin_pixels += 1
                 if p in appearances:
@@ -155,7 +158,7 @@ def __get_components_from_image_mask(image, mask, appearances, appearances_as_sk
     return skin_pixels, non_skin_pixels
 
 
-def __get_bayes_spm_components_sfa(path_pos, path_neg):
+def __get_bayes_spm_components_sfa(path_pos, path_neg, color_space):
     """
     Calculates Bayes SPM components from sfa ; skin images and non skin images are saved in separate folders
 
@@ -171,13 +174,15 @@ def __get_bayes_spm_components_sfa(path_pos, path_neg):
     print("Calculating bayes spm components for skin images")
     skin_images = utils.load_images_from_folder(path_pos)
     for image in skin_images:
+        image = utils.convert_color(image, color_space)
+
         rows = image.shape[0]
         cols = image.shape[1]
         for x_pixel in range(rows):
             for y_pixel in range(cols):
                 skin_pixels += 1
                 pixel = image[x_pixel, y_pixel]
-                p = Pixel(R=pixel[0], G=pixel[1], B=pixel[2])
+                p = Pixel(F1=pixel[0], F2=pixel[1], F3=pixel[2])
                 if p in appearances:
                     appearances[p] += 1
                     appearances_as_skin[p] += 1
@@ -188,13 +193,15 @@ def __get_bayes_spm_components_sfa(path_pos, path_neg):
     print("Calculating bayes spm components for nonskin images")
     non_skin_images = utils.load_images_from_folder(path_neg)
     for image in non_skin_images:
+        image = utils.convert_color(image, color_space)
+
         rows = image.shape[0]
         cols = image.shape[1]
         for x_pixel in range(rows):
             for y_pixel in range(cols):
                 non_skin_pixels += 1
                 pixel = image[x_pixel, y_pixel]
-                p = Pixel(R=pixel[0], G=pixel[1], B=pixel[2])
+                p = Pixel(F1=pixel[0], F2=pixel[1], F3=pixel[2])
                 if p in appearances:
                     appearances[p] += 1
                 else:
@@ -215,7 +222,7 @@ def __calculate_pixel_probability(pixel, bayes_spm_components):
     :param bayes_spm_components:
     :return:
     """
-    p = Pixel(R=pixel[0], G=pixel[1], B=pixel[2])
+    p = Pixel(F1=pixel[0], F2=pixel[1], F3=pixel[2])
 
     if p not in bayes_spm_components.appearances_as_skin:
         return 0

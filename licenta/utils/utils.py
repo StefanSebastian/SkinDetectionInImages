@@ -28,8 +28,9 @@ def print_progress_pixel(x_pixel, y_pixel, rows, cols):
     :return:
     """
     progress = x_pixel * cols + y_pixel
-    progress = progress / (rows * cols)
-    print("\rProgress: [{0:50s}] {1:.1f}%".format('#' * int(progress * 50), progress * 100), end="", flush=True)
+    if progress % 300 == 0:  # to avoid too many writes
+        progress = progress / (rows * cols)
+        print("\rProgress: [{0:50s}] {1:.1f}%".format('#' * int(progress * 50), progress * 100), end="", flush=True)
 
 
 def load_images_from_folder(folder):
@@ -98,6 +99,29 @@ def distance2d(p1, p2):
     x1, x2, y1, y2 = p1[0], p2[0], p1[1], p2[1]
     return sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
 
+
+def convert_color(image, colorspace):
+    """
+    Convert RGB image to the given colorspace
+
+    :param image:
+    :param colorspace:
+    :return:
+    """
+    if colorspace == 'HSV':
+        return cv2.cvtColor(image, cv2.COLOR_RGB2HSV)
+    elif colorspace == 'YCrCb':
+        return cv2.cvtColor(image, cv2.COLOR_RGB2YCrCb)
+    elif colorspace == 'RGB':
+        return image
+
+
+def generate_overlay_image(image):
+    new_image = image.copy()
+    new_image[:] = (255, 255, 255)  # make image white
+    cv2.addWeighted(image, 0.4, new_image, 1 - 0.4, 0, new_image)  # overlay transparent img
+    return new_image
+
 """
 Tuple for position
 """
@@ -106,4 +130,4 @@ Position = namedtuple("Position", ["X", "Y"])
 """
 Named tuple representing a pixel
 """
-Pixel = namedtuple("Pixel", ["R", "G", "B"])
+Pixel = namedtuple("Pixel", ["F1", "F2", "F3"])

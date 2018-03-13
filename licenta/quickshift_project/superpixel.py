@@ -2,6 +2,7 @@ from utils.utils import distance2d
 from utils.utils import Pixel
 import operator
 
+
 class Superpixel:
     def __init__(self, root_pixel_pos, image):
         self.image = image
@@ -111,7 +112,7 @@ class SuperpixelFeatures:
                 b_max_pos = pixel_pos
                 max_b = pixel[2]
 
-            pixel_tuple = Pixel(R=pixel[0], G=pixel[1], B=pixel[2])
+            pixel_tuple = Pixel(F1=pixel[0], F2=pixel[1], F3=pixel[2])
             if pixel_tuple in pixel_frequencies:
                 pixel_frequencies[pixel_tuple] += 1
             else:
@@ -119,9 +120,9 @@ class SuperpixelFeatures:
 
         sorted_pixels = sorted(pixel_frequencies.items(), key=operator.itemgetter(1))
         least_freq_pixel = sorted_pixels[0][0]
-        least_frequent_color = [least_freq_pixel.R, least_freq_pixel.G, least_freq_pixel.B]
+        least_frequent_color = [least_freq_pixel.F1, least_freq_pixel.F2, least_freq_pixel.F3]
         most_freq_pixel = sorted_pixels[len(sorted_pixels) - 1][0]
-        most_frequent_color = [most_freq_pixel.R, most_freq_pixel.G, most_freq_pixel.B]
+        most_frequent_color = [most_freq_pixel.F1, most_freq_pixel.F2, most_freq_pixel.F3]
 
         return SuperpixelFeatures(r_min_pos, r_max_pos, g_min_pos, g_max_pos, b_min_pos, b_max_pos,
                                   least_frequent_color, most_frequent_color)

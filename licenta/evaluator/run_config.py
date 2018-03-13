@@ -6,7 +6,7 @@ with_position = 1
 
 #  spm params
 use_spm = 1
-spm_model_path = 'E:/Info/anu3/Licenta-git-2/Licenta/licenta/skin_probability_map/bayes/models/spm_compaq_2000.pkl'
+spm_model_path = 'E:/Info/anu3/Licenta-git-2/Licenta/licenta/skin_probability_map/bayes/models/v1/spm_compaq_2000.pkl'
 threshold = 0.5
 with_neighbours = 1
 neighbour_area = 8

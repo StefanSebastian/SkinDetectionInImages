@@ -3,7 +3,7 @@ from color_analysis.detect.simple_detector import SimpleDetector
 from color_analysis.detect.neighbour_detector import NeighbourDetector
 
 
-class DetectorFactory:
+class SpmDetectorFactory:
     @staticmethod
     def get_detector(model_path, with_neighbours, neighbour_area):
         model = serialization.load_object(model_path)

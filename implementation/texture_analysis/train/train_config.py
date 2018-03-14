@@ -1,6 +1,6 @@
 path_pos = 'E:/Info/anu3/Licenta-git-2/Licenta/licenta/resources/input_data/skin/sfa/SKIN/5'
 path_neg = 'E:/Info/anu3/Licenta-git-2/Licenta/licenta/resources/input_data/skin/sfa/NS/5'
-path_models = 'E:/Info/anu3/Licenta-git-2/Licenta/licenta/texture_detection/models'
+path_models = 'E:/Info/anu3/Licenta-git-2/Licenta/implementation/texture_analysis/models'
 skin_label = 'skin'
 non_skin_label = 'ns'
 selected_classifier = 'svm_classifier_1000data_5area.pkl'

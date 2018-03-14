@@ -3,6 +3,8 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/color_analysis/models" />
+      <excludeFolder url="file://$MODULE_DIR$/evaluator/run_results" />
+      <excludeFolder url="file://$MODULE_DIR$/texture_analysis/models" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

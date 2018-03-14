@@ -1,8 +1,8 @@
-from utils import serialization
-from color_analysis import config
-from color_analysis.train.sfa import SfaComponentExtractor
+from color_analysis.train import train_config
 from color_analysis.train.compaq import CompaqComponentExtractor
 from color_analysis.train.model import SPMModel
+from color_analysis.train.sfa import SfaComponentExtractor
+from utils import serialization
 
 
 class SPMModelTrainer:
@@ -16,15 +16,15 @@ class SPMModelTrainer:
         serialization.save_object(model, store_path)
 
     @staticmethod
-    def train_model():
+    def create_default_spm_trainer():
         """
         Default factory method ; uses values from config
         :return:
         """
 
-        if config.database == 'compaq':
-            extractor = CompaqComponentExtractor(config.path_compaq, config.color_space)
+        if train_config.database == 'compaq':
+            extractor = CompaqComponentExtractor(train_config.path_compaq, train_config.color_space)
         else:
-            extractor = SfaComponentExtractor(config.path_pos, config.path_neg, config.color_space)
-        trainer = SPMModelTrainer(extractor, config.color_space)
-        trainer.train_and_store_model(config.path_models + '/' + config.selected_model)
+            extractor = SfaComponentExtractor(train_config.path_pos, train_config.path_neg, train_config.color_space)
+        trainer = SPMModelTrainer(extractor, train_config.color_space)
+        trainer.train_and_store_model(train_config.path_models + '/' + train_config.selected_model)

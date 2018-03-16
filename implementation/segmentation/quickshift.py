@@ -3,7 +3,9 @@ from math import exp
 import numpy as np
 
 from utils import utils
+from utils.tuples import Position
 from segmentation.utils import point_distance_2d, point_distance_3d, feature_distance_5d
+from segmentation.superpixel import Superpixel
 
 
 class QuickshiftSegmentation:
@@ -13,6 +15,9 @@ class QuickshiftSegmentation:
         self.tau = tau
 
     def apply(self, image):
+        """
+        Returns a segmented image
+        """
         print("\nCalculating densities")
         densities = self.__compute_density(image)
 
@@ -21,6 +26,36 @@ class QuickshiftSegmentation:
 
         print("\nCreating new image")
         return self.__get_image_with_superpixels(image, parents)
+
+    def get_superpixels(self, image):
+        """
+        Returns the superpixels
+        """
+        print("\nCalculating densities")
+        densities = self.__compute_density(image)
+
+        print("\nLinking neighbours")
+        parents = self.__link_neighbours(image, densities)
+
+        print("\nExtracting super pixels")
+        return self.__extract_superpixels(image, parents)
+
+    def __extract_superpixels(self, image, parents):
+        super_pixels = {}
+
+        for i in range(image.shape[0]):
+            for j in range(image.shape[1]):
+                if parents[i, j][0] == 0 and parents[i, j][1] == 0:
+                    pos = Position(X=i, Y=j)
+                    super_pixels[pos] = Superpixel([i, j], image)
+
+        for i in range(image.shape[0]):
+            for j in range(image.shape[1]):
+                x_pixel, y_pixel = self.__get_root_pixel(parents, i, j)
+                pos = Position(X=x_pixel, Y=y_pixel)
+                super_pixels[pos].add_pixel([i, j])
+
+        return super_pixels
 
     def __compute_density(self, image):
         """

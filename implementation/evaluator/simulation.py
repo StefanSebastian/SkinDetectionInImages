@@ -32,7 +32,7 @@ class Evaluator:
         cv2.imwrite(run_config.results_path + '/' + str(image_index) + 'bayes_spm.png', spm_image)
 
         print("\nApplying Haralick texture detection")
-        texture_image = self.texture_detector.detect(image)
+        texture_image = self.texture_detector.detect_with_mask(image, spm_image)
 
         cv2.imwrite(run_config.results_path + '/' + str(image_index) + 'texture.png', texture_image)
 

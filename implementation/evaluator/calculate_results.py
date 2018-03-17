@@ -1,4 +1,5 @@
 import numpy as np
+from utils.utils import safe_div
 
 
 class Stats:
@@ -80,14 +81,14 @@ class Stats:
                 if not np.all(actual_image[x_pixel, y_pixel] == 0) and not np.all(expected_image[x_pixel, y_pixel] == 0):
                     false_negative += 1
 
-        precision = true_positive / (true_positive + false_positive)
-        recall = true_positive / (true_positive + false_negative)
-        accuracy = (true_positive + true_negative) / (true_positive + true_negative + false_negative + false_negative)
+        precision = safe_div(true_positive, (true_positive + false_positive))
+        recall = safe_div(true_positive, (true_positive + false_negative))
+        accuracy = safe_div((true_positive + true_negative), (true_positive + true_negative + false_negative + false_negative))
 
-        true_positive_rate = true_positive / (true_positive + false_negative)
-        false_positive_rate = false_positive / (false_positive + true_negative)
-        true_negative_rate = true_negative / (true_negative + false_positive)
-        false_negative_rate = false_negative / (false_negative + true_positive)
+        true_positive_rate = safe_div(true_positive, (true_positive + false_negative))
+        false_positive_rate = safe_div(false_positive, (false_positive + true_negative))
+        true_negative_rate = safe_div(true_negative, (true_negative + false_positive))
+        false_negative_rate = safe_div(false_negative,(false_negative + true_positive))
 
         return Stats(image_index,
                      true_positive_rate,
@@ -97,3 +98,4 @@ class Stats:
                      accuracy,
                      precision,
                      recall)
+

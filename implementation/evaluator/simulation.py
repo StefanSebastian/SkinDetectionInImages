@@ -13,7 +13,7 @@ class Evaluator:
     def __init__(self):
         self.quickshift = QuickshiftSegmentation(run_config.with_position, run_config.sigma, run_config.tau)
         self.spm_detector = SpmDetectorFactory.get_detector(run_config.spm_model_path,
-                                                            run_config.with_neighbours,
+                                                            run_config.spm_type,
                                                             run_config.neighbour_area)
         self.texture_detector = TextureDetectorFactory.get_detector(run_config.texture_model_path,
                                                                     run_config.detection_type,
@@ -23,13 +23,21 @@ class Evaluator:
         print("-----------------------------------------------------------")
         print("Processing image : " + str(image_index))
 
-        print("Applying quickshift algorithm")
-        qs_image = self.quickshift.apply(image)
-        cv2.imwrite(run_config.results_path + '/' + str(image_index) + 'qs.png', qs_image)
+        if run_config.spm_type == 2:
+            print("Image segmentation")
+            superpixels = self.quickshift.get_superpixels(image)
 
-        print("Applying Bayes SPM detection")
-        spm_image = self.spm_detector.detect(qs_image, run_config.threshold)
-        cv2.imwrite(run_config.results_path + '/' + str(image_index) + 'bayes_spm.png', spm_image)
+            print("Applying Bayes SPM detection")
+            spm_image = self.spm_detector.detect(image, superpixels, run_config.threshold)
+            cv2.imwrite(run_config.results_path + '/' + str(image_index) + 'bayes_spm.png', spm_image)
+        else:
+            print("Applying quickshift algorithm")
+            qs_image = self.quickshift.apply(image)
+            cv2.imwrite(run_config.results_path + '/' + str(image_index) + 'qs.png', qs_image)
+
+            print("Applying Bayes SPM detection")
+            spm_image = self.spm_detector.detect(qs_image, run_config.threshold)
+            cv2.imwrite(run_config.results_path + '/' + str(image_index) + 'bayes_spm.png', spm_image)
 
         print("\nApplying Haralick texture detection")
         texture_image = self.texture_detector.detect_with_mask(image, spm_image)

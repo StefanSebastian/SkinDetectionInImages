@@ -6,7 +6,7 @@ from color_analysis.detect.detector import SpmDetectorFactory
 from segmentation.quickshift import QuickshiftSegmentation
 
 images = utils.load_images_from_folder('E:/Info/anu3/Licenta-git-2/Licenta/licenta/resources/input_data/PASCAL2007')
-detector = SpmDetectorFactory.get_detector('color_analysis/models/spm_compaq_2000_ycbcr.pkl', 2, 2)
+detector = SpmDetectorFactory.get_detector('color_analysis/models/spm_compaq_2000_ycbcr.pkl', 2,0)
 qs = QuickshiftSegmentation(1, 3, 5)
 index = 0
 for image in images:
@@ -15,7 +15,7 @@ for image in images:
     image = cv2.resize(image, (200, 200))
     superpixels = qs.get_superpixels(image)
 
-    i = 0.3
+    i = 0.1
     while i < 1:
         result = detector.detect(image, superpixels, i)
         cv2.imwrite(str(index) + '_' + str(i) + '.png', result)

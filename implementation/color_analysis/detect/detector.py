@@ -13,6 +13,6 @@ class SpmDetectorFactory:
         elif detector_type == 1:
             detector = NeighbourDetector(model, neighbour_area)
         else:
-            detector = AverageOnSuperpixelDetector(model)
+            detector = AverageOnSuperpixelDetector(model, neighbour_area)
         return detector
 

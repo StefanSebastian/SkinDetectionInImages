@@ -99,3 +99,10 @@ def generate_overlay_image(image):
     new_image[:] = (255, 255, 255)  # make image white
     cv2.addWeighted(image, 0.4, new_image, 1 - 0.4, 0, new_image)  # overlay transparent img
     return new_image
+
+
+def safe_div(x, y):
+    if y == 0:
+        return 0
+    else:
+        return x / y

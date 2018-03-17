@@ -5,8 +5,9 @@ from utils import utils
 from color_analysis.detect.detector import SpmDetectorFactory
 from segmentation.quickshift import QuickshiftSegmentation
 
-images = utils.load_images_from_folder('E:/Info/anu3/Licenta-git-2/Licenta/licenta/resources/input_data/PASCAL2007')
-detector = SpmDetectorFactory.get_detector('color_analysis/models/spm_compaq_2000_ycbcr.pkl', 2,0)
+#images = utils.load_images_from_folder('E:/Info/anu3/Licenta-git-2/Licenta/licenta/resources/input_data/PASCAL2007')
+images = utils.load_images_from_folder('E:/Info/anu3/Licenta-git-2/Licenta/licenta/resources/input_data/compaq-filtered/validate/input')
+detector = SpmDetectorFactory.get_detector('color_analysis/models/spm_compaq_2000_ycbcr.pkl', 2, 5)
 qs = QuickshiftSegmentation(1, 3, 5)
 index = 0
 for image in images:

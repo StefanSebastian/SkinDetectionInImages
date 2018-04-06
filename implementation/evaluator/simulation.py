@@ -1,4 +1,5 @@
 import cv2
+from comet_ml import Experiment
 
 from evaluator import run_config
 from utils import utils
@@ -7,6 +8,9 @@ from evaluator.calculate_results import Stats
 from segmentation.quickshift import QuickshiftSegmentation
 from color_analysis.detect.detector import SpmDetectorFactory
 from texture_analysis.detect.detector import TextureDetectorFactory
+
+
+experiment = Experiment(api_key="EDskVxUYap8T2SWExETIl7iTN")
 
 
 class Evaluator:
@@ -18,6 +22,13 @@ class Evaluator:
         self.texture_detector = TextureDetectorFactory.get_detector(run_config.texture_model_path,
                                                                     run_config.detection_type,
                                                                     run_config.window_size)
+
+        hyper_params = {"qs_sigma": run_config.sigma,
+                        "qs_tau": run_config.tau,
+                        "bayes_threshold": run_config.threshold,
+                        "spm_neighbour_area" : run_config.neighbour_area,
+                        "haralick_window": run_config.window_size}
+        experiment.log_multiple_params(hyper_params)
 
     def process_image(self, image, image_index):
         print("-----------------------------------------------------------")
@@ -72,6 +83,11 @@ class Evaluator:
             print(stats)
 
             self.__append_results(stats)
+
+            metrics = {"true_positive_rate" : stats.true_positive_rate,
+                       "false_negative_rate" : stats.false_negative_rate}
+            experiment.log_multiple_metrics(metrics)
+            experiment.set_step(image_index + 1)
 
     def __print_header(self):
         with open(run_config.results_path + '/' + "results.txt", "w") as myfile:

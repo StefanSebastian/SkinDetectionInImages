@@ -1,0 +1,10 @@
+1. Definirea problemei 
+Motivare ; care sunt datele de intrare 
+ce ne asteptam sa obtinem
+
+2.
+comentarii despre solutie : parametrizare
+care este modelul aplicat ; ml / ai
+biblioteci folosite
+
+cam o pagina

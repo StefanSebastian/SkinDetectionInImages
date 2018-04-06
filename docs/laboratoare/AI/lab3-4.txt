@@ -1,0 +1,5 @@
+Definitii si analiza problema
++
+comentarii despre solutia propusa = modelul de ml folosit, parametraj
+
+lab5 - Documentatie de proiectare 

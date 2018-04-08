@@ -1,0 +1,12 @@
+\begin{thebibliography}{1}
+
+\bibitem{color_management_guide}
+A.~Frich, ``Color management guide.''
+  \url{https://www.color-management-guide.com/color-spaces.html/}.
+\newblock Accessed: 2018-04-07.
+
+\bibitem{survey_color_detection_techniques}
+A.~A. Vladimir~Vezhnevets, Vassili~Sazonov, ``A survey on pixel-based skin
+  color detection techniques,'' {\em GRAPHICON03}, pp.~85--92, 2003.
+
+\end{thebibliography}

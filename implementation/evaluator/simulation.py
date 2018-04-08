@@ -10,7 +10,7 @@ from color_analysis.detect.detector import SpmDetectorFactory
 from texture_analysis.detect.detector import TextureDetectorFactory
 
 
-experiment = Experiment(api_key="EDskVxUYap8T2SWExETIl7iTN")
+#experiment = Experiment(api_key="EDskVxUYap8T2SWExETIl7iTN")
 
 
 class Evaluator:
@@ -28,7 +28,7 @@ class Evaluator:
                         "bayes_threshold": run_config.threshold,
                         "spm_neighbour_area" : run_config.neighbour_area,
                         "haralick_window": run_config.window_size}
-        experiment.log_multiple_params(hyper_params)
+        #experiment.log_multiple_params(hyper_params)
 
     def process_image(self, image, image_index):
         print("-----------------------------------------------------------")
@@ -86,8 +86,8 @@ class Evaluator:
 
             metrics = {"true_positive_rate" : stats.true_positive_rate,
                        "false_negative_rate" : stats.false_negative_rate}
-            experiment.log_multiple_metrics(metrics)
-            experiment.set_step(image_index + 1)
+            #experiment.log_multiple_metrics(metrics)
+            #experiment.set_step(image_index + 1)
 
     def __print_header(self):
         with open(run_config.results_path + '/' + "results.txt", "w") as myfile:

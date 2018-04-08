@@ -5,9 +5,9 @@ with_position = 1
 
 #  spm params
 spm_model_path = 'E:/Info/anu3/Licenta-git-2/Licenta/implementation/color_analysis/models/spm_compaq_2000_with_ns_ycbcr.pkl'
-threshold = 0.1
+threshold = 0.07
 spm_type = 2
-neighbour_area = 3
+neighbour_area = 2
 color_space = 'YCrCb'
 
 #  texture params

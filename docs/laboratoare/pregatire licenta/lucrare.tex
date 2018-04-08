@@ -1,0 +1,44 @@
+\documentclass[12pt]{article}
+
+\usepackage{url}
+\usepackage{hyperref}
+
+\usepackage{amsmath}
+
+\begin{document}
+	\title{Skin detection in images using machine learning techniques for color and texture recognition}
+	\author{Stefan Sebastian}
+	\date{\today}
+	\maketitle
+	
+	\newpage
+	\tableofcontents
+	
+	\newpage
+	\section{Theoretical background}
+	\subsection{Related work}
+	\subsection{Image segmentation}
+	\subsection{Detection by color}
+	Skin pixel detection by color means classifying a pixel while considering only its color features. A first step in applying this approach is selecting a color space.
+	
+	\subsubsection{Color spaces}
+	A color space, also called a gamut, represents a set of colors in a way that is independent of the medium in which they are represented(computer screens, cameras, magazines, etc)\cite{color_management_guide}. The L*a*b* color space contains all colors that can be seen by the human eye, however most color spaces are smaller due to technical limitations. I will present some of the color spaces which have been used successfully to classify skin pixels. 
+	
+	To start with, RGB is one of the most popular color spaces for working with image data. It matches the color sensitive receptors of the human eye(red, green, blue) and started as a convenient way to represent the colored rays used by CRT screens\cite{survey_color_detection_techniques}. While this model is simple to use it has the disadvantage of mixing chrominance and luminance features\cite{survey_color_detection_techniques}.
+	
+	Normalized RGB is a color space with a lighter memory consumption than RGB and its components are calculated as follows\cite{survey_color_detection_techniques}: 
+	\begin{equation}
+	r = \frac{R}{R + G + B}, g = \frac{G}{R + G + B}, b = \frac{B}{R + G + B}.
+	\end{equation}
+	The third value can be determined from the other 2 so we can avoid storing it.
+	
+	\subsection{Detection by texture}
+	
+	\section{Application development}
+	
+	\section{Conclusions}
+	
+	\newpage
+	\bibliography{references}
+	\bibliographystyle{ieeetr}
+\end{document}

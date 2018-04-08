@@ -20,9 +20,14 @@ class CompaqComponentExtractor:
         return BayesSpmComponents(self.skin_pixels, self.non_skin_pixels, self.appearances, self.appearances_as_skin)
 
     def __compute_components(self):
+        self.__compute_components_for_negative_images()
+        self.__compute_components_for_positive_images()
+
+    def __compute_components_for_positive_images(self):
         images = utils.load_images_from_folder(self.path_train + "/" + "train_images")
         masks = utils.load_images_from_folder(self.path_train + "/" + "train_masks")
 
+        print("\nExtracting values from positive images")
         for current_index in range(len(images)):
             utils.print_progress(current_index, len(images))
             image = images[current_index]
@@ -30,6 +35,18 @@ class CompaqComponentExtractor:
 
             image = utils.convert_color(image, self.color_space)
 
+            self.__get_components_from_image_mask(image, mask)
+
+    def __compute_components_for_negative_images(self):
+        images = utils.load_images_from_folder(self.path_train + "/" + "train_images_ns")
+
+        print("\nExtracting values from negative images")
+        for current_index in range(len(images)):
+            utils.print_progress(current_index, len(images))
+            image = images[current_index]
+
+            image = utils.convert_color(image, self.color_space)
+            mask = np.zeros(image.shape)
             self.__get_components_from_image_mask(image, mask)
 
     def __get_components_from_image_mask(self, image, mask):

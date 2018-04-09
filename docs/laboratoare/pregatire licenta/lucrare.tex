@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[12pt]{report}
 
 \usepackage{url}
 \usepackage{hyperref}
@@ -15,28 +15,124 @@
 	\tableofcontents
 	
 	\newpage
-	\section{Theoretical background}
-	\subsection{Related work}
-	\subsection{Image segmentation}
-	\subsection{Detection by color}
+	\chapter{Theoretical background}
+	\section{Related work}
+	\section{Image segmentation}
+	\section{Detection by color}
 	Skin pixel detection by color means classifying a pixel while considering only its color features. A first step in applying this approach is selecting a color space.
 	
-	\subsubsection{Color spaces}
+	\subsection{Color spaces}
 	A color space, also called a gamut, represents a set of colors in a way that is independent of the medium in which they are represented(computer screens, cameras, magazines, etc)\cite{color_management_guide}. The L*a*b* color space contains all colors that can be seen by the human eye, however most color spaces are smaller due to technical limitations. I will present some of the color spaces which have been used successfully to classify skin pixels. 
 	
+	\subsubsection{RGB}
 	To start with, RGB is one of the most popular color spaces for working with image data. It matches the color sensitive receptors of the human eye(red, green, blue) and started as a convenient way to represent the colored rays used by CRT screens\cite{survey_color_detection_techniques}. While this model is simple to use it has the disadvantage of mixing chrominance and luminance features\cite{survey_color_detection_techniques}.
 	
+	\subsubsection{Normalized RGB}
 	Normalized RGB is a color space with a lighter memory consumption than RGB and its components are calculated as follows\cite{survey_color_detection_techniques}: 
 	\begin{equation}
 	r = \frac{R}{R + G + B}, g = \frac{G}{R + G + B}, b = \frac{B}{R + G + B}.
 	\end{equation}
-	The third value can be determined from the other 2 so we can avoid storing it.
+	The third value can be determined from the other 2 so we can avoid storing it. Other advantages according to \cite{survey_skin_color_modeling} include reduced differences caused by illumination and ethnicity, and lower variance of skin color clusters than in the normal RGB space.
 	
-	\subsection{Detection by texture}
+	\subsubsection{HSI, HSV, HSL}
+	HSI, HSV, HSL represent perceptual color spaces and they describe the hue, saturation and intensity (or value, lightness). These color spaces are used because they provide invariance to ambient lighting and surface orientation relative to the source of light\cite{survey_skin_color_modeling}. We can convert to HSV from RGB using the following formulas\cite{survey_color_detection_techniques}:
+	\begin{equation}
+	H = arccos\frac{\frac{1}{2}((R - G) + (R - B))}{\sqrt{((R - G)^2 + (R - B)(G - B))}}
+	\end{equation}
+	\begin{equation}
+	S = 1 - 3 \frac{min(R, G, B)}{R + G + B}
+	\end{equation}
+	\begin{equation}
+	V = \frac{1}{3}(R + G + B)
+	\end{equation}
+
+	\subsubsection{YCbCr}
+	Orthogonal color spaces, which YCbCr is a member of, provide chrominance and luminance separation as they represent colors with statistically independent components. YCbCr is mostly used by European television studios and in image compression\cite{survey_color_detection_techniques}. Y represents luma (or luminance) and Cb, Cr are the blue and red difference chroma components and they can be computed as follows:
+	\begin{equation}
+	Y = 0.299R + 0.587G + 0.114Bs
+	\end{equation}
+	\begin{equation}
+	Cb = B - Y
+	\end{equation}
+	\begin{equation}
+	Cr = R - Y
+	\end{equation}
+	Having such a simple transformation and a clear separation of the luminance component makes the YCbCr a popular choice for skin detection models.
 	
-	\section{Application development}
+	\subsection{Explicit thresholding}
+	This is one of the simplest skin-color models that can be built. The method aims to define, through the use of simple rules and thresholds, the boundaries of skin clusters in a specific color space. It has been observed in \cite{threshold_cluster} that the colors of human skin tend to cluster in small regions of the color space and human skin pixels differ more in intensity than in color.
 	
-	\section{Conclusions}
+	\subsubsection{In RGB}
+	An example using the RGB space, from Peer et al.\cite{rgb_threshold} which has been integrated into a face detection system consists of the rules below:
+	\begin{equation}
+	\begin{split}
+	R > 95 \quad \textrm{and} \quad G > 40 \quad \textrm{and} \quad B > 20 \quad \textrm{and} \\ 
+	max\{R, G, B\} - min\{R, G, B\} > 15 \quad \textrm{and}\\
+	|R - G| > 15 \quad \textrm{and}\\
+	R > G \quad \textrm{and} \quad R > B
+	\end{split}
+	\end{equation}
+	
+	\subsubsection{In YCrCb}
+	A set of thresholds for YCrCb space where proposed by Chai and Ngan\cite{cr_cb_threshold}. They set the ranges for Cb from 77 to 127 and for Cr from 133 to 173 and worked with the ECU database.
+	
+	\subsubsection{In YIQ}
+	Dai and Nakano\cite{yiq_threshold} created a model for YIQ, an orthogonal color space, which only used the I component (which stands for in-phase). The range they provided was [0, 50], however most of the images in their databases where of people with yellow skin.
+	
+	\subsubsection{In normalized RGB}
+	An interesting approach, proposed by Gomez and Morales\cite{rca_threshold}, is having a learner find these rules. They use RCA, a constructive induction algorithm, to build rules expressed with simple arithmetic operations in the rgb space. Their method achieves better results than the Bayesian SPM on their dataset, however it is computationally slower. RCA stands for Restricted Covering Algorithm which resembles a general covering algorithm with the restriction of trying to build a single rule for each class (in this case, a rule for skin detection). The strategy implemented for RCA was finding attributes which cover either a large number of true positives or a few false positives. The starting attributes where r, g, b and the constant 1/3, which would generate new attributes using the operators : +, *, - and squaring. One of their best and simplest generated models looks like this:
+	\begin{equation}
+	\begin{split}
+	\frac{r}{g} > 1.185 \quad \textrm{and}\\
+	\frac{r * b}{(r + g + b)^2} > 0.107 \quad \textrm{and}\\
+	\frac{r * g}{(r + g + b)^2} > 0.112
+	\end{split}
+	\end{equation}
+	In comparison with the C4.5 decision tree algorithm, the RCA method obtained slightly worse results but with much simpler rules.
+	
+	\subsection{Skin Probability Map}
+	A SPM represents a histogram with multiple bins. Each bin stands for a color or a subset of colors and has a value equal to the probability of holding skin colored pixels. When building a SPM you must choose the color space and the number of bins per color channel.
+	
+	In order to determine whether a given pixel is a skin colored pixel we apply Bayes' theorem. Here is the form used by Jones and Rehg\cite{compaq} in one of the most popular papers on statistical skin detection:
+	\begin{equation}
+	P(skin|p) = \frac{P(p|skin)P(skin)}{P(p|skin)P(skin) + P(p|\neg skin)P(\neg skin)}
+	\end{equation}
+	In this equation "p" is the notation for the occurrence of the given pixel. Therefore P(skin|p) means the probability of observing skin given our pixel. To determine whether we classify the pixel as skin we compare our probability with the threshold value, \( \beta \).
+	\begin{equation}
+	P(skin|p) > \beta
+	\end{equation}
+	The probability of observing skin can be computed as the ratio of the number of skin pixels to the total number of pixels observed in training.
+	\begin{equation}
+	P(skin) = \frac{T_S}{T_S + T_N}
+	\end{equation}
+
+	Jones and Rehg\cite{compaq} made the observation that given even a large training set most pixels are never seen. They explored their dataset of approximatively 2 billion pixels and came to the conclusion that around 77\% of the RGB space is empty. This suggests that we might get better results by reducing the number of bins per channel. We can observe that a small perturbation in the RGB values of a pixel results in a very similar color. Consequently if we classify p as a skin colored pixel then there is a high probability that its neighbors in the color space are skin colored pixels too. This observation is in support of a smaller number of bins for the SPM histogram.  
+	
+	\subsection{Gaussian classifiers}
+	Gaussian classifiers are parametric skin distribution models with the advantages of being compact, therefore using less memory than SPMs, and able to generalize better using less training data\cite{survey_skin_color_modeling}.
+	
+	\subsubsection{Single Gaussian}
+	Considering the observations from the thresholding chapter that skin color pixels tend to cluster in a region of the color space we can model that distribution using an elliptical Gaussian joint probability density function, an example of which was provided by \cite{survey_skin_color_modeling}:
+	\begin{equation}
+	p(c) = \frac{1}{2\pi^\frac{1}{2}|\Sigma|^\frac{1}{2}} \cdot e^{-\frac{1}{2}(c - \mu)^T\Sigma^{-1}(c - \mu)}
+	\end{equation}
+	In this equation, c is the color vector, \(\mu\) the mean vector and \(\Sigma\) the covariance matrix. These can be calculated from the training data as follows:
+	\begin{equation}
+	\begin{split}
+	\mu = \frac{1}{n} \cdot \sum_{j=1}^{n} c_j \\
+	\Sigma = \frac{1}{n - 1} \cdot \sum_{j=1}^{n}(c_j - \mu)(c_j - \mu)^T
+	\end{split}
+	\end{equation}
+	Here \(c_j\) are all the color samples used in training the model. In order to establish that the given color describes skin we can compare p(c) with a threshold that can be determined experimentally for a given training set.
+	
+	\subsubsection{Gaussian Mixture Models}
+	A Gaussian mixture model are a form of unsupervised learning used to identify subpopulations within an overall population, provided they are normally distributed\cite{gaussian_mixtures}.
+	
+	\section{Detection by texture}
+	
+	\chapter{Application development}
+	
+	\chapter{Conclusions}
 	
 	\newpage
 	\bibliography{references}

@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{color_management_guide}
 A.~Frich, ``Color management guide.''
@@ -6,7 +6,45 @@ A.~Frich, ``Color management guide.''
 \newblock Accessed: 2018-04-07.
 
 \bibitem{survey_color_detection_techniques}
-A.~A. Vladimir~Vezhnevets, Vassili~Sazonov, ``A survey on pixel-based skin
+V.~Vezhnevets, V.~Sazonov, and A.~Andreeva, ``A survey on pixel-based skin
   color detection techniques,'' {\em GRAPHICON03}, pp.~85--92, 2003.
+
+\bibitem{survey_skin_color_modeling}
+P.~Kakumanu, S.~Makrogiannis, and N.~Bourbakis, ``A survey of skin-color
+  modeling and detection methods,'' {\em Pattern Recognition}, vol.~40,
+  pp.~1106–--1122, 2007.
+
+\bibitem{threshold_cluster}
+J.~Yang, W.~Lu, and A.~Waibel, ``Skin-color modeling and adaptation,'' {\em
+  ACCV98}.
+
+\bibitem{rgb_threshold}
+J.~Kovac, P.~Peer, and F.~Solina, ``Human skin colour clustering for face
+  detection,'' {\em EUROCON}, 2003.
+
+\bibitem{cr_cb_threshold}
+D.~Chai and K.~N. Ngan, ``Face segmentation using skin-color map in videophone
+  applications,'' {\em IEEE TRANSACTIONS ON CIRCUITS AND SYSTEMS FOR VIDEO
+  TECHNOLOGY}, vol.~9, no.~4, pp.~551–--564, 1999.
+
+\bibitem{yiq_threshold}
+Y.~Dai and Y.~Nakano, ``Face-texture model based on sgld and its application in
+  face detection in a color scene,'' {\em Pattern Recognition}, vol.~29, no.~6,
+  pp.~1007–--1017, 1996.
+
+\bibitem{rca_threshold}
+G.~Gomez and E.~F. Morales, ``Automatic feature construction and a simple rule
+  induction algorithm for skin detection,'' {\em Proceedings of Workshop on
+  Machine Learning in Computer Vision}, pp.~31–--38, 2002.
+
+\bibitem{compaq}
+M.~J. Jones and J.~M. Rehg, ``Statistical color models with applications to
+  skin detection,'' {\em International Journal of Computer Vision}, vol.~46,
+  pp.~81–--96, 2002.
+
+\bibitem{gaussian_mixtures}
+J.~McGonagle, V.~Tembo, and A.~Chumbley, ``Gaussian mixture model.''
+  \url{https://brilliant.org/wiki/gaussian-mixture-model/}.
+\newblock Accessed: 2018-04-09.
 
 \end{thebibliography}

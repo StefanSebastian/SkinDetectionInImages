@@ -1,8 +1,21 @@
-\contentsline {section}{\numberline {1}Theoretical background}{3}{section.1}
-\contentsline {subsection}{\numberline {1.1}Related work}{3}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}Image segmentation}{3}{subsection.1.2}
-\contentsline {subsection}{\numberline {1.3}Detection by color}{3}{subsection.1.3}
-\contentsline {subsubsection}{\numberline {1.3.1}Color spaces}{3}{subsubsection.1.3.1}
-\contentsline {subsection}{\numberline {1.4}Detection by texture}{3}{subsection.1.4}
-\contentsline {section}{\numberline {2}Application development}{3}{section.2}
-\contentsline {section}{\numberline {3}Conclusions}{3}{section.3}
+\contentsline {chapter}{\numberline {1}Theoretical background}{2}{chapter.1}
+\contentsline {section}{\numberline {1.1}Related work}{2}{section.1.1}
+\contentsline {section}{\numberline {1.2}Image segmentation}{2}{section.1.2}
+\contentsline {section}{\numberline {1.3}Detection by color}{2}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Color spaces}{2}{subsection.1.3.1}
+\contentsline {subsubsection}{RGB}{2}{section*.2}
+\contentsline {subsubsection}{Normalized RGB}{3}{section*.3}
+\contentsline {subsubsection}{HSI, HSV, HSL}{3}{section*.4}
+\contentsline {subsubsection}{YCbCr}{3}{section*.5}
+\contentsline {subsection}{\numberline {1.3.2}Explicit thresholding}{4}{subsection.1.3.2}
+\contentsline {subsubsection}{In RGB}{4}{section*.6}
+\contentsline {subsubsection}{In YCrCb}{4}{section*.7}
+\contentsline {subsubsection}{In YIQ}{5}{section*.8}
+\contentsline {subsubsection}{In normalized RGB}{5}{section*.9}
+\contentsline {subsection}{\numberline {1.3.3}Skin Probability Map}{5}{subsection.1.3.3}
+\contentsline {subsection}{\numberline {1.3.4}Gaussian classifiers}{6}{subsection.1.3.4}
+\contentsline {subsubsection}{Single Gaussian}{6}{section*.10}
+\contentsline {subsubsection}{Gaussian Mixture Models}{7}{section*.11}
+\contentsline {section}{\numberline {1.4}Detection by texture}{7}{section.1.4}
+\contentsline {chapter}{\numberline {2}Application development}{8}{chapter.2}
+\contentsline {chapter}{\numberline {3}Conclusions}{9}{chapter.3}

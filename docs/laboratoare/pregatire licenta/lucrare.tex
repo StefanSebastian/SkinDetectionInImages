@@ -18,7 +18,9 @@
 	\chapter{Theoretical background}
 	\section{Related work}
 	\section{Image segmentation}
-	\section{Detection by color}
+	
+	\newpage
+	\section{Skin detection by color}
 	Skin pixel detection by color means classifying a pixel while considering only its color features. A first step in applying this approach is selecting a color space.
 	
 	\subsection{Color spaces}
@@ -126,9 +128,19 @@
 	Here \(c_j\) are all the color samples used in training the model. In order to establish that the given color describes skin we can compare p(c) with a threshold that can be determined experimentally for a given training set.
 	
 	\subsubsection{Gaussian Mixture Models}
-	A Gaussian mixture model are a form of unsupervised learning used to identify subpopulations within an overall population, provided they are normally distributed\cite{gaussian_mixtures}.
+	A Gaussian mixture model is a form of unsupervised learning used to identify subpopulations within an overall population, provided they are normally distributed\cite{gaussian_mixtures}.
 	
-	\section{Detection by texture}
+	It has been observed in \cite{Yang99gaussianmixture} that a mixture of Gaussians is better suited for skin detection than a single distribution, especially in datasets with multiple illumination conditions.
+	
+	They represent a generalization of the single Gaussian. A mixture's density function can be calculated as the sum of individual Gaussians\cite{survey_skin_color_modeling}:
+	\begin{equation} \label{eq:GMM}
+	p(c) = \sum_{i=1}^{N}w_i \cdot \frac{1}{(2\pi)^{1/2} \cdot |\Sigma_i|^{1/2}} \cdot e^{-\frac{1}{2} \cdot (c - \mu_i)^T\Sigma_i^{-1}(c - \mu_i)}
+	\end{equation}
+	In equation \ref{eq:GMM} c, \(\mu_i\) and \(\Sigma_i\) are the color vector, mean vector and covariance matrix for the ith Gaussian. Also, each of the N models has a weight, \(w_i\), representing its contribution to the mixture. Determining the unknown parameters can be done with the Expectation Maximization (EM) technique\cite{Yang99gaussianmixture}. This is an algorithm of maximum likelihood estimation, or simply speaking finding the parameters that best describe some given data.
+	
+	The number of Gaussians, N, is also an important aspect. The most common values used in research fall into the 2 to 16 range\cite{survey_skin_color_modeling}, the idea behind choosing a larger number is to account for various conditions of illumination.
+	
+	\section{Skin detection by texture}
 	
 	\chapter{Application development}
 	

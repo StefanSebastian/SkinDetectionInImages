@@ -47,4 +47,9 @@ J.~McGonagle, V.~Tembo, and A.~Chumbley, ``Gaussian mixture model.''
   \url{https://brilliant.org/wiki/gaussian-mixture-model/}.
 \newblock Accessed: 2018-04-09.
 
+\bibitem{Yang99gaussianmixture}
+M.~hsuan Yang and N.~Ahuja, ``Gaussian mixture model for human skin color and
+  its applications in image and video databases,'' in {\em Proceedings of SPIE
+  ’99 (San Jose CA}, pp.~458--466, 1999.
+
 \end{thebibliography}

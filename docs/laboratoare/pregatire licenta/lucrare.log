@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.3)  9 APR 2018 11:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.3)  9 APR 2018 15:24
 entering extended mode
 **./lucrare.tex
 (lucrare.tex
@@ -249,13 +249,13 @@ l.17 	\newpage
 Chapter 1.
 [2
 
-] [3] [4] [5] [6] [7]
+] [3] [4] [5] [6] [7] [8]
 Chapter 2.
-[8
+[9
 
 ]
 Chapter 3.
-[9
+[10
 
 ] (lucrare.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 4--7
@@ -284,24 +284,28 @@ Missing character: There is no “ in font cmr12!
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no “ in font cmr12!
-[10
+[11
 
-])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 140.
- [11]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 140.
+]
+Missing character: There is no â in font cmti12!
+Missing character: There is no € in font cmti12!
+Missing character: There is no ™ in font cmti12!
+)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 152.
+ [12]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 152.
  (lucrare.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 140.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 140.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 152.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 152.
 Package rerunfilecheck Info: File `lucrare.out' has not changed.
-(rerunfilecheck)             Checksum: 24A8646D62882F8E499AB5F0321282AD;711.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 140.
+(rerunfilecheck)             Checksum: 6FDF4A51FABE4813FC554FBA62FC7B9E;721.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 152.
  ) 
 Here is how much of TeX's memory you used:
- 4946 strings out of 493312
- 72370 string characters out of 3138903
- 157388 words of memory out of 3000000
- 8432 multiletter control sequences out of 15000+200000
+ 4951 strings out of 493312
+ 72449 string characters out of 3138903
+ 157487 words of memory out of 3000000
+ 8434 multiletter control sequences out of 15000+200000
  11055 words of font info for 40 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  28i,17n,28p,932b,426s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -318,9 +322,9 @@ gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 
 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/font
 s/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on lucrare.pdf (12 pages, 191446 bytes).
+Output written on lucrare.pdf (13 pages, 196481 bytes).
 PDF statistics:
- 237 PDF objects out of 1000 (max. 8388607)
- 59 named destinations out of 1000 (max. 500000)
+ 250 PDF objects out of 1000 (max. 8388607)
+ 62 named destinations out of 1000 (max. 500000)
  89 words of extra memory for PDF output out of 10000 (max. 10000000)
 

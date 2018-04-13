@@ -1,0 +1,83 @@
+import numpy as np
+
+from color_analysis.train.components import BayesSpmComponents
+from utils import utils
+from utils.tuples import Pixel
+
+
+class CompaqHistogramComponentExtractor:
+    def __init__(self, path_train, color_space):
+        self.path_train = path_train
+        self.color_space = color_space
+
+        self.appearances = {}
+        self.appearances_as_skin = {}
+        self.skin_pixels = 0
+        self.non_skin_pixels = 0
+
+        self.histogram_size = 8
+
+    def extract_components(self):
+        self.__compute_components()
+        return BayesSpmComponents(self.skin_pixels, self.non_skin_pixels, self.appearances, self.appearances_as_skin)
+
+    def __compute_components(self):
+        self.__compute_components_for_negative_images()
+        self.__compute_components_for_positive_images()
+
+    def __compute_components_for_positive_images(self):
+        images = utils.load_images_from_folder(self.path_train + "/" + "train_images")
+        masks = utils.load_images_from_folder(self.path_train + "/" + "train_masks")
+
+        print("\nExtracting values from positive images")
+        for current_index in range(len(images)):
+            utils.print_progress(current_index, len(images))
+            image = images[current_index]
+            mask = masks[current_index]
+
+            image = utils.convert_color(image, self.color_space)
+
+            self.__get_components_from_image_mask(image, mask)
+
+    def __compute_components_for_negative_images(self):
+        images = utils.load_images_from_folder(self.path_train + "/" + "train_images_ns")
+
+        print("\nExtracting values from negative images")
+        for current_index in range(len(images)):
+            utils.print_progress(current_index, len(images))
+            image = images[current_index]
+
+            image = utils.convert_color(image, self.color_space)
+            mask = np.zeros(image.shape)
+            self.__get_components_from_image_mask(image, mask)
+
+    def __get_components_from_image_mask(self, image, mask):
+        """
+        Extracts bayes components from an image given a mask
+        """
+        rows = image.shape[0]
+        cols = image.shape[1]
+        for x_pixel in range(rows):
+            for y_pixel in range(cols):
+                pixel = image[x_pixel, y_pixel]
+                p = Pixel(F1=pixel[0] // self.histogram_size,
+                          F2=pixel[1] // self.histogram_size,
+                          F3=pixel[2] // self.histogram_size)
+                if np.all(mask[x_pixel, y_pixel] == 0):  # not skin
+                    self.non_skin_pixels += 1
+                    if p in self.appearances:
+                        self.appearances[p] += 1
+                    else:
+                        self.appearances[p] = 1
+                else:
+                    self.skin_pixels += 1
+
+                    if p in self.appearances:
+                        self.appearances[p] += 1
+                    else:
+                        self.appearances[p] = 1
+
+                    if p in self.appearances_as_skin:
+                        self.appearances_as_skin[p] += 1
+                    else:
+                        self.appearances_as_skin[p] = 1

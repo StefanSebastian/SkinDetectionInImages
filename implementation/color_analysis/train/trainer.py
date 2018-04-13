@@ -1,7 +1,8 @@
 from color_analysis.train import train_config
-from color_analysis.train.compaq import CompaqComponentExtractor
+from color_analysis.train.compaq_histogram import CompaqHistogramComponentExtractor
+from color_analysis.train.compaq_neighbours import CompaqComponentExtractor
 from color_analysis.train.model import SPMModel
-from color_analysis.train.sfa import SfaComponentExtractor
+from color_analysis.train.sfa_neighbours import SfaComponentExtractor
 from utils import serialization
 
 
@@ -23,7 +24,7 @@ class SPMModelTrainer:
         """
 
         if train_config.database == 'compaq':
-            extractor = CompaqComponentExtractor(train_config.path_compaq, train_config.color_space)
+            extractor = CompaqHistogramComponentExtractor(train_config.path_compaq, train_config.color_space)
         else:
             extractor = SfaComponentExtractor(train_config.path_pos, train_config.path_neg, train_config.color_space)
         trainer = SPMModelTrainer(extractor, train_config.color_space)

@@ -1,20 +1,21 @@
+from utils import utils
 import cv2
 
-from utils.utils import load_images_from_folder
-from texture_analysis.train.trainer import TextureTrainer
-TextureTrainer.train_default_model()
+images = utils.load_images_from_folder('E:/Info/anu3/Licenta-git-2/Licenta/licenta/resources/input_data/compaq-filtered/validate/input')
 
-image = cv2.imread('E:/Info/anu3/Licenta-git-2/Licenta/licenta/resources/input_data/PASCAL2007/baby.jpg')
-image = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
+from segmentation.quickshift import QuickshiftSegmentation
+qs = QuickshiftSegmentation(1, 3, 5)
 
+from color_analysis.detect.detector import SpmDetectorFactory
+color_detector = SpmDetectorFactory.get_detector('E:/Info/anu3/Licenta-git-2/Licenta/implementation/color_analysis/models/spm_compaq_2000_histogram_8.pkl', 2, 0)
 
+for image_index in range(len(images)):
+    image = images[image_index]
+    image = cv2.resize(image, (200, 200))
 
-'''
-from skimage.feature import greycomatrix, greycoprops
-image = cv2.imread('E:/Info/anu3/Licenta-git-2/Licenta/licenta/resources/input_data/PASCAL2007/baby.jpg')
-image = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
-glcm = greycomatrix(image, [5], [0], 256, symmetric=True, normed=True)
-features = [greycoprops(glcm, prop='contrast')[0][0], greycoprops(glcm, prop='homogeneity')[0][0],
-                    greycoprops(glcm, prop='energy')[0][0]]
-print(features)
-print(greycoprops(glcm, prop='contrast'))'''
+    superpixels = qs.get_superpixels(image)
+    threshold = 0.005
+    while threshold < 0.1:
+        new_im = color_detector.detect(image, superpixels, threshold)
+        cv2.imwrite(str(image_index) + '_' + str(threshold) + '.png', new_im)
+        threshold += 0.005

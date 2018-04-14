@@ -4,10 +4,10 @@ tau = 5
 with_position = 1
 
 #  spm params
-spm_model_path = 'E:/Info/anu3/Licenta-git-2/Licenta/implementation/color_analysis/models/spm_compaq_2000_with_ns_rgb.pkl'
-threshold = 0.4
+spm_model_path = 'E:/Info/anu3/Licenta-git-2/Licenta/implementation/color_analysis/models/spm_compaq_2000_histogram_8.pkl'
+threshold = 0.075
 spm_type = 2
-neighbour_area = 4
+neighbour_area = 0
 
 #  texture params
 texture_model_path = 'E:/Info/anu3/Licenta-git-2/Licenta/implementation/texture_analysis/models/svm_classifier_1000data_5area.pkl'

@@ -25,7 +25,7 @@ def __calculate_skin_probability(pixel, bayes_spm_components):
         where S represents the prob of a pixel being a skin pixel ; X the probability of getting the selected pixel
         and P(X|S) the prob of finding this pixel given skin
         """
-    p = Pixel(F1=pixel[0], F2=pixel[1], F3=pixel[2])
+    p = Pixel(F1=pixel[0] // 8, F2=pixel[1] // 8, F3=pixel[2] // 8) # todo move histogram factor somewhere else
 
     if p not in bayes_spm_components.appearances_as_skin:
         return 0

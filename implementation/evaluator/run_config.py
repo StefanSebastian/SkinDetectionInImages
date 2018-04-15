@@ -1,11 +1,11 @@
 #  quickshift params
-sigma = 3
-tau = 5
+sigma = 2
+tau = 4
 with_position = 1
 
 #  spm params
 spm_model_path = 'E:/Info/anu3/Licenta-git-2/Licenta/implementation/color_analysis/models/spm_compaq_2000_with_ns_rgb.pkl'
-threshold = 0.4
+threshold = 0.08
 spm_type = 2
 neighbour_area = 4
 

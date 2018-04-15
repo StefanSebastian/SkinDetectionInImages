@@ -1,5 +1,61 @@
 \begin{thebibliography}{10}
 
+\bibitem{compaq}
+M.~J. Jones and J.~M. Rehg, ``Statistical color models with applications to
+  skin detection,'' {\em International Journal of Computer Vision}, vol.~46,
+  pp.~81–--96, 2002.
+
+\bibitem{gaussian_applied}
+J.~Y. Lee and S.~I. Yoo, ``An elliptical boundary model for skin color
+  detection,'' in {\em In Proc. of the 2002 International Conference on Imaging
+  Science, Systems, and Technology}, 2002.
+
+\bibitem{rgb_threshold}
+J.~Kovac, P.~Peer, and F.~Solina, ``Human skin colour clustering for face
+  detection,'' {\em EUROCON}, 2003.
+
+\bibitem{cr_cb_threshold}
+D.~Chai and K.~N. Ngan, ``Face segmentation using skin-color map in videophone
+  applications,'' {\em IEEE TRANSACTIONS ON CIRCUITS AND SYSTEMS FOR VIDEO
+  TECHNOLOGY}, vol.~9, no.~4, pp.~551–--564, 1999.
+
+\bibitem{yiq_threshold}
+Y.~Dai and Y.~Nakano, ``Face-texture model based on sgld and its application in
+  face detection in a color scene,'' {\em Pattern Recognition}, vol.~29, no.~6,
+  pp.~1007–--1017, 1996.
+
+\bibitem{i_threshold}
+C.Wang and M.Brandstein, ``Multi-source face tracking with audio and visual
+  data,'' {\em IEEE MMSP}, p.~168, 1999.
+
+\bibitem{rca_threshold}
+G.~Gomez and E.~F. Morales, ``Automatic feature construction and a simple rule
+  induction algorithm for skin detection,'' {\em Proceedings of Workshop on
+  Machine Learning in Computer Vision}, pp.~31–--38, 2002.
+
+\bibitem{i_threshold_applied}
+Brand, J., and Mason, ``A comparative assessment of three approaches to
+  pixellevel human skin-detection,'' {\em In Proc. of the International
+  Conference on Pattern Recognition}, vol.~1, pp.~1056--1059, 2000.
+
+\bibitem{superpixels_applied_1}
+F.~Saxen and A.~Al-Hamadi, ``Superpixels for skin segmentation,'' {\em Workshop
+  Farbbildverarbeitung, At Wuppertal}, vol.~20, 2014.
+
+\bibitem{superpixels_applied_2}
+R.~P. Poudel, J.~J. Zhang, D.~Liu, and H.~Nait-Charif, ``Skin color detection
+  using region-based approach,'' {\em International Journal of Image Processing
+  (IJIP)}, vol.~7, no.~4, 2013.
+
+\bibitem{color_texture_ann}
+N.~K.~E. Abbadi, N.~Dahir, and Z.~A. Alkareem, ``Skin texture recognition using
+  neural networks,'' {\em CoRR}, vol.~abs/1311.6049, 2013.
+
+\bibitem{texture_svm}
+M.~Sofiane, B.~M. Chaouki, and M.~B. Yamina, ``Improved skin detection using
+  colour space and texture,'' {\em International Journal of Computer and
+  Information Engineering}, vol.~8, no.~12, 2014.
+
 \bibitem{color_management_guide}
 A.~Frich, ``Color management guide.''
   \url{https://www.color-management-guide.com/color-spaces.html/}.
@@ -18,30 +74,6 @@ P.~Kakumanu, S.~Makrogiannis, and N.~Bourbakis, ``A survey of skin-color
 J.~Yang, W.~Lu, and A.~Waibel, ``Skin-color modeling and adaptation,'' {\em
   ACCV98}.
 
-\bibitem{rgb_threshold}
-J.~Kovac, P.~Peer, and F.~Solina, ``Human skin colour clustering for face
-  detection,'' {\em EUROCON}, 2003.
-
-\bibitem{cr_cb_threshold}
-D.~Chai and K.~N. Ngan, ``Face segmentation using skin-color map in videophone
-  applications,'' {\em IEEE TRANSACTIONS ON CIRCUITS AND SYSTEMS FOR VIDEO
-  TECHNOLOGY}, vol.~9, no.~4, pp.~551–--564, 1999.
-
-\bibitem{yiq_threshold}
-Y.~Dai and Y.~Nakano, ``Face-texture model based on sgld and its application in
-  face detection in a color scene,'' {\em Pattern Recognition}, vol.~29, no.~6,
-  pp.~1007–--1017, 1996.
-
-\bibitem{rca_threshold}
-G.~Gomez and E.~F. Morales, ``Automatic feature construction and a simple rule
-  induction algorithm for skin detection,'' {\em Proceedings of Workshop on
-  Machine Learning in Computer Vision}, pp.~31–--38, 2002.
-
-\bibitem{compaq}
-M.~J. Jones and J.~M. Rehg, ``Statistical color models with applications to
-  skin detection,'' {\em International Journal of Computer Vision}, vol.~46,
-  pp.~81–--96, 2002.
-
 \bibitem{gaussian_mixtures}
 J.~McGonagle, V.~Tembo, and A.~Chumbley, ``Gaussian mixture model.''
   \url{https://brilliant.org/wiki/gaussian-mixture-model/}.
@@ -50,6 +82,6 @@ J.~McGonagle, V.~Tembo, and A.~Chumbley, ``Gaussian mixture model.''
 \bibitem{Yang99gaussianmixture}
 M.~hsuan Yang and N.~Ahuja, ``Gaussian mixture model for human skin color and
   its applications in image and video databases,'' in {\em Proceedings of SPIE
-  ’99 (San Jose CA}, pp.~458--466, 1999.
+  ’99 (San Jose CA)}, pp.~458--466, 1999.
 
 \end{thebibliography}

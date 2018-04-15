@@ -20,8 +20,8 @@ class CompaqComponentExtractor:
         return BayesSpmComponents(self.skin_pixels, self.non_skin_pixels, self.appearances, self.appearances_as_skin)
 
     def __compute_components(self):
-        self.__compute_components_for_negative_images()
         self.__compute_components_for_positive_images()
+        self.__compute_components_for_negative_images()
 
     def __compute_components_for_positive_images(self):
         images = utils.load_images_from_folder(self.path_train + "/" + "train_images")
@@ -34,8 +34,10 @@ class CompaqComponentExtractor:
             mask = masks[current_index]
 
             image = utils.convert_color(image, self.color_space)
-
-            self.__get_components_from_image_mask(image, mask)
+            try:
+                self.__get_components_from_image_mask(image, mask)
+            except IndexError:
+                print(str(current_index) + " mask is corrupted")
 
     def __compute_components_for_negative_images(self):
         images = utils.load_images_from_folder(self.path_train + "/" + "train_images_ns")

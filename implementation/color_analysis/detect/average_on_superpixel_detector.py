@@ -32,7 +32,7 @@ class AverageOnSuperpixelDetector:
                     if p in self.pixel_probability_cache:
                         prob = self.pixel_probability_cache[p]
                     else:
-                        prob = self.__calculate_pixel_probability_sum_neighbours(image[x_pixel, y_pixel])
+                        prob = self.__calculate_pixel_probability_max_neighbours(image[x_pixel, y_pixel])
                         self.pixel_probability_cache[p] = prob
                 total_prob += prob
                 count += 1

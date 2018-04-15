@@ -16,11 +16,33 @@
 \gdef\HyperFirstAtBeginDocument#1{#1}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{compaq}
+\citation{compaq}
 \@writefile{toc}{\contentsline {chapter}{\numberline {1}Theoretical background}{2}{chapter.1}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{toc}{\contentsline {section}{\numberline {1.1}Related work}{2}{section.1.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.2}Image segmentation}{2}{section.1.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.1}SPM}{2}{subsection.1.1.1}}
+\citation{gaussian_applied}
+\citation{rgb_threshold}
+\citation{cr_cb_threshold}
+\citation{yiq_threshold}
+\citation{i_threshold}
+\citation{cr_cb_threshold}
+\citation{yiq_threshold}
+\citation{rca_threshold}
+\citation{i_threshold_applied}
+\citation{i_threshold}
+\citation{superpixels_applied_1}
+\citation{superpixels_applied_2}
+\citation{superpixels_applied_1}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.2}Gaussian Models}{3}{subsection.1.1.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.3}Explicit thresholding}{3}{subsection.1.1.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.4}Models using segmentation}{3}{subsection.1.1.4}}
+\citation{color_texture_ann}
+\citation{texture_svm}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.5}Models using textural features}{4}{subsection.1.1.5}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.2}Image segmentation}{4}{section.1.2}}
 \citation{color_management_guide}
 \citation{survey_color_detection_techniques}
 \citation{survey_color_detection_techniques}
@@ -28,54 +50,55 @@
 \citation{survey_skin_color_modeling}
 \citation{survey_skin_color_modeling}
 \citation{survey_color_detection_techniques}
-\@writefile{toc}{\contentsline {section}{\numberline {1.3}Skin detection by color}{3}{section.1.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.1}Color spaces}{3}{subsection.1.3.1}}
-\@writefile{toc}{\contentsline {subsubsection}{RGB}{3}{section*.2}}
-\@writefile{toc}{\contentsline {subsubsection}{Normalized RGB}{3}{section*.3}}
-\@writefile{toc}{\contentsline {subsubsection}{HSI, HSV, HSL}{3}{section*.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.3}Skin detection by color}{5}{section.1.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.1}Color spaces}{5}{subsection.1.3.1}}
+\@writefile{toc}{\contentsline {subsubsection}{RGB}{5}{section*.2}}
+\@writefile{toc}{\contentsline {subsubsection}{Normalized RGB}{5}{section*.3}}
+\@writefile{toc}{\contentsline {subsubsection}{HSI, HSV, HSL}{5}{section*.4}}
 \citation{survey_color_detection_techniques}
 \citation{threshold_cluster}
 \citation{rgb_threshold}
-\@writefile{toc}{\contentsline {subsubsection}{YCbCr}{4}{section*.5}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.2}Explicit thresholding}{4}{subsection.1.3.2}}
-\citation{cr_cb_threshold}
-\citation{yiq_threshold}
+\@writefile{toc}{\contentsline {subsubsection}{YCbCr}{6}{section*.5}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.2}Explicit thresholding}{6}{subsection.1.3.2}}
 \citation{rca_threshold}
-\@writefile{toc}{\contentsline {subsubsection}{In RGB}{5}{section*.6}}
-\@writefile{toc}{\contentsline {subsubsection}{In YCrCb}{5}{section*.7}}
-\@writefile{toc}{\contentsline {subsubsection}{In YIQ}{5}{section*.8}}
-\@writefile{toc}{\contentsline {subsubsection}{In normalized RGB}{5}{section*.9}}
 \citation{compaq}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.3}Skin Probability Map}{7}{subsection.1.3.3}}
 \citation{compaq}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.3}Skin Probability Map}{6}{subsection.1.3.3}}
 \citation{survey_skin_color_modeling}
 \citation{survey_skin_color_modeling}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.4}Gaussian classifiers}{8}{subsection.1.3.4}}
+\@writefile{toc}{\contentsline {subsubsection}{Single Gaussian}{8}{section*.6}}
 \citation{gaussian_mixtures}
 \citation{Yang99gaussianmixture}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.4}Gaussian classifiers}{7}{subsection.1.3.4}}
-\@writefile{toc}{\contentsline {subsubsection}{Single Gaussian}{7}{section*.10}}
-\@writefile{toc}{\contentsline {subsubsection}{Gaussian Mixture Models}{7}{section*.11}}
 \citation{survey_skin_color_modeling}
 \citation{Yang99gaussianmixture}
 \citation{survey_skin_color_modeling}
-\newlabel{eq:GMM}{{1.15}{8}{Gaussian Mixture Models}{equation.1.3.15}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.4}Skin detection by texture}{8}{section.1.4}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {2}Application development}{9}{chapter.2}}
+\@writefile{toc}{\contentsline {subsubsection}{Gaussian Mixture Models}{9}{section*.7}}
+\newlabel{eq:GMM}{{1.15}{9}{Gaussian Mixture Models}{equation.1.3.15}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.4}Skin detection by texture}{10}{section.1.4}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Application development}{11}{chapter.2}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Conclusions}{10}{chapter.3}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Conclusions}{12}{chapter.3}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \bibdata{references}
-\bibcite{color_management_guide}{1}
-\bibcite{survey_color_detection_techniques}{2}
-\bibcite{survey_skin_color_modeling}{3}
-\bibcite{threshold_cluster}{4}
-\bibcite{rgb_threshold}{5}
-\bibcite{cr_cb_threshold}{6}
-\bibcite{yiq_threshold}{7}
-\bibcite{rca_threshold}{8}
-\bibcite{compaq}{9}
-\bibcite{gaussian_mixtures}{10}
-\bibcite{Yang99gaussianmixture}{11}
+\bibcite{compaq}{1}
+\bibcite{gaussian_applied}{2}
+\bibcite{rgb_threshold}{3}
+\bibcite{cr_cb_threshold}{4}
+\bibcite{yiq_threshold}{5}
+\bibcite{i_threshold}{6}
+\bibcite{rca_threshold}{7}
+\bibcite{i_threshold_applied}{8}
+\bibcite{superpixels_applied_1}{9}
+\bibcite{superpixels_applied_2}{10}
+\bibcite{color_texture_ann}{11}
+\bibcite{texture_svm}{12}
+\bibcite{color_management_guide}{13}
+\bibcite{survey_color_detection_techniques}{14}
+\bibcite{survey_skin_color_modeling}{15}
+\bibcite{threshold_cluster}{16}
+\bibcite{gaussian_mixtures}{17}
+\bibcite{Yang99gaussianmixture}{18}
 \bibstyle{ieeetr}

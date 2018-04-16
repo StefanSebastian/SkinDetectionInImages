@@ -5,12 +5,13 @@
 \BOOKMARK [2][-]{subsection.1.1.3}{Explicit thresholding}{section.1.1}% 5
 \BOOKMARK [2][-]{subsection.1.1.4}{Models using segmentation}{section.1.1}% 6
 \BOOKMARK [2][-]{subsection.1.1.5}{Models using textural features}{section.1.1}% 7
-\BOOKMARK [1][-]{section.1.2}{Image segmentation}{chapter.1}% 8
-\BOOKMARK [1][-]{section.1.3}{Skin detection by color}{chapter.1}% 9
-\BOOKMARK [2][-]{subsection.1.3.1}{Color spaces}{section.1.3}% 10
-\BOOKMARK [2][-]{subsection.1.3.2}{Explicit thresholding}{section.1.3}% 11
-\BOOKMARK [2][-]{subsection.1.3.3}{Skin Probability Map}{section.1.3}% 12
-\BOOKMARK [2][-]{subsection.1.3.4}{Gaussian classifiers}{section.1.3}% 13
-\BOOKMARK [1][-]{section.1.4}{Skin detection by texture}{chapter.1}% 14
-\BOOKMARK [0][-]{chapter.2}{Application development}{}% 15
-\BOOKMARK [0][-]{chapter.3}{Conclusions}{}% 16
+\BOOKMARK [2][-]{subsection.1.1.6}{Hidden Markov Models}{section.1.1}% 8
+\BOOKMARK [1][-]{section.1.2}{Image segmentation}{chapter.1}% 9
+\BOOKMARK [1][-]{section.1.3}{Skin detection by color}{chapter.1}% 10
+\BOOKMARK [2][-]{subsection.1.3.1}{Color spaces}{section.1.3}% 11
+\BOOKMARK [2][-]{subsection.1.3.2}{Explicit thresholding}{section.1.3}% 12
+\BOOKMARK [2][-]{subsection.1.3.3}{Skin Probability Map}{section.1.3}% 13
+\BOOKMARK [2][-]{subsection.1.3.4}{Gaussian classifiers}{section.1.3}% 14
+\BOOKMARK [1][-]{section.1.4}{Skin detection by texture}{chapter.1}% 15
+\BOOKMARK [0][-]{chapter.2}{Application development}{}% 16
+\BOOKMARK [0][-]{chapter.3}{Conclusions}{}% 17

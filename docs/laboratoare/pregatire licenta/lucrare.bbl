@@ -56,6 +56,15 @@ M.~Sofiane, B.~M. Chaouki, and M.~B. Yamina, ``Improved skin detection using
   colour space and texture,'' {\em International Journal of Computer and
   Information Engineering}, vol.~8, no.~12, 2014.
 
+\bibitem{texture_gabor_wavelet}
+Z.~Jiang, M.~Yao, and W.~Jiang, ``Skin detection using color, texture and space
+  information,'' {\em Fuzzy Systems and Knowledge Discovery}, 2007.
+
+\bibitem{hmm}
+L.~Sigal, S.~Sclaroff, and V.~Athitsos, ``Skin color-based video segmentation
+  under time-varying illumination,'' {\em IEEE TRANSACTIONS ON PATTERN ANALYSIS
+  AND MACHINE INTELLIGENCE}, vol.~26, no.~7, 2004.
+
 \bibitem{color_management_guide}
 A.~Frich, ``Color management guide.''
   \url{https://www.color-management-guide.com/color-spaces.html/}.

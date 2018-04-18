@@ -1,7 +1,7 @@
+from color_analysis.detect.detectors.average_on_superpixel_detector import AverageOnSuperpixelDetector
+from color_analysis.detect.detectors.neighbour_detector import NeighbourDetector
+from color_analysis.detect.detectors.simple_detector import SimpleDetector
 from utils import serialization
-from color_analysis.detect.simple_detector import SimpleDetector
-from color_analysis.detect.neighbour_detector import NeighbourDetector
-from color_analysis.detect.average_on_superpixel_detector import AverageOnSuperpixelDetector
 
 
 class SpmDetectorFactory:

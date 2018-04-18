@@ -1,4 +1,9 @@
 class TextureModel:
+    """
+    Model used for texture detection
+    Encapsulates the feature extraction method and the ML classifier
+    """
+
     def __init__(self, feature_extractor, classifier, skin_label):
         self.feature_extractor = feature_extractor
         self.classifier = classifier

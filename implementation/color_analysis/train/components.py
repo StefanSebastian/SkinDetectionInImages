@@ -1,6 +1,6 @@
 class BayesSpmComponents:
     """
-    Class that encapsulates components of a bayes Skin Probability Map
+    Class that encapsulates components of a Bayes Skin Probability Map
     """
 
     def __init__(self, skin_pixels, non_skin_pixels, appearances, appearances_as_skin):

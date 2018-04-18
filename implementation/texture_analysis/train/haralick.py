@@ -30,8 +30,8 @@ class HaralickModelTrainer:
 class HaralickFeatureExtractor:
     def extract(self, image):
         """
-            Extracts haralick features from a given image
-            """
+        Extracts haralick features from a given image
+        """
         textures = mt.features.haralick(image)
         ht_mean = textures.mean(axis=0)
         return ht_mean

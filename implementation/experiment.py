@@ -2,7 +2,7 @@ from utils.utils import load_images_from_folder
 
 images = load_images_from_folder('E:/Info/anu3/Licenta-git-2/Licenta/licenta/resources/input_data/PASCAL2007')
 import cv2
-from color_analysis.detect.detector import SpmDetectorFactory
+from color_analysis.detect.detectors import SpmDetectorFactory
 detector = SpmDetectorFactory.get_detector('E:/Info/anu3/Licenta-git-2/Licenta/implementation/color_analysis/models/spm_compaq_2000_with_ns_4000_rgb.pkl', 2, 4)
 
 from segmentation.quickshift import QuickshiftSegmentation

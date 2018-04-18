@@ -1,7 +1,7 @@
-licenta/ignored
 licenta/resources
 **/ignored
 **/*.pyc
 **/results
 **/run_results
 **/models
+**/.idea

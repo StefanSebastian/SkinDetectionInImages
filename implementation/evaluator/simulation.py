@@ -1,61 +1,52 @@
 import cv2
-from comet_ml import Experiment
 
 from evaluator import run_config
-from utils import utils
+from utils import general
 from evaluator.combine_results import Combiner
 from evaluator.calculate_results import Stats
 from segmentation.quickshift import QuickshiftSegmentation
 from color_analysis.detect.detector import SpmDetectorFactory
 from texture_analysis.detect.detector import TextureDetectorFactory
-
-
-#experiment = Experiment(api_key="EDskVxUYap8T2SWExETIl7iTN")
+from utils.log import LogFactory
 
 
 class Evaluator:
-    def __init__(self):
-        self.quickshift = QuickshiftSegmentation(run_config.with_position, run_config.sigma, run_config.tau)
+    def __init__(self, logger=LogFactory.get_default_logger()):
+        self.quickshift = QuickshiftSegmentation(run_config.qs_with_position, run_config.qs_sigma, run_config.qs_tau)
         self.spm_detector = SpmDetectorFactory.get_detector(run_config.spm_model_path,
                                                             run_config.spm_type,
-                                                            run_config.neighbour_area)
+                                                            run_config.spm_neighbour_area)
         self.texture_detector = TextureDetectorFactory.get_detector(run_config.texture_model_path,
-                                                                    run_config.detection_type,
-                                                                    run_config.window_size)
-
-        hyper_params = {"qs_sigma": run_config.sigma,
-                        "qs_tau": run_config.tau,
-                        "bayes_threshold": run_config.threshold,
-                        "spm_neighbour_area" : run_config.neighbour_area,
-                        "haralick_window": run_config.window_size}
-        #experiment.log_multiple_params(hyper_params)
+                                                                    run_config.texture_detection_type,
+                                                                    run_config.texture_detection_area)
+        self.logger = logger
 
     def process_image(self, image, image_index):
-        print("-----------------------------------------------------------")
-        print("Processing image : " + str(image_index))
+        self.logger.log("-----------------------------------------------------------")
+        self.logger.log("Processing image : " + str(image_index))
 
         if run_config.spm_type == 2:
-            print("Image segmentation")
+            self.logger.log("Image segmentation")
             superpixels = self.quickshift.get_superpixels(image)
 
-            print("Applying Bayes SPM detection")
-            spm_image = self.spm_detector.detect(image, superpixels, run_config.threshold)
+            self.logger.log("Applying Bayes SPM detection")
+            spm_image = self.spm_detector.detect(image, superpixels, run_config.spm_threshold)
             cv2.imwrite(run_config.results_path + '/' + str(image_index) + 'bayes_spm.png', spm_image)
         else:
-            print("Applying quickshift algorithm")
+            self.logger.log("Applying quickshift algorithm")
             qs_image = self.quickshift.apply(image)
             cv2.imwrite(run_config.results_path + '/' + str(image_index) + 'qs.png', qs_image)
 
-            print("Applying Bayes SPM detection")
-            spm_image = self.spm_detector.detect(qs_image, run_config.threshold)
+            self.logger.log("Applying Bayes SPM detection")
+            spm_image = self.spm_detector.detect(qs_image, run_config.spm_threshold)
             cv2.imwrite(run_config.results_path + '/' + str(image_index) + 'bayes_spm.png', spm_image)
 
-        print("\nApplying Haralick texture detection")
+        self.logger.log("\nApplying Haralick texture detection")
         texture_image = self.texture_detector.detect_with_mask(image, spm_image)
 
         cv2.imwrite(run_config.results_path + '/' + str(image_index) + 'texture.png', texture_image)
 
-        print("\nCombining results")
+        self.logger.log("\nCombining results")
         result = Combiner.combine_res(image, spm_image, texture_image)
         cv2.imwrite(run_config.results_path + '/' + str(image_index) + 'result.png', result)
 
@@ -64,8 +55,8 @@ class Evaluator:
     def run_validation(self):
         self.__dump_config()
 
-        test_images = utils.load_images_from_folder(run_config.test_path_in)
-        expected_images = utils.load_images_from_folder(run_config.test_path_expected)
+        test_images = general.load_images_from_folder(run_config.test_path_in)
+        expected_images = general.load_images_from_folder(run_config.test_path_expected)
 
         self.__print_header()
 
@@ -78,16 +69,10 @@ class Evaluator:
                 expected_image = cv2.resize(expected_image, run_config.size)
 
             result = self.process_image(test_image, image_index)
-            print("\nComparing results")
+            self.logger.log("\nComparing results")
             stats = Stats.get_stats(expected_image, result, image_index)
-            print(stats)
-
+            self.logger.log(stats)
             self.__append_results(stats)
-
-            metrics = {"true_positive_rate" : stats.true_positive_rate,
-                       "false_negative_rate" : stats.false_negative_rate}
-            #experiment.log_multiple_metrics(metrics)
-            #experiment.set_step(image_index + 1)
 
     def __print_header(self):
         with open(run_config.results_path + '/' + "results.txt", "w") as myfile:
@@ -104,7 +89,7 @@ class Evaluator:
                 f1.writelines(lines)
 
     def run_detection(self):
-        images = utils.load_images_from_folder(run_config.detection_path)
+        images = general.load_images_from_folder(run_config.detection_path)
 
         image_index = 0
         for image in images:

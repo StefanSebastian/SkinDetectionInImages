@@ -1,5 +1,5 @@
 import numpy as np
-from utils.utils import safe_div
+from utils.general import safe_div
 
 
 class Stats:

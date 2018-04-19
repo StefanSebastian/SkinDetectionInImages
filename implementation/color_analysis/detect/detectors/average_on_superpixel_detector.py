@@ -1,21 +1,23 @@
 from color_analysis.detect.calculate.cached_probability_calculator import CachedProbabilityCalculator
-from utils import utils
+from utils import general
+from utils.log import LogFactory
 
 
 class AverageOnSuperpixelDetector:
-    def __init__(self, model, window_size):
+    def __init__(self, model, window_size, logger=LogFactory.get_default_logger()):
         self.model = model
         self.window_size = window_size
         self.probability_calculator = CachedProbabilityCalculator()
+        self.logger = logger
 
     def detect(self, image, superpixels, threshold):
-        new_image = utils.generate_overlay_image(image)
-        image = utils.convert_color(image, self.model.color_space)
+        new_image = general.generate_overlay_image(image)
+        image = general.convert_color(image, self.model.color_space)
 
         pos = 0
         for center in superpixels:  # iterate superpixels
             pos += 1
-            utils.print_progress(pos, len(superpixels))
+            self.logger.print_progress(pos, len(superpixels))
 
             superpixel = superpixels[center]
             average_prob = self.__calculate_superpixel_average(superpixel, image)
@@ -43,6 +45,3 @@ class AverageOnSuperpixelDetector:
             total_prob += prob
             count += 1
         return total_prob / count
-
-
-

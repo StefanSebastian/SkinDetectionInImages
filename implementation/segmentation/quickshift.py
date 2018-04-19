@@ -2,42 +2,43 @@ from math import exp
 
 import numpy as np
 
-from utils import utils
-from utils.tuples import Position
-from segmentation.utils import point_distance_2d, point_distance_3d, feature_distance_5d
 from segmentation.superpixel import Superpixel
+from segmentation.utils import point_distance_2d, point_distance_3d, feature_distance_5d
+from utils.log import LogFactory
+from utils.tuples import Position
 
 
 class QuickshiftSegmentation:
-    def __init__(self, with_position, sigma, tau):
+    def __init__(self, with_position, sigma, tau, logger=LogFactory.get_default_logger()):
         self.with_position = with_position
         self.sigma = sigma
         self.tau = tau
+        self.logger = logger
 
     def apply(self, image):
         """
         Returns a segmented image
         """
-        print("\nCalculating densities")
+        self.logger.log("\nCalculating densities")
         densities = self.__compute_density(image)
 
-        print("\nLinking neighbours")
+        self.logger.log("\nLinking neighbours")
         parents = self.__link_neighbours(image, densities)
 
-        print("\nCreating new image")
+        self.logger.log("\nCreating new image")
         return self.__get_image_with_superpixels(image, parents)
 
     def get_superpixels(self, image):
         """
         Returns the superpixels
         """
-        print("\nCalculating densities")
+        self.logger.log("\nCalculating densities")
         densities = self.__compute_density(image)
 
-        print("\nLinking neighbours")
+        self.logger.log("\nLinking neighbours")
         parents = self.__link_neighbours(image, densities)
 
-        print("\nExtracting super pixels")
+        self.logger.log("\nExtracting super pixels")
         return self.__extract_superpixels(image, parents)
 
     def __extract_superpixels(self, image, parents):
@@ -74,7 +75,7 @@ class QuickshiftSegmentation:
             for y_pixel in range(cols):
                 pixel = image[x_pixel, y_pixel]
 
-                utils.print_progress_pixel(x_pixel, y_pixel, rows, cols)
+                self.logger.print_progress_pixel(x_pixel, y_pixel, rows, cols)
 
                 # get neighbourhood window
                 x_upper = x_pixel - 3 * self.sigma
@@ -123,7 +124,7 @@ class QuickshiftSegmentation:
         # iterate pixels
         for x_pixel in range(rows):
             for y_pixel in range(cols):
-                utils.print_progress_pixel(x_pixel, y_pixel, rows, cols)
+                self.logger.print_progress_pixel(x_pixel, y_pixel, rows, cols)
 
                 # get neighbourhood window
                 x_upper = x_pixel - self.tau

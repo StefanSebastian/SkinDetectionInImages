@@ -1,5 +1,6 @@
 from color_analysis.detect.calculate.cached_probability_calculator import CachedProbabilityCalculator
-from utils import utils
+from utils import general
+from utils.log import LogFactory
 
 
 class NeighbourDetector:
@@ -7,20 +8,21 @@ class NeighbourDetector:
     Calculates pixel probability by considering its neighbours
     """
 
-    def __init__(self, model, neighbour_area):
+    def __init__(self, model, neighbour_area, logger=LogFactory.get_default_logger()):
         self.model = model
         self.neighbour_area = neighbour_area
         self.probability_calculator = CachedProbabilityCalculator()
+        self.logger = logger
 
     def detect(self, image, threshold):
-        new_image = utils.generate_overlay_image(image)
-        image = utils.convert_color(image, self.model.color_space)
+        new_image = general.generate_overlay_image(image)
+        image = general.convert_color(image, self.model.color_space)
 
         rows = image.shape[0]
         cols = image.shape[1]
         for x_pixel in range(rows):
             for y_pixel in range(cols):
-                utils.print_progress_pixel(x_pixel, y_pixel, rows, cols)
+                self.logger.print_progress_pixel(x_pixel, y_pixel, rows, cols)
 
                 pixel = image[x_pixel, y_pixel]
 

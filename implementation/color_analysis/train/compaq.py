@@ -1,12 +1,13 @@
 from color_analysis.train.components import BayesSpmComponents
-from utils import utils
+from utils import general
+from utils.log import LogFactory
 from utils.tuples import Pixel
 
 import numpy as np
 
 
 class CompaqComponentExtractor:
-    def __init__(self, path_train, color_space):
+    def __init__(self, path_train, color_space, logger=LogFactory.get_default_logger()):
         self.path_train = path_train
         self.color_space = color_space
 
@@ -14,6 +15,8 @@ class CompaqComponentExtractor:
         self.appearances_as_skin = {}
         self.skin_pixels = 0
         self.non_skin_pixels = 0
+
+        self.logger = logger
 
     def extract_components(self):
         self.__compute_components()
@@ -24,30 +27,30 @@ class CompaqComponentExtractor:
         self.__compute_components_for_negative_images()
 
     def __compute_components_for_positive_images(self):
-        images = utils.load_images_from_folder(self.path_train + "/" + "train_images")
-        masks = utils.load_images_from_folder(self.path_train + "/" + "train_masks")
+        images = general.load_images_from_folder(self.path_train + "/" + "train_images")
+        masks = general.load_images_from_folder(self.path_train + "/" + "train_masks")
 
-        print("\nExtracting values from positive images")
+        self.logger.log("\nExtracting values from positive images")
         for current_index in range(len(images)):
-            utils.print_progress(current_index, len(images))
+            self.logger.print_progress(current_index, len(images))
             image = images[current_index]
             mask = masks[current_index]
 
-            image = utils.convert_color(image, self.color_space)
+            image = general.convert_color(image, self.color_space)
             try:
                 self.__get_components_from_image_mask(image, mask)
             except IndexError:
-                print(str(current_index) + " mask is corrupted")
+                self.logger.log(str(current_index) + " mask is corrupted")
 
     def __compute_components_for_negative_images(self):
-        images = utils.load_images_from_folder(self.path_train + "/" + "train_images_ns")
+        images = general.load_images_from_folder(self.path_train + "/" + "train_images_ns")
 
-        print("\nExtracting values from negative images")
+        self.logger.log("\nExtracting values from negative images")
         for current_index in range(len(images)):
-            utils.print_progress(current_index, len(images))
+            self.logger.print_progress(current_index, len(images))
             image = images[current_index]
 
-            image = utils.convert_color(image, self.color_space)
+            image = general.convert_color(image, self.color_space)
             mask = np.zeros(image.shape)
             self.__get_components_from_image_mask(image, mask)
 

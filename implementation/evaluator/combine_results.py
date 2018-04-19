@@ -1,12 +1,12 @@
 import numpy as np
 
-from utils import utils
+from utils import general
 
 
 class Combiner:
     @staticmethod
     def combine_res(image, spm_img, texture_img):
-        new_image = utils.generate_overlay_image(image)
+        new_image = general.generate_overlay_image(image)
 
         rows = image.shape[0]
         cols = image.shape[1]

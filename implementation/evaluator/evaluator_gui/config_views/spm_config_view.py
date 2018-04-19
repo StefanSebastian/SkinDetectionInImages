@@ -12,12 +12,12 @@ class SpmConfigFrame(Frame):
         self.spm_model_path_in = None
         self.spm_threshold_in = None
         self.spm_type_in = None
-        self.spm_neighbour_area = None
+        self.spm_neighbour_area_in = None
 
         self.init_view()
 
     def init_view(self):
-        Label(self, text="Color detection").grid(row=0, column=0, rowspan=2)
+        Label(self, text="Color detection").grid(row=0, column=0, rowspan=4)
 
         self.spm_model_path_in = Label(self, text=self.configuration.spm_model_path)
         self.spm_model_path_in.grid(row=0, column=2)
@@ -35,5 +35,10 @@ class SpmConfigFrame(Frame):
         Label(self, text="Type").grid(row=2, column=1)
         self.spm_type_in = Combobox(self, values=['Most intense in superpixel', 'Average on superpixel'])
         self.spm_type_in.grid(row=2, column=2)
+
+        Label(self, text="Neighbour area").grid(row=3, column=1)
+        self.spm_neighbour_area_in = Entry(self)
+        self.spm_neighbour_area_in.insert(END, self.configuration.spm_neighbour_area)
+        self.spm_neighbour_area_in.grid(row=3, column=2)
 
 

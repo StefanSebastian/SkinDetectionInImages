@@ -25,6 +25,5 @@ class SegmentationConfigFrame(Frame):
         self.tau_in.insert(END, self.configuration.qs_tau)
         self.tau_in.grid(row=1, column=2)
 
-        value = IntVar
+        value = IntVar()
         self.position_in = Checkbutton(self, text="Use position", variable=value).grid(row=2, column=1, columnspan=2)
-        self.position_in = value

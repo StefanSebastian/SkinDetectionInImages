@@ -3,8 +3,11 @@ from tkinter import Text, END, INSERT
 from tkinter.ttk import Frame, Button, Progressbar, Label
 import time
 
+from evaluator.evaluator_gui.config_views.resource_path_config_view import ResourcePathFrame
 from evaluator.evaluator_gui.config_views.segmentation_config_view import SegmentationConfigFrame
+from evaluator.evaluator_gui.config_views.size_config_view import SizeConfigFrame
 from evaluator.evaluator_gui.config_views.spm_config_view import SpmConfigFrame
+from evaluator.evaluator_gui.config_views.texture_config_view import TextureConfigFrame
 from evaluator.run_configuration import RunConfiguration
 from evaluator.simulation import Evaluator
 from utils.log import CompositeLogger, ConsoleLogger, FileLogger
@@ -20,11 +23,9 @@ class EvaluationFrame(Frame):
         # all input widgets
         self.segmentation_config_frame = None
         self.spm_config_frame = None
-
-        self.spm_model_path_in = None
-        self.spm_threshold_in = None
-        self.spm_type_in = None
-        self.spm_neighbour_area_in = None
+        self.texture_config_frame = None
+        self.size_config_frame = None
+        self.resource_paths_frame = None
 
         # output widgets
         self.output_text = None
@@ -41,15 +42,23 @@ class EvaluationFrame(Frame):
         self.spm_config_frame = SpmConfigFrame(self, self.configuration)
         self.spm_config_frame.grid(row=1, column=0)
 
-        Button(self, text="Start experiment", command=self.start_experiment).grid(row=2, column=0)
+        self.texture_config_frame = TextureConfigFrame(self, self.configuration)
+        self.texture_config_frame.grid(row=2, column=0)
 
+        self.size_config_frame = SizeConfigFrame(self, self.configuration)
+        self.size_config_frame.grid(row=3, column=0)
+
+        self.resource_paths_frame = ResourcePathFrame(self, self.configuration)
+        self.resource_paths_frame.grid(row=4, column=0)
+
+        Button(self, text="Start experiment", command=self.start_experiment).grid(row=5, column=0)
         self.output_text = Text(self, height=10)
-        self.output_text.grid(row=3, column=0)
+        self.output_text.grid(row=6, column=0)
         self.progress_bar = Progressbar(self, orient='horizontal')
         self.progress_bar['maximum'] = 100
-        self.progress_bar.grid(row=5, column=0)
+        self.progress_bar.grid(row=7, column=0)
         self.progress_label = Label(self)
-        self.progress_label.grid(row=4, column=0)
+        self.progress_label.grid(row=8, column=0)
 
         self.grid()
 

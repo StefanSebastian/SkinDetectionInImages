@@ -51,10 +51,6 @@ class EvaluationFrame(Frame):
         print(self.tau_in)
         print(self.position_in)
 
-    def browse_file(self, label):
-        filename = filedialog.askopenfilename()
-        label.config(text=filename)
-
     def start_experiment(self):
         RunExperiment(self.configuration).start()
 

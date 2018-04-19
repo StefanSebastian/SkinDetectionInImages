@@ -1,6 +1,5 @@
 import cv2
 
-from evaluator import run_config
 from evaluator.run_configuration import RunConfiguration
 from utils import general
 from evaluator.combine_results import Combiner
@@ -14,13 +13,15 @@ from utils.log import LogFactory
 class Evaluator:
     def __init__(self, config, logger=LogFactory.get_default_logger()):
         self.config = config
-        self.quickshift = QuickshiftSegmentation(config.qs_with_position, config.qs_sigma, config.qs_tau)
+        self.quickshift = QuickshiftSegmentation(config.qs_with_position, config.qs_sigma, config.qs_tau, logger)
         self.spm_detector = SpmDetectorFactory.get_detector(config.spm_model_path,
                                                             config.spm_type,
-                                                            config.spm_neighbour_area)
+                                                            config.spm_neighbour_area,
+                                                            logger)
         self.texture_detector = TextureDetectorFactory.get_detector(config.texture_model_path,
                                                                     config.texture_detection_type,
-                                                                    config.texture_detection_area)
+                                                                    config.texture_detection_area,
+                                                                    logger)
         self.logger = logger
 
     def process_image(self, image, image_index):
@@ -55,6 +56,7 @@ class Evaluator:
         return result
 
     def run_validation(self):
+        self.__clear_logs()
         self.__dump_config()
 
         test_images = general.load_images_from_folder(self.config.test_path_in)
@@ -73,7 +75,7 @@ class Evaluator:
             result = self.process_image(test_image, image_index)
             self.logger.log("\nComparing results")
             stats = Stats.get_stats(expected_image, result, image_index)
-            self.logger.log(stats)
+            self.logger.log(str(stats))
             self.__append_results(stats)
 
     def __print_header(self):
@@ -88,6 +90,9 @@ class Evaluator:
         with open(self.config.results_path + '/' + "initial_config.txt", "w") as file:
             file.write(self.config.get_params_as_string())
 
+    def __clear_logs(self):
+        open(self.config.results_path + '/' + 'logs.txt', 'w').close()
+
     def run_detection(self):
         images = general.load_images_from_folder(self.config.detection_path)
 
@@ -97,6 +102,6 @@ class Evaluator:
             self.process_image(image, image_index)
 
 
-evaluator = Evaluator(RunConfiguration())
-evaluator.run_validation()
+#evaluator = Evaluator(RunConfiguration())
+#evaluator.run_validation()
 # run_detection()

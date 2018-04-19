@@ -10,5 +10,4 @@ class SvmClassifier:
         """
         svm_classifier = LinearSVC(random_state=9)
         svm_classifier.fit(features, labels)
-
         return svm_classifier

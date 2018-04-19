@@ -7,7 +7,7 @@ class RunConfiguration:
                  spm_threshold=0.167,
                  spm_type=2,
                  spm_neighbour_area=4,
-                 texture_model_path='E:/Info/anu3/Licenta-git-2/Licenta/implementation/color_analysis/models/spm_compaq_2000_with_ns_4000_rgb.pkl',
+                 texture_model_path='E:/Info/anu3/Licenta-git-2/Licenta/implementation/texture_analysis/models/svm_classifier_1000data_5area.pkl',
                  texture_detection_type=1,
                  texture_detection_area=5,
                  resize=1,

@@ -23,10 +23,32 @@
       <file leaf-file-name="evaluation_view.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/evaluator/evaluator_gui/evaluation_view.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="677">
-              <caret line="75" column="25" selection-start-line="75" selection-start-column="25" selection-end-line="75" selection-end-column="25" />
+            <state relative-caret-position="303">
+              <caret line="103" column="61" selection-start-line="103" selection-start-column="61" selection-end-line="103" selection-end-column="61" />
               <folding>
                 <element signature="e#0#16#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="quickshift.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/segmentation/quickshift.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="561">
+              <caret line="40" column="25" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="log.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/log.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#40#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -35,9 +57,21 @@
       <file leaf-file-name="logs.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/evaluator/run_results/logs.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-51">
-              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state relative-caret-position="8126">
+              <caret line="2463" column="0" selection-start-line="2463" selection-start-column="0" selection-end-line="2463" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="simulation.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evaluator/simulation.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-248">
+              <caret line="63" column="53" selection-start-line="63" selection-start-column="53" selection-end-line="63" selection-end-column="53" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -75,7 +109,6 @@
         <option value="$PROJECT_DIR$/evaluator/evaluator_menu/style.css" />
         <option value="$PROJECT_DIR$/style.css" />
         <option value="$PROJECT_DIR$/evaluator/run_config.py" />
-        <option value="$PROJECT_DIR$/segmentation/quickshift.py" />
         <option value="$PROJECT_DIR$/color_analysis/train/compaq.py" />
         <option value="$PROJECT_DIR$/color_analysis/train/sfa.py" />
         <option value="$PROJECT_DIR$/color_analysis/detect/detectors/neighbour_detector.py" />
@@ -90,7 +123,6 @@
         <option value="$PROJECT_DIR$/evaluator/logs.txt" />
         <option value="$PROJECT_DIR$/color_analysis/detect/detector.py" />
         <option value="$PROJECT_DIR$/texture_analysis/detect/detector.py" />
-        <option value="$PROJECT_DIR$/utils/log.py" />
         <option value="$PROJECT_DIR$/evaluator/evaluator_menu/testtk.py" />
         <option value="$PROJECT_DIR$/evaluator/evaluator_menu/Tabbed.py" />
         <option value="$PROJECT_DIR$/evaluator/evaluator_menu/evaluator_menu.py" />
@@ -101,9 +133,11 @@
         <option value="$PROJECT_DIR$/evaluator/evaluator_gui/config_views/utils.py" />
         <option value="$PROJECT_DIR$/evaluator/evaluator_gui/config_views/spm_config_view.py" />
         <option value="$PROJECT_DIR$/evaluator/evaluator_gui/config_views/segmentation_config_view.py" />
-        <option value="$PROJECT_DIR$/evaluator/simulation.py" />
         <option value="$PROJECT_DIR$/evaluator/run_configuration.py" />
         <option value="$PROJECT_DIR$/evaluator/run_results/logs.txt" />
+        <option value="$PROJECT_DIR$/evaluator/simulation.py" />
+        <option value="$PROJECT_DIR$/utils/log.py" />
+        <option value="$PROJECT_DIR$/segmentation/quickshift.py" />
         <option value="$PROJECT_DIR$/evaluator/evaluator_gui/evaluation_view.py" />
       </list>
     </option>
@@ -182,7 +216,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="evaluator" />
+              <option name="myItemId" value="segmentation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -197,10 +231,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="evaluator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="run_results" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -761,16 +791,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/segmentation/quickshift.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="908">
-          <caret line="77" column="37" selection-start-line="77" selection-start-column="34" selection-end-line="77" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#20#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/color_analysis/detect/detectors/average_on_superpixel_detector.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -914,16 +934,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/log.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="50" column="17" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/evaluator/evaluator_gui/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
@@ -978,28 +988,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/evaluator/run_results/logs.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8126">
+          <caret line="2463" column="0" selection-start-line="2463" selection-start-column="0" selection-end-line="2463" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/evaluator/simulation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="90" column="32" selection-start-line="90" selection-start-column="32" selection-end-line="90" selection-end-column="32" />
+        <state relative-caret-position="-248">
+          <caret line="63" column="53" selection-start-line="63" selection-start-column="53" selection-end-line="63" selection-end-column="53" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/evaluator/run_results/logs.txt">
+    <entry file="file://$PROJECT_DIR$/utils/log.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        <state relative-caret-position="184">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/segmentation/quickshift.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="40" column="25" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/evaluator/evaluator_gui/evaluation_view.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="677">
-          <caret line="75" column="25" selection-start-line="75" selection-start-column="25" selection-end-line="75" selection-end-column="25" />
+        <state relative-caret-position="303">
+          <caret line="103" column="61" selection-start-line="103" selection-start-column="61" selection-end-line="103" selection-end-column="61" />
           <folding>
             <element signature="e#0#16#0" expanded="true" />
           </folding>

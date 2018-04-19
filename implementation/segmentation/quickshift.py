@@ -32,13 +32,13 @@ class QuickshiftSegmentation:
         """
         Returns the superpixels
         """
-        self.logger.log("\nCalculating densities")
+        self.logger.log("Calculating densities")
         densities = self.__compute_density(image)
 
-        self.logger.log("\nLinking neighbours")
+        self.logger.log("Linking neighbours")
         parents = self.__link_neighbours(image, densities)
 
-        self.logger.log("\nExtracting super pixels")
+        self.logger.log("Extracting super pixels")
         return self.__extract_superpixels(image, parents)
 
     def __extract_superpixels(self, image, parents):

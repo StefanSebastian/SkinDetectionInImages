@@ -22,13 +22,13 @@ class FileLogger:
             log_file.write(message + '\n')
 
     def log_progress(self, pos, total):
-        self.log("Progress: " + str((pos/total) * 100) + "%")
+        self.log("Progress:" + str((pos/total) * 100))
 
     def log_progress_pixel(self, x_pixel, y_pixel, rows, cols):
         pos = x_pixel * cols + y_pixel
         if pos % 300 == 0:
             prog = pos / (rows * cols)
-            self.log("Progress: " + str(prog * 100) + "%")
+            self.log("Progress:" + str(prog * 100))
 
 
 class CompositeLogger:

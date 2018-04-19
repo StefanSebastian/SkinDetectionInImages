@@ -1,6 +1,6 @@
 import threading
 from tkinter import Text, END, INSERT
-from tkinter.ttk import Frame, Button
+from tkinter.ttk import Frame, Button, Progressbar, Label
 import time
 
 from evaluator.evaluator_gui.config_views.segmentation_config_view import SegmentationConfigFrame
@@ -28,6 +28,8 @@ class EvaluationFrame(Frame):
 
         # output widgets
         self.output_text = None
+        self.progress_bar = None
+        self.progress_label = None
 
         # build UI
         self.init_ui()
@@ -43,12 +45,17 @@ class EvaluationFrame(Frame):
 
         self.output_text = Text(self, height=10)
         self.output_text.grid(row=3, column=0)
+        self.progress_bar = Progressbar(self, orient='horizontal')
+        self.progress_bar['maximum'] = 100
+        self.progress_bar.grid(row=5, column=0)
+        self.progress_label = Label(self)
+        self.progress_label.grid(row=4, column=0)
 
         self.grid()
 
     def start_experiment(self):
         RunExperiment(self.configuration).start()
-        MonitorExperiment(self.configuration, self.output_text).start()
+        MonitorExperiment(self.configuration, self.output_text, self.progress_bar, self.progress_label).start()
 
 
 class RunExperiment(threading.Thread):
@@ -64,18 +71,35 @@ class RunExperiment(threading.Thread):
 
 
 class MonitorExperiment(threading.Thread):
-    def __init__(self, configuration, output_text_widget):
+    def __init__(self, configuration, output_text_widget, progress_bar_widget, progress_label_widget):
         threading.Thread.__init__(self)
         self.configuration = configuration
         self.output_text_widget = output_text_widget
+        self.progress_bar_widget = progress_bar_widget
+        self.progress_label_widget = progress_label_widget
 
         open(self.configuration.logging_path, 'w').close() # clear logs
 
     def run(self):
+        last_processed_line = 0
         while True:
             time.sleep(1)
             f = open(self.configuration.logging_path, "r")
-            text = f.read()
-            self.output_text_widget.insert(END, text)
-            self.output_text_widget.see(END)
+            lines = f.readlines()
+
+            if not lines:
+                continue
+
+            lines_size = len(lines)
+            lines = lines[last_processed_line:]
+            last_processed_line = lines_size
+            for line in lines:
+                if "Progress" in line:
+                    value_str = line.split(':')[1]
+                    value = int(float(value_str))
+                    self.progress_bar_widget["value"] = value
+                else:
+                    self.output_text_widget.insert(END, line)
+                    self.output_text_widget.see(END)
+                    self.progress_label_widget['text'] = line
 

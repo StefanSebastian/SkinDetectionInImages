@@ -12,6 +12,8 @@ from utils.log import LogFactory
 
 class Evaluator:
     def __init__(self, config, logger=LogFactory.get_default_logger()):
+        logger.log('Initializing evaluator')
+
         self.config = config
         self.quickshift = QuickshiftSegmentation(config.qs_with_position, config.qs_sigma, config.qs_tau, logger)
         self.spm_detector = SpmDetectorFactory.get_detector(config.spm_model_path,
@@ -59,6 +61,7 @@ class Evaluator:
         self.__clear_logs()
         self.__dump_config()
 
+        self.logger.log('Loading images from folder')
         test_images = general.load_images_from_folder(self.config.test_path_in)
         expected_images = general.load_images_from_folder(self.config.test_path_expected)
 

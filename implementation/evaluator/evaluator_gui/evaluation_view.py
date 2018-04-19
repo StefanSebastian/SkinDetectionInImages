@@ -8,6 +8,7 @@ from evaluator.evaluator_gui.config_views.segmentation_config_view import Segmen
 from evaluator.evaluator_gui.config_views.size_config_view import SizeConfigFrame
 from evaluator.evaluator_gui.config_views.spm_config_view import SpmConfigFrame
 from evaluator.evaluator_gui.config_views.texture_config_view import TextureConfigFrame
+from evaluator.evaluator_gui.evaluation_feedback_view import EvaluationFeedbackFrame
 from evaluator.run_configuration import RunConfiguration
 from evaluator.simulation import Evaluator
 from utils.log import CompositeLogger, ConsoleLogger, FileLogger
@@ -28,9 +29,7 @@ class EvaluationFrame(Frame):
         self.resource_paths_frame = None
 
         # output widgets
-        self.output_text = None
-        self.progress_bar = None
-        self.progress_label = None
+        self.feedback_frame = None
 
         # build UI
         self.init_ui()
@@ -38,49 +37,42 @@ class EvaluationFrame(Frame):
     def init_ui(self):
 
         self.segmentation_config_frame = SegmentationConfigFrame(self, self.configuration)
-        Label(self, text="Segmentation").grid(row=0, column=0)
+        Label(self, text="Segmentation").grid(row=0, column=0, sticky="w")
         self.segmentation_config_frame.grid(row=0, column=1, sticky="w")
 
         Separator(self, orient=HORIZONTAL).grid(row=1, column=0, sticky="ew", columnspan=2)
 
         self.spm_config_frame = SpmConfigFrame(self, self.configuration)
-        Label(self, text="Color detection").grid(row=2, column=0, sticky="W")
-        self.spm_config_frame.grid(row=2, column=1)
+        Label(self, text="Color detection").grid(row=2, column=0, sticky="w")
+        self.spm_config_frame.grid(row=2, column=1, sticky="w")
 
         Separator(self, orient=HORIZONTAL).grid(row=3, column=0, sticky="ew", columnspan=2)
 
         self.texture_config_frame = TextureConfigFrame(self, self.configuration)
         Label(self, text="Texture detection").grid(row=4, column=0, sticky="w")
-        self.texture_config_frame.grid(row=4, column=1)
+        self.texture_config_frame.grid(row=4, column=1, sticky="w")
 
         Separator(self, orient=HORIZONTAL).grid(row=5, column=0, sticky="ew", columnspan=2)
 
         self.size_config_frame = SizeConfigFrame(self, self.configuration)
-        Label(self, text="Image size").grid(row=6, column=0)
+        Label(self, text="Image size").grid(row=6, column=0, sticky="w")
         self.size_config_frame.grid(row=6, column=1, sticky="w")
 
         Separator(self, orient=HORIZONTAL).grid(row=7, column=0, sticky="ew", columnspan=2)
 
         self.resource_paths_frame = ResourcePathFrame(self, self.configuration)
-        Label(self, text="Resources").grid(row=8, column=0)
+        Label(self, text="Resources").grid(row=8, column=0, sticky="w")
         self.resource_paths_frame.grid(row=8, column=1, sticky="w")
 
-        Separator(self, orient=HORIZONTAL).grid(row=9, column=0, sticky="ew", columnspan=2)
-
-        Button(self, text="Start experiment", command=self.start_experiment).grid(row=10, column=0, columnspan=2)
-        self.output_text = Text(self, height=10)
-        self.output_text.grid(row=11, column=0, columnspan=2)
-        self.progress_bar = Progressbar(self, orient='horizontal')
-        self.progress_bar['maximum'] = 100
-        self.progress_bar.grid(row=12, column=0, columnspan=2)
-        self.progress_label = Label(self)
-        self.progress_label.grid(row=13, column=0, columnspan=2)
+        Button(self, text="Start experiment", command=self.start_experiment).grid(row=0, column=2, rowspan=2)
+        self.feedback_frame = EvaluationFeedbackFrame(self, self.configuration)
+        self.feedback_frame.grid(row=1, column=2, rowspan=6)
 
         self.grid()
 
     def start_experiment(self):
         RunExperiment(self.configuration).start()
-        MonitorExperiment(self.configuration, self.output_text, self.progress_bar, self.progress_label).start()
+        MonitorExperiment(self.configuration, self.feedback_frame).start()
 
 
 class RunExperiment(threading.Thread):
@@ -96,12 +88,12 @@ class RunExperiment(threading.Thread):
 
 
 class MonitorExperiment(threading.Thread):
-    def __init__(self, configuration, output_text_widget, progress_bar_widget, progress_label_widget):
+    def __init__(self, configuration, feedback_frame):
         threading.Thread.__init__(self)
         self.configuration = configuration
-        self.output_text_widget = output_text_widget
-        self.progress_bar_widget = progress_bar_widget
-        self.progress_label_widget = progress_label_widget
+        self.output_text_widget = feedback_frame.output_text_widget
+        self.progress_bar_widget = feedback_frame.progress_bar_widget
+        self.progress_label_widget = feedback_frame.progress_label_widget
 
         open(self.configuration.logging_path, 'w').close() # clear logs
 

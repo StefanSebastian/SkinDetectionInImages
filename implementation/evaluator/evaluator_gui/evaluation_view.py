@@ -1,5 +1,5 @@
 import threading
-from tkinter import Text, END, INSERT, HORIZONTAL
+from tkinter import Text, END, INSERT, HORIZONTAL, VERTICAL
 from tkinter.ttk import Frame, Button, Progressbar, Label, Separator
 import time
 
@@ -64,9 +64,11 @@ class EvaluationFrame(Frame):
         Label(self, text="Resources").grid(row=8, column=0, sticky="w")
         self.resource_paths_frame.grid(row=8, column=1, sticky="w")
 
-        Button(self, text="Start experiment", command=self.start_experiment).grid(row=0, column=2, rowspan=2)
+        Separator(self, orient=VERTICAL).grid(row=0, column=2, sticky="ns", rowspan=9)
+
+        Button(self, text="Start experiment", command=self.start_experiment).grid(row=0, column=3, rowspan=2)
         self.feedback_frame = EvaluationFeedbackFrame(self, self.configuration)
-        self.feedback_frame.grid(row=1, column=2, rowspan=6)
+        self.feedback_frame.grid(row=1, column=3, rowspan=7)
 
         self.grid()
 
@@ -91,9 +93,9 @@ class MonitorExperiment(threading.Thread):
     def __init__(self, configuration, feedback_frame):
         threading.Thread.__init__(self)
         self.configuration = configuration
-        self.output_text_widget = feedback_frame.output_text_widget
-        self.progress_bar_widget = feedback_frame.progress_bar_widget
-        self.progress_label_widget = feedback_frame.progress_label_widget
+        self.output_text_widget = feedback_frame.output_text
+        self.progress_bar_widget = feedback_frame.progress_bar
+        self.progress_label_widget = feedback_frame.progress_label
 
         open(self.configuration.logging_path, 'w').close() # clear logs
 

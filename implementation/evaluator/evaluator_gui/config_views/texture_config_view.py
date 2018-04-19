@@ -1,7 +1,7 @@
 from tkinter import END
 from tkinter.ttk import Combobox, Entry, Frame, Label, Button
 
-from evaluator.evaluator_gui.config_views.utils import browse_file
+from evaluator.evaluator_gui.config_views.utils import browse_file, get_filename_from_path
 
 
 class TextureConfigFrame(Frame):
@@ -17,7 +17,7 @@ class TextureConfigFrame(Frame):
 
     def init_view(self):
 
-        self.texture_model_path_in = Label(self, text=self.configuration.texture_model_path)
+        self.texture_model_path_in = Label(self, text=get_filename_from_path(self.configuration.texture_model_path))
         self.texture_model_path_in.grid(row=0, column=1, sticky="we", padx=5, pady=5)
 
         Button(self,

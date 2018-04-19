@@ -1,7 +1,7 @@
 from tkinter import Frame, Label, Button, Entry, END
 from tkinter.ttk import Combobox
 
-from evaluator.evaluator_gui.config_views.utils import browse_file
+from evaluator.evaluator_gui.config_views.utils import browse_file, get_filename_from_path
 
 
 class SpmConfigFrame(Frame):
@@ -18,7 +18,7 @@ class SpmConfigFrame(Frame):
 
     def init_view(self):
 
-        self.spm_model_path_in = Label(self, text=self.configuration.spm_model_path)
+        self.spm_model_path_in = Label(self, text=get_filename_from_path(self.configuration.spm_model_path))
         self.spm_model_path_in.grid(row=0, column=1)
 
         Button(self,

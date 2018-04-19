@@ -2,5 +2,9 @@ from tkinter import filedialog
 
 
 def browse_file(label):
-    filename = filedialog.askopenfilename()
-    label.config(text=filename)
+    path = filedialog.askopenfilename()
+    label.config(text=get_filename_from_path(path))
+
+
+def get_filename_from_path(path):
+    return path.split('/')[-1]

@@ -91,7 +91,7 @@ class Evaluator:
             file.write(self.config.get_params_as_string())
 
     def __clear_logs(self):
-        open(self.config.results_path + '/' + 'logs.txt', 'w').close()
+        open(self.config.logging_path, 'w').close()
 
     def run_detection(self):
         images = general.load_images_from_folder(self.config.detection_path)

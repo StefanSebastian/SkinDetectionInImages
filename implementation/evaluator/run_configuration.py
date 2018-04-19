@@ -15,6 +15,7 @@ class RunConfiguration:
                  test_path_in='E:/Info/anu3/Licenta-git-2/Licenta/licenta/resources/input_data/compaq-filtered-fin/validate/input',
                  test_path_expected='E:/Info/anu3/Licenta-git-2/Licenta/licenta/resources/input_data/compaq-filtered-fin/validate/mask',
                  results_path='E:/Info/anu3/Licenta-git-2/Licenta/implementation/evaluator/run_results',
+                 logging_path='E:/Info/anu3/Licenta-git-2/Licenta/implementation/evaluator/run_results/logs.txt',
                  detection_path='E:/Info/anu3/Licenta-git-2/Licenta/licenta/resources/input_data/PASCAL2007'):
 
         self.qs_sigma = qs_sigma
@@ -41,6 +42,7 @@ class RunConfiguration:
 
         #  results path
         self.results_path = results_path
+        self.logging_path = logging_path
 
         #  path for images used in live detection, not for calculating stats
         self.detection_path = detection_path

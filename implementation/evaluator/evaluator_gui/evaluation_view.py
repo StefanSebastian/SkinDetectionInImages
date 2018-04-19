@@ -33,7 +33,7 @@ class EvaluationFrame(Frame):
         self.init_ui()
 
     def init_ui(self):
-        self.segmentation_config_frame = SegmentationConfigFrame(self)
+        self.segmentation_config_frame = SegmentationConfigFrame(self, self.configuration)
         self.segmentation_config_frame.grid(row=0, column=0)
 
         self.spm_config_frame = SpmConfigFrame(self, self.configuration)

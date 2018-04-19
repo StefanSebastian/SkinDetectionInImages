@@ -17,28 +17,27 @@ class SpmConfigFrame(Frame):
         self.init_view()
 
     def init_view(self):
-        Label(self, text="Color detection").grid(row=0, column=0, rowspan=4)
 
         self.spm_model_path_in = Label(self, text=self.configuration.spm_model_path)
-        self.spm_model_path_in.grid(row=0, column=2)
+        self.spm_model_path_in.grid(row=0, column=1)
 
         Button(self,
                text="Browse model",
                command=lambda: browse_file(self.spm_model_path_in)) \
-            .grid(row=0, column=1)
+            .grid(row=0, column=0, sticky="w")
 
-        Label(self, text="Threshold").grid(row=1, column=1)
+        Label(self, text="Threshold").grid(row=1, column=0, sticky="w")
         self.spm_threshold_in = Entry(self)
         self.spm_threshold_in.insert(END, self.configuration.spm_threshold)
-        self.spm_threshold_in.grid(row=1, column=2)
+        self.spm_threshold_in.grid(row=1, column=1, sticky="w", padx=5, pady=5)
 
-        Label(self, text="Type").grid(row=2, column=1)
+        Label(self, text="Type").grid(row=2, column=0, sticky="w")
         self.spm_type_in = Combobox(self, values=['Most intense in superpixel', 'Average on superpixel'])
-        self.spm_type_in.grid(row=2, column=2)
+        self.spm_type_in.grid(row=2, column=1, sticky="w", padx=5, pady=5)
 
-        Label(self, text="Neighbour area").grid(row=3, column=1)
+        Label(self, text="Neighbour area").grid(row=3, column=0, sticky="w")
         self.spm_neighbour_area_in = Entry(self)
         self.spm_neighbour_area_in.insert(END, self.configuration.spm_neighbour_area)
-        self.spm_neighbour_area_in.grid(row=3, column=2)
+        self.spm_neighbour_area_in.grid(row=3, column=1, sticky="w", padx=5, pady=5)
 
 

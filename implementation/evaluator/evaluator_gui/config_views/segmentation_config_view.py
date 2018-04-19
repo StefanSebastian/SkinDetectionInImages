@@ -14,16 +14,16 @@ class SegmentationConfigFrame(Frame):
         self.init_view()
 
     def init_view(self):
-        Label(self, text="Segmentation").grid(row=0, column=0, rowspan=3)
-        Label(self, text="Sigma").grid(row=0, column=1)
+        Label(self, text="Sigma").grid(row=0, column=0, sticky="w")
         self.sigma_in = Entry(self)
         self.sigma_in.insert(END, self.configuration.qs_sigma)
-        self.sigma_in.grid(row=0, column=2)
+        self.sigma_in.grid(row=0, column=1, sticky="w", padx=5, pady=5)
 
-        Label(self, text="Tau").grid(row=1, column=1)
+        Label(self, text="Tau").grid(row=1, column=0, sticky="w")
         self.tau_in = Entry(self)
         self.tau_in.insert(END, self.configuration.qs_tau)
-        self.tau_in.grid(row=1, column=2)
+        self.tau_in.grid(row=1, column=1, sticky="w", padx=5, pady=5)
 
         value = IntVar()
-        self.position_in = Checkbutton(self, text="Use position", variable=value).grid(row=2, column=1, columnspan=2)
+        self.position_in = Checkbutton(self, text="Use position", variable=value)\
+            .grid(row=2, column=0, columnspan=2, sticky="w", padx=5, pady=5)

@@ -1,6 +1,6 @@
 import threading
-from tkinter import Text, END, INSERT
-from tkinter.ttk import Frame, Button, Progressbar, Label
+from tkinter import Text, END, INSERT, HORIZONTAL
+from tkinter.ttk import Frame, Button, Progressbar, Label, Separator
 import time
 
 from evaluator.evaluator_gui.config_views.resource_path_config_view import ResourcePathFrame
@@ -36,29 +36,45 @@ class EvaluationFrame(Frame):
         self.init_ui()
 
     def init_ui(self):
+
         self.segmentation_config_frame = SegmentationConfigFrame(self, self.configuration)
-        self.segmentation_config_frame.grid(row=0, column=0)
+        Label(self, text="Segmentation").grid(row=0, column=0)
+        self.segmentation_config_frame.grid(row=0, column=1, sticky="w")
+
+        Separator(self, orient=HORIZONTAL).grid(row=1, column=0, sticky="ew", columnspan=2)
 
         self.spm_config_frame = SpmConfigFrame(self, self.configuration)
-        self.spm_config_frame.grid(row=1, column=0)
+        Label(self, text="Color detection").grid(row=2, column=0, sticky="W")
+        self.spm_config_frame.grid(row=2, column=1)
+
+        Separator(self, orient=HORIZONTAL).grid(row=3, column=0, sticky="ew", columnspan=2)
 
         self.texture_config_frame = TextureConfigFrame(self, self.configuration)
-        self.texture_config_frame.grid(row=2, column=0)
+        Label(self, text="Texture detection").grid(row=4, column=0, sticky="w")
+        self.texture_config_frame.grid(row=4, column=1)
+
+        Separator(self, orient=HORIZONTAL).grid(row=5, column=0, sticky="ew", columnspan=2)
 
         self.size_config_frame = SizeConfigFrame(self, self.configuration)
-        self.size_config_frame.grid(row=3, column=0)
+        Label(self, text="Image size").grid(row=6, column=0)
+        self.size_config_frame.grid(row=6, column=1, sticky="w")
+
+        Separator(self, orient=HORIZONTAL).grid(row=7, column=0, sticky="ew", columnspan=2)
 
         self.resource_paths_frame = ResourcePathFrame(self, self.configuration)
-        self.resource_paths_frame.grid(row=4, column=0)
+        Label(self, text="Resources").grid(row=8, column=0)
+        self.resource_paths_frame.grid(row=8, column=1, sticky="w")
 
-        Button(self, text="Start experiment", command=self.start_experiment).grid(row=5, column=0)
+        Separator(self, orient=HORIZONTAL).grid(row=9, column=0, sticky="ew", columnspan=2)
+
+        Button(self, text="Start experiment", command=self.start_experiment).grid(row=10, column=0, columnspan=2)
         self.output_text = Text(self, height=10)
-        self.output_text.grid(row=6, column=0)
+        self.output_text.grid(row=11, column=0, columnspan=2)
         self.progress_bar = Progressbar(self, orient='horizontal')
         self.progress_bar['maximum'] = 100
-        self.progress_bar.grid(row=7, column=0)
+        self.progress_bar.grid(row=12, column=0, columnspan=2)
         self.progress_label = Label(self)
-        self.progress_label.grid(row=8, column=0)
+        self.progress_label.grid(row=13, column=0, columnspan=2)
 
         self.grid()
 

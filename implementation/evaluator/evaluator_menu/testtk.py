@@ -1,5 +1,8 @@
 from tkinter import Tk, Text, TOP, BOTH, X, N, LEFT, IntVar
-from tkinter.ttk import Frame, Label, Entry, Checkbutton
+from tkinter.ttk import Frame, Label, Entry, Checkbutton, Button
+from evaluator.simulation import Evaluator
+
+import threading
 
 
 class Example(Frame):
@@ -12,6 +15,9 @@ class Example(Frame):
         self.pack(fill=BOTH, expand=True)
 
         segmentation_frame = self.build_segmentation_frame()
+
+        start_experiment_button = Button(text="Start experiment", command=self.start_experiment)
+        start_experiment_button.pack()
 
     def build_segmentation_frame(self):
         segmentation_frame = Frame(self)
@@ -43,7 +49,19 @@ class Example(Frame):
 
         return segmentation_frame
 
+    @staticmethod
+    def start_experiment():
+        RunExperiment().start()
 
+
+class RunExperiment(threading.Thread):
+    def __init__(self):
+        threading.Thread.__init__(self)
+
+    def run(self):
+        print("Started thread")
+        evaluator = Evaluator()
+        evaluator.run_validation()
 
 def main():
     root = Tk()

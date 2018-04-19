@@ -1,0 +1,6 @@
+lab 5: 
+documentatie de proiectare
+diagrame - subsisteme
+uml, interactiune
+
+lab 6. Manual de utilizare, codul sursa si executie

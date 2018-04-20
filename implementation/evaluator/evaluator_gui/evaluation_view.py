@@ -1,5 +1,5 @@
 import threading
-from tkinter import Text, END, INSERT, HORIZONTAL, VERTICAL
+from tkinter import Text, END, INSERT, HORIZONTAL, VERTICAL, Toplevel
 from tkinter.ttk import Frame, Button, Progressbar, Label, Separator
 import time
 
@@ -9,6 +9,7 @@ from evaluator.evaluator_gui.config_views.size_config_view import SizeConfigFram
 from evaluator.evaluator_gui.config_views.spm_config_view import SpmConfigFrame
 from evaluator.evaluator_gui.config_views.texture_config_view import TextureConfigFrame
 from evaluator.evaluator_gui.evaluation_feedback_view import EvaluationFeedbackFrame
+from evaluator.evaluator_gui.validation_exception import ValidationError
 from evaluator.run_configuration import RunConfiguration
 from evaluator.simulation import Evaluator
 from utils.log import CompositeLogger, ConsoleLogger, FileLogger
@@ -73,13 +74,44 @@ class EvaluationFrame(Frame):
         self.grid()
 
     def start_experiment(self):
-        print(self.segmentation_config_frame.get_values())
-        print(self.spm_config_frame.get_values())
-        print(self.texture_config_frame.get_values())
-        print(self.size_config_frame.get_values())
-        print(self.resource_paths_frame.get_values())
-        #RunExperiment(self.configuration).start()
-        #MonitorExperiment(self.configuration, self.feedback_frame).start()
+        try:
+            sigma, tau, w_pos = self.segmentation_config_frame.get_values()
+            self.configuration.qs_sigma = sigma
+            self.configuration.qs_tau = tau
+            self.configuration.qs_with_position = w_pos
+
+            spm_model, spm_threshold, spm_type, spm_area = self.spm_config_frame.get_values()
+            self.configuration.spm_model_path = spm_model
+            self.configuration.spm_threshold = spm_threshold
+            self.configuration.spm_type = spm_type
+            self.configuration.spm_neighbour_area = spm_area
+
+            text_model, text_type, text_area = self.texture_config_frame.get_values()
+            self.configuration.texture_model_path = text_model
+            self.configuration.texture_detection_type = text_type
+            self.configuration.texture_detection_area = text_area
+
+            use_rs, height, width = self.size_config_frame.get_values()
+            if use_rs == 1:
+                self.configuration.size = (height, width)
+
+            test_path_in, test_path_exp, test_path_res, test_path_log = self.resource_paths_frame.get_values()
+            self.configuration.test_path_in = test_path_in
+            self.configuration.test_path_expected = test_path_exp
+            self.configuration.results_path = test_path_res
+            self.configuration.test_path_logging = test_path_log
+
+            RunExperiment(self.configuration).start()
+            MonitorExperiment(self.configuration, self.feedback_frame).start()
+
+        except ValidationError as e:
+            self.show_popup(str(e), e.errors)
+
+    def show_popup(self, message, errors):
+        toplevel = Toplevel(self)
+        Label(toplevel, text=message).pack()
+        for error in errors:
+            Label(toplevel, text=error).pack()
 
 
 class RunExperiment(threading.Thread):

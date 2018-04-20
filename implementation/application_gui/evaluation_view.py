@@ -1,5 +1,6 @@
 import threading
 import multiprocessing
+from multiprocessing import Queue
 import time
 from tkinter import END, HORIZONTAL, VERTICAL, Toplevel, DISABLED, NORMAL
 from tkinter.ttk import Frame, Button, Label, Separator
@@ -14,7 +15,7 @@ from application_gui.validation_exception import ValidationError
 from evaluator.run_configuration import RunConfiguration
 from evaluator.simulation import Evaluator
 from application_gui.config_views.segmentation_config_view import SegmentationConfigFrame
-from utils.log import CompositeLogger, ConsoleLogger, FileLogger
+from utils.log import CompositeLogger, ConsoleLogger, FileLogger, QueueLogger
 
 
 class EvaluationFrame(Frame):
@@ -38,7 +39,9 @@ class EvaluationFrame(Frame):
         self.start_experiment_button = None
         self.stop_experiment_button = None
         self.experiment_running = False
+
         self.experiment_process = None
+        self.monitor_thread = None
 
         # build UI
         self.init_ui()
@@ -100,6 +103,7 @@ class EvaluationFrame(Frame):
         if self.experiment_process is not None:
             self.experiment_process.terminate()
             self.experiment_process.join()
+            self.monitor_thread.set_running(False)
 
     def start_experiment(self):
         self.feedback_frame.reset()
@@ -131,9 +135,14 @@ class EvaluationFrame(Frame):
             self.configuration.results_path = test_path_res
             self.configuration.test_path_logging = test_path_log
 
-            self.experiment_process = RunExperiment(self.configuration)
+            # start experiment
+            process_queue = Queue()
+            self.experiment_process = RunExperiment(self.configuration, process_queue)
+            self.experiment_process.daemon = True
             self.experiment_process.start()
-            MonitorExperiment(self.configuration, self.feedback_frame).start()
+
+            self.monitor_thread = MonitorExperiment(self.configuration, self.feedback_frame, process_queue)
+            self.monitor_thread.start()
 
         except ValidationError as e:
             self.show_popup(str(e), e.errors)
@@ -147,47 +156,40 @@ class EvaluationFrame(Frame):
 
 
 class RunExperiment(multiprocessing.Process):
-    def __init__(self, configuration):
+    def __init__(self, configuration, process_queue):
         super(RunExperiment, self).__init__()
         self.configuration = configuration
+        self.process_queue = process_queue
 
     def run(self):
         print("Started thread")
-        logger = CompositeLogger([ConsoleLogger(), FileLogger(self.configuration.logging_path)])
+        logger = CompositeLogger([ConsoleLogger(), QueueLogger(self.process_queue)])
         evaluator = Evaluator(self.configuration, logger)
         evaluator.run_validation()
 
 
 class MonitorExperiment(threading.Thread):
-    def __init__(self, configuration, feedback_frame):
+    def __init__(self, configuration, feedback_frame, process_queue):
         threading.Thread.__init__(self)
         self.configuration = configuration
         self.output_text_widget = feedback_frame.output_text
         self.progress_bar_widget = feedback_frame.progress_bar
         self.progress_label_widget = feedback_frame.progress_label
 
-        open(self.configuration.logging_path, 'w').close() # clear logs
+        self.process_queue = process_queue
+        self.running = True
+
+    def set_running(self, running):
+        self.running = running
 
     def run(self):
-        last_processed_line = 0
-        while True:
-            time.sleep(1)
-            f = open(self.configuration.logging_path, "r")
-            lines = f.readlines()
-
-            if not lines:
-                continue
-
-            lines_size = len(lines)
-            lines = lines[last_processed_line:]
-            last_processed_line = lines_size
-            for line in lines:
-                if "Progress" in line:
-                    value_str = line.split(':')[1]
-                    value = int(float(value_str))
-                    self.progress_bar_widget["value"] = value
-                else:
-                    self.output_text_widget.insert(END, line)
-                    self.output_text_widget.see(END)
-                    self.progress_label_widget['text'] = line
-
+        while self.running:
+            line = self.process_queue.get()
+            if "Progress" in line:
+                value_str = line.split(':')[1]
+                value = int(float(value_str))
+                self.progress_bar_widget["value"] = value
+            else:
+                self.output_text_widget.insert(END, line)
+                self.output_text_widget.see(END)
+                self.progress_label_widget['text'] = line

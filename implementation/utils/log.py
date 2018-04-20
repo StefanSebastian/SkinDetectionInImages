@@ -31,6 +31,23 @@ class FileLogger:
             self.log("Progress:" + str(prog * 100))
 
 
+class QueueLogger:
+    def __init__(self, queue):
+        self.queue = queue
+
+    def log(self, message):
+        self.queue.put(message + '\n')
+
+    def log_progress(self, pos, total):
+        self.log("Progress:" + str((pos/total) * 100))
+
+    def log_progress_pixel(self, x_pixel, y_pixel, rows, cols):
+        pos = x_pixel * cols + y_pixel
+        if pos % 300 == 0:
+            prog = pos / (rows * cols)
+            self.log("Progress:" + str(prog * 100))
+
+
 class CompositeLogger:
     def __init__(self, loggers):
         self.loggers = loggers

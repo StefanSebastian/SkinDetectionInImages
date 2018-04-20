@@ -1,5 +1,5 @@
 from tkinter.ttk import Frame, Progressbar, Label
-from tkinter import Text
+from tkinter import Text, END
 
 
 class EvaluationFeedbackFrame(Frame):
@@ -22,4 +22,9 @@ class EvaluationFeedbackFrame(Frame):
         self.progress_bar.grid(row=1, column=0, padx=5, pady=5, sticky="ew")
         self.progress_label = Label(self)
         self.progress_label.grid(row=2, column=0, padx=5, pady=5, sticky="ew")
+
+    def reset(self):
+        self.progress_bar["value"] = 0
+        self.progress_label.config(text="")
+        self.output_text.delete("1.0", END)
 

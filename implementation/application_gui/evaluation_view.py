@@ -1,4 +1,5 @@
 import threading
+import multiprocessing
 import time
 from tkinter import END, HORIZONTAL, VERTICAL, Toplevel, DISABLED, NORMAL
 from tkinter.ttk import Frame, Button, Label, Separator
@@ -37,6 +38,7 @@ class EvaluationFrame(Frame):
         self.start_experiment_button = None
         self.stop_experiment_button = None
         self.experiment_running = False
+        self.experiment_process = None
 
         # build UI
         self.init_ui()
@@ -95,8 +97,12 @@ class EvaluationFrame(Frame):
 
     def stop_experiment(self):
         self.set_experiment_running(False)
+        if self.experiment_process is not None:
+            self.experiment_process.terminate()
+            self.experiment_process.join()
 
     def start_experiment(self):
+        self.feedback_frame.reset()
         self.set_experiment_running(True)
         try:
             sigma, tau, w_pos = self.segmentation_config_frame.get_values()
@@ -125,7 +131,8 @@ class EvaluationFrame(Frame):
             self.configuration.results_path = test_path_res
             self.configuration.test_path_logging = test_path_log
 
-            RunExperiment(self.configuration).start()
+            self.experiment_process = RunExperiment(self.configuration)
+            self.experiment_process.start()
             MonitorExperiment(self.configuration, self.feedback_frame).start()
 
         except ValidationError as e:
@@ -139,9 +146,9 @@ class EvaluationFrame(Frame):
             Label(toplevel, text=error).pack()
 
 
-class RunExperiment(threading.Thread):
+class RunExperiment(multiprocessing.Process):
     def __init__(self, configuration):
-        threading.Thread.__init__(self)
+        super(RunExperiment, self).__init__()
         self.configuration = configuration
 
     def run(self):

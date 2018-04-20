@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter.ttk import Notebook, Frame
 
-from evaluator.evaluator_gui.evaluation_view import EvaluationFrame
+from application_gui.evaluation_view import EvaluationFrame
 
 
 class EvaluatorApplication(Frame):

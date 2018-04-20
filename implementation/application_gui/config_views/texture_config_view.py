@@ -2,8 +2,9 @@ from tkinter import END
 from tkinter import filedialog
 from tkinter.ttk import Combobox, Entry, Frame, Label, Button
 
-from evaluator.evaluator_gui.config_views.utils import FileUtils
-from evaluator.evaluator_gui.validation_exception import ValidationError
+from application_gui.validation_exception import ValidationError
+
+from application_gui.config_views.utils import FileUtils
 
 
 class TextureConfigFrame(Frame):

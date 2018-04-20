@@ -1,7 +1,7 @@
 from tkinter import filedialog
 from tkinter.ttk import Frame, Label, Button
 
-from evaluator.evaluator_gui.config_views.utils import FileUtils
+from application_gui.config_views.utils import FileUtils
 
 
 class ResourcePathFrame(Frame):

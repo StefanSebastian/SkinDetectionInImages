@@ -1,7 +1,7 @@
-from tkinter.ttk import Frame, Label, Checkbutton, Entry
 from tkinter import IntVar, END
+from tkinter.ttk import Frame, Label, Checkbutton, Entry
 
-from evaluator.evaluator_gui.validation_exception import ValidationError
+from application_gui.validation_exception import ValidationError
 
 
 class SegmentationConfigFrame(Frame):

@@ -75,6 +75,9 @@ class EvaluationFrame(Frame):
     def start_experiment(self):
         print(self.segmentation_config_frame.get_values())
         print(self.spm_config_frame.get_values())
+        print(self.texture_config_frame.get_values())
+        print(self.size_config_frame.get_values())
+        print(self.resource_paths_frame.get_values())
         #RunExperiment(self.configuration).start()
         #MonitorExperiment(self.configuration, self.feedback_frame).start()
 

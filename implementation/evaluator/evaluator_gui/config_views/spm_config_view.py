@@ -2,7 +2,7 @@ from tkinter import Frame, Label, Button, Entry, END
 from tkinter import filedialog
 from tkinter.ttk import Combobox
 
-from evaluator.evaluator_gui.config_views.utils import browse_file, get_filename_from_path
+from evaluator.evaluator_gui.config_views.utils import FileUtils
 from evaluator.evaluator_gui.validation_exception import ValidationError
 
 
@@ -25,7 +25,8 @@ class SpmConfigFrame(Frame):
 
     def init_view(self):
 
-        self.spm_model_path_in = Label(self, text=get_filename_from_path(self.configuration.spm_model_path))
+        self.spm_model_path_in = Label(self,
+                                       text=FileUtils.get_filename_from_path(self.configuration.spm_model_path))
         self.spm_model_path_in.grid(row=0, column=1)
 
         Button(self,

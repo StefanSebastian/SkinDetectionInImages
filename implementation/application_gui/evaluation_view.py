@@ -1,6 +1,6 @@
 import threading
 import time
-from tkinter import END, HORIZONTAL, VERTICAL, Toplevel
+from tkinter import END, HORIZONTAL, VERTICAL, Toplevel, DISABLED, NORMAL
 from tkinter.ttk import Frame, Button, Label, Separator
 
 from application_gui.config_views.resource_path_config_view import ResourcePathFrame
@@ -32,6 +32,11 @@ class EvaluationFrame(Frame):
 
         # output widgets
         self.feedback_frame = None
+
+        # experiment controls
+        self.start_experiment_button = None
+        self.stop_experiment_button = None
+        self.experiment_running = False
 
         # build UI
         self.init_ui()
@@ -68,13 +73,31 @@ class EvaluationFrame(Frame):
 
         Separator(self, orient=VERTICAL).grid(row=0, column=2, sticky="ns", rowspan=9)
 
-        Button(self, text="Start experiment", command=self.start_experiment).grid(row=0, column=3, rowspan=2)
+        self.start_experiment_button = Button(self, text="Start experiment", command=self.start_experiment)
+        self.start_experiment_button.grid(row=0, column=3, rowspan=1)
+
+        self.stop_experiment_button = Button(self, text="Stop experiment", command=self.stop_experiment, state=DISABLED)
+        self.stop_experiment_button.grid(row=1, column=3, rowspan=1)
+
         self.feedback_frame = EvaluationFeedbackFrame(self, self.configuration)
-        self.feedback_frame.grid(row=1, column=3, rowspan=7)
+        self.feedback_frame.grid(row=2, column=3, rowspan=7)
 
         self.grid()
 
+    def set_experiment_running(self, value):
+        self.experiment_running = value
+        if value is True:
+            self.start_experiment_button.config(state=DISABLED)
+            self.stop_experiment_button.config(state=NORMAL)
+        else:
+            self.start_experiment_button.config(state=NORMAL)
+            self.stop_experiment_button.config(state=DISABLED)
+
+    def stop_experiment(self):
+        self.set_experiment_running(False)
+
     def start_experiment(self):
+        self.set_experiment_running(True)
         try:
             sigma, tau, w_pos = self.segmentation_config_frame.get_values()
             self.configuration.qs_sigma = sigma
@@ -107,6 +130,7 @@ class EvaluationFrame(Frame):
 
         except ValidationError as e:
             self.show_popup(str(e), e.errors)
+            self.set_experiment_running(False)
 
     def show_popup(self, message, errors):
         toplevel = Toplevel(self)

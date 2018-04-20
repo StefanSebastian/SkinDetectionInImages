@@ -1,6 +1,8 @@
 from tkinter.ttk import Frame, Label, Checkbutton, Entry
 from tkinter import IntVar, END
 
+from evaluator.evaluator_gui.validation_exception import ValidationError
+
 
 class SegmentationConfigFrame(Frame):
     def __init__(self, parent, configuration):
@@ -10,6 +12,7 @@ class SegmentationConfigFrame(Frame):
         self.sigma_in = None
         self.tau_in = None
         self.position_in = None
+        self.position_value = None
 
         self.init_view()
 
@@ -24,6 +27,23 @@ class SegmentationConfigFrame(Frame):
         self.tau_in.insert(END, self.configuration.qs_tau)
         self.tau_in.grid(row=1, column=1, sticky="w", padx=5, pady=5)
 
-        value = IntVar()
-        self.position_in = Checkbutton(self, text="Use position", variable=value)\
-            .grid(row=2, column=0, columnspan=2, sticky="w", padx=5, pady=5)
+        self.position_value = IntVar()
+        self.position_in = Checkbutton(self, text="Use position", variable=self.position_value)
+        self.position_in.grid(row=2, column=0, columnspan=2, sticky="w", padx=5, pady=5)
+
+    def get_values(self):
+        errors = []
+
+        try:
+            sigma_val = int(self.sigma_in.get())
+        except ValueError:
+            errors.append("Invalid value for sigma")
+
+        try:
+            tau_val = int(self.tau_in.get())
+        except ValueError:
+            errors.append("Invalid value for tau")
+
+        if errors:
+            raise ValidationError("Segmentation validation error", errors)
+        return sigma_val, tau_val, self.position_value.get()

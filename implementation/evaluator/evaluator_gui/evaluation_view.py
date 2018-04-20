@@ -73,8 +73,10 @@ class EvaluationFrame(Frame):
         self.grid()
 
     def start_experiment(self):
-        RunExperiment(self.configuration).start()
-        MonitorExperiment(self.configuration, self.feedback_frame).start()
+        print(self.segmentation_config_frame.get_values())
+        print(self.spm_config_frame.get_values())
+        #RunExperiment(self.configuration).start()
+        #MonitorExperiment(self.configuration, self.feedback_frame).start()
 
 
 class RunExperiment(threading.Thread):

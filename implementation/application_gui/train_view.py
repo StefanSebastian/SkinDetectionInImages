@@ -31,7 +31,11 @@ class TrainSpmFrame(Frame):
         self.grid()
 
     def config_extractor(self):
-        print(self.config_frame.get_values())
+        color_space, data_path, res_path, model_nm = self.config_frame.get_values()
+        self.configuration.color_space = color_space
+        self.configuration.path_compaq = data_path
+        self.configuration.path_models = res_path
+        self.configuration.selected_model = model_nm
         return self.configuration
 
     @staticmethod

@@ -61,7 +61,7 @@ class TrainSpmConfigFrame(Frame):
     def get_values(self):
         errors = []
         if self.color_space.get() not in self.color_spaces:
-           errors.append("Invalid color space")
+            errors.append("Invalid color space")
 
         if self.model_name.get() == "":
             errors.append("Invalid model name")

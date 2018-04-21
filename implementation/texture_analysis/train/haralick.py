@@ -4,6 +4,7 @@ from sklearn.externals import joblib
 from texture_analysis.train.model import TextureModel
 from texture_analysis.train.svm_classifier import SvmClassifier
 from texture_analysis.train.train_data_preparer import TrainDataPreparer
+from utils.serialization import SerializationUtils
 
 
 class HaralickModelTrainer:
@@ -24,7 +25,8 @@ class HaralickModelTrainer:
         self.__store_model(model_path)
 
     def __store_model(self, model_path):
-        joblib.dump(self.model, model_path)
+        serializator = SerializationUtils()
+        serializator.store_joblib_object(self.model, model_path)
 
 
 class HaralickFeatureExtractor:

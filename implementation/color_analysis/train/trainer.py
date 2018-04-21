@@ -31,3 +31,4 @@ class SPMModelTrainer:
                                               train_config.color_space, logger)
         trainer = SPMModelTrainer(extractor, train_config.color_space)
         trainer.__train_and_store_model(train_config.path_models + '/' + train_config.selected_model)
+        logger.log("Done")

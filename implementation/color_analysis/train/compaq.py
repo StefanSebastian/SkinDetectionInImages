@@ -23,11 +23,16 @@ class CompaqComponentExtractor:
         return BayesSpmComponents(self.skin_pixels, self.non_skin_pixels, self.appearances, self.appearances_as_skin)
 
     def __compute_components(self):
-        self.__compute_components_for_positive_images()
-        self.__compute_components_for_negative_images()
+        try:
+            self.__compute_components_for_positive_images()
+            self.__compute_components_for_negative_images()
+        except FileNotFoundError as e:
+            self.logger.log("Error " + "invalid train path")
+            raise e
 
     def __compute_components_for_positive_images(self):
         self.logger.log("Loading positive images")
+
         images = general.load_images_from_folder(self.path_train + "/" + "train_images")
         masks = general.load_images_from_folder(self.path_train + "/" + "train_masks")
 

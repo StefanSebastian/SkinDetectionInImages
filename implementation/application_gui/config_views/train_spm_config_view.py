@@ -2,6 +2,7 @@ from tkinter import filedialog, END
 from tkinter.ttk import Frame, Label, Combobox, Button, Entry
 
 from application_gui.config_views.utils import FileUtils
+from application_gui.validation_exception import ValidationError
 
 
 class TrainSpmConfigFrame(Frame):
@@ -13,11 +14,11 @@ class TrainSpmConfigFrame(Frame):
         self.color_space = None
         self.color_spaces = ["RGB", "HSV", "YCrCb"]
 
-        self.path_to_data_res = None
-        self.path_to_data_in = FileUtils.get_filename_from_path(configuration.path_compaq)
+        self.path_to_data_res = configuration.path_compaq
+        self.path_to_data_in = None
 
         self.path_to_models = None
-        self.path_to_models_res = FileUtils.get_filename_from_path(configuration.path_models)
+        self.path_to_models_res = configuration.path_models
 
         self.model_name = None
 
@@ -56,3 +57,16 @@ class TrainSpmConfigFrame(Frame):
     def browse_model_path(self):
         self.path_to_models_res = filedialog.askdirectory()
         self.path_to_models.config(text=self.path_to_models_res.split('/')[-1])
+
+    def get_values(self):
+        errors = []
+        if self.color_space.get() not in self.color_spaces:
+           errors.append("Invalid color space")
+
+        if self.model_name.get() == "":
+            errors.append("Invalid model name")
+
+        if errors:
+            raise ValidationError("SPM train config validation error", errors)
+
+        return self.color_space.get(), self.path_to_data_res, self.path_to_models_res, self.model_name.get()

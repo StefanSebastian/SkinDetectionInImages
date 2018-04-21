@@ -1,14 +1,13 @@
 from tkinter.ttk import Frame
 
 from application_gui.config_views.train_spm_config_view import TrainSpmConfigFrame
-from application_gui.process.feedback_view import FeedbackFrame
 from application_gui.process.process_control_view import ProcessControlFrame
 from color_analysis.train.train_config import SpmTrainConfiguration
 from color_analysis.train.trainer import SPMModelTrainer
 
 
 class TrainSpmFrame(Frame):
-    def __init__(self, parent, *args, **kwargs):
+    def __init__(self, parent):
         Frame.__init__(self, parent)
 
         # configuration for training
@@ -32,6 +31,7 @@ class TrainSpmFrame(Frame):
         self.grid()
 
     def config_extractor(self):
+        print(self.config_frame.get_values())
         return self.configuration
 
     @staticmethod

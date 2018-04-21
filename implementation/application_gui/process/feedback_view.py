@@ -2,11 +2,10 @@ from tkinter.ttk import Frame, Progressbar, Label
 from tkinter import Text, END
 
 
-class EvaluationFeedbackFrame(Frame):
+class FeedbackFrame(Frame):
 
-    def __init__(self, parent, configuration):
+    def __init__(self, parent):
         Frame.__init__(self, parent)
-        self.configuration = configuration
 
         self.output_text = None
         self.progress_bar = None

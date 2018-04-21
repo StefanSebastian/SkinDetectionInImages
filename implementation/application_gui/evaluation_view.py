@@ -4,13 +4,15 @@ from multiprocessing import Queue
 from tkinter import END, HORIZONTAL, VERTICAL, Toplevel, DISABLED, NORMAL
 from tkinter.ttk import Frame, Button, Label, Separator
 
+from application_gui.config_views.resource_path_config_view import ResourcePathFrame
 from application_gui.config_views.segmentation_config_view import SegmentationConfigFrame
 from application_gui.config_views.size_config_view import SizeConfigFrame
 from application_gui.config_views.spm_config_view import SpmConfigFrame
 from application_gui.config_views.texture_config_view import TextureConfigFrame
-from application_gui.evaluation_feedback_view import EvaluationFeedbackFrame
-
-from application_gui.config_views.resource_path_config_view import ResourcePathFrame
+from application_gui.process.feedback_view import FeedbackFrame
+from application_gui.process.monitoring import MonitorThread
+from application_gui.process.process_control_view import ProcessControlFrame
+from application_gui.util_views.popups import Popups
 from application_gui.validation_exception import ValidationError
 from evaluator.run_configuration import RunConfiguration
 from evaluator.simulation import Evaluator
@@ -33,12 +35,7 @@ class EvaluationFrame(Frame):
 
         # output widgets
         self.feedback_frame = None
-
-        # experiment controls
-        self.start_experiment_button = None
-        self.stop_experiment_button = None
-        self.experiment_running = False
-
+        self.experiment_controls_frame = None
         self.experiment_process = None
         self.monitor_thread = None
 
@@ -77,28 +74,16 @@ class EvaluationFrame(Frame):
 
         Separator(self, orient=VERTICAL).grid(row=0, column=2, sticky="ns", rowspan=9)
 
-        self.start_experiment_button = Button(self, text="Start experiment", command=self.start_experiment)
-        self.start_experiment_button.grid(row=0, column=3, rowspan=1)
+        self.experiment_controls_frame = ProcessControlFrame(self, self.start_experiment, self.stop_experiment)
+        self.experiment_controls_frame.grid(row=0, column=3, rowspan=2)
 
-        self.stop_experiment_button = Button(self, text="Stop experiment", command=self.stop_experiment, state=DISABLED)
-        self.stop_experiment_button.grid(row=1, column=3, rowspan=1)
-
-        self.feedback_frame = EvaluationFeedbackFrame(self, self.configuration)
+        self.feedback_frame = FeedbackFrame(self)
         self.feedback_frame.grid(row=2, column=3, rowspan=7)
 
         self.grid()
 
-    def set_experiment_running(self, value):
-        self.experiment_running = value
-        if value is True:
-            self.start_experiment_button.config(state=DISABLED)
-            self.stop_experiment_button.config(state=NORMAL)
-        else:
-            self.start_experiment_button.config(state=NORMAL)
-            self.stop_experiment_button.config(state=DISABLED)
-
     def stop_experiment(self):
-        self.set_experiment_running(False)
+        self.experiment_controls_frame.set_experiment_running(False)
         if self.experiment_process is not None:
             self.experiment_process.terminate()
             self.experiment_process.join()
@@ -106,7 +91,7 @@ class EvaluationFrame(Frame):
 
     def start_experiment(self):
         self.feedback_frame.reset()
-        self.set_experiment_running(True)
+        self.experiment_controls_frame.set_experiment_running(True)
         try:
             sigma, tau, w_pos = self.segmentation_config_frame.get_values()
             self.configuration.qs_sigma = sigma
@@ -140,18 +125,12 @@ class EvaluationFrame(Frame):
             self.experiment_process.daemon = True
             self.experiment_process.start()
 
-            self.monitor_thread = MonitorExperiment(self.configuration, self.feedback_frame, process_queue)
+            self.monitor_thread = MonitorThread(self.feedback_frame, process_queue)
             self.monitor_thread.start()
 
         except ValidationError as e:
-            self.show_popup(str(e), e.errors)
-            self.set_experiment_running(False)
-
-    def show_popup(self, message, errors):
-        toplevel = Toplevel(self)
-        Label(toplevel, text=message).pack()
-        for error in errors:
-            Label(toplevel, text=error).pack()
+            Popups.show_error_popup(self, str(e), e.errors)
+            self.experiment_controls_frame.set_experiment_running(False)
 
 
 class RunExperiment(multiprocessing.Process):
@@ -167,28 +146,4 @@ class RunExperiment(multiprocessing.Process):
         evaluator.run_validation()
 
 
-class MonitorExperiment(threading.Thread):
-    def __init__(self, configuration, feedback_frame, process_queue):
-        threading.Thread.__init__(self)
-        self.configuration = configuration
-        self.output_text_widget = feedback_frame.output_text
-        self.progress_bar_widget = feedback_frame.progress_bar
-        self.progress_label_widget = feedback_frame.progress_label
 
-        self.process_queue = process_queue
-        self.running = True
-
-    def set_running(self, running):
-        self.running = running
-
-    def run(self):
-        while self.running:
-            line = self.process_queue.get()
-            if "Progress" in line:
-                value_str = line.split(':')[1]
-                value = int(float(value_str))
-                self.progress_bar_widget["value"] = value
-            else:
-                self.output_text_widget.insert(END, line)
-                self.output_text_widget.see(END)
-                self.progress_label_widget['text'] = line

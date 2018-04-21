@@ -11,7 +11,7 @@ class SPMModelTrainer:
         self.component_extractor = component_extractor
         self.color_space = color_space
 
-    def train_and_store_model(self, store_path):
+    def __train_and_store_model(self, store_path):
         components = self.component_extractor.extract_components()
         model = SPMModel(components, self.color_space)
 
@@ -23,11 +23,11 @@ class SPMModelTrainer:
         """
         Default factory method ; uses values from config
         """
-
+        logger.log("Started training model")
         if train_config.database == 'compaq':
             extractor = CompaqComponentExtractor(train_config.path_compaq, train_config.color_space, logger)
         else:
             extractor = SfaComponentExtractor(train_config.path_pos, train_config.path_neg,
                                               train_config.color_space, logger)
         trainer = SPMModelTrainer(extractor, train_config.color_space)
-        trainer.train_and_store_model(train_config.path_models + '/' + train_config.selected_model)
+        trainer.__train_and_store_model(train_config.path_models + '/' + train_config.selected_model)

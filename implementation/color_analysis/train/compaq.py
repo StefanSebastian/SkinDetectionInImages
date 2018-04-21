@@ -27,6 +27,7 @@ class CompaqComponentExtractor:
         self.__compute_components_for_negative_images()
 
     def __compute_components_for_positive_images(self):
+        self.logger.log("Loading positive images")
         images = general.load_images_from_folder(self.path_train + "/" + "train_images")
         masks = general.load_images_from_folder(self.path_train + "/" + "train_masks")
 
@@ -43,6 +44,7 @@ class CompaqComponentExtractor:
                 self.logger.log(str(current_index) + " mask is corrupted")
 
     def __compute_components_for_negative_images(self):
+        self.logger.log("Loading negative images")
         images = general.load_images_from_folder(self.path_train + "/" + "train_images_ns")
 
         self.logger.log("\nExtracting values from negative images")

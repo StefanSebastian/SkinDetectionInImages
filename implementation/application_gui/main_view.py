@@ -2,7 +2,8 @@ import tkinter as tk
 from tkinter.ttk import Notebook, Frame
 
 from application_gui.evaluation_view import EvaluationFrame
-from application_gui.train_view import TrainSpmFrame
+from application_gui.train_spm_view import TrainSpmFrame
+from application_gui.train_texture_view import TrainTextureFrame
 
 
 class EvaluatorApplication(Frame):
@@ -23,6 +24,7 @@ class EvaluatorApplication(Frame):
 
         tab_train_texture = Frame(notebook)
         notebook.add(tab_train_texture, text="Train texture")
+        TrainTextureFrame(tab_train_texture)
 
         notebook.pack(expand=1, fill="both")
 

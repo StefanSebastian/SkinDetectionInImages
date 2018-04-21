@@ -1,21 +1,20 @@
-import threading
 import multiprocessing
+import threading
 from multiprocessing import Queue
-import time
 from tkinter import END, HORIZONTAL, VERTICAL, Toplevel, DISABLED, NORMAL
 from tkinter.ttk import Frame, Button, Label, Separator
 
-from application_gui.config_views.resource_path_config_view import ResourcePathFrame
+from application_gui.config_views.segmentation_config_view import SegmentationConfigFrame
 from application_gui.config_views.size_config_view import SizeConfigFrame
 from application_gui.config_views.spm_config_view import SpmConfigFrame
 from application_gui.config_views.texture_config_view import TextureConfigFrame
 from application_gui.evaluation_feedback_view import EvaluationFeedbackFrame
-from application_gui.validation_exception import ValidationError
 
+from application_gui.config_views.resource_path_config_view import ResourcePathFrame
+from application_gui.validation_exception import ValidationError
 from evaluator.run_configuration import RunConfiguration
 from evaluator.simulation import Evaluator
-from application_gui.config_views.segmentation_config_view import SegmentationConfigFrame
-from utils.log import CompositeLogger, ConsoleLogger, FileLogger, QueueLogger
+from utils.log import CompositeLogger, ConsoleLogger, QueueLogger
 
 
 class EvaluationFrame(Frame):

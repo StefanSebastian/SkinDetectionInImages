@@ -1,9 +1,9 @@
+import numpy as np
+
 from color_analysis.train.components import BayesSpmComponents
 from utils import general
 from utils.log import LogFactory
 from utils.tuples import Pixel
-
-import numpy as np
 
 
 class CompaqComponentExtractor:

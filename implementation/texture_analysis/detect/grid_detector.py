@@ -1,7 +1,6 @@
-from utils import general
-
 import cv2
 
+from utils import general
 from utils.log import LogFactory
 
 

@@ -1,12 +1,11 @@
 import cv2
 
-from evaluator.run_configuration import RunConfiguration
-from utils import general
-from evaluator.combine_results import Combiner
-from evaluator.calculate_results import Stats
-from segmentation.quickshift import QuickshiftSegmentation
 from color_analysis.detect.detector import SpmDetectorFactory
+from evaluator.calculate_results import Stats
+from evaluator.combine_results import Combiner
+from segmentation.quickshift import QuickshiftSegmentation
 from texture_analysis.detect.detector import TextureDetectorFactory
+from utils import general
 from utils.log import LogFactory
 
 

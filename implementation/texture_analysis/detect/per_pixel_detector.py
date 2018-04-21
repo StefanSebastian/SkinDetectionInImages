@@ -1,8 +1,7 @@
-from utils import general
-
 import cv2
 import numpy as np
 
+from utils import general
 from utils.log import LogFactory
 
 

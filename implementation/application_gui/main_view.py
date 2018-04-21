@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter.ttk import Notebook, Frame
 
 from application_gui.evaluation_view import EvaluationFrame
+from application_gui.train_view import TrainSpmFrame
 
 
 class EvaluatorApplication(Frame):
@@ -18,6 +19,7 @@ class EvaluatorApplication(Frame):
 
         tab_train_spm = Frame(notebook)
         notebook.add(tab_train_spm, text="Train SPM")
+        TrainSpmFrame(tab_train_spm)
 
         tab_train_texture = Frame(notebook)
         notebook.add(tab_train_texture, text="Train texture")

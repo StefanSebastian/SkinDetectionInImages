@@ -26,6 +26,9 @@ class EvaluatorApplication(Frame):
         notebook.add(tab_train_texture, text="Train texture")
         TrainTextureFrame(tab_train_texture)
 
+        tab_detection = Frame(notebook)
+        notebook.add(tab_detection, text="Detection")
+
         notebook.pack(expand=1, fill="both")
 
 if __name__ == '__main__':

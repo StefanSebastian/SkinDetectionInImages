@@ -1,6 +1,6 @@
 from tkinter.ttk import Frame
 
-from application_gui.config_views.detection_config_group import DetectionConfigFrame
+from application_gui.config_views.evaluation_config_group import EvaluationConfigFrame
 from application_gui.process.process_control_view import ProcessControlFrame
 from evaluator.run_configuration import RunConfiguration
 from evaluator.simulation import Evaluator
@@ -23,7 +23,7 @@ class EvaluationFrame(Frame):
         self.init_ui()
 
     def init_ui(self):
-        self.config_frame = DetectionConfigFrame(self, self.configuration)
+        self.config_frame = EvaluationConfigFrame(self, self.configuration)
         self.config_frame.grid(row=0, column=0)
 
         self.experiment_controls_frame = ProcessControlFrame(self, self.config_extractor, EvaluationFrame.task_starter)

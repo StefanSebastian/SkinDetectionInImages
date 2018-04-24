@@ -1,13 +1,14 @@
 import tkinter as tk
 from tkinter.ttk import Notebook, Frame
 
+from application_gui.detection_view import DetectionFrame
 from application_gui.evaluation_view import EvaluationFrame
 from application_gui.train_spm_view import TrainSpmFrame
 from application_gui.train_texture_view import TrainTextureFrame
 
 
 class EvaluatorApplication(Frame):
-    def __init__(self, parent, *args, **kwargs):
+    def __init__(self, parent):
         Frame.__init__(self, parent)
         self.create_windows()
 
@@ -28,6 +29,7 @@ class EvaluatorApplication(Frame):
 
         tab_detection = Frame(notebook)
         notebook.add(tab_detection, text="Detection")
+        DetectionFrame(tab_detection)
 
         notebook.pack(expand=1, fill="both")
 

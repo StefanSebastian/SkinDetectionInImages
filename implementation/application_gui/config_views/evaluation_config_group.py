@@ -1,7 +1,6 @@
 from tkinter import HORIZONTAL, VERTICAL
 from tkinter.ttk import Frame, Label, Separator
 
-from application_gui.config_views.detection_path_view import DetectionPathFrame
 from application_gui.config_views.resource_path_config_view import ResourcePathFrame
 from application_gui.config_views.segmentation_config_view import SegmentationConfigFrame
 from application_gui.config_views.size_config_view import SizeConfigFrame
@@ -9,7 +8,7 @@ from application_gui.config_views.spm_config_view import SpmConfigFrame
 from application_gui.config_views.texture_config_view import TextureConfigFrame
 
 
-class DetectionConfigFrame(Frame):
+class EvaluationConfigFrame(Frame):
     def __init__(self, parent, configuration):
         Frame.__init__(self, parent)
         self.configuration = configuration
@@ -18,7 +17,7 @@ class DetectionConfigFrame(Frame):
         self.spm_config_frame = None
         self.texture_config_frame = None
         self.size_config_frame = None
-        self.detection_path_frame = None
+        self.resource_paths_frame = None
 
         self.init_ui()
 
@@ -47,9 +46,9 @@ class DetectionConfigFrame(Frame):
 
         Separator(self, orient=HORIZONTAL).grid(row=7, column=0, sticky="ew", columnspan=2)
 
-        self.detection_path_frame = DetectionPathFrame(self, self.configuration)
-        Label(self, text="Input image").grid(row=8, column=0, sticky="w")
-        self.detection_path_frame.grid(row=8, column=1, sticky="w")
+        self.resource_paths_frame = ResourcePathFrame(self, self.configuration)
+        Label(self, text="Resources").grid(row=8, column=0, sticky="w")
+        self.resource_paths_frame.grid(row=8, column=1, sticky="w")
 
         Separator(self, orient=VERTICAL).grid(row=0, column=2, sticky="ns", rowspan=9)
 
@@ -74,7 +73,10 @@ class DetectionConfigFrame(Frame):
         if use_rs == 1:
             self.configuration.size = (height, width)
 
-        detection_path = self.detection_path_frame.get_values()
-        self.configuration.detection_path = detection_path
+        test_path_in, test_path_exp, test_path_res, test_path_log = self.resource_paths_frame.get_values()
+        self.configuration.test_path_in = test_path_in
+        self.configuration.test_path_expected = test_path_exp
+        self.configuration.results_path = test_path_res
+        self.configuration.test_path_logging = test_path_log
 
         return self.configuration

@@ -21,7 +21,7 @@ class ProcessControlFrame(Frame):
     monitor thread displays messages in feedback frame
     """
 
-    def __init__(self, parent, config_extractor, task_starter):
+    def __init__(self, parent, config_extractor, task_starter, before_hook=None, after_hook=None):
         Frame.__init__(self, parent)
 
         self.feedback_frame = None
@@ -40,6 +40,10 @@ class ProcessControlFrame(Frame):
         self.experiment_process = None
         # monitor thread
         self.monitor_thread = None
+
+        # optional hooks before/after process
+        self.before_hook = before_hook
+        self.after_hook = after_hook
 
         self.init_view()
 
@@ -67,6 +71,10 @@ class ProcessControlFrame(Frame):
         self.set_experiment_running(True)
         try:
             configuration = self.config_extractor()
+
+            # optional operations before starting process
+            if self.before_hook:
+                self.before_hook(configuration)
 
             # start experiment
             process_queue = Queue()

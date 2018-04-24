@@ -14,7 +14,7 @@ class FeedbackFrame(Frame):
         self.init_view()
 
     def init_view(self):
-        self.output_text = Text(self, height=10)
+        self.output_text = Text(self, height=10, width=40)
         self.output_text.grid(row=0, column=0, padx=5, pady=5, sticky="ew")
         self.progress_bar = Progressbar(self, orient='horizontal')
         self.progress_bar['maximum'] = 100

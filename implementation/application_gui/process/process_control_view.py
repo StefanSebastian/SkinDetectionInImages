@@ -33,6 +33,8 @@ class ProcessControlFrame(Frame):
 
         # extracts a configuration object
         self.config_extractor = config_extractor
+        self.config = None
+
         # takes a config and a logger and starts a task
         self.task_start = task_starter
 
@@ -70,19 +72,19 @@ class ProcessControlFrame(Frame):
         self.feedback_frame.reset()
         self.set_experiment_running(True)
         try:
-            configuration = self.config_extractor()
+            self.config = self.config_extractor()
 
             # optional operations before starting process
             if self.before_hook:
-                self.before_hook(configuration)
+                self.before_hook(self.config)
 
             # start experiment
             process_queue = Queue()
-            self.experiment_process = RunExperiment(configuration, process_queue, self.task_start)
+            self.experiment_process = RunExperiment(self.config, process_queue, self.task_start)
             self.experiment_process.daemon = True
             self.experiment_process.start()
 
-            self.monitor_thread = MonitorThread(self.feedback_frame, process_queue)
+            self.monitor_thread = MonitorThread(self.feedback_frame, process_queue, self.process_finished_callback)
             self.monitor_thread.start()
 
         except ValidationError as e:
@@ -95,6 +97,12 @@ class ProcessControlFrame(Frame):
             self.experiment_process.terminate()
             self.experiment_process.join()
             self.monitor_thread.set_running(False)
+
+    def process_finished_callback(self):
+        if self.after_hook:
+            self.after_hook(self.config)
+
+        self.stop_process()
 
 
 class RunExperiment(multiprocessing.Process):

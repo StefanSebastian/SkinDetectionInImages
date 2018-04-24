@@ -1,6 +1,5 @@
 from tkinter.ttk import Frame, Label
 
-import cv2
 from PIL import Image
 from PIL.ImageTk import PhotoImage
 
@@ -30,8 +29,14 @@ class ImageDisplayFrame(Frame):
         self.grid()
 
     def set_input_image(self, path):
+        self.set_image(path, self.input_image_frame)
+
+    def set_output_image(self, path):
+        self.set_image(path, self.output_image_frame)
+
+    def set_image(self, path, frame):
         load = Image.open(path)
         resized = load.resize((200, 200))
         render = PhotoImage(resized)
-        self.input_image_frame.config(image=render)
-        self.input_image_frame.image = render
+        frame.config(image=render)
+        frame.image = render

@@ -27,7 +27,7 @@ class GridDetector:
         # cut image in little pieces
         for r in range(0, rows - grid_size, grid_size):
             for c in range(0, cols - grid_size, grid_size):
-                self.logger.print_progress_pixel(r, c, rows, cols)
+                self.logger.log_progress_pixel(r, c, rows, cols)
                 roi = gray[r:r + grid_size, c:c + grid_size]
 
                 prediction = self.model.classify(roi)

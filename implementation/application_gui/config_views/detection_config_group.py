@@ -74,7 +74,8 @@ class DetectionConfigFrame(Frame):
         if use_rs == 1:
             self.configuration.size = (height, width)
 
-        detection_path = self.detection_path_frame.get_values()
+        detection_path, results_path = self.detection_path_frame.get_values()
         self.configuration.detection_path = detection_path
+        self.configuration.results_path = results_path
 
         return self.configuration

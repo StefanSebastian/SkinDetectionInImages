@@ -27,7 +27,7 @@ class DetectionFrame(Frame):
         self.config_frame = DetectionConfigFrame(self, self.configuration)
         self.config_frame.grid(row=0, column=0)
 
-        self.process_frame = ProcessControlFrame(self, self.config_extractor, self.task_starter, self.before_start)
+        self.process_frame = ProcessControlFrame(self, self.config_extractor, self.task_starter, self.before_start, self.on_finish)
         self.process_frame.grid(row=0, column=1)
 
         self.image_display_frame = ImageDisplayFrame(self)
@@ -45,3 +45,7 @@ class DetectionFrame(Frame):
 
     def before_start(self, configuration):
         self.image_display_frame.set_input_image(configuration.detection_path)
+
+    def on_finish(self, configuration):
+        self.image_display_frame.set_output_image(configuration.results_path + '/' +
+                                                  configuration.detection_result_image_name)

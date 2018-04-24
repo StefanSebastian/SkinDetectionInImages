@@ -22,7 +22,7 @@ class NeighbourDetector:
         cols = image.shape[1]
         for x_pixel in range(rows):
             for y_pixel in range(cols):
-                self.logger.print_progress_pixel(x_pixel, y_pixel, rows, cols)
+                self.logger.log_progress_pixel(x_pixel, y_pixel, rows, cols)
 
                 pixel = image[x_pixel, y_pixel]
 

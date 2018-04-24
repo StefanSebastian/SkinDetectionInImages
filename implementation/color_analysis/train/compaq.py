@@ -38,7 +38,7 @@ class CompaqComponentExtractor:
 
         self.logger.log("\nExtracting values from positive images")
         for current_index in range(len(images)):
-            self.logger.print_progress(current_index, len(images))
+            self.logger.log_progress(current_index, len(images))
             image = images[current_index]
             mask = masks[current_index]
 
@@ -54,7 +54,7 @@ class CompaqComponentExtractor:
 
         self.logger.log("\nExtracting values from negative images")
         for current_index in range(len(images)):
-            self.logger.print_progress(current_index, len(images))
+            self.logger.log_progress(current_index, len(images))
             image = images[current_index]
 
             image = general.convert_color(image, self.color_space)

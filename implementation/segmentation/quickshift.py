@@ -75,7 +75,7 @@ class QuickshiftSegmentation:
             for y_pixel in range(cols):
                 pixel = image[x_pixel, y_pixel]
 
-                self.logger.print_progress_pixel(x_pixel, y_pixel, rows, cols)
+                self.logger.log_progress_pixel(x_pixel, y_pixel, rows, cols)
 
                 # get neighbourhood window
                 x_upper = x_pixel - 3 * self.sigma
@@ -124,7 +124,7 @@ class QuickshiftSegmentation:
         # iterate pixels
         for x_pixel in range(rows):
             for y_pixel in range(cols):
-                self.logger.print_progress_pixel(x_pixel, y_pixel, rows, cols)
+                self.logger.log_progress_pixel(x_pixel, y_pixel, rows, cols)
 
                 # get neighbourhood window
                 x_upper = x_pixel - self.tau

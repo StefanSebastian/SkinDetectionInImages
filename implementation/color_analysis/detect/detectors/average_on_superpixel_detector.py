@@ -17,7 +17,7 @@ class AverageOnSuperpixelDetector:
         pos = 0
         for center in superpixels:  # iterate superpixels
             pos += 1
-            self.logger.print_progress(pos, len(superpixels))
+            self.logger.log_progress(pos, len(superpixels))
 
             superpixel = superpixels[center]
             average_prob = self.__calculate_superpixel_average(superpixel, image)

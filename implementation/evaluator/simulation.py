@@ -31,10 +31,15 @@ class Evaluator:
 
     def run_detection(self):
         image = cv2.imread(self.config.detection_path)
-        self.__process_image_detection(image)
+        result = self.__process_image_detection(image)
+        cv2.imwrite(self.config.results_path + '/' + self.config.detection_result_image_name, result)
+        self.logger.log_done()
 
     def __process_image_detection(self, image):
         self.logger.log("Started image detection")
+
+        if self.config.resize == 1:
+            image = cv2.resize(image, self.config.size)
 
         if self.config.spm_type == 2:
             self.logger.log("Image segmentation")
@@ -80,6 +85,7 @@ class Evaluator:
             stats = Stats.get_stats(expected_image, result, image_index)
             self.logger.log(str(stats))
             self.__append_results(stats)
+        self.logger.log_done()
 
     def __process_image_evaluation(self, image, image_index):
         self.logger.log("-----------------------------------------------------------")

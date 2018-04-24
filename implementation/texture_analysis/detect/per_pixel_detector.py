@@ -36,7 +36,7 @@ class PerPixelDetector:
         radius = self.grid_size // 2
         for x_pixel in range(radius, rows - radius):
             for y_pixel in range(radius, cols - radius):
-                self.logger.print_progress_pixel(x_pixel, y_pixel, rows, cols)
+                self.logger.log_progress_pixel(x_pixel, y_pixel, rows, cols)
 
                 if mask(x_pixel, y_pixel):
                     r = x_pixel - radius

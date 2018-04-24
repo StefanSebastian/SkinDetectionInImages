@@ -1,6 +1,9 @@
 from utils.general import print_progress
 from utils.general import print_progress_pixel
 
+message_process_done = "Process finished"
+progress_prefix = "Progress:"
+
 
 class ConsoleLogger:
     def log(self, message):
@@ -12,6 +15,9 @@ class ConsoleLogger:
     def log_progress_pixel(self, x_pixel, y_pixel, rows, cols):
         print_progress_pixel(x_pixel, y_pixel, rows, cols)
 
+    def log_done(self):
+        print(message_process_done)
+
 
 class FileLogger:
     def __init__(self, path):
@@ -22,13 +28,16 @@ class FileLogger:
             log_file.write(message + '\n')
 
     def log_progress(self, pos, total):
-        self.log("Progress:" + str((pos/total) * 100))
+        self.log(progress_prefix + str((pos/total) * 100))
 
     def log_progress_pixel(self, x_pixel, y_pixel, rows, cols):
         pos = x_pixel * cols + y_pixel
         if pos % 300 == 0:
             prog = pos / (rows * cols)
-            self.log("Progress:" + str(prog * 100))
+            self.log(progress_prefix + str(prog * 100))
+
+    def log_done(self):
+        self.log(message_process_done)
 
 
 class QueueLogger:
@@ -39,13 +48,16 @@ class QueueLogger:
         self.queue.put(message + '\n')
 
     def log_progress(self, pos, total):
-        self.log("Progress:" + str((pos/total) * 100))
+        self.log(progress_prefix + str((pos/total) * 100))
 
     def log_progress_pixel(self, x_pixel, y_pixel, rows, cols):
         pos = x_pixel * cols + y_pixel
         if pos % 300 == 0:
             prog = pos / (rows * cols)
-            self.log("Progress:" + str(prog * 100))
+            self.log(progress_prefix + str(prog * 100))
+
+    def log_done(self):
+        self.log(message_process_done)
 
 
 class CompositeLogger:
@@ -56,13 +68,17 @@ class CompositeLogger:
         for logger in self.loggers:
             logger.log(message)
 
-    def print_progress(self, pos, total):
+    def log_progress(self, pos, total):
         for logger in self.loggers:
             logger.log_progress(pos, total)
 
-    def print_progress_pixel(self, x_pixel, y_pixel, rows, cols):
+    def log_progress_pixel(self, x_pixel, y_pixel, rows, cols):
         for logger in self.loggers:
             logger.log_progress_pixel(x_pixel, y_pixel, rows, cols)
+
+    def log_done(self):
+        for logger in self.loggers:
+            logger.log_done()
 
 
 class LogFactory:

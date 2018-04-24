@@ -34,7 +34,7 @@ class TrainDataPreparer:
             labels.append(self.skin_label)
 
             progress += 1
-            self.logger.print_progress(progress, len(skin_images))
+            self.logger.log_progress(progress, len(skin_images))
 
         self.logger.log("Negative images ")
         progress = 0
@@ -46,7 +46,7 @@ class TrainDataPreparer:
             labels.append(self.non_skin_label)
 
             progress += 1
-            self.logger.print_progress(progress, len(non_skin_images))
+            self.logger.log_progress(progress, len(non_skin_images))
 
         self.logger.log("Training features: {}".format(np.array(features).shape))
         self.logger.log("Training labels: {}".format(np.array(labels).shape))

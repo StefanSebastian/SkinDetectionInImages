@@ -16,7 +16,8 @@ class RunConfiguration:
                  test_path_expected='E:/Info/anu3/Licenta-git-2/Licenta/licenta/resources/input_data/compaq-filtered-fin/validate/mask',
                  results_path='E:/Info/anu3/Licenta-git-2/Licenta/implementation/evaluator/run_results',
                  logging_path='E:/Info/anu3/Licenta-git-2/Licenta/implementation/evaluator/run_results/logs.txt',
-                 detection_path='E:/Info/anu3/Licenta-git-2/Licenta/licenta/resources/input_data/PASCAL2007'):
+                 detection_path='E:/Info/anu3/Licenta-git-2/Licenta/licenta/resources/input_data/PASCAL2007',
+                 detection_result_image_name='result.png'):
 
         self.qs_sigma = qs_sigma
         self.qs_tau = qs_tau
@@ -46,6 +47,9 @@ class RunConfiguration:
 
         #  path for images used in live detection, not for calculating stats
         self.detection_path = detection_path
+
+        # detection result image name
+        self.detection_result_image_name = detection_result_image_name
 
     def get_params_as_string(self):
         res = ''

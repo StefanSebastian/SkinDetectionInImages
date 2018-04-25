@@ -65,6 +65,10 @@ L.~Sigal, S.~Sclaroff, and V.~Athitsos, ``Skin color-based video segmentation
   under time-varying illumination,'' {\em IEEE TRANSACTIONS ON PATTERN ANALYSIS
   AND MACHINE INTELLIGENCE}, vol.~26, no.~7, 2004.
 
+\bibitem{computer_vision_book}
+L.~G. Shapiro and G.~C. Stockman, {\em Computer Vision}.
+\newblock New Jersey, Prentice-Hall, 2001.
+
 \bibitem{color_management_guide}
 A.~Frich, ``Color management guide.''
   \url{https://www.color-management-guide.com/color-spaces.html/}.

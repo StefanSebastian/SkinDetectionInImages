@@ -72,7 +72,7 @@
 	
 	Automatic threshold detection can be done by modeling object and background populations with a normal distribution like the experiments presented in \cite{experiments_on_thresholding}. The method proposed calculates a least-squares fit of a function f(i), where i is the gray level, to the histogram, using a hill climbing algorithm. The function takes into account the mean and standard deviation of the histogram. Lastly, the best fitting f(i) is the used for classification.
 	
-	A limitation that all these methods have in common is that they do not consider spatial factors, only the histogram values.
+	However simple, all these methods have limitations, such as not considering spatial factors, and having no control over border smoothness and holes inside detected regions.
 	
 	\newpage
 	\section{Skin detection by color}

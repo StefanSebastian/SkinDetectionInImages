@@ -61,6 +61,19 @@
 	
 	Ideally, the resulting regions should have the following characteristics: uniformity according to the selected feature, such as color or texture, a small number of holes(subregions that differ considerably from the container region), a notable difference from the neighboring areas and smooth borders.\cite{computer_vision_book}.
 	
+	This problem has been researched extensively over the years however there is not a single best solution available. I will present some of the algorithms presented in literature.
+	
+	\subsection{Thresholding}
+	Thresholding is one of the simplest approaches to image segmentation. It consists of finding a threshold T for the gray level of pixels in the image. Therefore, we can classify every pixel by comparing its brightness to T. This technique is a perfect fit for separating objects from a darker background but has severe limitations in other tasks\cite{image_segmentation_techniques}.
+	
+	One of the problems with global thresholding, choosing a single value for T over the whole image, is dealing with different levels of illumination. For that reason the local thresholding approach was developed. This expands the previous method by using multiple thresholds for different parts of the image. Chow and Kaneko \cite{segmentation_thresh_multiple} applied a similar method for detecting the left ventricle of the heart in x-ray pictures. They divide the original image in multiple blocks that do not overlap and calculate a threshold for each of them.
+	
+	Threshold selection can be done manually or automatically and usually involves analysis of a gray level histogram where the size of each bar is proportional to the number of pixels with that brightness\cite{review_on_image_segm_tech}. For example, in an image that contains some objects in front of a darker background the histogram is likely to contain two peaks separated by a valley and we can choose T somewhere in between those peaks. 
+	
+	Automatic threshold detection can be done by modeling object and background populations with a normal distribution like the experiments presented in \cite{experiments_on_thresholding}. The method proposed calculates a least-squares fit of a function f(i), where i is the gray level, to the histogram, using a hill climbing algorithm. The function takes into account the mean and standard deviation of the histogram. Lastly, the best fitting f(i) is the used for classification.
+	
+	A limitation that all these methods have in common is that they do not consider spatial factors, only the histogram values.
+	
 	\newpage
 	\section{Skin detection by color}
 	Skin pixel detection by color means classifying a pixel while considering only its color features. A first step in applying this approach is selecting a color space.

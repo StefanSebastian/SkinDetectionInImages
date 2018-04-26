@@ -69,6 +69,23 @@ L.~Sigal, S.~Sclaroff, and V.~Athitsos, ``Skin color-based video segmentation
 L.~G. Shapiro and G.~C. Stockman, {\em Computer Vision}.
 \newblock New Jersey, Prentice-Hall, 2001.
 
+\bibitem{image_segmentation_techniques}
+R.~Dass, Priyanka, and S.~Devi, ``Image segmentation techniques,'' {\em IJECT},
+  vol.~3, no.~1, 2012.
+
+\bibitem{segmentation_thresh_multiple}
+C.~K. Chow and T.~Kaneko, ``Automatic boundary detection of the left ventricle
+  from cineangiograms,'' {\em Computers and Biomedical Research}, vol.~5,
+  no.~4, pp.~388--410, 1972.
+
+\bibitem{review_on_image_segm_tech}
+N.~R. Pal and S.~K. Pal, ``A review on image segmentation techniques,'' {\em
+  Pattern Recognition}, vol.~26, no.~9, 1993.
+
+\bibitem{experiments_on_thresholding}
+Y.~Nakagawa and A.~Rosenfeld, ``Some experiments on variable thresholding,''
+  {\em Pattern Recognition}, vol.~11, pp.~191--204, 1979.
+
 \bibitem{color_management_guide}
 A.~Frich, ``Color management guide.''
   \url{https://www.color-management-guide.com/color-spaces.html/}.

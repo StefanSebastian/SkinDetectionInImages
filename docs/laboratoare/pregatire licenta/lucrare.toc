@@ -7,17 +7,18 @@
 \contentsline {subsection}{\numberline {1.1.5}Models using textural features}{4}{subsection.1.1.5}
 \contentsline {subsection}{\numberline {1.1.6}Hidden Markov Models}{4}{subsection.1.1.6}
 \contentsline {section}{\numberline {1.2}Image segmentation}{5}{section.1.2}
-\contentsline {section}{\numberline {1.3}Skin detection by color}{6}{section.1.3}
-\contentsline {subsection}{\numberline {1.3.1}Color spaces}{6}{subsection.1.3.1}
-\contentsline {subsubsection}{RGB}{6}{section*.2}
-\contentsline {subsubsection}{Normalized RGB}{6}{section*.3}
-\contentsline {subsubsection}{HSI, HSV, HSL}{6}{section*.4}
-\contentsline {subsubsection}{YCbCr}{7}{section*.5}
-\contentsline {subsection}{\numberline {1.3.2}Explicit thresholding}{7}{subsection.1.3.2}
-\contentsline {subsection}{\numberline {1.3.3}Skin Probability Map}{8}{subsection.1.3.3}
-\contentsline {subsection}{\numberline {1.3.4}Gaussian classifiers}{9}{subsection.1.3.4}
-\contentsline {subsubsection}{Single Gaussian}{9}{section*.6}
-\contentsline {subsubsection}{Gaussian Mixture Models}{10}{section*.7}
-\contentsline {section}{\numberline {1.4}Skin detection by texture}{11}{section.1.4}
-\contentsline {chapter}{\numberline {2}Application development}{12}{chapter.2}
-\contentsline {chapter}{\numberline {3}Conclusions}{13}{chapter.3}
+\contentsline {subsection}{\numberline {1.2.1}Thresholding}{5}{subsection.1.2.1}
+\contentsline {section}{\numberline {1.3}Skin detection by color}{7}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Color spaces}{7}{subsection.1.3.1}
+\contentsline {subsubsection}{RGB}{7}{section*.2}
+\contentsline {subsubsection}{Normalized RGB}{7}{section*.3}
+\contentsline {subsubsection}{HSI, HSV, HSL}{7}{section*.4}
+\contentsline {subsubsection}{YCbCr}{8}{section*.5}
+\contentsline {subsection}{\numberline {1.3.2}Explicit thresholding}{8}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.3}Skin Probability Map}{9}{subsection.1.3.3}
+\contentsline {subsection}{\numberline {1.3.4}Gaussian classifiers}{10}{subsection.1.3.4}
+\contentsline {subsubsection}{Single Gaussian}{10}{section*.6}
+\contentsline {subsubsection}{Gaussian Mixture Models}{11}{section*.7}
+\contentsline {section}{\numberline {1.4}Skin detection by texture}{12}{section.1.4}
+\contentsline {chapter}{\numberline {2}Application development}{13}{chapter.2}
+\contentsline {chapter}{\numberline {3}Conclusions}{14}{chapter.3}

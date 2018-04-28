@@ -86,6 +86,11 @@ N.~R. Pal and S.~K. Pal, ``A review on image segmentation techniques,'' {\em
 Y.~Nakagawa and A.~Rosenfeld, ``Some experiments on variable thresholding,''
   {\em Pattern Recognition}, vol.~11, pp.~191--204, 1979.
 
+\bibitem{edge_detection_survey}
+N.~Senthilkumaran and R.~Rajesh, ``Edge detection techniques for image
+  segmentation – a survey of soft computing approaches,'' {\em International
+  Journal of Recent Trends in Engineering}, vol.~1, no.~2, 2009.
+
 \bibitem{color_management_guide}
 A.~Frich, ``Color management guide.''
   \url{https://www.color-management-guide.com/color-spaces.html/}.

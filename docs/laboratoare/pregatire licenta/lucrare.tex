@@ -74,6 +74,27 @@
 	
 	However simple, all these methods have limitations, such as not considering spatial factors, and having no control over border smoothness and holes inside detected regions.
 	
+	\subsection{Edge detection}
+	These methods aim to solve image segmentation problems by detecting all edges in images. An edge is characterized by a sudden change in pixel intensity\cite{image_segmentation_techniques}. The result of edge detection is an image that represents to classes of pixels: part of an edge or not. I will present some of the most popular methods.
+	
+	The Roberts Detection\cite{edge_detection_survey} is one of the fastest methods due to its simplicity. It uses the following convolution masks:
+	\[
+	Gx =
+	\begin{bmatrix}
+		1 & 0 \\
+		0 & -1 \\
+	\end{bmatrix}
+	Gy =
+	\begin{bmatrix}
+	1 & 1 \\
+	-1 & 0 \\
+	\end{bmatrix}
+	\]
+	Each of theses calculates a gradient value for an orientation and their values can be combined to determine an absolute magnitude of the gradient using: \(|G|=\sqrt{G_x^2 + G_y^2}\). Lastly, we can apply thresholding for the resulting value to determine if it is part of an edge or not.
+	
+	Other similar detectors are the Prewitt and the Sobel detectors\cite{edge_detection_survey}. The difference is that they use a larger convolutional mask, 3x3, and in case of the former, more orientations.
+	
+	Some soft computing techniques such as: neural networks, genetic algorithms and fuzzy logic\cite{edge_detection_survey}, have also been applied in edge detection problems. However they don't offer significant improvements in performance over the simpler and faster methods.
 	\newpage
 	\section{Skin detection by color}
 	Skin pixel detection by color means classifying a pixel while considering only its color features. A first step in applying this approach is selecting a color space.

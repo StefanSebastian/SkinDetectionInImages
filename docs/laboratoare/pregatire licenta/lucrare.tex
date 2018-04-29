@@ -5,6 +5,8 @@
 
 \usepackage{amsmath}
 
+\usepackage[]{algorithm2e}
+
 \begin{document}
 	\title{Skin detection in images using machine learning techniques for color and texture recognition}
 	\author{Stefan Sebastian}
@@ -95,6 +97,47 @@
 	Other similar detectors are the Prewitt and the Sobel detectors\cite{edge_detection_survey}. The difference is that they use a larger convolutional mask, 3x3, and in case of the former, more orientations.
 	
 	Some soft computing techniques such as: neural networks, genetic algorithms and fuzzy logic\cite{edge_detection_survey}, have also been applied in edge detection problems. However they don't offer significant improvements in performance over the simpler and faster methods.
+	
+	\subsection{Clustering}
+	We can view the image segmentation process as a clustering problem. All pixels are associated with a region, which corresponds to a cluster.
+	
+	\subsubsection{K-means}
+	One popular approach to segmentation problems is the K-means algorithm, which can divide n data points in k clusters, where k is known in advance. This can be applied to image segmentation if we consider pixel intensities as the values on which we are doing clustering. The algorithm is simple and efficient on large volumes of data\cite{image_segmentation_techniques}, however the number of clusters must be known in advance, which can be problematic as the number of distinct regions can vary from image to image.
+	
+	\subsubsection{Mode seeking. The Quick shift algorithm}
+	Mode seeking algorithms are methods for clustering without needing to know the number of clusters in advance. The first step of these algorithms, as presented in \cite{mode_seeking}, is calculating a Parzen density estimate over all given points: \(P(x)=\frac{1}{N} \cdot \sum_{i=1}^{N} \cdot k(x-x_i)\). The next step is moving each point towards a mode of P(x) on a trajectory determined by the gradient of P. Clusters are formed by the points converging on the same modes.
+	
+	The Quick shift algorithm\cite{quickshift_gpu} is one of the most efficient in this family. It starts by calculating a Parzen density estimate, most often using an isotropic Gaussian window:
+	\begin{equation}
+	P(x) = \frac{1}{2 \pi \sigma^2 N} \cdot \sum_{i=1}^{N} e^\frac{-\Vert x - x_i \Vert^2}{2 \sigma^2}
+	\end{equation}
+	Every point is then linked to the nearest one with a higher density and the resulting structure is a tree. In order to get our regions we can either cut branches with a size larger than \(\tau\) or analyzing data points less then \(\tau\) distance away on the linking step. If we choose the latter the result will be a collection of trees, each representing a cluster.
+	
+	In the application of Quick shift in image segmentation a relevant feature space must be chosen. An option is using the RGB components and position(x, y coordinates) of each pixel. As the position does not always has fixed bounds (image size can vary) we can scale the position components depending on our input data, such that the importance of color and position remains similar\cite{quickshift_gpu}.
+	
+	An example pseudocode implementation as presented in \cite{quickshift_gpu} looks like this:
+	\begin{algorithm}
+		\# density computation\;
+		\For{x in all pixels}{
+			P[x] = 0\;
+			\For{n in all pixels less than 3 * $\sigma$ away}{
+				P[x] += exp(-(f[x] - f[n])\^{}2 / (2 * $\sigma$ * $\sigma$))	
+			}
+		}
+		\# neighbor linking\;
+		\For{x in all pixels}{
+			\For{n in all pixels less than $\tau$ away}{
+				\If{P[n] \(>\) P[x] and distance(x, n) is smaller than to previous parent}{
+					d[x] = distance(x, n)\;
+					parent[x] = n\;
+				}
+			}
+		}
+	\end{algorithm}
+	When calculating the density we limit our search to a 3$\sigma$ window because the contributions for pixels further away should be small\cite{quickshift_gpu}.
+	
+	Some advantages of Quick shift are simplicity of implementation, speed (O($N^2$)), ability to work on any type of data and the control of fragmentation with the given parameters\cite{mode_seeking}. 
+	
 	\newpage
 	\section{Skin detection by color}
 	Skin pixel detection by color means classifying a pixel while considering only its color features. A first step in applying this approach is selecting a color space.

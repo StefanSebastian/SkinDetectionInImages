@@ -32,12 +32,13 @@ def feature_distance_5d(r1, g1, b1, r2, g2, b2, x1, y1, x2, y2):
     r, g, b should be the rgb coordinates ; which are scaled
     x,y are the positions
     """
-    r1 = 0.5 * int(r1)
-    r2 = 0.5 * int(r2)
-    g1 = 0.5 * int(g1)
-    g2 = 0.5 * int(g2)
-    b1 = 0.5 * int(b1)
-    b2 = 0.5 * int(b2)
+    scale = 1
+    r1 = scale * int(r1)
+    r2 = scale * int(r2)
+    g1 = scale * int(g1)
+    g2 = scale * int(g2)
+    b1 = scale * int(b1)
+    b2 = scale * int(b2)
     x1 = int(x1)
     x2 = int(x2)
     y1 = int(y1)

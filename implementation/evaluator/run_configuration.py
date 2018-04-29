@@ -11,7 +11,7 @@ class RunConfiguration:
                  texture_detection_type=1,
                  texture_detection_area=5,
                  resize=1,
-                 size=(200,200),
+                 size=(200, 200),
                  test_path_in='E:/Info/anu3/Licenta-git-2/Licenta/licenta/resources/input_data/compaq-filtered-fin/validate/input',
                  test_path_expected='E:/Info/anu3/Licenta-git-2/Licenta/licenta/resources/input_data/compaq-filtered-fin/validate/mask',
                  results_path='E:/Info/anu3/Licenta-git-2/Licenta/implementation/evaluator/run_results',

@@ -134,6 +134,6 @@ class Evaluator:
         open(self.config.logging_path, 'w').close()
 
 
-#evaluator = Evaluator(RunConfiguration())
-#evaluator.run_validation()
+evaluator = Evaluator(RunConfiguration())
+evaluator.run_validation()
 # run_detection()

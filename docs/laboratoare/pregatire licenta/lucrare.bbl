@@ -91,6 +91,15 @@ N.~Senthilkumaran and R.~Rajesh, ``Edge detection techniques for image
   segmentation – a survey of soft computing approaches,'' {\em International
   Journal of Recent Trends in Engineering}, vol.~1, no.~2, 2009.
 
+\bibitem{mode_seeking}
+A.~Vedaldi and S.~Soatto, ``Quick shift and kernel methods for mode seeking,''
+  {\em Computer Vision – ECCV 2008}, vol.~5305, 2008.
+
+\bibitem{quickshift_gpu}
+B.~Fulkerson and S.~Soatto, ``Really quick shift: Image segmentation on a
+  gpu,'' in {\em In Proceedings of the Workshop on Computer Vision using GPUs,
+  held with the European Conference on Computer Vision}, 2010.
+
 \bibitem{color_management_guide}
 A.~Frich, ``Color management guide.''
   \url{https://www.color-management-guide.com/color-spaces.html/}.

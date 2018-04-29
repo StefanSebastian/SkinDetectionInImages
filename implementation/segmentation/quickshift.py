@@ -3,7 +3,7 @@ from math import exp
 import numpy as np
 
 from segmentation.superpixel import Superpixel
-from segmentation.utils import point_distance_2d, point_distance_3d, feature_distance_5d
+from segmentation.distances import Distances
 from utils.log import LogFactory
 from utils.tuples import Position
 
@@ -63,7 +63,6 @@ class QuickshiftSegmentation:
         Compute the Parzen density for each pixel
 
         :param image: given image
-        :param sigma: sigma parameter
         :return: a matrix the size of the image with all densities
         """
         rows = image.shape[0]
@@ -88,16 +87,16 @@ class QuickshiftSegmentation:
                     for y_candidate in range(y_upper, y_lower + 1):
                         # check bounds
                         if 0 <= x_candidate < rows and 0 <= y_candidate < cols:
-                            if point_distance_2d(x_pixel, y_pixel, x_candidate, y_candidate) <= 3 * self.sigma:
+                            if Distances.point_distance_2d(x_pixel, y_pixel, x_candidate, y_candidate) <= 3*self.sigma:
                                 point = image[x_candidate, y_candidate]
                                 # distance between pixel values ; f[x] - f[n]
                                 if self.with_position == 0:
-                                    distance = point_distance_3d(point[0], point[1], point[2],
-                                                                 pixel[0], pixel[1], pixel[2])
+                                    distance = Distances.point_distance_3d(point[0], point[1], point[2],
+                                                                           pixel[0], pixel[1], pixel[2])
                                 else:
-                                    distance = feature_distance_5d(point[0], point[1], point[2],
-                                                                   pixel[0], pixel[1], pixel[2],
-                                                                   x_candidate, y_candidate, x_pixel, y_pixel)
+                                    distance = Distances.feature_distance_5d(point[0], point[1], point[2],
+                                                                             pixel[0], pixel[1], pixel[2],
+                                                                             x_candidate, y_candidate, x_pixel, y_pixel)
                                 # update density ; d += e^(-d^2 / 2 * sigma^2)
                                 densities[x_pixel, y_pixel] += exp((-(distance ** 2)) / (2 * self.sigma * self.sigma))
         return densities
@@ -107,7 +106,6 @@ class QuickshiftSegmentation:
         Links each pixel to the nearest pixel on a tau radius that has a higher density
 
         :param image: given image
-        :param tau: area of neighbourhood
         :param densities: density matrix for each pixel
         :return: a matrix with the coordinates of each parent ; coordinates are (0, 0) for roots
         """
@@ -138,7 +136,7 @@ class QuickshiftSegmentation:
                         # check bounds
                         if 0 <= x_candidate < rows and 0 <= y_candidate < cols:
                             # distance between pixel and neighbour coordinates
-                            distance = point_distance_2d(x_pixel, y_pixel, x_candidate, y_candidate)
+                            distance = Distances.point_distance_2d(x_pixel, y_pixel, x_candidate, y_candidate)
                             if distance <= self.tau:
                                 # if the neighbour has a higher density and is closer to the current pixel
                                 # or is the first neighbour with a higher density

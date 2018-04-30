@@ -1,8 +1,8 @@
 import cv2
+import numpy as np
 
 from color_analysis.detect.detector import SpmDetectorFactory
 from evaluator.calculate_results import Stats
-from evaluator.combine_results import Combiner
 from evaluator.run_configuration import RunConfiguration
 from segmentation.quickshift import QuickshiftSegmentation
 from texture_analysis.detect.detector import TextureDetectorFactory
@@ -58,7 +58,7 @@ class Evaluator:
         texture_image = self.texture_detector.detect_with_mask(image, spm_image)
 
         self.logger.log("\nCombining results")
-        result = Combiner.combine_res(image, spm_image, texture_image)
+        result = self.__combine_res(image, spm_image, texture_image)
 
         return result
 
@@ -113,7 +113,7 @@ class Evaluator:
         cv2.imwrite(self.config.results_path + '/' + str(image_index) + 'texture.png', texture_image)
 
         self.logger.log("\nCombining results")
-        result = Combiner.combine_res(image, spm_image, texture_image)
+        result = self.__combine_res(image, spm_image, texture_image)
         cv2.imwrite(self.config.results_path + '/' + str(image_index) + 'result.png', result)
 
         return result
@@ -133,7 +133,18 @@ class Evaluator:
     def __clear_logs(self):
         open(self.config.logging_path, 'w').close()
 
+    def __combine_res(self, image, spm_img, texture_img):
+        new_image = general.generate_overlay_image(image)
 
-evaluator = Evaluator(RunConfiguration())
-evaluator.run_validation()
-# run_detection()
+        rows = image.shape[0]
+        cols = image.shape[1]
+        for x_pixel in range(rows):
+            for y_pixel in range(cols):
+                if np.all(spm_img[x_pixel, y_pixel] == 0) and np.all(texture_img[x_pixel, y_pixel] == 0):
+                    new_image[x_pixel, y_pixel] = [0, 0, 0]
+        return new_image
+
+if __name__ == '__main__':
+    evaluator = Evaluator(RunConfiguration())
+    evaluator.run_validation()
+    # run_detection()

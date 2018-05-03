@@ -21,7 +21,7 @@
 \contentsline {subsection}{\numberline {1.3.2}Explicit thresholding}{10}{subsection.1.3.2}
 \contentsline {subsection}{\numberline {1.3.3}Skin Probability Map}{11}{subsection.1.3.3}
 \contentsline {subsection}{\numberline {1.3.4}Gaussian classifiers}{12}{subsection.1.3.4}
-\contentsline {subsubsection}{Single Gaussian}{12}{section*.8}
+\contentsline {subsubsection}{Single Gaussian}{13}{section*.8}
 \contentsline {subsubsection}{Gaussian Mixture Models}{13}{section*.9}
 \contentsline {section}{\numberline {1.4}Skin detection by texture}{14}{section.1.4}
 \contentsline {chapter}{\numberline {2}Application development}{15}{chapter.2}

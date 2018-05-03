@@ -1,3 +1,110 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{10}
+
+\bibitem{finding_naked_people}
+M.~M. Fleck, D.~A. Forsyth, and C.~Bregler, ``Finding naked people,'' in {\em
+  Computer Vision --- ECCV '96} (B.~Buxton and R.~Cipolla, eds.), (Berlin,
+  Heidelberg), pp.~593--602, Springer Berlin Heidelberg, 1996.
+
+\bibitem{anchor_person_detection}
+B.~M. and R.~Amsaveni, ``Anchor person detection using haar-like feature
+  extraction from news videos,'' {\em International Journal of Computer
+  Applications}, vol.~153, no.~9, pp.~23--27, 2016.
+
+\bibitem{kinect_control}
+``The complete list of kinect gesture and voice commands for your referencing
+  pleasure.''
+  \url{https://news.xbox.com/en-us/2013/11/26/xbox-one-kinect-gesture-and-voice-guide/}.
+\newblock Accessed: 2018-05-03.
+
+\bibitem{detecting_faces_a_survey}
+M.-H. Yang, D.~J. Kriegman, and N.~Ahuja, ``Detecting faces in images: A
+  survey,'' {\em IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE
+  INTELLIGENCE}, vol.~24, no.~1, pp.~34--58, 2002.
+
+\bibitem{jaywalkers_china}
+C.~Geib, ``If you jaywalk in china, facial recognition means you’ll walk away
+  with a fine.''
+  \url{https://futurism.com/facial-recognition-china-social-credit/}.
+\newblock Accessed: 2018-05-03.
+
+\bibitem{compaq}
+M.~J. Jones and J.~M. Rehg, ``Statistical color models with applications to
+  skin detection,'' {\em International Journal of Computer Vision}, vol.~46,
+  pp.~81–--96, 2002.
+
+\bibitem{gaussian_applied}
+J.~Y. Lee and S.~I. Yoo, ``An elliptical boundary model for skin color
+  detection,'' in {\em In Proc. of the 2002 International Conference on Imaging
+  Science, Systems, and Technology}, 2002.
+
+\bibitem{rgb_threshold}
+J.~Kovac, P.~Peer, and F.~Solina, ``Human skin colour clustering for face
+  detection,'' {\em EUROCON}, 2003.
+
+\bibitem{cr_cb_threshold}
+D.~Chai and K.~N. Ngan, ``Face segmentation using skin-color map in videophone
+  applications,'' {\em IEEE TRANSACTIONS ON CIRCUITS AND SYSTEMS FOR VIDEO
+  TECHNOLOGY}, vol.~9, no.~4, pp.~551–--564, 1999.
+
+\bibitem{yiq_threshold}
+Y.~Dai and Y.~Nakano, ``Face-texture model based on sgld and its application in
+  face detection in a color scene,'' {\em Pattern Recognition}, vol.~29, no.~6,
+  pp.~1007–--1017, 1996.
+
+\bibitem{i_threshold}
+C.Wang and M.Brandstein, ``Multi-source face tracking with audio and visual
+  data,'' {\em IEEE MMSP}, p.~168, 1999.
+
+\bibitem{i_threshold_applied}
+Brand, J., and Mason, ``A comparative assessment of three approaches to
+  pixellevel human skin-detection,'' {\em In Proc. of the International
+  Conference on Pattern Recognition}, vol.~1, pp.~1056--1059, 2000.
+
+\bibitem{rca_threshold}
+G.~Gomez and E.~F. Morales, ``Automatic feature construction and a simple rule
+  induction algorithm for skin detection,'' {\em Proceedings of Workshop on
+  Machine Learning in Computer Vision}, pp.~31–--38, 2002.
+
+\bibitem{superpixels_applied_1}
+F.~Saxen and A.~Al-Hamadi, ``Superpixels for skin segmentation,'' {\em Workshop
+  Farbbildverarbeitung, At Wuppertal}, vol.~20, 2014.
+
+\bibitem{superpixels_applied_2}
+R.~P. Poudel, J.~J. Zhang, D.~Liu, and H.~Nait-Charif, ``Skin color detection
+  using region-based approach,'' {\em International Journal of Image Processing
+  (IJIP)}, vol.~7, no.~4, 2013.
+
+\bibitem{color_texture_ann}
+N.~K.~E. Abbadi, N.~Dahir, and Z.~A. Alkareem, ``Skin texture recognition using
+  neural networks,'' {\em CoRR}, vol.~abs/1311.6049, 2013.
+
+\bibitem{texture_svm}
+M.~Sofiane, B.~M. Chaouki, and M.~B. Yamina, ``Improved skin detection using
+  colour space and texture,'' {\em International Journal of Computer and
+  Information Engineering}, vol.~8, no.~12, 2014.
+
+\bibitem{texture_gabor_wavelet}
+Z.~Jiang, M.~Yao, and W.~Jiang, ``Skin detection using color, texture and space
+  information,'' {\em Fuzzy Systems and Knowledge Discovery}, 2007.
+
+\bibitem{hmm}
+L.~Sigal, S.~Sclaroff, and V.~Athitsos, ``Skin color-based video segmentation
+  under time-varying illumination,'' {\em IEEE TRANSACTIONS ON PATTERN ANALYSIS
+  AND MACHINE INTELLIGENCE}, vol.~26, no.~7, 2004.
+
+\bibitem{sfa}
+J.~P.~B. Casati, D.~R. Moraes, and E.~L.~L. Rodrigues, ``Sfa: A human skin
+  image database based on feret and ar facial images,'' {\em IX Workshop de
+  Visão Computacional, Rio de Janeiro}, 2013.
+
+\bibitem{quickshift_gpu}
+B.~Fulkerson and S.~Soatto, ``Really quick shift: Image segmentation on a
+  gpu,'' in {\em In Proceedings of the Workshop on Computer Vision using GPUs,
+  held with the European Conference on Computer Vision}, 2010.
+
+\bibitem{haralick_features}
+R.~M. Haralick, K.~Shanmugam, and I.~Dinstein, ``Textural features for image
+  classification,'' {\em IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS},
+  vol.~3, no.~6, 1973.
 
 \end{thebibliography}

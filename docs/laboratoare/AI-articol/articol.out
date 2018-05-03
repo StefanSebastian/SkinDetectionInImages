@@ -1,0 +1,17 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Applications}{}% 2
+\BOOKMARK [1][-]{section.3}{Related work}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{SPM}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Gaussian Models}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{Explicit thresholding}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.4}{Models using segmentation}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.5}{Models using textural features}{section.3}% 8
+\BOOKMARK [2][-]{subsection.3.6}{Hidden Markov Models}{section.3}% 9
+\BOOKMARK [1][-]{section.4}{Proposed model}{}% 10
+\BOOKMARK [2][-]{subsection.4.1}{Datasets}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.2}{Segmentation}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.3}{Color analysis}{section.4}% 13
+\BOOKMARK [2][-]{subsection.4.4}{Texture analysis}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.5}{Parameters}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.6}{Evaluation}{section.4}% 16
+\BOOKMARK [1][-]{section.5}{Conclusions}{}% 17

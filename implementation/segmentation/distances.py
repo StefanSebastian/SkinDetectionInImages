@@ -34,7 +34,7 @@ class Distances:
         r, g, b should be the rgb coordinates ; which are scaled
         x,y are the positions
         """
-        scale = 1
+        scale = 0.5
         r1 = scale * int(r1)
         r2 = scale * int(r2)
         g1 = scale * int(g1)

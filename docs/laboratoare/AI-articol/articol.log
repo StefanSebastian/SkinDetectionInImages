@@ -1,23 +1,22 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.3)  3 MAY 2018 10:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.3)  3 MAY 2018 10:48
 entering extended mode
-**./lucrare.tex
-(lucrare.tex
+**./articol.tex
+(articol.tex
 LaTeX2e <2017-04-15>
 Babel <3.15> and hyphenation patterns for 75 language(s) loaded.
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\report.cls"
-Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\size12.clo"
 File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
-\c@chapter=\count80
-\c@section=\count81
-\c@subsection=\count82
-\c@subsubsection=\count83
-\c@paragraph=\count84
-\c@subparagraph=\count85
-\c@figure=\count86
-\c@table=\count87
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
@@ -87,13 +86,13 @@ Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
 \@linkdim=\dimen103
-\Hy@linkcounter=\count88
-\Hy@pagecounter=\count89
+\Hy@linkcounter=\count87
+\Hy@pagecounter=\count88
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
 File: pd1enc.def 2017/03/14 v6.85a Hyperref: PDFDocEncoding definition (HO)
 )
-\Hy@SavedSpaceFactor=\count90
+\Hy@SavedSpaceFactor=\count89
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -105,10 +104,10 @@ Package hyperref Info: Plain pages OFF on input line 4513.
 Package hyperref Info: Backreferencing OFF on input line 4518.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4751.
-\c@Hy@tempcnt=\count91
+\c@Hy@tempcnt=\count90
 LaTeX Info: Redefining \url on input line 5104.
 \XeTeXLinkMargin=\dimen104
-\Fld@menulength=\count92
+\Fld@menulength=\count91
 \Field@Width=\dimen105
 \Fld@charsize=\dimen106
 Package hyperref Info: Hyper figures OFF on input line 6358.
@@ -120,17 +119,17 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6383.
 Package hyperref Info: PDF/A mode OFF on input line 6388.
 LaTeX Info: Redefining \ref on input line 6428.
 LaTeX Info: Redefining \pageref on input line 6432.
-\Hy@abspage=\count93
-\c@Item=\count94
-\c@Hfootnote=\count95
+\Hy@abspage=\count92
+\c@Item=\count93
+\c@Hfootnote=\count94
 )
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
 File: hpdftex.def 2017/03/14 v6.85a Hyperref driver for pdfTeX
-\Fld@listcount=\count96
-\c@bookmark@seq@number=\count97
+\Fld@listcount=\count95
+\c@bookmark@seq@number=\count96
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
@@ -159,13 +158,13 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count98
+\inf@bad=\count97
 LaTeX Info: Redefining \frac on input line 213.
-\uproot@=\count99
-\leftroot@=\count100
+\uproot@=\count98
+\leftroot@=\count99
 LaTeX Info: Redefining \overline on input line 375.
-\classnum@=\count101
-\DOTSCASE@=\count102
+\classnum@=\count100
+\DOTSCASE@=\count101
 LaTeX Info: Redefining \ldots on input line 472.
 LaTeX Info: Redefining \dots on input line 475.
 LaTeX Info: Redefining \cdots on input line 596.
@@ -174,15 +173,15 @@ LaTeX Info: Redefining \cdots on input line 596.
 \big@size=\dimen109
 LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
-\macc@depth=\count103
-\c@MaxMatrixCols=\count104
+\macc@depth=\count102
+\c@MaxMatrixCols=\count103
 \dotsspace@=\muskip11
-\c@parentequation=\count105
-\dspbrk@lvl=\count106
+\c@parentequation=\count104
+\dspbrk@lvl=\count105
 \tag@help=\toks16
-\row@=\count107
-\column@=\count108
-\maxfields@=\count109
+\row@=\count106
+\column@=\count107
+\maxfields@=\count108
 \andhelp@=\toks17
 \eqnshift@=\dimen110
 \alignsep@=\dimen111
@@ -199,7 +198,7 @@ LaTeX Info: Redefining \] on input line 2818.
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\algorithm2e\algorithm2e.sty"
 Package: algorithm2e 2017/07/18 v5.2 algorithms environments
-\c@AlgoLine=\count110
+\c@AlgoLine=\count109
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
@@ -208,7 +207,7 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\ifoddpage\ifoddpage.sty"
 Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
-\c@checkoddpage=\count111
+\c@checkoddpage=\count110
 )
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\xspace.sty"
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
@@ -246,13 +245,13 @@ Package: relsize 2003/07/04 ver 3.1
 \algoheightrule=\skip63
 \algotitleheightruledefault=\skip64
 \algotitleheightrule=\skip65
-\c@algocfline=\count112
-\c@algocfproc=\count113
-\c@algocf=\count114
+\c@algocfline=\count111
+\c@algocfproc=\count112
+\c@algocf=\count113
 \algocf@algoframe=\box34
 \algocf@algobox=\box35
-) (lucrare.aux)
-\openout1 = `lucrare.aux'.
+) (articol.aux)
+\openout1 = `articol.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
@@ -277,122 +276,60 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count115
+\c@section@level=\count114
 )
 LaTeX Info: Redefining \ref on input line 10.
 LaTeX Info: Redefining \pageref on input line 10.
 LaTeX Info: Redefining \nameref on input line 10.
 
-(lucrare.out) (lucrare.out)
+(articol.out) (articol.out)
 \@outlinefile=\write3
-\openout3 = `lucrare.out'.
+\openout3 = `articol.out'.
 
- [1
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] (lucrare.toc)
+Overfull \hbox (10.78516pt too wide) in paragraph at lines 17--18
+[]\OT1/cmr/m/n/10.95 The in-ter-faces be-tween hu-man and com-puter in-ter-ac-t
+ion have evolved
+ []
+
+[1
+
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] (articol.toc)
 \tf@toc=\write4
-\openout4 = `lucrare.toc'.
+\openout4 = `articol.toc'.
 
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.19 	\newpage
-               [1
+ [2]
+(articol.bbl
 
-]
-Chapter 1.
-[2
+LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
-] [3] [4]
-Overfull \hbox (4.07785pt too wide) in paragraph at lines 64--65
-\OT1/cmr/m/n/12 gion), a no-table dif-fer-ence from the neigh-bor-ing ar-eas an
-d smooth borders.[[]]. 
- []
-
-[5] [6] [7] [8] [9] [10] [11] [12] [13] [14]
-Chapter 2.
-[15
-
-]
-Chapter 3.
-[16
-
-] (lucrare.bbl
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no “ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no “ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no “ in font cmr12!
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no “ in font cmr12!
- [17
-
-]
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no “ in font cmr12!
-Missing character: There is no â in font cmti12!
-Missing character: There is no € in font cmti12!
-Missing character: There is no “ in font cmti12!
- [18]
-Underfull \hbox (badness 10000) in paragraph at lines 104--107
-[]\OT1/cmr/m/n/12 A. Frich, ``Color man-age-ment guide.'' []$\OT1/cmtt/m/n/12 h
-ttps : / / www .
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 104--107
-\OT1/cmtt/m/n/12 color-[]management-[]guide . com / color-[]spaces . html/$[]\O
-T1/cmr/m/n/12 .  Ac-cessed:
- []
-
-Missing character: There is no â in font cmr12!
-Missing character: There is no € in font cmr12!
-Missing character: There is no “ in font cmr12!
-Missing character: There is no â in font cmti12!
-Missing character: There is no € in font cmti12!
-Missing character: There is no ™ in font cmti12!
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 265.
- [19]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 265.
- (lucrare.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 265.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 265.
-Package rerunfilecheck Info: File `lucrare.out' has not changed.
-(rerunfilecheck)             Checksum: E0D23E2F42F9F027379B8466EFB0FC96;1366.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 265.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 31.
+ [3]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 31.
+ (articol.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 31.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 31.
+Package rerunfilecheck Info: File `articol.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 31.
  ) 
 Here is how much of TeX's memory you used:
- 5993 strings out of 493312
- 89413 string characters out of 3138903
- 185719 words of memory out of 3000000
- 9425 multiletter control sequences out of 15000+200000
- 11055 words of font info for 40 fonts, out of 3000000 for 9000
+ 5809 strings out of 493312
+ 86599 string characters out of 3138903
+ 178997 words of memory out of 3000000
+ 9339 multiletter control sequences out of 15000+200000
+ 6815 words of font info for 25 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 28i,17n,30p,970b,425s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
-m/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb
-><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on lucrare.pdf (20 pages, 239308 bytes).
+ 28i,6n,20p,695b,325s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on articol.pdf (3 pages, 63786 bytes).
 PDF statistics:
- 383 PDF objects out of 1000 (max. 8388607)
- 96 named destinations out of 1000 (max. 500000)
- 161 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 PDF objects out of 1000 (max. 8388607)
+ 6 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -115,8 +115,10 @@
 	
 	In the application of Quick shift in image segmentation a relevant feature space must be chosen. An option is using the RGB components and position(x, y coordinates) of each pixel. As the position does not always has fixed bounds (image size can vary) we can scale the position components depending on our input data, such that the importance of color and position remains similar\cite{quickshift_gpu}.
 	
-	An example pseudocode implementation as presented in \cite{quickshift_gpu} looks like this:
+	An example pseudocode implementation as presented in \cite{quickshift_gpu} looks like \ref{alg:quick_shift}.
 	\begin{algorithm}
+		\caption{The Quick shift segmentation algorithm}
+		\label{alg:quick_shift}
 		\# density computation\;
 		\For{x in all pixels}{
 			P[x] = 0\;

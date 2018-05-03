@@ -4,7 +4,7 @@ class RunConfiguration:
                  qs_tau=5,
                  qs_with_position=1,
                  spm_model_path= 'E:/Info/anu3/Licenta-git-2/Licenta/implementation/color_analysis/models/spm_compaq_2000_with_ns_4000_rgb.pkl',
-                 spm_threshold=0.167,
+                 spm_threshold=0.1, # 0.167
                  spm_type=2,
                  spm_neighbour_area=4,
                  texture_model_path='E:/Info/anu3/Licenta-git-2/Licenta/implementation/texture_analysis/models/svm_classifier_1000data_5area.pkl',

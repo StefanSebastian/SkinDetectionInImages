@@ -13,5 +13,5 @@
 \contentsline {subsection}{\numberline {4.3}Color analysis}{8}{subsection.4.3}
 \contentsline {subsection}{\numberline {4.4}Texture analysis}{9}{subsection.4.4}
 \contentsline {subsection}{\numberline {4.5}Parameters}{9}{subsection.4.5}
-\contentsline {subsection}{\numberline {4.6}Evaluation}{9}{subsection.4.6}
-\contentsline {section}{\numberline {5}Conclusions}{10}{section.5}
+\contentsline {subsection}{\numberline {4.6}Evaluation}{10}{subsection.4.6}
+\contentsline {section}{\numberline {5}Conclusions}{11}{section.5}

@@ -1,11 +1,14 @@
 \documentclass[12pt]{article}
 
-\usepackage{url}
-\usepackage{hyperref}
+\usepackage{url} % websites in bib
+\usepackage{hyperref} 
 
-\usepackage{amsmath}
+\usepackage{graphicx} % images
+\usepackage{subcaption}
 
-\usepackage[]{algorithm2e}
+\usepackage{amsmath} % formulas
+
+\usepackage[]{algorithm2e} % pseudocode
 
 \begin{document}
 	\title{Skin detection in images using machine learning techniques for color and texture recognition}
@@ -126,8 +129,48 @@
 	The chosen method for this model is the one proposed by Haralick \cite{haralick_features}. Features that describe texture are extracted from a matrix called the Gray Level Co-occurence Matrix, which represents how often combinations of pixel gray levels at different offsets appear in an image. A Support Vector Machine is trained on these features extracted from 5x5 patches. Each pixel is classified by building a window of the same size around it and giving that patch as input to the classifier.
 	
 	\subsection{Parameters}
-	TODO
+	For image segmentation I tried to find values for the sigma and tau parameters that produce regions as large as possible without distorting the contours. I chose the (3, 5) pair, which can be seen in comparison with other pairs in figure \ref{fig:segmentation}.
 	
+	\begin{figure}[h!]
+		\centering
+		\begin{subfigure}[b]{0.3\linewidth}
+			\includegraphics[width=\linewidth]{resources/segm_3_5.png}
+			\caption{$\sigma = 3, \tau = 5$}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.3\linewidth}
+			\includegraphics[width=\linewidth]{resources/segm_2_10.png}
+			\caption{$\sigma = 2, \tau = 10$}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.3\linewidth}
+			\includegraphics[width=\linewidth]{resources/segm_4_8.png}
+			\caption{$\sigma = 4, \tau = 8$}
+		\end{subfigure}
+		\caption{Segmenting an image with different parameters}
+		\label{fig:segmentation}
+	\end{figure}
+
+	The most suitable area for texture analysis was also determined experimentally. As can be observed in figure \ref{fig:texture} the 5x5 window offers a good detection of skin areas while the true positive rate goes down drastically for larger ones.
+	
+	\begin{figure}[h!]
+		\centering
+		\begin{subfigure}[b]{0.3\linewidth}
+			\includegraphics[width=\linewidth]{resources/texture_5_5.png}
+			\caption{5x5}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.3\linewidth}
+			\includegraphics[width=\linewidth]{resources/texture_7_7.png}
+			\caption{7x7}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.3\linewidth}
+			\includegraphics[width=\linewidth]{resources/texture_35_35.png}
+			\caption{35x35}
+		\end{subfigure}
+		\caption{Texture detection with different windows}
+		\label{fig:texture}
+	\end{figure}
+	
+	I tried building color models in RGB, HSV and YCrCb and concluded that Bayesian color analysis obtains roughly the same results regardless of the color space chosen. For every pixel, I chose the maximum probability on a distance of 4 (similar to the bin size used in \cite{compaq}) on every feature. The threshold value can be used to control the TPR/FPR ratio.
+	 
 	\subsection{Evaluation}
 	The model was evaluated on the Compaq skin database in order to compare it with other approaches from literature. There is a difference however, in the number of images chosen for evaluation. While most references use a ~6000 image set for testing I used only 50 images due to time constraints.
 	
@@ -138,10 +181,22 @@
 	\end{equation}
 	Equation \ref{metrics} shows how those metrics were calculated. TP, FP, TN and FN stand for the numbers of true positives, false positives, true negatives and false negatives, respectively.
 	
-	TODO result table
+	\begin{table}[h!]
+		\begin{center}
+			\caption{Evaluation of the proposed model on the Compaq dataset}
+			\label{tab:results}
+			\begin{tabular}{c|c|c}
+				\textbf{TPR} & \textbf{FPR} & \textbf{Threshold}\\
+				\hline
+				86.57\% & 28.48\% & 0.1\\
+				76.29\% & 15.54\% & 0.25\\
+				81.59\% & 21.29\% & 0.167\\
+			\end{tabular}
+		\end{center}
+	\end{table}
 	
 	\section{Conclusions}
-	TODO ; slow and not as performant
+	The model obtains results similar to the ones presented in literature however image segmentation and analyzing probabilities for every pixel's neighbors take a toll on computation speed.
 	
 	\newpage
 	\bibliography{references_articol}

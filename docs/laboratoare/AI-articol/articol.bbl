@@ -32,6 +32,11 @@ M.~J. Jones and J.~M. Rehg, ``Statistical color models with applications to
   skin detection,'' {\em International Journal of Computer Vision}, vol.~46,
   pp.~81–--96, 2002.
 
+\bibitem{survey_skin_color_modeling}
+P.~Kakumanu, S.~Makrogiannis, and N.~Bourbakis, ``A survey of skin-color
+  modeling and detection methods,'' {\em Pattern Recognition}, vol.~40,
+  pp.~1106–--1122, 2007.
+
 \bibitem{gaussian_applied}
 J.~Y. Lee and S.~I. Yoo, ``An elliptical boundary model for skin color
   detection,'' in {\em In Proc. of the 2002 International Conference on Imaging

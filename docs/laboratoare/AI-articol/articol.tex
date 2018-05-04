@@ -40,18 +40,20 @@
 	\section{Related work}
 	The subject of skin detection has been of interest for researchers due to its many applications. 
 	
-	\subsection{SPM}
+	\subsection{Skin Probability Maps}
 	One of the most comprehensive experiments in skin detection was conducted by MJ Jones and JM Rehg \cite{compaq} who created the Compaq skin dataset, which became a standard for evaluating results of research in this domain.
 	
-	They used skin probability maps, which are histogram based models, meaning they set a number of bins for each color channel where they keep track of how many times each color pixel appears in the training set. Although \(256^3\) would be an obvious choice for the number of bins (one for each pixel) they determined that \(32^3\) is the optimum due to a large number of pixels not appearing in the training set. Each pixel is classified as being skin or non-skin using Bayes' theorem \(P(rgb|skin) >= \beta\), where $\beta$ is the threshold value. For this model they used a 6822 photo training set, where 4483 photos contained no skin and 2336 had portions of skin. The testing set had similar dimensions: 6818 total photos (4482 non-skin and 2336 skin). Using this methods they obtained a 80\% true positive rate and 8.5\% false positive rate or, with a different threshold, a 90\% TP rate and 14.2\% FP rate.
+	They used skin probability maps, which are histogram based models, meaning they set a number of bins for each color channel where they keep track of how many times each color pixel appears in the training set. Although \(256^3\) would be an obvious choice for the number of bins (one for each pixel) they determined that \(32^3\) is the optimum due to a large number of pixels not appearing in the training set. Each pixel is classified as being skin or non-skin using Bayes' theorem \(P(rgb|skin) >= \beta\), where $\beta$ is the threshold value. For this model they used a 6822 photo training set, where 4483 photos contained no skin and 2336 had portions of skin. The testing set had similar dimensions: 6818 total photos (4482 non-skin and 2336 skin). Using this method they obtained a 80\% true positive rate and 8.5\% false positive rate or, with a different threshold, a 90\% TP rate and 14.2\% FP rate.
 	
 	\subsection{Gaussian Models}
+	Gaussian Models are probabilistic methods of representing skin distribution using Gaussian probability density functions. They rely on the assumption that skin pixels cluster in a small area of a color space \cite{survey_skin_color_modeling}.
+	
 	The previous paper \cite{compaq} also proposes a combination of two mixture models for skin and non-skin classes. Each model is composed of 16 gaussians and was trained on approximatively 74\% of the histogram data, because only that data was available at the time. The results were similar to those of the previous model: 80\%/9.5\% and 90\%/15.5\%.
 	
-	\cite{gaussian_applied} presented a Single Gaussian in CbCr and a Gaussian Mixture in IQ, both trained and tested on the Compaq dataset with the results of 90\%/33.3\% and 90\%/30\%, respectively.
+	Lee and Yoo \cite{gaussian_applied} presented a Single Gaussian in CbCr space and a Gaussian Mixture in IQ space, both trained and tested on the Compaq dataset with the results of 90\%/33.3\% and 90\%/30\%, respectively.
 	
 	\subsection{Explicit thresholding}
-	Another popular approach is explicit thresholding. Some examples include \cite{rgb_threshold}, \cite{cr_cb_threshold}, \cite{yiq_threshold}, \cite{i_threshold} for face detection systems in different color spaces with varying results. 
+	Thresholding is one of the fastest and simplest methods for skin detection. The basic idea is to define a set of rules and thresholds for the values of pixels in a given color space. This approach is best suited for real-time detection due to its speed. Some examples include \cite{rgb_threshold}, \cite{cr_cb_threshold}, \cite{yiq_threshold}, \cite{i_threshold} for face detection systems in different color spaces with varying results. 
 	
 	A set of thresholds for YCrCb space where proposed by Chai and Ngan\cite{cr_cb_threshold}. They set the ranges for Cb from 77 to 127 and for Cr from 133 to 173 and worked with the ECU database.
 	
@@ -196,7 +198,7 @@
 	\end{table}
 	
 	\section{Conclusions}
-	The model obtains results similar to the ones presented in literature however image segmentation and analyzing probabilities for every pixel's neighbors take a toll on computation speed.
+	The model obtains results similar to the ones presented in literature however image segmentation and analyzing probabilities for every pixel's neighbors take a toll on computation speed. Due to time limitations, the evaluation was done on a small subset of the data. Consequently the model's performance might improve over a larger set of input data.
 	
 	\newpage
 	\bibliography{references_articol}

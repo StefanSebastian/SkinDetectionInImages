@@ -53,7 +53,7 @@
  	
  	Medjram et al.\cite{texture_svm} proposed another method that combines color and texture information. The first step is converting the initial image to the YCbCr color space. Skin regions are identified using thresholding like the following: \(77 <= Cb <= 127, 133 <= Cr <= 173\). Secondly, the image is sharpened in order to enhance its texture. The features considered from the GLCM are Contrast, Homogeneity and Energy, calculated over a 5x5 matrix. The last step is applying a Support Vector Machine classifier on the initial image to classify texture patches.
  	
- 	In \cite{texture_gabor_wavelet} they use Gabor wavelet transforms to compute textural attributes. After identifying the initial skin regions a watershed segmentation algorithm is applied to increase true acceptance rate.
+ 	In \cite{texture_gabor_wavelet} they use Gabor wavelet transforms (filters that analyze orientation and frequency) to compute textural attributes. After identifying the initial skin regions a watershed segmentation algorithm is applied to increase true acceptance rate.
  	
  	\subsection{Hidden Markov Models}
  	Sigal et al.\cite{hmm} implemented a method for real time skin detection in videos. Their model predicts the evolution of the skin color histogram using a second order Markov model, using an initial prediction from a Bayes classifier over the Compaq dataset. It uses the EM algorithm which consists of two steps: E(frame segmentation based on histogram) and M(histogram adaptation based on feedback from the current frame).

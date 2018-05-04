@@ -48,14 +48,14 @@
 	\subsection{Gaussian Models}
 	Gaussian Models are probabilistic methods of representing skin distribution using Gaussian probability density functions. They rely on the assumption that skin pixels cluster in a small area of a color space \cite{survey_skin_color_modeling}.
 	
-	The previous paper \cite{compaq} also proposes a combination of two mixture models for skin and non-skin classes. Each model is composed of 16 gaussians and was trained on approximatively 74\% of the histogram data, because only that data was available at the time. The results were similar to those of the previous model: 80\%/9.5\% and 90\%/15.5\%.
+	The authors of Compaq \cite{compaq} also evaluated a combination of two mixture models for skin and non-skin classes. Each model is composed of 16 gaussians and was trained on approximatively 74\% of the histogram data, because only that data was available at the time. The results were similar to those of the previous model: 80\%/9.5\% and 90\%/15.5\%.
 	
 	Lee and Yoo \cite{gaussian_applied} presented a Single Gaussian in CbCr space and a Gaussian Mixture in IQ space, both trained and tested on the Compaq dataset with the results of 90\%/33.3\% and 90\%/30\%, respectively.
 	
 	\subsection{Explicit thresholding}
 	Thresholding is one of the fastest and simplest methods for skin detection. The basic idea is to define a set of rules and thresholds for the values of pixels in a given color space. This approach is best suited for real-time detection due to its speed. Some examples include \cite{rgb_threshold}, \cite{cr_cb_threshold}, \cite{yiq_threshold}, \cite{i_threshold} for face detection systems in different color spaces with varying results. 
 	
-	A set of thresholds for YCrCb space where proposed by Chai and Ngan\cite{cr_cb_threshold}. They set the ranges for Cb from 77 to 127 and for Cr from 133 to 173 and worked with the ECU database.
+	A set of thresholds for YCrCb space where proposed by Chai and Ngan \cite{cr_cb_threshold}. They set the ranges for Cb from 77 to 127 and for Cr from 133 to 173 and worked with the ECU database.
 	
 	Dai and Nakano\cite{yiq_threshold} created a model for YIQ, an orthogonal color space, which only used the I component (which stands for in-phase). The range they provided was [0, 50], however most of the images in their databases where of people with yellow skin.
 	
@@ -81,7 +81,7 @@
 	
 	Medjram et al.\cite{texture_svm} proposed another method that combines color and texture information. The first step is converting the initial image to the YCbCr color space. Skin regions are identified using thresholding like the following: \(77 <= Cb <= 127, 133 <= Cr <= 173\). Secondly, the image is sharpened in order to enhance its texture. The features considered from the GLCM are Contrast, Homogeneity and Energy, calculated over a 5x5 matrix. The last step is applying a Support Vector Machine classifier on the initial image to classify texture patches.
 	
-	In \cite{texture_gabor_wavelet} they use Gabor wavelet transforms to compute textural attributes. After identifying the initial skin regions a watershed segmentation algorithm is applied to increase true acceptance rate.
+	In \cite{texture_gabor_wavelet} they use Gabor wavelet transforms (filters that analyze orientation and frequency) to compute textural attributes. After identifying the initial skin regions a watershed segmentation algorithm is applied to increase true acceptance rate.
 	
 	\subsection{Hidden Markov Models}
 	Sigal et al.\cite{hmm} implemented a method for real time skin detection in videos. Their model predicts the evolution of the skin color histogram using a second order Markov model, using an initial prediction from a Bayes classifier over the Compaq dataset. It uses the EM algorithm which consists of two steps: E(frame segmentation based on histogram) and M(histogram adaptation based on feedback from the current frame).

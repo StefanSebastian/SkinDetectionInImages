@@ -1,0 +1,8 @@
+Metode de prezentat : 
+
+SPM 
+threshold : manual + automat
+segmentation : SLIC ; CRF
+texture ; ANN
+
+todo markov models

@@ -371,7 +371,7 @@
 	\end{figure}
 
 	\subsection{The image segmentation module}
-	An overview of this module can be seen in figure \ref{fig:image_segmentation}. The segmentation functionality is provided by the QuickshiftSegmentation class, which exposes two public methods: apply(image) and $get_superpixels(image)$. The first method applies Quick shift segmentation on the image and returns an image where regions are visible, being colored with the same value as the root pixel. The second method returns a map containing all identified regions. The keys are roots pixels and the values their corresponding superpixels. 
+	An overview of this module can be seen in figure \ref{fig:image_segmentation}. The segmentation functionality is provided by the QuickshiftSegmentation class, which exposes two public methods, apply(image) and $get_superpixels(image)$, and takes the sigma and tau parameters in the constructor. The first method applies Quick shift segmentation on the image and returns an image where regions are visible, being colored with the same value as the root pixel. The second method returns a map containing all identified regions. The keys are roots pixels and the values their corresponding superpixels. 
 	
 	Regions are represented by the Superpixel class whose fields are: the initial image, position of the root pixel and a list of positions of all corresponding pixels.
 	
@@ -384,7 +384,21 @@
 		\label{fig:image_segmentation}
 	\end{figure}
 
-	\subsection{The color detection module TODO}
+	\subsection{The color detection module}
+	This module can be divided into two submodules: training and detection.
+	
+	In order to train a color detection model you must call the $train_spm_model$ static method which takes a SPMTrainConfiguration object. The configurable fields are the database (SFA or Compaq), the color space (RGB, HSV, YCrCb) and paths for resources. 
+	
+	Depending on the value of the database parameter the trainer creates either a SfaComponentExtractor or a CompaqComponentExtractor. Both of these classes provide a method $extract_components()$ that returns a BayesSPMComponents object, which encapsulates: the number of skin and non-skin pixels, a map with the number of apparitions for each pixel and a map with the number of apparitions as skin.
+	
+	The resulting model, a SPMModel object, is serialized into a file. It contains the selected color space and the components extracted on the previous step.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[]{design/color_train.png}
+		\caption{Color detector training submodule}
+		\label{fig:color_train}
+	\end{figure}
 	
 	\subsection{The texture analysis module TODO}
 	

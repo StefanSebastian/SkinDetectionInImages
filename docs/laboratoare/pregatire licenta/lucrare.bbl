@@ -1,5 +1,32 @@
 \begin{thebibliography}{10}
 
+\bibitem{finding_naked_people}
+M.~M. Fleck, D.~A. Forsyth, and C.~Bregler, ``Finding naked people,'' in {\em
+  Computer Vision --- ECCV '96} (B.~Buxton and R.~Cipolla, eds.), (Berlin,
+  Heidelberg), pp.~593--602, Springer Berlin Heidelberg, 1996.
+
+\bibitem{anchor_person_detection}
+B.~M. and R.~Amsaveni, ``Anchor person detection using haar-like feature
+  extraction from news videos,'' {\em International Journal of Computer
+  Applications}, vol.~153, no.~9, pp.~23--27, 2016.
+
+\bibitem{kinect_control}
+``The complete list of kinect gesture and voice commands for your referencing
+  pleasure.''
+  \url{https://news.xbox.com/en-us/2013/11/26/xbox-one-kinect-gesture-and-voice-guide/}.
+\newblock Accessed: 2018-05-03.
+
+\bibitem{detecting_faces_a_survey}
+M.-H. Yang, D.~J. Kriegman, and N.~Ahuja, ``Detecting faces in images: A
+  survey,'' {\em IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE
+  INTELLIGENCE}, vol.~24, no.~1, pp.~34--58, 2002.
+
+\bibitem{jaywalkers_china}
+C.~Geib, ``If you jaywalk in china, facial recognition means you’ll walk away
+  with a fine.''
+  \url{https://futurism.com/facial-recognition-china-social-credit/}.
+\newblock Accessed: 2018-05-03.
+
 \bibitem{compaq}
 M.~J. Jones and J.~M. Rehg, ``Statistical color models with applications to
   skin detection,'' {\em International Journal of Computer Vision}, vol.~46,
@@ -127,5 +154,10 @@ J.~McGonagle, V.~Tembo, and A.~Chumbley, ``Gaussian mixture model.''
 M.~hsuan Yang and N.~Ahuja, ``Gaussian mixture model for human skin color and
   its applications in image and video databases,'' in {\em Proceedings of SPIE
   ’99 (San Jose CA)}, pp.~458--466, 1999.
+
+\bibitem{sfa}
+J.~P.~B. Casati, D.~R. Moraes, and E.~L.~L. Rodrigues, ``Sfa: A human skin
+  image database based on feret and ar facial images,'' {\em IX Workshop de
+  Visão Computacional, Rio de Janeiro}, 2013.
 
 \end{thebibliography}

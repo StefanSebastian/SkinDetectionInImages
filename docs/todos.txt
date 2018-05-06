@@ -1,0 +1,4 @@
+Modificari pt licenta ; teorie 
+
+-> in theoretical background explicatii doar pt tehnicile folosite in prorpiul model
+-> related work ; explicatiile care sunt acum in theoretical bg

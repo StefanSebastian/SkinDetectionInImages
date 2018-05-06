@@ -70,10 +70,14 @@ G.~Gomez and E.~F. Morales, ``Automatic feature construction and a simple rule
   induction algorithm for skin detection,'' {\em Proceedings of Workshop on
   Machine Learning in Computer Vision}, pp.~31–--38, 2002.
 
-\bibitem{haralick_features}
-R.~M. Haralick, K.~Shanmugam, and I.~Dinstein, ``Textural features for image
-  classification,'' {\em IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS},
-  vol.~3, no.~6, 1973.
+\bibitem{superpixels_applied_1}
+F.~Saxen and A.~Al-Hamadi, ``Superpixels for skin segmentation,'' {\em Workshop
+  Farbbildverarbeitung, At Wuppertal}, vol.~20, 2014.
+
+\bibitem{superpixels_applied_2}
+R.~P. Poudel, J.~J. Zhang, D.~Liu, and H.~Nait-Charif, ``Skin color detection
+  using region-based approach,'' {\em International Journal of Image Processing
+  (IJIP)}, vol.~7, no.~4, 2013.
 
 \bibitem{color_texture_ann}
 N.~K.~E. Abbadi, N.~Dahir, and Z.~A. Alkareem, ``Skin texture recognition using
@@ -88,30 +92,6 @@ M.~Sofiane, B.~M. Chaouki, and M.~B. Yamina, ``Improved skin detection using
 Z.~Jiang, M.~Yao, and W.~Jiang, ``Skin detection using color, texture and space
   information,'' {\em Fuzzy Systems and Knowledge Discovery}, 2007.
 
-\bibitem{image_segmentation_techniques}
-R.~Dass, Priyanka, and S.~Devi, ``Image segmentation techniques,'' {\em IJECT},
-  vol.~3, no.~1, 2012.
-
-\bibitem{superpixels_applied_1}
-F.~Saxen and A.~Al-Hamadi, ``Superpixels for skin segmentation,'' {\em Workshop
-  Farbbildverarbeitung, At Wuppertal}, vol.~20, 2014.
-
-\bibitem{quickshift_gpu}
-B.~Fulkerson and S.~Soatto, ``Really quick shift: Image segmentation on a
-  gpu,'' in {\em In Proceedings of the Workshop on Computer Vision using GPUs,
-  held with the European Conference on Computer Vision}, 2010.
-
-\bibitem{superpixels_applied_2}
-R.~P. Poudel, J.~J. Zhang, D.~Liu, and H.~Nait-Charif, ``Skin color detection
-  using region-based approach,'' {\em International Journal of Image Processing
-  (IJIP)}, vol.~7, no.~4, 2013.
-
-\bibitem{color_and_edge_segmentation}
-S.~L. Phung, A.~Bouzerdoum, and D.~Chai, ``Skin segmentation using color and
-  edge information,'' in {\em Seventh International Symposium on Signal
-  Processing and Its Applications, 2003. Proceedings.}, vol.~1, pp.~525--528
-  vol.1, July 2003.
-
 \bibitem{hmm}
 L.~Sigal, S.~Sclaroff, and V.~Athitsos, ``Skin color-based video segmentation
   under time-varying illumination,'' {\em IEEE TRANSACTIONS ON PATTERN ANALYSIS
@@ -121,5 +101,15 @@ L.~Sigal, S.~Sclaroff, and V.~Athitsos, ``Skin color-based video segmentation
 J.~P.~B. Casati, D.~R. Moraes, and E.~L.~L. Rodrigues, ``Sfa: A human skin
   image database based on feret and ar facial images,'' {\em IX Workshop de
   Visão Computacional, Rio de Janeiro}, 2013.
+
+\bibitem{quickshift_gpu}
+B.~Fulkerson and S.~Soatto, ``Really quick shift: Image segmentation on a
+  gpu,'' in {\em In Proceedings of the Workshop on Computer Vision using GPUs,
+  held with the European Conference on Computer Vision}, 2010.
+
+\bibitem{haralick_features}
+R.~M. Haralick, K.~Shanmugam, and I.~Dinstein, ``Textural features for image
+  classification,'' {\em IEEE TRANSACTIONS ON SYSTEMS, MAN, AND CYBERNETICS},
+  vol.~3, no.~6, 1973.
 
 \end{thebibliography}

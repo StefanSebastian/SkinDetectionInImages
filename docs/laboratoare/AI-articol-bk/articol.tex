@@ -17,7 +17,7 @@
 	\maketitle
 	
 	\begin{abstract}
-		The interfaces between human and computer interaction have evolved from simple buttons to voice and video recognition. Skin detection is a useful preprocessing step for detecting people in images, which facilitates this communication. This article presents the current state of research in this domain followed by a method of detecting skin in images by combining several state of the art approaches. The model combines Skin Probability Maps for color analysis on images segmented with the Quick shift algorithm and texture detection using Haralick's features. The results, evaluated on the widely used Compaq dataset, are comparable to others found in literature: 80\% true positive rate and 20\% false positive rate.
+		The interfaces between human and computer interaction have evolved from simple buttons to voice and video recognition. Skin detection is a useful preprocessing step for detecting people in images, which facilitates this communication. This article presents a method of detecting skin in images by combining several state of the art approaches in this domain. The model combines Skin Probability Maps for color analysis on images segmented with the Quick shift algorithm and texture detection using Haralick's features. The results, evaluated on the widely used Compaq dataset, are comparable to others found in literature: 80\% true positive rate and 20\% false positive rate.
 	\end{abstract}
 	
 	\newpage
@@ -29,7 +29,7 @@
 	
 	There are many challenges in creating a good skin detector. One of the most challenging aspects is handling illumination. While the human eye can easily distinguish the same color in varying degrees of brightness this is not a trivial task for computers. The second aspect we must consider are the variety of skin tones. A good model should be able to handle people of all races. Another thing to note is the fact that there are a lot of objects and materials that resemble skin such as leather, wood, sand etc. Consequently, most models have a rather large false positive rate (around 10\%).
 	
-	The purpose of this paper is to present the best models currently employed in skin detection and to propose a new model that combines some state of the art detectors. To the best of my knowledge no method that combines image segmentation, color and texture analysis has been published in this area of research. For every approach in skin detection I included a theoretical introduction followed by some examples of its practical use in skin detection.
+	The purpose of this paper is to present the best models currently employed in skin detection and to propose a new model that combines some state of the art detectors. To the best of my knowledge no method that combines image segmentation, color and texture analysis has been published in this area of research.
 	
 	\section{Applications}
 	One of the first applications in this field of study was scanning internet images in order to filter pornographic content \cite{finding_naked_people}. The model proposed in that paper scans the images for large areas of skin and then applies some geometrical analysis looking for elongated shapes.
@@ -39,46 +39,16 @@
 	Skin detection is usually an intermediary step for detecting more concrete body parts, so I will also present some applications of those methods. Face and hands detection is used to facilitate human computer interaction. By scanning gestures and reactions a software system can respond in a more convenient way to the user. For example the Kinect camera, which connects to the Xbox console,
 	allows the user to navigate menus using hand swipes \cite{kinect_control}. Face recognition, the next step after detection, is useful for automatic identification of people \cite{detecting_faces_a_survey} which has applications in security, such as unlocking your phone only when it scans your face, and monitoring certain areas, like the systems used by the Chinese government to fine jaywalkers caught on camera without human intervention \cite{jaywalkers_china}.
 	
-	\section{Skin detection by color}
-	This section presents methods employed in detecting skin using the pixels' color features.
+	\section{Related work}
+	The subject of skin detection has been of interest for researchers due to its many applications. 
 	
 	\subsection{Skin Probability Maps}
 	One of the most comprehensive experiments in skin detection was conducted by MJ Jones and JM Rehg \cite{compaq} who created the Compaq skin dataset, which became a standard for evaluating results of research in this domain.
 	
-	They used skin probability maps, which are histogram based models, meaning they set a number of bins for each color channel where they keep track of how many times each color pixel appears in the training set. Although \(256^3\) would be an obvious choice for the number of bins (one for each pixel) they determined that \(32^3\) is the optimum due to a large number of pixels not appearing in the training set.
-	
-	Each pixel is classified using Bayes' theorem in the following form:
-	\begin{equation}
-	P(skin|p) = \frac{P(p|skin)P(skin)}{P(p|skin)P(skin) + P(p|\neg skin)P(\neg skin)}
-	\end{equation}
-	In this equation "p" is the notation for the occurrence of the given pixel. Therefore $P(skin|p)$ means the probability of observing skin given our pixel. To determine whether we classify the pixel as skin we compare our probability with the threshold value, \( \beta \).
-	\begin{equation}
-	P(skin|p) > \beta
-	\end{equation}
-	The probability of observing skin can be computed as the ratio of the number of skin pixels to the total number of pixels observed in training.
-	\begin{equation}
-	P(skin) = \frac{T_S}{T_S + T_N}
-	\end{equation}
-	
-	For this model they used a 6822 photo training set, where 4483 photos contained no skin and 2336 had portions of skin. The testing set had similar dimensions: 6818 total photos (4482 non-skin and 2336 skin). Using this method they obtained a 80\% true positive rate and 8.5\% false positive rate or, with a different threshold, a 90\% TP rate and 14.2\% FP rate.
+	They used skin probability maps, which are histogram based models, meaning they set a number of bins for each color channel where they keep track of how many times each color pixel appears in the training set. Although \(256^3\) would be an obvious choice for the number of bins (one for each pixel) they determined that \(32^3\) is the optimum due to a large number of pixels not appearing in the training set. Each pixel is classified as being skin or non-skin using Bayes' theorem \(P(rgb|skin) >= \beta\), where $\beta$ is the threshold value. For this model they used a 6822 photo training set, where 4483 photos contained no skin and 2336 had portions of skin. The testing set had similar dimensions: 6818 total photos (4482 non-skin and 2336 skin). Using this method they obtained a 80\% true positive rate and 8.5\% false positive rate or, with a different threshold, a 90\% TP rate and 14.2\% FP rate.
 	
 	\subsection{Gaussian Models}
 	Gaussian Models are probabilistic methods of representing skin distribution using Gaussian probability density functions. They rely on the assumption that skin pixels cluster in a small area of a color space \cite{survey_skin_color_modeling}.
-	
-	An example of a Gaussian model for skin detection was presented in \cite{survey_skin_color_modeling}:
-	\begin{equation}
-	p(c) = \frac{1}{2\pi^\frac{1}{2}|\Sigma|^\frac{1}{2}} \cdot e^{-\frac{1}{2}(c - \mu)^T\Sigma^{-1}(c - \mu)}
-	\end{equation}
-	In this equation, c is the color vector, \(\mu\) the mean vector and \(\Sigma\) the covariance matrix. These can be calculated from the training data as follows:
-	\begin{equation}
-	\begin{split}
-	\mu = \frac{1}{n} \cdot \sum_{j=1}^{n} c_j \\
-	\Sigma = \frac{1}{n - 1} \cdot \sum_{j=1}^{n}(c_j - \mu)(c_j - \mu)^T
-	\end{split}
-	\end{equation}
-	Here \(c_j\) are all the color samples used in training the model. In order to establish that the given color describes skin we can compare p(c) with a threshold that can be determined experimentally for a given training set.
-	
-	A Gaussian Mixture Model is a method of identifying subpopulation in a given population and, as the name suggests, it represents a combination of single Gaussians.
 	
 	The authors of Compaq \cite{compaq} also evaluated a combination of two mixture models for skin and non-skin classes. Each model is composed of 16 gaussians and was trained on approximatively 74\% of the histogram data, because only that data was available at the time. The results were similar to those of the previous model: 80\%/9.5\% and 90\%/15.5\%.
 	
@@ -103,49 +73,64 @@
 	\end{equation}
 	In comparison with the C4.5 decision tree algorithm, the RCA method obtained slightly worse results but with much simpler rules. They used a custom dataset containing images of more than 2000 people and obtained around 90\% both in precision and recall.
 	
-	\subsection{Hidden Markov Models}
-	Sigal et al.\cite{hmm} implemented a method for real time skin detection in videos. Their model predicts the evolution of the skin color histogram using a second order Markov model, with an initial prediction from a Bayes classifier over the Compaq dataset. It uses the EM algorithm which consists of two steps: E(frame segmentation based on histogram) and M(histogram adaptation based on feedback from the current frame). This resulted in an average accuracy of 86\% on some selected sequences from movies.
+	\subsection{Models using segmentation}
+	Frerk and Al-Hamadi\cite{superpixels_applied_1} proposed a method that applies image segmentation combined with a Bayesian SPM. The first step is calculating the probability for each pixel in an image and creating \(P_I\), the pixel probability image. The color and position of each pixel is used as input for a SLIC algorithm, an adaptation of k-means designed to avoid placing clusters on edges or noisy pixels, that calculates the superpixels. The parameter k for segmentation is set to be the number of pixels in the image divided by \(30^2\), so that all regions have a size of approximatively 30x30. A probability is then computed for each superpixel and compared to a threshold.
 	
-	\section{Skin texture analysis}
-	Texture, while easily identifiable by a human observer, does not have precise definition. Consequently there are many choices for building a texture classification model depending on the author's interpretation. Its main use in skin detection is to reduce the false positive rate. I haven't found any source that uses a texture model as a sole detector, possibly due to the fact that many surfaces with smooth texture can be misclassified as skin. 
+	In \cite{superpixels_applied_2} a similar approach to \cite{superpixels_applied_1} is taken. Firstly, a segmentation is performed and superpixels are extracted. A probability is calculated for each superpixel as the average of its component pixels probabilities. Then, a CRF(Conditional Random Field) method is used in order to obtain smoother skin regions. A CRF is a probabilistic method that works with graph based structures and models a distribution of type $P(y|x)$. The pair considered in this article is color difference and boundary length between neighboring superpixels. This model was tested on the Compaq database and obtained a 91.17\% TP rate and 13.12\% FP rate.
 	
-	\subsection{Haralick's features}
-	One method of representing textural information is through the Gray-Level Co-Occurrence Matrix. This represents how often combinations of pixel gray levels at different offsets appear in an image and are based on the assumption that texture can be derived from the spatial relationships of gray tones within a block of the image\cite{haralick_features}. The Haralick features, named after Robert Haralick, are metrics that can be applied to the GLCM to obtain a more compact definition of texture.
-	
+	\subsection{Models using textural features}
 	\cite{color_texture_ann} presents a model based on Artificial Neural Networks that analyzes both color and textural features. The color features used are the mean color, the standard deviation and the skewness. These are calculated for each channel (R, G, B). The inputs for the ANN also include the following textural information: Entropy, Energy, Contrast and Homogeneity, which are computed from the Gray-Level Co-Occurrence Matrix. The networks has three layers: an input layer, a hidden layer (with 50 neurons) and an output layer. The model was trained on 300 images (80x80 px) of skin and non-skin textures and tested on 100, obtaining a 96\% accuracy in classifying whether an image is a skin patch or not.
 	
 	Medjram et al.\cite{texture_svm} proposed another method that combines color and texture information. The first step is converting the initial image to the YCbCr color space. Skin regions are identified using thresholding like the following: \(77 <= Cb <= 127, 133 <= Cr <= 173\). Secondly, the image is sharpened in order to enhance its texture. The features considered from the GLCM are Contrast, Homogeneity and Energy, calculated over a 5x5 matrix. The last step is applying a Support Vector Machine classifier on the initial image to classify texture patches.
 	
-	\subsection{Gabor wavelet transforms}
-	In \cite{texture_gabor_wavelet} they use Gabor wavelet transforms (filters that analyze orientation and frequency) to compute textural attributes. After identifying the initial skin regions a watershed segmentation algorithm is applied to increase true acceptance rate. They obtained 94.8\%/4.2\% TPR/FPR, however they used a custom dataset.
+	In \cite{texture_gabor_wavelet} they use Gabor wavelet transforms (filters that analyze orientation and frequency) to compute textural attributes. After identifying the initial skin regions a watershed segmentation algorithm is applied to increase true acceptance rate.
 	
-	\section{Image segmentation}
-	Image segmentation is a technique for dividing an image into several regions that contain similar pixels. In skin detection, this method is usually applied to increase smoothness and to eliminate holes in regions classified as skin.
-	
-	\subsection{K-means}
-	One popular approach to segmentation problems is the K-means algorithm, which can divide n data points in k clusters, where k is known in advance. This can be applied to image segmentation if we consider pixel intensities as the values on which we are doing clustering. The algorithm is simple and efficient on large volumes of data\cite{image_segmentation_techniques}, however the number of clusters must be known in advance, which can be problematic as the number of distinct regions can vary from image to image.
-	
-	Frerk and Al-Hamadi \cite{superpixels_applied_1} proposed a method that applies image segmentation combined with a Bayesian SPM. The first step is calculating the probability for each pixel in an image and creating \(P_I\), the pixel probability image. The color and position of each pixel is used as input for a SLIC algorithm, an adaptation of k-means designed to avoid placing clusters on edges or noisy pixels, that calculates the superpixels. The parameter k for segmentation is set to be the number of pixels in the image divided by \(30^2\), so that all regions have a size of approximatively 30x30. A probability is then computed for each superpixel and compared to a threshold. They claim to obtain similar performance to other state of the art methods.
-	
-	\subsection{Quick shift}
-	Mode seeking algorithms are methods for clustering without needing to know the number of clusters in advance. Quick shift is one of the most popular algorithms from this family due to its simplicity and speed. The algorithm starts by calculating a Parzen density value for each data point. Then it links each pixel to the nearest neighbor with a higher density and the resulting structure is a tree. To obtain the regions we can limit our search during linking phase to a distance of \(\tau\) or we can cut branches larger than \(\tau\).
-	
-	In the application of Quick shift in image segmentation a relevant feature space must be chosen. An option is using the RGB components and position(x, y coordinates) of each pixel. As the position does not always has fixed bounds (image size can vary) we can scale the position components depending on our input data, such that the importance of color and position remains similar\cite{quickshift_gpu}.
-	
-	In \cite{superpixels_applied_2} a similar approach to \cite{superpixels_applied_1} is taken. First, a segmentation is performed (using the Quick shift algorithm) and superpixels are extracted. A probability is calculated for each superpixel as the average of its component pixels probabilities. Then, a CRF(Conditional Random Field) method is used in order to obtain smoother skin regions. A CRF is a probabilistic method that works with graph based structures and models a distribution of type $P(y|x)$. The pair considered in this article is color difference and boundary length between neighboring superpixels. This model was tested on the Compaq database and obtained a 91.17\% TP rate and 13.12\% FP rate.
-	
-	\subsection{Edge detection}
-	These methods aim to solve image segmentation problems by detecting all edges in images. An edge is characterized by a sudden change in pixel intensity\cite{image_segmentation_techniques}. The result of edge detection is an image that represents to classes of pixels: part of an edge or not.
-	
-	This paper \cite{color_and_edge_segmentation} presents a method of combining a Bayesian color detector with edge based segmentation. After applying color detection they discover regions using Sobel and Canny edge detectors. In the detected regions they study homogeneity and remove those that fall under a certain threshold. On the ECU database they obtained a 91\% TPR and 15.3\% FPR.
+	\subsection{Hidden Markov Models}
+	Sigal et al.\cite{hmm} implemented a method for real time skin detection in videos. Their model predicts the evolution of the skin color histogram using a second order Markov model, using an initial prediction from a Bayes classifier over the Compaq dataset. It uses the EM algorithm which consists of two steps: E(frame segmentation based on histogram) and M(histogram adaptation based on feedback from the current frame).
 	
 	\section{Proposed model}
-	The model proposed by this paper is made up of three steps. The first step is image segmentation using the Quick shift algorithm. A Bayesian probability is then calculated for every pixel in the region and the average of these is compared to a threshold to determine if the superpixel's color is likely to be that of skin. Finally, a Support Vector Machine analyzes patches around each pixel and calculates Haralick features in order to classify the texture. The results from color and texture detection are then combined into the final result.
+	The model proposed by this paper is made up of three steps. The first step is image segmentation, which aims to divide the input image into several regions, called superpixels, based on color and shape. A Bayesian probability is then calculated for every pixel in the region and the average of these is compared to a threshold to determine if the superpixel's color is likely to be that of skin. Finally, a Support Vector Machine analyzes patches around each pixel and calculates Haralick features in order to classify the texture. The results from color and texture detection are then combined into the final result.
 	
 	\subsection{Datasets}
 	For this experiment I have used two databases. First, the Compaq dataset \cite{compaq}, which is one of the most cited in literature, contains ~13.000 images out of which ~4700 contain skin and was used for the skin color model. The images were downloaded using a web crawler then divided into skin and non-skin images. For every skin image a black and white mask was created by hand to mark the regions of interest.
 	
 	The second dataset, SFA \cite{sfa}, was created as a combination of FERET(876 images) and AR(242 images)  datasets. It contains skin and non-skin patches of dimension from 1x1 to 35x35, which makes it ideal for the texture model. For each dimension, SFA has 3354 skin images and 5590 non-skin images.
+	
+	\subsection{Segmentation}
+	Image segmentation has been applied to increase smoothness and eliminate holes in regions classified as skin. The algorithm chosen for image segmentation is Quick shift due to its simplicity, speed and its ability to form clusters without knowing their number beforehand.
+	
+	A suitable feature space for image segmentation is the combination of RGB components and pixel position, which can be scaled\cite{quickshift_gpu}. The algorithm starts by calculating a Parzen density value for each data point. Then it links each pixel to the nearest neighbor with a higher density. To obtain the regions we can limit our search during linking phase to a distance of \(\tau\). When calculating the density we can limit our search to a 3$\sigma$ window because the contributions for pixels further away should be small \cite{quickshift_gpu}.
+	
+	\begin{algorithm}
+		\caption{The Quick shift segmentation algorithm from \cite{quickshift_gpu}}
+		\label{alg:quick_shift}
+		\# density computation\;
+		\For{x in all pixels}{
+			P[x] = 0\;
+			\For{n in all pixels less than 3 * $\sigma$ away}{
+				P[x] += exp(-(f[x] - f[n])\^{}2 / (2 * $\sigma$ * $\sigma$))	
+			}
+		}
+		\# neighbor linking\;
+		\For{x in all pixels}{
+			\For{n in all pixels less than $\tau$ away}{
+				\If{P[n] \(>\) P[x] and distance(x, n) is smaller than to previous parent}{
+					d[x] = distance(x, n)\;
+					parent[x] = n\;
+				}
+			}
+		}
+	\end{algorithm}
+
+	\subsection{Color analysis}
+	Each superpixel is evaluated with a color detection model. The chosen model is a Bayesian Skin Probability Map, due to its simplicity and speed. After scanning the input images we can calculate the following features: the number of skin pixels and non-skin pixels and the number of apparitions as skin and non-skin for each pixel. To determine whether a pixel can be classified as skin we can apply Bayes' Theorem as follows: \(p = P(X|S) * P(S) / P(X)\), where P(S), P(X) and P(X$\vert$S) represent the probabilities of finding a skin pixel, the selected pixel and the selected pixel given skin, respectively.
+	
+	The authors of the Compaq \cite{compaq} dataset made the observation that 77\% of the RGB space is empty and as a solution computed the probabilities on groups of pixels. The proposed model uses a similar method by taking the maximum probability in an area around the given pixel. This ensures that the considered pixel is always at the center of the group.
+	
+	\subsection{Texture analysis}
+	Texture analysis is an independent step whose result is combined with that of the color detector's. Texture, while easily identifiable by a human observer, does not have precise definition. Consequently there are many choices for building a texture classification model depending on the author's interpretation.
+	
+	The chosen method for this model is the one proposed by Haralick \cite{haralick_features}. Features that describe texture are extracted from a matrix called the Gray Level Co-occurence Matrix, which represents how often combinations of pixel gray levels at different offsets appear in an image. A Support Vector Machine is trained on these features extracted from 5x5 patches. Each pixel is classified by building a window of the same size around it and giving that patch as input to the classifier.
 	
 	\subsection{Parameters}
 	For image segmentation I tried to find values for the sigma and tau parameters that produce regions as large as possible without distorting the contours. I chose the (3, 5) pair, which can be seen in comparison with other pairs in figure \ref{fig:segmentation}.
@@ -215,9 +200,7 @@
 	\end{table}
 	
 	\section{Conclusions}
-	There is a high interest for this domain in research with thousands of published papers and surveys. However there are a variety of datasets employed, some of them not available, which makes comparing these methods difficult.
-	
-	The proposed model obtains results similar to the ones presented in literature however image segmentation and analyzing probabilities for every pixel's neighbors take a toll on computation speed. Due to time limitations, the evaluation was done on a small subset of the data. Consequently the model's performance might improve over a larger set of input data.
+	The model obtains results similar to the ones presented in literature however image segmentation and analyzing probabilities for every pixel's neighbors take a toll on computation speed. Due to time limitations, the evaluation was done on a small subset of the data. Consequently the model's performance might improve over a larger set of input data.
 	
 	\newpage
 	\bibliography{references_articol}

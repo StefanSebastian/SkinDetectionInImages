@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.3)  6 MAY 2018 17:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2018.1.3)  6 MAY 2018 18:00
 entering extended mode
 **./lucrare.tex
 (lucrare.tex
@@ -442,31 +442,23 @@ Package pdftex.def Info: Requested size: 117.00119pt x 169.00801pt on input lin
 e 322.
  [19 <./resources/segm_3_5.png> <./resources/segm_2_10.png> <./resources/segm_4
 _8.png> <./resources/texture_5_5.png> <./resources/texture_7_7.png> <./resource
-s/texture_35_35.png>]
-<design/main_modules.png, id=406, 304.88907pt x 157.33781pt>
+s/texture_35_35.png>] [20]
+<design/main_modules.png, id=413, 304.88907pt x 157.33781pt>
 File: design/main_modules.png Graphic file (type png)
 <use design/main_modules.png>
-Package pdftex.def Info: design/main_modules.png  used on input line 360. on in
-put line 360.
+Package pdftex.def Info: design/main_modules.png  used on input line 368. on in
+put line 368.
 Package pdftex.def Info: Requested size: 304.88832pt x 157.33742pt on input lin
-e 360.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[20]
-<design/image_segmentation.png, id=415, 315.42844pt x 228.10219pt>
+e 368.
+ [21 <./design/main_modules.png>]
+<design/image_segmentation.png, id=420, 315.42844pt x 228.10219pt>
 File: design/image_segmentation.png Graphic file (type png)
 <use design/image_segmentation.png>
-Package pdftex.def Info: design/image_segmentation.png  used on input line 374.
- on input line 374.
+Package pdftex.def Info: design/image_segmentation.png  used on input line 382.
+ on input line 382.
 Package pdftex.def Info: Requested size: 315.42766pt x 228.10161pt on input lin
-e 374.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[21 <./design/main_modules.png>] [22 <./design/image_segmentation.png>]
+e 382.
+ [22 <./design/image_segmentation.png>]
 Chapter 4.
 [23
 
@@ -541,15 +533,22 @@ Missing character: There is no ™ in font cmti12!
 Missing character: There is no Ã in font cmti12!
 Missing character: There is no £ in font cmti12!
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 394.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 402.
  [27]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 394.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 402.
  (lucrare.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 394.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 394.
-Package rerunfilecheck Info: File `lucrare.out' has not changed.
-(rerunfilecheck)             Checksum: 4248DBCBF33DAFFCBD903FE980F7BF74;2280.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 394.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 402.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 402.
+
+
+Package rerunfilecheck Warning: File `lucrare.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `lucrare.out':
+(rerunfilecheck)             Before: 4248DBCBF33DAFFCBD903FE980F7BF74;2280
+(rerunfilecheck)             After:  5EECFECEB7FBE4C868841ACCF00B854C;2268.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 402.
  ) 
 Here is how much of TeX's memory you used:
  7950 strings out of 493312
@@ -574,7 +573,7 @@ s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX
 s/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/cm/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
 sfonts/cm/cmtt12.pfb>
-Output written on lucrare.pdf (28 pages, 545680 bytes).
+Output written on lucrare.pdf (28 pages, 546612 bytes).
 PDF statistics:
  534 PDF objects out of 1000 (max. 8388607)
  130 named destinations out of 1000 (max. 500000)

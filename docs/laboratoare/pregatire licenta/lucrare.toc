@@ -35,7 +35,7 @@
 \contentsline {section}{\numberline {3.2}Implementation}{20}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}The image segmentation module}{21}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}The color detection module}{22}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}The texture analysis module TODO}{23}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}The evaluator module TODO}{23}{subsection.3.2.4}
-\contentsline {subsection}{\numberline {3.2.5}User interface TODO}{23}{subsection.3.2.5}
-\contentsline {chapter}{\numberline {4}Conclusions}{24}{chapter.4}
+\contentsline {subsection}{\numberline {3.2.3}The texture analysis module}{24}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}The evaluator module}{26}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.5}User interface}{26}{subsection.3.2.5}
+\contentsline {chapter}{\numberline {4}Conclusions}{28}{chapter.4}

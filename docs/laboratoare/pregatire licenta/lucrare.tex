@@ -385,7 +385,7 @@
 	\end{figure}
 
 	\subsection{The color detection module}
-	This module can be divided into two submodules: training and detection.
+	This module can be divided into two submodules: training, figure \ref{fig:color_train}, and detection, figure \ref{fig:color_detect}.
 	
 	In order to train a color detection model you must call the $train_spm_model$ static method which takes a SPMTrainConfiguration object. The configurable fields are the database (SFA or Compaq), the color space (RGB, HSV, YCrCb) and paths for resources. 
 	
@@ -400,11 +400,69 @@
 		\label{fig:color_train}
 	\end{figure}
 	
-	\subsection{The texture analysis module TODO}
+	Depending on the input parameters the SPMDetectorFactory provides one of the following detectors: SimpleDetector, NeighborDetector or AverageOnSuperpixelDetector. The first one is the simplest approach as it calculates a probability for each pixel independently. The second, takes into account an area around each pixel. This simulates the histogram based approach with the difference that the considered pixel is always at the center of the area. The last detector calculates the average probability of a given superpixel.
 	
-	\subsection{The evaluator module TODO}
+	All detectors use the methods defined in ProbabilityCalculator through an intermediary layer. This proxy, CachedProbabilityCalculator, was created to speedup operations by caching probabilities. The need for memorizing these values arose from the fact that images usually contain a small subset of pixel values duplicated many times.
 	
-	\subsection{User interface TODO}
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[]{design/color_detect.png}
+		\caption{Color detection submodule}
+		\label{fig:color_detect}
+	\end{figure}
+	
+	\subsection{The texture analysis module}
+	Similarly to the previous module, texture analysis can be divided into two submodules, one for training, figure \ref{fig:texture_train}, and one for detection, figure \ref{fig:texture_detect}.
+	
+	The model used in skin texture detection, TextureModel, has an attribute for extracting textural features from images (feature\_extractor), one for classifying those values (classifier), and label for interpreting the classifier's results (skin\_label). This model is trained by a HaralickModelTrainer which its parameters from a TextureTrainConfig object.
+	
+	In this project I only implemented a model based on Haralick's features but the design allows incorporating other methods. The HaralickModel extends the basic TextureModel and overrides the feature extraction method. It is trained by a HaralickModelTrainer which injects a HaralickFeatureExtractor, which encapsulates the feature extraction method taken from the mahotas library, and SvmClassifier, which trains a Support Vector Machine classifier using the sk\_learn library. The model trainer is also responsible for selecting a method of preparing the input data, in this case using the TrainDataPreparer class, which computes Haralick's features and appends the corresponding label.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[]{design/texture_train.png}
+		\caption{Texture detector trainer submodule}
+		\label{fig:texture_train}
+	\end{figure}
+
+	There are two types of detectors available. The GridDetector slides a window over the image and classifies each of those blocks. The PerPixelDetector is a more precise approach because it builds a window around each pixel in the image and only marks the center pixel. Although the second approach gains a noticeable increase in precision, it is much slower than the first.
+
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[]{design/texture_detect.png}
+		\caption{Texture analysis submodule}
+		\label{fig:texture_detect}
+	\end{figure}
+	
+	\subsection{The evaluator module}
+	
+	The evaluator module has a simple structure, as seen in figure \ref{fig:evaluator}. The Evaluator class contains methods for evaluating a model(run\_simulation) and for applying it to an image(run\_detection). It takes as input a RunConfiguration object which contains informations about the desired skin and texture models and segmentation parameters.
+	
+	In order to evaluate the model some quality measures are applied for each analyzed picture. These methods include the false positive rate, true positive rate, precision, accuracy and recall and are implemented by the Stats class.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[]{design/evaluator.png}
+		\caption{The evaluator module}
+		\label{fig:evaluator}
+	\end{figure}
+	
+	\subsection{User interface}
+	
+	The user interface was build using the tkinter library. This framework was designed to create modular applications. Consequently every window can be composed out of multiple frames, which are reusable components. The main views used in the application are visible in figure \ref{fig:gui}. The various configuration frames were left out of the diagram to avoid clutter.
+	
+	MainView is a tab-view component which is provides links to the application's main windows: color model training, texture model training, model evaluation, detection of a picture.
+	
+	Every component has a ProcessControlFrame which contains a FeedbackFrame and some buttons for starting and stopping operations. When the user presses the 'Start' button a new process is launched which performs the request and logs results into a queue. A monitoring thread reads that from the queue and passes it to the FeedbackFrame for displaying it on the screen. This approach allows the user to follow the application's progress while keeping the user interface decoupled from the algorithms.
+	
+	The detection view also contains an ImageDisplayFrame, which displays the input and the resulting image.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[]{design/gui.png}
+		\caption{The user interface module}
+		\label{fig:gui}
+	\end{figure}
 	
 
 	

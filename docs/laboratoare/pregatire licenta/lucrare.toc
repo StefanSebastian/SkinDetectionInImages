@@ -42,4 +42,12 @@
 \contentsline {section}{\numberline {4.1}Introduction}{24}{section.4.1}
 \contentsline {section}{\numberline {4.2}Detection view}{24}{section.4.2}
 \contentsline {section}{\numberline {4.3}Evaluator view}{25}{section.4.3}
-\contentsline {chapter}{\numberline {5}Conclusions}{27}{chapter.5}
+\contentsline {section}{\numberline {4.4}Color model training view}{26}{section.4.4}
+\contentsline {section}{\numberline {4.5}Texture model training view}{27}{section.4.5}
+\contentsline {section}{\numberline {4.6}Common configuration frames}{28}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}Segmentation}{28}{subsection.4.6.1}
+\contentsline {subsection}{\numberline {4.6.2}Color detection}{28}{subsection.4.6.2}
+\contentsline {subsection}{\numberline {4.6.3}Texture detection}{29}{subsection.4.6.3}
+\contentsline {subsection}{\numberline {4.6.4}Resize options}{29}{subsection.4.6.4}
+\contentsline {section}{\numberline {4.7}User Feedback}{29}{section.4.7}
+\contentsline {chapter}{\numberline {5}Conclusions}{31}{chapter.5}

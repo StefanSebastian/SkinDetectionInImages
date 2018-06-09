@@ -21,6 +21,7 @@
 \usepackage[]{algorithm2e}
 
 \usepackage{todonotes}
+\usepackage{wrapfig}
 
 \begin{document}
 	\listoftodos
@@ -520,9 +521,114 @@
 	A progress bar will indicate the status of each action applied to the image. The main actions are, in order: image segmentation (consisting of density computation, neighbor linking and superpixel extraction), color detection (Bayes SPM), texture analysis (Haralick feature, combination of results and metrics calculation. Images obtained for each step (color, texture and their combination) are all saved in the results folder, to facilitate the identification of cases for which the model does not perform as expected.
 	
 	After each picture is analyzed by the model, the performance metrics(true positive rate, false positive rate, true negative rate, false negative rate, accuracy, precision and recall) are displayed on the screen and saved to a file.
-	The application builds a csv file containing metrics from each processed picture, that can be used to obtain overall results.
+	The application builds a csv file containing metrics from each processed picture, that can be used to obtain overall results. A dump of the initial configuration is done in the file $initial_config.txt$ for documentation purposes.
 	
-	\section{}
+	\section{Color model training view}
+	This window is used to train a Bayesian color detection model. You can select a color space, the path to input data (a folder which should contain the following subfolders: train\textunderscore images – images containing skin, train\textunderscore images\textunderscore ns – images not containing skin, train\textunderscore masks – masks for images containing skin), the name of the model and the path to the folder where it will be stored. 
+	
+	The model, consisting of a map of pixel values and their count, is stored alongside color space meta data in a .pkl file, which can be later imported by the application for evaluation.
+	
+	Similarly to the other views, to start training the model you must press the ‘Start experiment’ button. In the frame below you will see status updates for loading images and extracting features from them as well as a progress bar for each operation.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\linewidth]{manual/color_model_train_view.png}
+		\caption{Color model training view}
+	\end{figure}
+
+	\section{Texture model training view}
+	The process of training a texture detector is simple. You must select folders with images of skin, images not containing skin and a path to store the resulting model.
+	
+	After pressing ‘Start experiment’ the training begins and you will see updates for feature extraction and machine learning analysis. First, the process builds a list of features and tags (skin/non-skin) from positive and negative images. Then, those features are analyzed by a SVM algorithm and the resulting model is stored in a .pkl file. That file contains the SVM's result, the serialized function for feature extraction and the tag used to identify skin texture.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\linewidth]{manual/texture_model_train_view.png}
+		\caption{Texture model training view}
+	\end{figure}
+
+	\section{Common configuration frames}
+	Some or all of these model configuration frames are present on multiple views. For this reason they are presented in a single section.
+	
+	\subsection{Segmentation}
+	
+	\begin{wrapfigure}{r}{0.5\textwidth}
+		\begin{center}
+			\includegraphics[]{manual/segmentation_frame.png}
+		\end{center}
+		\caption{Segmentation}
+	\end{wrapfigure}
+
+	The segmentation frame is used for tuning the parameters of the quickshift image segmentation algorithm. 
+	
+	Sigma controls the shape of the superpixels and Tau the size, and you can set them by typing in their adjacent textboxes. 
+	
+	The ‘Use position’ checkbox indicates whether the algorithm should consider pixel position in image as a feature for density calculation. If this box remains unchecked the density function will consider only the color space information.
+	
+	\subsection{Color detection}
+	
+	\begin{wrapfigure}{r}{0.6\textwidth}
+		\begin{center}
+			\includegraphics[]{manual/color_detection_frame.png}
+		\end{center}
+		\caption{Segmentation}
+	\end{wrapfigure}
+
+	This frame provides configurations for the color detection module.
+
+	The SPM model is a pickle (.pkl) file generated from the Train SPM view. This indicates which color model should be selected for Bayesian probability calculations. 
+	
+	The detection threshold is a value between 0 and 1 which indicates at what probability to start considering pixels as skin. Consequently all pixels or clusters for which the model calculates a probability higher than the threshold are classified as skin pixels.
+	
+	The type of the SPM classifier can be selected from the 'Type' dropdown widget.
+	There are two types: average probability over superpixel and probability for the root of the superpixel. This affects how the probabilities are calculated for the regions identified during segmentation.
+	
+	The neighbor area represents the considered neighbors during the computation of a pixel's skin probability. The final probability is taken as the maximum value obtained by exploring the color space in every direction on a distance limited by this parameter. 
+	
+	\subsection{Texture detection}
+	\begin{wrapfigure}{r}{0.6\textwidth}
+		\begin{center}
+			\includegraphics[]{manual/texture_detection_frame.png}
+		\end{center}
+		\caption{Segmentation}
+	\end{wrapfigure}
+
+	By clicking on the ‘Browse model’ button you can select the texture analysis model, which is a SVM classifier stored as a pickle file. This model is generated from the 'Train texture' window.
+	
+	From the ‘Detection type’ dropdown you can select the texture detection strategy:
+	\begin{itemize}
+		\item Window scan, which slides a window over the image, is fast but produces jagged edges
+		\item Around each pixel, which builds a window around each pixel, is slow but obtains smoother results
+	\end{itemize}
+	
+	The size of these windows is set from the ‘Detection area’ text field.
+	
+	\subsection{Resize options}
+	
+	\begin{wrapfigure}{r}{0.5\textwidth}
+		\begin{center}
+			\includegraphics[]{manual/resize_frame.png}
+		\end{center}
+		\caption{Segmentation}
+	\end{wrapfigure}
+
+	If you wish to resize the image you must check the ‘Resize image’ box and then specify the given parameters. This is usually done for increasing computation speed.
+	
+	If you do not check the box then the image will be processed in its original size.
+	
+	\section{User Feedback}
+	
+	The feedback view can be seen in figure \ref{feedback_view} and is present on each window. It is a text box that displays feedback from the application. It also contains the 'Start experiment' and 'Stop experiment' button which control the process associated with the view: detection, evaluation or training.
+	
+	On the bottom of the frame there is a progress bar that keeps track of the current operation, for example: density calculation, superpixel extraction, SPM detection etc. That operation is also displayed in the label underneath the progress bar.
+	
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[]{manual/feedback_view.png}
+		\caption{Feedback view}
+		\label{feedback_view}
+	\end{figure}
 	
 	\chapter{Conclusions}
 	

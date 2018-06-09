@@ -34,4 +34,12 @@
 \BOOKMARK [1][-]{section.4.1}{Introduction}{chapter.4}% 34
 \BOOKMARK [1][-]{section.4.2}{Detection view}{chapter.4}% 35
 \BOOKMARK [1][-]{section.4.3}{Evaluator view}{chapter.4}% 36
-\BOOKMARK [0][-]{chapter.5}{Conclusions}{}% 37
+\BOOKMARK [1][-]{section.4.4}{Color model training view}{chapter.4}% 37
+\BOOKMARK [1][-]{section.4.5}{Texture model training view}{chapter.4}% 38
+\BOOKMARK [1][-]{section.4.6}{Common configuration frames}{chapter.4}% 39
+\BOOKMARK [2][-]{subsection.4.6.1}{Segmentation}{section.4.6}% 40
+\BOOKMARK [2][-]{subsection.4.6.2}{Color detection}{section.4.6}% 41
+\BOOKMARK [2][-]{subsection.4.6.3}{Texture detection}{section.4.6}% 42
+\BOOKMARK [2][-]{subsection.4.6.4}{Resize options}{section.4.6}% 43
+\BOOKMARK [1][-]{section.4.7}{User Feedback}{chapter.4}% 44
+\BOOKMARK [0][-]{chapter.5}{Conclusions}{}% 45

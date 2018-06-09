@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.06.2 (MiKTeX 2.9.6500 64-bit)  (format=lualatex 2018.6.9)  9 JUN 2018 15:20
+This is LuaTeX, Version 1.06.2 (MiKTeX 2.9.6500 64-bit)  (format=lualatex 2018.6.9)  9 JUN 2018 16:04
  restricted system commands enabled.
 **lucrare.tex
 (./lucrare.tex
@@ -33,7 +33,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.616 seconds
+luaotfload | main : initialization completed in 0.767 seconds
 Babel <3.15> and hyphenation patterns for 1 language(s) loaded.
 ("C:/Program Files/MiKTeX 2.9/tex/latex/base/report.cls"
 Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
@@ -1402,26 +1402,23 @@ Package luatex.def Info: Requested size: 203.25887pt x 42.91019pt on input line
 489.
 Package hyperref Info: bookmark level for unknown todo defaults to 0 on input li
 ne 496.
-<manual/detection_view.png, id=500, pagebox=cropbox, 718.93594pt x 363.60844pt>
-File: manual/detection_view.png Graphic file (type png)
-<use manual/detection_view.png>
-Package luatex.def Info: manual/detection_view.png  used on input line 500. on i
-nput line 500.
-Package luatex.def Info: Requested size: 455.24411pt x 230.25075pt on input line
- 500.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 [24
 
 <./manual/tab_view.png>]
+<manual/detection_view.png, id=505, pagebox=cropbox, 718.93594pt x 363.60844pt>
+File: manual/detection_view.png Graphic file (type png)
+<use manual/detection_view.png>
+Package luatex.def Info: manual/detection_view.png  used on input line 502. on i
+nput line 502.
+Package luatex.def Info: Requested size: 455.24411pt x 230.25075pt on input line
+ 502.
 <manual/evaluator_view.png, id=506, pagebox=cropbox, 557.08125pt x 385.44pt>
 File: manual/evaluator_view.png Graphic file (type png)
 <use manual/evaluator_view.png>
-Package luatex.def Info: manual/evaluator_view.png  used on input line 510. on i
-nput line 510.
+Package luatex.def Info: manual/evaluator_view.png  used on input line 512. on i
+nput line 512.
 Package luatex.def Info: Requested size: 455.24411pt x 314.98656pt on input line
- 510.
+ 512.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1446,14 +1443,14 @@ s://news.xbox.com/en-[]us/2013/11/26/
 [28
 
 ] [29]) [30]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 521.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 521.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 530.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 530.
  (./lucrare.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 521.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 521.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 530.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 530.
 Package rerunfilecheck Info: File `lucrare.out' has not changed.
 (rerunfilecheck)             Checksum: EF4439A09265127F09E095C9DDD0F5E7;2480.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 521.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 530.
 )
 
 Here is how much of LuaTeX's memory you used:
@@ -1463,7 +1460,7 @@ Here is how much of LuaTeX's memory you used:
    80 hlist, 12 vlist, 2 rule, 4 disc, 6 local_par, 147 glue, 1 kern, 10 penalty
 , 56 glyph, 320 attribute, 74 glue_spec, 320 attribute_list, 5 write, 4 save_pos
 , 190 pdf_literal, 3 pdf_action nodes
-   avail lists: 2:847,3:316,4:60,5:126,6:53,7:3357,8:85,9:174,10:16,11:253
+   avail lists: 2:473,3:177,4:60,5:126,6:53,7:3357,8:85,9:133,10:16,11:253
  32320 multiletter control sequences out of 65536+200000
  73 fonts using 21526975 bytes
  62i,17n,77p,965b,734s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1480,7 +1477,7 @@ pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Pro
 gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2
 .9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on lucrare.pdf (32 pages, 745918 bytes).
+Output written on lucrare.pdf (32 pages, 747146 bytes).
 
 PDF statistics: 615 PDF objects out of 1000 (max. 8388607)
  149 named destinations out of 1000 (max. 131072)

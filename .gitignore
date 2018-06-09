@@ -5,3 +5,7 @@ licenta/resources
 **/run_results
 **/models
 **/.idea
+
+*.png
+*.pdf
+*.docx

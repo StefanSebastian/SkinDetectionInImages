@@ -1,3 +1,5 @@
+% !TeX program = lualatex
+
 \documentclass[12pt]{report}
 
 \usepackage{url}
@@ -6,11 +8,23 @@
 \usepackage{graphicx} % images
 \usepackage{subcaption}
 
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+
+\linespread{1.25} % the equivalent of 1.5 line spacing from msword
+
+% margins
+\usepackage[a4paper, left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry} 
+
 \usepackage{amsmath}
 
 \usepackage[]{algorithm2e}
 
+\usepackage{todonotes}
+
 \begin{document}
+	\listoftodos
+	
 	\title{Skin detection in images using machine learning techniques for color and texture recognition}
 	\author{Stefan Sebastian}
 	\date{\today}
@@ -464,7 +478,40 @@
 		\label{fig:gui}
 	\end{figure}
 	
+	\chapter{User manual}
+	\section{Introduction}
+	The goal of this application is to provide an easy-to-use and highly-configurable interface for training and evaluating skin detection models that share a core structure of image segmentation, color and texture analysis. The user can also test the created models on individual images. As the number of parameters for each task can be overwhelming the user can opt to use the default values that have already been set in each field.
+	
+	The application has 4 main windows accessible through a tab-view set in the top-left corner. The windows, detailed in the following sections, are the Evaluator, Train SPM, Train texture and Detection windows.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics{manual/tab_view.png}
+		\caption{The tab-view main menu}
+	\end{figure}
 
+	\section{Detection view}
+	This view allows the user to test the model on individual images and get visual feedback. The resulting image will be displayed on the screen with a black mask that marks the identified pixels. This window provides a quick way to evaluate a model.
+	
+	If you want to apply the model to a single image you must specify the detection parameters, or go with the default ones, provide a path to the input image (bottom frame on the left side of the screen) and click ‘Start experiment’. The initial image and the result will be displayed on the frames on the right side of the screen. The other configuration frames are explained in detail in section \todo{link to section}. On the middle of the screen, below the buttons for controlling the experiment, you will see updates of the detection process.
+
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\linewidth]{manual/detection_view.png}
+		\caption{Detection view}
+	\end{figure}
+
+	\section{Evaluator view}
+	
+	This screen allows the user to evaluate the performance of the final model and follow the progress in real time. The selected model can be configured in various ways which will be presented in detail in the common configurations section \todo{link to section}.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=\linewidth]{manual/evaluator_view.png}
+		\caption{Evaluator view}
+	\end{figure}
+	
+	You should provide paths for the input images, masks for those images and location where to store results and logs. To begin evaluation you must press ‘Start experiment’. The frame below the button displays information about the currently processed picture, the operation in progress and evaluation results.
 	
 	\chapter{Conclusions}
 	

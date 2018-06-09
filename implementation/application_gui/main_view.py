@@ -33,6 +33,7 @@ class EvaluatorApplication(Frame):
 
         notebook.pack(expand=1, fill="both")
 
+
 if __name__ == '__main__':
     win = tk.Tk()
     EvaluatorApplication(win)

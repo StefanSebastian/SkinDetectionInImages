@@ -12,12 +12,12 @@
 \contentsline {subsection}{\numberline {2.1.2}Models using segmentation}{8}{subsection.2.1.2}
 \contentsline {subsection}{\numberline {2.1.3}Models using textural features}{8}{subsection.2.1.3}
 \contentsline {subsubsection}{Haralick features}{8}{section*.8}
-\contentsline {subsubsection}{Gabor wavelet transforms}{8}{section*.9}
+\contentsline {subsubsection}{Gabor wavelet transforms}{9}{section*.9}
 \contentsline {section}{\numberline {2.2}Image segmentation}{9}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Thresholding}{9}{subsection.2.2.1}
 \contentsline {subsection}{\numberline {2.2.2}Edge detection}{10}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}Clustering}{10}{subsection.2.2.3}
-\contentsline {subsubsection}{K-means}{10}{section*.10}
+\contentsline {subsection}{\numberline {2.2.3}Clustering}{11}{subsection.2.2.3}
+\contentsline {subsubsection}{K-means}{11}{section*.10}
 \contentsline {subsubsection}{Mode seeking. The Quick shift algorithm}{11}{section*.11}
 \contentsline {section}{\numberline {2.3}Skin detection by color}{12}{section.2.3}
 \contentsline {subsection}{\numberline {2.3.1}Color spaces}{12}{subsection.2.3.1}

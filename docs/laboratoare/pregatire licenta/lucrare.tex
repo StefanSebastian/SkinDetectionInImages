@@ -58,6 +58,7 @@
 	The subject of skin detection has been of interest for researchers due to its many applications. I could not include all the important papers in this domain due to the sheer number but I tried to cover the most relevant ones, in terms of popularity and results, for each aspect of skin detection.
 	
 	\subsection{Models using color analysis}
+	
 	\subsubsection{Skin Probability Maps}
 	One of the most comprehensive experiments in skin detection was conducted by MJ Jones and JM Rehg\cite{compaq} who created the Compaq skin dataset, which became a standard for evaluating results of research in this domain. Their main approach was building a Skin Probability Map based on Bayes' Theorem. The resulting classifier, published in 1998, has obtained results comparable to modern approaches.
 	
@@ -72,9 +73,16 @@
 	
 	The previous paper\cite{compaq} by Jones and Rehg also proposes a combination of two mixture models for skin and non-skin classes. Each model is composed of 16 gaussians and was trained on approximatively 74\% of the histogram data, because only that data was available at the time. The results were similar to those of the previous model: 80\%/9.5\% and 90\%/15.5\%.
 	
-	Lee and Yoo\cite{gaussian_applied} presented a Single Gaussian in CbCr and a Gaussian Mixture in IQ, both trained and tested on the Compaq dataset with the results of 90\%/33.3\% and 90\%/30\%, respectively.
+	Lee and Yoo\cite{gaussian_applied} implemented a Single Gaussian in CbCr and a Gaussian Mixture in IQ, both trained and tested on the Compaq dataset with the results of 90\%/33.3\% and 90\%/30\%, respectively.
 	
 	Yang and Ahuja\cite{Yang99gaussianmixture} propose a finite Gaussian mixture model. They theorize that this offers an improvement over a single Gaussian function and justify this hypothesis using statistical tests on normality and number of components, namely the Hawkins' Test on Normality and Homoscedasticity and McLachlan's Bootstrap Test. The selected methods of determining the model's input parameters is the Expectation Maximization (EM) technique. This experiment was performed on the Michigan face database that contains aroung 9.5 million skin pixels. The pixels were transformed from RGB to CIE LUV color space in order to separate and then remove the illumination component. The next step was applying a segmentation algorithm on the image and the analyzing each pixel's color. Every region that had more than 70\% of its pixels classified as skin was labeled as a skin region. However, they do not offer and performance metrics on their experiment.
+	
+	\subsubsection{Elliptical boundary model}
+	This is a statistical model proposed by Lee and Yoo\cite{gaussian_applied} as an alternative to Gaussian models. The limitations that this model tries to overcome are the single Gaussian's luminance sensitivity and the mixture's slow training speed.
+	
+	This model relies on the observation\cite{Yang99gaussianmixture} that in most color spaces skin pixels tend to form an ellipsoidal cluster. The training algorithm has two steps: preprocessing and parameter estimation. The first step removes outliers in order to focus on the underlying density of the data set. This consists in removing the first k\% samples with the lowest frequency. k is usually chosen in the 0 to 5 range.
+	
+	The elliptical boundary model is defined as $ \Phi(X) = [X - \Psi]^T\cdot \Lambda^{-1} \cdot [X - \Psi]  $ where X is the chrominance vector of the considere pixel. $\Psi$ is the average value of skin pixels in the training set. $\Lambda$ is calculated as $ \frac{1}{N} \cdot \sum_{i=1}^{n}f_i(X_i-\mu)(X_i-\mu)^T$ where $\mu$ is the mean of chrominance vectors and $f_i$ their number of apparitions in training. T represents the model's threshold.
 	
 	\subsubsection{Explicit thresholding}
 	Another popular approach is explicit thresholding. This domain consists of finding simple rules that apply to each pixel's color features and determine if it's part of the skin class. Some examples include \cite{rgb_threshold}, \cite{cr_cb_threshold}, \cite{yiq_threshold}, \cite{i_threshold} for face detection systems in different color spaces with varying results. 

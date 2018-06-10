@@ -84,6 +84,8 @@
 	
 	The elliptical boundary model is defined as $ \Phi(X) = [X - \Psi]^T\cdot \Lambda^{-1} \cdot [X - \Psi]  $ where X is the chrominance vector of the considere pixel. $\Psi$ is the average value of skin pixels in the training set. $\Lambda$ is calculated as $ \frac{1}{N} \cdot \sum_{i=1}^{n}f_i(X_i-\mu)(X_i-\mu)^T$ where $\mu$ is the mean of chrominance vectors and $f_i$ their number of apparitions in training. T represents the model's threshold.
 	
+	This model obtains an average of 90\% TP rate and 23.3\% FP rate on the Compaq dataset.
+	
 	\subsubsection{Explicit thresholding}
 	Another popular approach is explicit thresholding. This domain consists of finding simple rules that apply to each pixel's color features and determine if it's part of the skin class. Some examples include \cite{rgb_threshold}, \cite{cr_cb_threshold}, \cite{yiq_threshold}, \cite{i_threshold} for face detection systems in different color spaces with varying results. 
  	

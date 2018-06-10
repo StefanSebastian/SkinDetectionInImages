@@ -114,11 +114,18 @@
  	In \cite{superpixels_applied_2} a similar approach to \cite{superpixels_applied_1} is taken. Firstly, a segmentation is performed (using the Quick shift algorithm) and superpixels are extracted. A probability is calculated for each superpixel as the average of its component pixels probabilities. Then, a CRF(Conditional Random Field) method is used in order to obtain smoother skin regions. A CRF is a probabilistic method that works with graph based structures and models a distribution of type $P(y|x)$. The pair considered in this article is color difference and boundary length between neighboring superpixels. This model was tested on the Compaq database and obtained a 91.17\% TP rate and 13.12\% FP rate.
  	
  	\subsection{Models using textural features}
+ 	
+ 	\subsubsection{Haralick features}
  	\cite{color_texture_ann} presents a model based on Artificial Neural Networks that analyzes both color and textural features. The color features used are the mean color, the standard deviation and the skewness. These are calculated for each channel (R, G, B). The inputs for the ANN also include the following textural information: Entropy, Energy, Contrast and Homogeneity, which are computed from the Gray-Level Co-Occurrence Matrix. The networks has three layers: an input layer, a hidden layer (with 50 neurons) and an output layer. The model was trained on 300 images (80x80 px) of skin and non-skin textures and tested on 100, obtaining a 96\% accuracy in classifying whether an image is a skin patch or not.
  	
  	Medjram et al.\cite{texture_svm} proposed another method that combines color and texture information. The first step is converting the initial image to the YCbCr color space. Skin regions are identified using thresholding like the following: \(77 <= Cb <= 127, 133 <= Cr <= 173\). Secondly, the image is sharpened in order to enhance its texture. The features considered from the GLCM are Contrast, Homogeneity and Energy, calculated over a 5x5 matrix. The last step is applying a Support Vector Machine classifier on the initial image to classify texture patches.
  	
- 	In \cite{texture_gabor_wavelet} they use Gabor wavelet transforms (filters that analyze orientation and frequency) to compute textural attributes. After identifying the initial skin regions a watershed segmentation algorithm is applied to increase true acceptance rate.
+ 	\subsubsection{Gabor wavelet transforms}
+ 	Jian, Yao et. al. \cite{texture_gabor_wavelet} use Gabor wavelet transforms to compute textural attributes. This step comes after an initial skin probability map calculation with the aim of reducing its false acceptance rate. 
+ 	
+ 	Gabor transforms are filters that analyze orientation and frequency. They use Gaussian functions modulated by complex sinusoids. Before applying this filter the image is converted from RGB to grayscale using the following equation $I(x,y)=0.3R(x,y)+0.59G(x,y)+0.11B(x,y)$.
+ 	
+ 	After the application of the texture filter some pixels that are actually skin are also eliminated which causes the True Acceptance Rate to drop. In order to increase this rate a region growing technique called watershed segmentation is used. This method is applied in order to grow the discovered skin regions based on similarity measures. 
  	
 	\section{Image segmentation}
 	Image segmentation is a technique for dividing an image into several regions that contain similar pixels. These partitions are often called super-pixels and represent an abstraction layer over the initial image. They can be characterized by color, border or shape(circle, ellipse, polygon, etc.)\cite{computer_vision_book}. The main purpose of segmentation is to represent areas of interest in an image such as faces, fields, buildings, etc, and usually serves as a preparation step for a more complex detection algorithm.

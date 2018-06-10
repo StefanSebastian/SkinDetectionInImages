@@ -6,7 +6,7 @@ licenta/resources
 **/models
 **/.idea
 
-**/*.png
-**/*.pdf
-**/*.docx
-**/*.txt
+*.png
+*.pdf
+*.docx
+*.txt

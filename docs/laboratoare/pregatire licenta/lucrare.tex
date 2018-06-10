@@ -55,28 +55,48 @@
 	\chapter{Theoretical background}
 	
 	\section{Related work}
-	The subject of skin detection has been of interest for researchers due to its many applications. 
+	The subject of skin detection has been of interest for researchers due to its many applications. I could not include all the important papers in this domain due to the sheer number but I tried to cover the most relevant ones, in terms of popularity and results, for each aspect of skin detection.
 	
-	\subsection{SPM}
-	One of the most comprehensive experiments in skin detection was conducted by MJ Jones and JM Rehg\cite{compaq} who created the Compaq skin dataset, which became a standard for evaluating results of research in this domain.
+	\subsection{Models using color analysis}
+	\subsubsection{Skin Probability Maps}
+	One of the most comprehensive experiments in skin detection was conducted by MJ Jones and JM Rehg\cite{compaq} who created the Compaq skin dataset, which became a standard for evaluating results of research in this domain. Their main approach was building a Skin Probability Map based on Bayes' Theorem. The resulting classifier, published in 1998, has obtained results comparable to modern approaches.
 	
-	They used skin probability maps, which are histogram based models, meaning they set a number of bins for each color channel where they keep track of how many times each color pixel appears in the training set. Although \(256^3\) would be an obvious choice for the number of bins (one for each pixel) they determined that \(32^3\) is the optimum due to a large number of pixels not appearing in the training set. Each pixel is classified as being skin or non-skin using Bayes' theorem \(P(rgb|skin) >= \beta\), where $\beta$ is the threshold value. For this model they used a 6822 photo training set, where 4483 photos contained no skin and 2336 had portions of skin. The testing set had similar dimensions: 6818 total photos (4482 non-skin and 2336 skin). Using this methods they obtained a 80\% true positive rate and 8.5\% false positive rate or, with a different threshold, a 90\% TP rate and 14.2\% FP rate.
+	Skin probability maps are histogram based models, meaning they set a number of bins for each color channel where they keep track of how many times each color pixel appears in the training set. Although \(256^3\) would be an obvious choice for the number of bins (one for each pixel value) they determined that \(32^3\) is the optimal value.
 	
-	\subsection{Gaussian Models}
-	The previous paper\cite{compaq} also proposes a combination of two mixture models for skin and non-skin classes. Each model is composed of 16 gaussians and was trained on approximatively 74\% of the histogram data, because only that data was available at the time. The results were similar to those of the previous model: 80\%/9.5\% and 90\%/15.5\%.
+	Jones and Rehg\cite{compaq} made the observation that given even a large training set most pixels are never seen. They explored their dataset of approximatively 2 billion pixels and came to the conclusion that around 77\% of the RGB space is empty. This comes in support of their decision to use larger bins, like \(32^3\).
 	
-	\cite{gaussian_applied} presented a Single Gaussian in CbCr and a Gaussian Mixture in IQ, both trained and tested on the Compaq dataset with the results of 90\%/33.3\% and 90\%/30\%, respectively.
+	For this model they used a 6822 photo training set, where 4483 photos contained no skin and 2336 had portions of skin. The testing set had similar dimensions: 6818 total photos (4482 non-skin and 2336 skin). Using these methods they obtained a 80\% true positive rate and 8.5\% false positive rate or, with a different threshold, a 90\% TP rate and 14.2\% FP rate.
 	
-	\subsection{Explicit thresholding}
-	Another popular approach is explicit thresholding. Some examples include \cite{rgb_threshold}, \cite{cr_cb_threshold}, \cite{yiq_threshold}, \cite{i_threshold} for face detection systems in different color spaces with varying results. 
+	\subsubsection{Gaussian Models}
+	This approach consists of modeling human skin distribution as a Gaussian probability density function or a combination of Gaussian functions.
+	
+	The previous paper\cite{compaq} by Jones and Rehg also proposes a combination of two mixture models for skin and non-skin classes. Each model is composed of 16 gaussians and was trained on approximatively 74\% of the histogram data, because only that data was available at the time. The results were similar to those of the previous model: 80\%/9.5\% and 90\%/15.5\%.
+	
+	Lee and Yoo\cite{gaussian_applied} presented a Single Gaussian in CbCr and a Gaussian Mixture in IQ, both trained and tested on the Compaq dataset with the results of 90\%/33.3\% and 90\%/30\%, respectively.
+	
+	Yang and Ahuja\cite{Yang99gaussianmixture} propose a finite Gaussian mixture model. They theorize that this offers an improvement over a single Gaussian function and justify this hypothesis using statistical tests on normality and number of components, namely the Hawkins' Test on Normality and Homoscedasticity and McLachlan's Bootstrap Test. The selected methods of determining the model's input parameters is the Expectation Maximization (EM) technique. This experiment was performed on the Michigan face database that contains aroung 9.5 million skin pixels. The pixels were transformed from RGB to CIE LUV color space in order to separate and then remove the illumination component. The next step was applying a segmentation algorithm on the image and the analyzing each pixel's color. Every region that had more than 70\% of its pixels classified as skin was labeled as a skin region. However, they do not offer and performance metrics on their experiment.
+	
+	\subsubsection{Explicit thresholding}
+	Another popular approach is explicit thresholding. This domain consists of finding simple rules that apply to each pixel's color features and determine if it's part of the skin class. Some examples include \cite{rgb_threshold}, \cite{cr_cb_threshold}, \cite{yiq_threshold}, \cite{i_threshold} for face detection systems in different color spaces with varying results. 
  	
  	A set of thresholds for YCrCb space where proposed by Chai and Ngan\cite{cr_cb_threshold}. They set the ranges for Cb from 77 to 127 and for Cr from 133 to 173 and worked with the ECU database.
  	
  	Dai and Nakano\cite{yiq_threshold} created a model for YIQ, an orthogonal color space, which only used the I component (which stands for in-phase). The range they provided was [0, 50], however most of the images in their databases where of people with yellow skin.
  	
- 	An interesting approach, proposed by Gomez and Morales\cite{rca_threshold}, is having a learner find these rules using the RCA algorithm.
+ 	An interesting approach, proposed by Gomez and Morales\cite{rca_threshold}, is having a learner find these rules. They use RCA, a constructive induction algorithm, to build rules expressed with simple arithmetic operations in the rgb space. Their method achieves better results than the Bayesian SPM on their dataset, however it is computationally slower. RCA stands for Restricted Covering Algorithm which resembles a general covering algorithm with the restriction of trying to build a single rule for each class (in this case, a rule for skin detection). The strategy implemented for RCA was finding attributes which cover either a large number of true positives or a few false positives. The starting attributes where r, g, b and the constant 1/3, which would generate new attributes using the operators : +, *, - and squaring. One of their best and simplest generated models looks like this:
+ 	\begin{equation}
+ 	\begin{split}
+ 	\frac{r}{g} > 1.185 \quad \textrm{and}\\
+ 	\frac{r * b}{(r + g + b)^2} > 0.107 \quad \textrm{and}\\
+ 	\frac{r * g}{(r + g + b)^2} > 0.112
+ 	\end{split}
+ 	\end{equation}
+ 	In comparison with the C4.5 decision tree algorithm, the RCA method obtained slightly worse results but with much simpler rules. They used a custom dataset containing images of more than 2000 people and obtained around 90\% both in precision and recall.
  	
  	Brand and Mason \cite{i_threshold_applied} applied the technique from \cite{i_threshold}, which uses the YI'Q' space with the following threshold \(14 < I' < 40\), on the Compaq dataset and obtained 94.7\% TP rate and 30.2\% FP rate.
+ 	
+ 	\subsubsection{Hidden Markov Models}
+ 	Sigal et al.\cite{hmm} implemented a method for real time skin detection in videos. Their model predicts the evolution of the skin color histogram using a second order Markov model, with an initial prediction from a Bayes classifier over the Compaq dataset. It uses the EM algorithm which consists of two steps: E(frame segmentation based on histogram) and M(histogram adaptation based on feedback from the current frame).
  	
  	\subsection{Models using segmentation}
  	Frerk and Al-Hamadi\cite{superpixels_applied_1} proposed a method that applies image segmentation combined with a Bayesian SPM. The first step is calculating the probability for each pixel in an image and creating \(P_I\), the pixel probability image. The color and position of each pixel is used as input for a SLIC algorithm, an adaptation of k-means, that calculates the superpixels. The parameter k for segmentation is set to be the number of pixels in the image divided by \(30^2\), so that all regions have a size of approximatively 30x30. A probability is then computed for each superpixel and compared to a threshold.
@@ -89,9 +109,6 @@
  	Medjram et al.\cite{texture_svm} proposed another method that combines color and texture information. The first step is converting the initial image to the YCbCr color space. Skin regions are identified using thresholding like the following: \(77 <= Cb <= 127, 133 <= Cr <= 173\). Secondly, the image is sharpened in order to enhance its texture. The features considered from the GLCM are Contrast, Homogeneity and Energy, calculated over a 5x5 matrix. The last step is applying a Support Vector Machine classifier on the initial image to classify texture patches.
  	
  	In \cite{texture_gabor_wavelet} they use Gabor wavelet transforms (filters that analyze orientation and frequency) to compute textural attributes. After identifying the initial skin regions a watershed segmentation algorithm is applied to increase true acceptance rate.
- 	
- 	\subsection{Hidden Markov Models}
- 	Sigal et al.\cite{hmm} implemented a method for real time skin detection in videos. Their model predicts the evolution of the skin color histogram using a second order Markov model, with an initial prediction from a Bayes classifier over the Compaq dataset. It uses the EM algorithm which consists of two steps: E(frame segmentation based on histogram) and M(histogram adaptation based on feedback from the current frame).
  	
 	\section{Image segmentation}
 	Image segmentation is a technique for dividing an image into several regions that contain similar pixels. These partitions are often called super-pixels and represent an abstraction layer over the initial image. They can be characterized by color, border or shape(circle, ellipse, polygon, etc.)\cite{computer_vision_book}. The main purpose of segmentation is to represent areas of interest in an image such as faces, fields, buildings, etc, and usually serves as a preparation step for a more complex detection algorithm.
@@ -230,15 +247,9 @@
 	\end{split}
 	\end{equation}
 	
-	These thresholds and rules can also be generated using a machine learning algorithm, such as the one proposed by Gomez and Morales\cite{rca_threshold}. They use RCA, a constructive induction algorithm, to build rules expressed with simple arithmetic operations in the rgb space. Their method achieves better results than the Bayesian SPM on their dataset, however it is computationally slower. RCA stands for Restricted Covering Algorithm which resembles a general covering algorithm with the restriction of trying to build a single rule for each class (in this case, a rule for skin detection). The strategy implemented for RCA was finding attributes which cover either a large number of true positives or a few false positives. The starting attributes where r, g, b and the constant 1/3, which would generate new attributes using the operators : +, *, - and squaring. One of their best and simplest generated models looks like this:
-	\begin{equation}
-	\begin{split}
-	\frac{r}{g} > 1.185 \quad \textrm{and}\\
-	\frac{r * b}{(r + g + b)^2} > 0.107 \quad \textrm{and}\\
-	\frac{r * g}{(r + g + b)^2} > 0.112
-	\end{split}
-	\end{equation}
-	In comparison with the C4.5 decision tree algorithm, the RCA method obtained slightly worse results but with much simpler rules. They used a custom dataset containing images of more than 2000 people and obtained around 90\% both in precision and recall.
+	These thresholds and rules can also be generated using an artificial intelligence algorithm. For example, we could apply genetic programming in a fashion similar to that described in Segaran's book \cite{programming_collective_intelligence}. Rules can be represented as trees whose leafs are color features or constants and inner nodes are simple operators.
+	
+	The main advantage of using these methods is their speed. For each pixel we apply only a few operations, with a computational time of O(1). For this reason, thresholding techniques tend to be used in real time systems, where fast feedback is more important than overall precision.
 	
 	\subsection{Skin Probability Map}
 	A SPM represents a histogram with multiple bins. Each bin stands for a color or a subset of colors and has a value equal to the probability of holding skin colored pixels. When building a SPM you must choose the color space and the number of bins per color channel.
@@ -256,7 +267,7 @@
 	P(skin) = \frac{T_S}{T_S + T_N}
 	\end{equation}
 
-	Jones and Rehg\cite{compaq} made the observation that given even a large training set most pixels are never seen. They explored their dataset of approximatively 2 billion pixels and came to the conclusion that around 77\% of the RGB space is empty. This suggests that we might get better results by reducing the number of bins per channel. We can observe that a small perturbation in the RGB values of a pixel results in a very similar color. Consequently if we classify p as a skin colored pixel then there is a high probability that its neighbors in the color space are skin colored pixels too. This observation is in support of a smaller number of bins for the SPM histogram.  
+	It has been observed that even when using a large data set most pixel values are never seen\cite{compaq}. This suggests that we might get better results by reducing the number of bins per channel. We can further observe that a small perturbation in the RGB values of a pixel results in a very similar color. Consequently if we classify p as a skin colored pixel then there is a high probability that its neighbors in the color space are also skin colored pixels. This observation is in support of a smaller number of bins for the SPM histogram. 
 	
 	\subsection{Gaussian classifiers}
 	Gaussian classifiers are parametric skin distribution models with the advantages of being compact, therefore using less memory than SPMs, and able to generalize better using less training data\cite{survey_skin_color_modeling}.
@@ -284,7 +295,9 @@
 	\begin{equation} \label{eq:GMM}
 	p(c) = \sum_{i=1}^{N}w_i \cdot \frac{1}{(2\pi)^{1/2} \cdot |\Sigma_i|^{1/2}} \cdot e^{-\frac{1}{2} \cdot (c - \mu_i)^T\Sigma_i^{-1}(c - \mu_i)}
 	\end{equation}
-	In equation \ref{eq:GMM} c, \(\mu_i\) and \(\Sigma_i\) are the color vector, mean vector and covariance matrix for the ith Gaussian. Also, each of the N models has a weight, \(w_i\), representing its contribution to the mixture. Determining the unknown parameters can be done with the Expectation Maximization (EM) technique\cite{Yang99gaussianmixture}. This is an algorithm of maximum likelihood estimation, or simply speaking finding the parameters that best describe some given data.
+	In equation \ref{eq:GMM} c, \(\mu_i\) and \(\Sigma_i\) are the color vector, mean vector and covariance matrix for the ith Gaussian. Also, each of the N models has a weight, \(w_i\), representing its contribution to the mixture. 
+	
+	Determining the unknown parameters can be done with the Expectation Maximization (EM) technique\cite{Yang99gaussianmixture}. This is an algorithm of maximum likelihood estimation, or simply speaking finding the parameters that best describe some given data.
 	
 	The number of Gaussians, N, is also an important aspect. The most common values used in research fall into the 2 to 16 range\cite{survey_skin_color_modeling}, the idea behind choosing a larger number is to account for various conditions of illumination.
 	

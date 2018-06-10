@@ -37,6 +37,11 @@ J.~Y. Lee and S.~I. Yoo, ``An elliptical boundary model for skin color
   detection,'' in {\em In Proc. of the 2002 International Conference on Imaging
   Science, Systems, and Technology}, 2002.
 
+\bibitem{Yang99gaussianmixture}
+M.~hsuan Yang and N.~Ahuja, ``Gaussian mixture model for human skin color and
+  its applications in image and video databases,'' in {\em Proceedings of SPIE
+  ’99 (San Jose CA)}, pp.~458--466, 1999.
+
 \bibitem{rgb_threshold}
 J.~Kovac, P.~Peer, and F.~Solina, ``Human skin colour clustering for face
   detection,'' {\em EUROCON}, 2003.
@@ -145,15 +150,14 @@ P.~Kakumanu, S.~Makrogiannis, and N.~Bourbakis, ``A survey of skin-color
 J.~Yang, W.~Lu, and A.~Waibel, ``Skin-color modeling and adaptation,'' {\em
   ACCV98}.
 
+\bibitem{programming_collective_intelligence}
+T.~Segaran, {\em Programming Collective Intelligence}.
+\newblock O'Reilly, first~ed., 2007.
+
 \bibitem{gaussian_mixtures}
 J.~McGonagle, V.~Tembo, and A.~Chumbley, ``Gaussian mixture model.''
   \url{https://brilliant.org/wiki/gaussian-mixture-model/}.
 \newblock Accessed: 2018-04-09.
-
-\bibitem{Yang99gaussianmixture}
-M.~hsuan Yang and N.~Ahuja, ``Gaussian mixture model for human skin color and
-  its applications in image and video databases,'' in {\em Proceedings of SPIE
-  ’99 (San Jose CA)}, pp.~458--466, 1999.
 
 \bibitem{sfa}
 J.~P.~B. Casati, D.~R. Moraes, and E.~L.~L. Rodrigues, ``Sfa: A human skin

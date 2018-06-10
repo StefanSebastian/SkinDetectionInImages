@@ -129,6 +129,31 @@
  	
  	To evaluate this model they used their own manually labeled data set of 600 images. A simple SPM approach got 92.7\%/20.1\% TPR/FPR while the proposed method obtained 94.8\%/4.2\%.
  	
+ 	\subsubsection{Contourlet-Based Analysis}
+ 	Fotouhi et al. \cite{contourlet_texture} proposed a model that uses texture segmentation based on nonsubsampled contourlet coefficients. 
+ 	
+ 	A first step is using boosting to predict the class of each pixel using its color features. For this approach several Gaussian mixture models are chosen for the $YC_rC_b$, normalized rgb and HSV color spaces. This obtains a 93.1\% TPR and a 22.8\% FPR.
+ 	
+ 	Next, a contourlet transform is applied over the whole image. For each pixel that was classified as skin by the previous method a 8x8 patch is selected in each subimage. These vectors are concatenated with the Principal Component Analysis technique and then fed into a Multilayer Perceptron for classification. The final model obtains a 82.8\%/7.6\% TPR/FPR rate.
+ 	
+ 	\subsection{Models using shape information}
+ 	This approach is usually applied for the detection of specific skin regions such as faces\cite{face_detection_shape} or hands\cite{hand_detection_shape} which have predefined and easy to identify shapes. However, there are some general skin detectors that consider shape features that are based on the assumption that most skin patches, like faces, hands or legs, have an elliptical shape.
+ 	
+ 	Such a model was proposed by Kruppa et al.\cite{skin_detection_shape}. Their approach works in two steps. Similar to other FAR reducing techniques, the first step is applying a skin color detector as it provides a good starting point for further refinement. After identifying skin color regions a skin patch filter is applied that finds elliptical shapes in the image.
+ 	
+ 	\begin{equation} \label{shape}
+ 	S(x_c, y_c, w, h) =  \left\{
+ 	\begin{array}{ll}
+ 	\frac{1}{1+exp^{-a}} & if \quad \frac{(x-x_c)^2}{w^2} \pm \frac{(y-y_c)^2}{h^2} \le 1\\
+ 	0 & else \\
+ 	\end{array} 
+ 	\right. 
+ 	\end{equation}
+ 	
+ 	The shape model can be seen in figure \ref{shape}. In this equation $(x_c,y_c)$ denote the center and w, h the dimensions of the ellipse and a is a parameter used to smooth out probabilities. These parameters are derived from the skin color model using a technique to maximize mutual information between two probabilities.
+ 	
+ 	This model was tested on a data set of 653 images resized to 150x100 resolution. The authors report an improvement over the classical color model by up to 25\% in the error rate value.
+ 
 	\section{Image segmentation}
 	Image segmentation is a technique for dividing an image into several regions that contain similar pixels. These partitions are often called super-pixels and represent an abstraction layer over the initial image. They can be characterized by color, border or shape(circle, ellipse, polygon, etc.)\cite{computer_vision_book}. The main purpose of segmentation is to represent areas of interest in an image such as faces, fields, buildings, etc, and usually serves as a preparation step for a more complex detection algorithm.
 	

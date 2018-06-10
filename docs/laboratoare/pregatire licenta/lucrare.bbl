@@ -70,6 +70,11 @@ Brand, J., and Mason, ``A comparative assessment of three approaches to
   pixellevel human skin-detection,'' {\em In Proc. of the International
   Conference on Pattern Recognition}, vol.~1, pp.~1056--1059, 2000.
 
+\bibitem{hmm}
+L.~Sigal, S.~Sclaroff, and V.~Athitsos, ``Skin color-based video segmentation
+  under time-varying illumination,'' {\em IEEE TRANSACTIONS ON PATTERN ANALYSIS
+  AND MACHINE INTELLIGENCE}, vol.~26, no.~7, 2004.
+
 \bibitem{superpixels_applied_1}
 F.~Saxen and A.~Al-Hamadi, ``Superpixels for skin segmentation,'' {\em Workshop
   Farbbildverarbeitung, At Wuppertal}, vol.~20, 2014.
@@ -92,10 +97,24 @@ M.~Sofiane, B.~M. Chaouki, and M.~B. Yamina, ``Improved skin detection using
 Z.~Jiang, M.~Yao, and W.~Jiang, ``Skin detection using color, texture and space
   information,'' {\em Fuzzy Systems and Knowledge Discovery}, 2007.
 
-\bibitem{hmm}
-L.~Sigal, S.~Sclaroff, and V.~Athitsos, ``Skin color-based video segmentation
-  under time-varying illumination,'' {\em IEEE TRANSACTIONS ON PATTERN ANALYSIS
-  AND MACHINE INTELLIGENCE}, vol.~26, no.~7, 2004.
+\bibitem{contourlet_texture}
+M.~Fotouhi, M.~H. Rohban, and S.~Kasaei, ``Skin detection using
+  contourlet-based texture analysis,'' in {\em 2009 Fourth International
+  Conference on Digital Telecommunications}, pp.~59--64, July 2009.
+
+\bibitem{face_detection_shape}
+J.~Wang and T.~Tan, ``A new face detection method based on shape information,''
+  {\em Pattern Recognition Letters}, vol.~21, no.~6, pp.~463 -- 471, 2000.
+
+\bibitem{hand_detection_shape}
+M.~Panwar, ``Hand gesture recognition based on shape parameters,'' in {\em 2012
+  International Conference on Computing, Communication and Applications},
+  pp.~1--6, Feb 2012.
+
+\bibitem{skin_detection_shape}
+H.~Kruppa, M.~A. Bauer, and B.~Schiele, ``Skin patch detection in real-world
+  images,'' in {\em Pattern Recognition} (L.~Van~Gool, ed.), (Berlin,
+  Heidelberg), pp.~109--116, Springer Berlin Heidelberg, 2002.
 
 \bibitem{computer_vision_book}
 L.~G. Shapiro and G.~C. Stockman, {\em Computer Vision}.

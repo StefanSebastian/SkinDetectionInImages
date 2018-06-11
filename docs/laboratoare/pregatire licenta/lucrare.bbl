@@ -173,6 +173,11 @@ J.~Yang, W.~Lu, and A.~Waibel, ``Skin-color modeling and adaptation,'' {\em
 T.~Segaran, {\em Programming Collective Intelligence}.
 \newblock O'Reilly, first~ed., 2007.
 
+\bibitem{bayes_theorem}
+A.~S. Andrew~Ellinor, Christopher~Williams, ``Bayes' theorem and conditional
+  probability.'' \url{https://brilliant.org/wiki/bayes-theorem/}.
+\newblock Accessed: 2018-06-11.
+
 \bibitem{gaussian_mixtures}
 J.~McGonagle, V.~Tembo, and A.~Chumbley, ``Gaussian mixture model.''
   \url{https://brilliant.org/wiki/gaussian-mixture-model/}.

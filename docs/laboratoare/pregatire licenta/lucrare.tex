@@ -296,9 +296,11 @@
 	The main advantage of using these methods is their speed. For each pixel we apply only a few operations, with a computational time of O(1). For this reason, thresholding techniques tend to be used in real time systems, where fast feedback is more important than overall precision.
 	
 	\subsection{Skin Probability Map}
-	A SPM represents a histogram with multiple bins. Each bin stands for a color or a subset of colors and has a value equal to the probability of holding skin colored pixels. When building a SPM you must choose the color space and the number of bins per color channel.
+	A SPM represents a histogram with multiple bins. Each bin stands for a color or a subset of colors and has a value equal to the number of times that values has appeared in the training dataset. When building a SPM you must choose the color space and the number of bins per color channel.
 	
-	In order to determine whether a given pixel is a skin colored pixel we apply Bayes' theorem. Here is the form used by Jones and Rehg\cite{compaq} in one of the most popular papers on statistical skin detection:
+	In order to determine whether a given pixel is a skin colored pixel we apply Bayes' theorem. This theorem, that in the general form looks like this \( P(H|E) =(P(E|H) \cdot P(H)) / P(E) \), is attributed to 18-th century mathematician Thomas Bayes. It allows us to update probabilities for hypotheses(H) given evidence(E)\cite{bayes_theorem}. In simpler terms, the theorem calculates a more accurate probability of an event if we know its relation to other available information. For example, given that there is a correlation between liver diseases and alcoholism you can calculate a more accurate probability of a person having such an illness if you take into account their alcohol consumption.
+	
+	In order to apply this theorem to our problem we need to model our domain hypothesis(the probability of observing a skin pixel) and evidence(the number of skin pixels with certain values observed in the training data). Here is the form used by Jones and Rehg\cite{compaq} in one of the most popular papers on statistical skin detection:
 	\begin{equation}
 	P(skin|p) = \frac{P(p|skin)P(skin)}{P(p|skin)P(skin) + P(p|\neg skin)P(\neg skin)}
 	\end{equation}
@@ -331,9 +333,7 @@
 	Here \(c_j\) are all the color samples used in training the model. In order to establish that the given color describes skin we can compare p(c) with a threshold that can be determined experimentally for a given training set.
 	
 	\subsubsection{Gaussian Mixture Models}
-	A Gaussian mixture model is a form of unsupervised learning used to identify subpopulations within an overall population, provided they are normally distributed\cite{gaussian_mixtures}.
-	
-	It has been observed in \cite{Yang99gaussianmixture} that a mixture of Gaussians is better suited for skin detection than a single distribution, especially in datasets with multiple illumination conditions.
+	A Gaussian mixture model is a form of unsupervised learning used to identify subpopulations within an overall population, provided they are normally distributed\cite{gaussian_mixtures}. It has been observed in \cite{Yang99gaussianmixture} that a mixture of Gaussians is better suited for skin detection than a single distribution, especially in datasets with multiple illumination conditions.
 	
 	They represent a generalization of the single Gaussian. A mixture's density function can be calculated as the sum of individual Gaussians\cite{survey_skin_color_modeling}:
 	\begin{equation} \label{eq:GMM}
@@ -346,6 +346,12 @@
 	The number of Gaussians, N, is also an important aspect. The most common values used in research fall into the 2 to 16 range\cite{survey_skin_color_modeling}, the idea behind choosing a larger number is to account for various conditions of illumination.
 	
 	\section{Skin detection by texture}
+	
+	Texture, while easily identifiable by a human observer, does not have precise definition\cite{computer_vision_book}. Consequently, there are many choices for building a texture classification model depending on the author’s interpretation. A good example that illustrates the complexity of defining texture is the surface of wood, which contains intensity variations that despite being nonuniform can compose certain repeated patterns.
+	
+	Texture provides information about the spatial arrangement of intensities in an image\cite{computer_vision_book}. There are two main approaches in studying image texture: structural and statistical. The statistical method sees texture as a composition of primitives called texels arranged in a regular or repeated manner. Take a chess board for example - all squares are repeated in a predictable way. \todo{secon section}
+	
+	Its main use in skin detection is to reduce the false positive rate. I haven’t found any source that uses a texture model as a sole detector, possibly due to the fact that many surfaces with smooth texture can be misclassified as skin.
 	
 	\chapter{Application development}
 	

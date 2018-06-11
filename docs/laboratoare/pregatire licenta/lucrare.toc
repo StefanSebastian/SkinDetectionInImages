@@ -31,7 +31,7 @@
 \contentsline {subsection}{\numberline {2.3.3}Skin Probability Map}{15}{subsection.2.3.3}
 \contentsline {subsection}{\numberline {2.3.4}Gaussian classifiers}{16}{subsection.2.3.4}
 \contentsline {subsubsection}{Single Gaussian}{16}{section*.18}
-\contentsline {subsubsection}{Gaussian Mixture Models}{16}{section*.19}
+\contentsline {subsubsection}{Gaussian Mixture Models}{17}{section*.19}
 \contentsline {section}{\numberline {2.4}Skin detection by texture}{17}{section.2.4}
 \contentsline {chapter}{\numberline {3}Application development}{18}{chapter.3}
 \contentsline {section}{\numberline {3.1}Proposed model}{18}{section.3.1}

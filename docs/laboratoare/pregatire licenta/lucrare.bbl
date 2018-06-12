@@ -196,6 +196,15 @@ M.~Hall-Beyer, ``Glcm texture: A tutorial.''
 S.~Mar\^{c}elja, ``Mathematical description of the responses of simple cortical
   cells$\ast$,'' {\em J. Opt. Soc. Am.}, vol.~70, pp.~1297--1300, Nov 1980.
 
+\bibitem{gabor_filter_example}
+D.~Dunn, W.~E. Higgins, and J.~Wakeley, ``Texture segmentation using 2-d gabor
+  elementary functions,'' {\em IEEE Transactions on Pattern Analysis and
+  Machine Intelligence}, vol.~16, pp.~130--149, Feb 1994.
+
+\bibitem{gabor_filter_machine_learning}
+S.~Berisha, ``Image classification using gabor filters and machine learning,''
+  2009.
+
 \bibitem{sfa}
 J.~P.~B. Casati, D.~R. Moraes, and E.~L.~L. Rodrigues, ``Sfa: A human skin
   image database based on feret and ar facial images,'' {\em IX Workshop de

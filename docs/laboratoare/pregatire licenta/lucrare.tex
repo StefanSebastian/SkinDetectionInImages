@@ -394,16 +394,20 @@
 	\subsection{Gabor features}
 	These features, named after Dennis Gabor, are extracted using Gabor filters and have applications in texture segmentation, edge detection, document analysi, etc. Many vision scientists claim that these filters conform well to the mammalian visual system\cite{filter_eye_model}.
 	
-	Two-dimensional Gabor filters are commonly used in image analysis. These are formed as a product between a sinusoidal function and a Gaussian function: $h(x, y) = s(x, y) \cdot g(x, y) $. The complex sinusoid, also known as carrier can be written as equation \ref{complex_sinusoid}, where $\theta$, F and P are parameters representing the orientation, magnitude and phase.
+	Image analysis employs the two-dimensional kind of Gabor filters. These are formed as a product between a sinusoidal function and a Gaussian function: $h(x, y) = s(x, y) \cdot g(x', y') $. The complex sinusoid, also known as carrier can be written as equation \ref{complex_sinusoid} where U, V give the frequency of the function.
 	\begin{equation} \label{complex_sinusoid}
-	c(x, y) = e^{-j(2\pi F(x\cdot cos(\theta) + y \cdot sin(\theta)) + P)}
+	c(x, y) = e^{j \cdot 2\pi (Ux + Vy)}
 	\end{equation}
 	
-	The Gaussian function, also known as the envelope looks like equation \ref{gaussian_function}, where $x_t = (x \cdot cos(\theta) + y \cdot sin(\theta))^2, y_t = (-x \cdot sin(\theta) + y \cdot cos(\theta))^2$ are used to control the rotation.
+	The Gaussian function, also known as the envelope looks like equation \ref{gaussian_function}. The values of $ (x', y') = (xcos\theta + ysin\theta, -xsin\theta + ycos\theta) $ are used to control rotation.
 	
 	\begin{equation} \label{gaussian_function}
-	g(x, y) = \frac{1}{\sqrt{2\pi}\theta}\cdot e^{-0.5 \cdot (\frac{x_t}{\theta_x^2}+\frac{y_t}{\theta_y^2})} 
+	g(x, y) = \frac{1}{2\pi \cdot \theta_x \theta_y}\cdot e^{-0.5 \cdot (\frac{x^2}{\theta_x^2}+\frac{y^2}{\theta_y^2})} 
 	\end{equation}
+	
+	The previously exemplified form of a 2D Gabor filter is a simple yet efficient one, using elementary functions, and was introduced by Dunn et al. \cite{gabor_filter_example}.
+	
+	The combination of this functions allows Gabor filters to be invariant of rotation, scale and translation, a much desired property in image feature analysis. In general multiple Gabor filters forming a "filter bank" are applied to the same image to get a more complete representation of the desired features. These filters are obtained by tweaking the general formula's parameters, the most important of which are frequency and orientation. The values obtained from the concatenation of the filter bank's results are used as features and fed into a machine learning algorithm\cite{gabor_filter_machine_learning}.
 	
 	\chapter{Application development}
 	

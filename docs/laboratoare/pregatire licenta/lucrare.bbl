@@ -183,6 +183,15 @@ J.~McGonagle, V.~Tembo, and A.~Chumbley, ``Gaussian mixture model.''
   \url{https://brilliant.org/wiki/gaussian-mixture-model/}.
 \newblock Accessed: 2018-04-09.
 
+\bibitem{haralick_features}
+R.~M. Haralick, K.~Shanmugam, and I.~Dinstein, ``Textural features for image
+  classification,'' {\em IEEE Transactions on Systems, Man, and Cybernetics},
+  vol.~SMC-3, pp.~610--621, Nov 1973.
+
+\bibitem{glcm_tutorial}
+M.~Hall-Beyer, ``Glcm texture: A tutorial.''
+  https://prism.ucalgary.ca/handle/1880/51900, March 2017.
+
 \bibitem{sfa}
 J.~P.~B. Casati, D.~R. Moraes, and E.~L.~L. Rodrigues, ``Sfa: A human skin
   image database based on feret and ar facial images,'' {\em IX Workshop de

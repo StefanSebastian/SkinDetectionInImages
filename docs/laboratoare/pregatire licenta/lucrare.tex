@@ -391,6 +391,20 @@
 	
 	\todo{mention that this technique can measure coarseness roughness and directionality in one calculation?}
 	
+	\subsection{Gabor features}
+	These features, named after Dennis Gabor, are extracted using Gabor filters and have applications in texture segmentation, edge detection, document analysi, etc. Many vision scientists claim that these filters conform well to the mammalian visual system\cite{filter_eye_model}.
+	
+	Two-dimensional Gabor filters are commonly used in image analysis. These are formed as a product between a sinusoidal function and a Gaussian function: $h(x, y) = s(x, y) \cdot g(x, y) $. The complex sinusoid, also known as carrier can be written as equation \ref{complex_sinusoid}, where $\theta$, F and P are parameters representing the orientation, magnitude and phase.
+	\begin{equation} \label{complex_sinusoid}
+	c(x, y) = e^{-j(2\pi F(x\cdot cos(\theta) + y \cdot sin(\theta)) + P)}
+	\end{equation}
+	
+	The Gaussian function, also known as the envelope looks like equation \ref{gaussian_function}, where $x_t = (x \cdot cos(\theta) + y \cdot sin(\theta))^2, y_t = (-x \cdot sin(\theta) + y \cdot cos(\theta))^2$ are used to control the rotation.
+	
+	\begin{equation} \label{gaussian_function}
+	g(x, y) = \frac{1}{\sqrt{2\pi}\theta}\cdot e^{-0.5 \cdot (\frac{x_t}{\theta_x^2}+\frac{y_t}{\theta_y^2})} 
+	\end{equation}
+	
 	\chapter{Application development}
 	
 	\section{Proposed model}

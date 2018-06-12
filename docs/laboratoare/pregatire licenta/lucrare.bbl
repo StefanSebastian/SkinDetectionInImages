@@ -192,6 +192,10 @@ R.~M. Haralick, K.~Shanmugam, and I.~Dinstein, ``Textural features for image
 M.~Hall-Beyer, ``Glcm texture: A tutorial.''
   https://prism.ucalgary.ca/handle/1880/51900, March 2017.
 
+\bibitem{filter_eye_model}
+S.~Mar\^{c}elja, ``Mathematical description of the responses of simple cortical
+  cells$\ast$,'' {\em J. Opt. Soc. Am.}, vol.~70, pp.~1297--1300, Nov 1980.
+
 \bibitem{sfa}
 J.~P.~B. Casati, D.~R. Moraes, and E.~L.~L. Rodrigues, ``Sfa: A human skin
   image database based on feret and ar facial images,'' {\em IX Workshop de

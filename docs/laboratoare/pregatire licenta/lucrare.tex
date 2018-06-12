@@ -355,6 +355,13 @@
 	
 	Its main use in skin detection is to reduce the false positive rate. I haven’t found any source that uses a texture model as a sole detector, possibly due to the fact that many surfaces with smooth texture can be misclassified as skin.
 	
+	\subsection{Local Binary Partition}
+	This is one of the simplest texture description methods. A simple algorithm is given in \cite{computer_vision_book}. To extract the features of a window you have to iterate all pixels and using the current pixel as the center compare it with eight neighbors (north, north-west, west, etc.) chosen on a circular path. If the compared pixel's value is greater than the center's append a "1", else append a "0" to a string. These string form binary numbers for which a histogram is created. The histogram counts the number of apparitions of each distinct number formed in the previous step. The histogram represents the textural features of the window. Multiple histograms can be compared using the $ L_1 $ distance(figure \ref{l1_distance}).
+	
+	\begin{equation} \label{l1_distance}
+		L_1(H1, H2) = \sum_{i=1}^{n} |H1(i) - H2(i)|
+	\end{equation}
+	
 	\subsection{Haralick's features}
 	This is a statistical method of texture analysis named after Robert Haralick, the author of the paper that first presented them\cite{haralick_features}. In a nutshell, they can be described as a series of statistics calculated over the Gray Level Co-occurence Matrix(GLCM). The author relies on the assumptions that there is a relationship between the texture and the extraction of discrete textural features is a fuzzy task. Based on this, he proposes an analysis of the spatial relationships between gray tones in images.
 	

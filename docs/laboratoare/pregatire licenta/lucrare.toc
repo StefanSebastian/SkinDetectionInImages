@@ -33,7 +33,8 @@
 \contentsline {subsubsection}{Single Gaussian}{16}{section*.18}
 \contentsline {subsubsection}{Gaussian Mixture Models}{17}{section*.19}
 \contentsline {section}{\numberline {2.4}Texture analysis}{17}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}Haralick's features}{18}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.1}Local Binary Partition}{18}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Haralick's features}{18}{subsection.2.4.2}
 \contentsline {subsubsection}{Gray Level Co-Occurence Matrix}{18}{section*.20}
 \contentsline {subsubsection}{Statistics on GLCM}{19}{section*.21}
 \contentsline {chapter}{\numberline {3}Application development}{20}{chapter.3}

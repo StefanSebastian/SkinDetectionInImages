@@ -367,9 +367,20 @@
 	C_d(i, j) = | \{(r, c) | I(r, c) = i and I(r+dc, c + dc) = j\} |
 	\end{equation}
 	
-	There are some variations on the classical GLCM structure such as: the normalized gray level co-occurence matrix, that normalizes all values to the (0,1) interval allowing them to be seen as probabilities, and the symmetric gray level co-occurence matrix which groups symmetric adjacencies.
+	There are some variations on the classical GLCM structure such as: the normalized gray level co-occurence matrix(figure \ref{normalized_glcm_eq}), that normalizes all values to the (0,1) interval allowing them to be seen as probabilities, and the symmetric gray level co-occurence matrix(figure \ref{symmetrical_glcm_eq}) which groups symmetric adjacencies.
+	
+	\begin{equation} \label{normalized_glcm_eq}
+	N_d(i, j) = \frac{C_d(i, j)}{\sum_{i}\sum_{j}C_d(i, j)}
+	\end{equation}
+	
+	\begin{equation} \label{symmetrical_glcm_eq}
+	S_d(i, j) = C_d(i, j) + C_{-d}(i, j)
+	\end{equation}
 	
 	\subsubsection{Statistics on GLCM}
+	Relying on the assumption that gray-tone arrangement can describe texture, Haralick et al. defined a set of 14 measures of textural features as functions over the normalized, symmetric form of the GLCM.
+	
+	
 	
 	\todo{mention that this technique can measure coarseness roughness and directionality in one calculation?}
 	\todo{mention about the directions and how usually only one is chosen?}

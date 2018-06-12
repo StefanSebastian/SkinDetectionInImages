@@ -378,12 +378,11 @@
 	\end{equation}
 	
 	\subsubsection{Statistics on GLCM}
-	Relying on the assumption that gray-tone arrangement can describe texture, Haralick et al. defined a set of 14 measures of textural features as functions over the normalized, symmetric form of the GLCM.
+	Relying on the assumption that gray-tone arrangement can describe texture, Haralick et al. defined a set of 14 measures of textural features as functions over the normalized, symmetric form of the GLCM. These are the: Angular Second Moment, Contrast, Correlation, Sum of Squares: Variance, Inverse Difference Moment, Sum Average, Sum Variance, Sum Entropy, Entropy, Difference Variance, Difference Entropy, Information Measures of Correlation(two of them) and the Maximal Correlation Coefficient. Their method of calculation and significance are explained in-depth in Haralick's paper\cite{haralick_features}.
 	
-	
+	In a typical texture detection problem these statistics are calculated on a window of the given image. This allows the algorithm to identify several textures in the same image. The GLCM features are calculated on each window and then fed into a machine learning classifier which can then distinguish between differently textured areas.
 	
 	\todo{mention that this technique can measure coarseness roughness and directionality in one calculation?}
-	\todo{mention about the directions and how usually only one is chosen?}
 	
 	\chapter{Application development}
 	

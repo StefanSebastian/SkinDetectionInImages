@@ -183,6 +183,9 @@ J.~McGonagle, V.~Tembo, and A.~Chumbley, ``Gaussian mixture model.''
   \url{https://brilliant.org/wiki/gaussian-mixture-model/}.
 \newblock Accessed: 2018-04-09.
 
+\bibitem{texture_analysis_review}
+A.~Materka and M.~Strzelecki, ``Texture analysis methods - a review,'' 01 1998.
+
 \bibitem{haralick_features}
 R.~M. Haralick, K.~Shanmugam, and I.~Dinstein, ``Textural features for image
   classification,'' {\em IEEE Transactions on Systems, Man, and Cybernetics},

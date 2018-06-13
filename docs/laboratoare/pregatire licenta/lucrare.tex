@@ -362,6 +362,24 @@
 		L_1(H1, H2) = \sum_{i=1}^{n} |H1(i) - H2(i)|
 	\end{equation}
 	
+	\subsection{First-order histogram based features}
+	This is a simple statistical approach that relies on first-order histograms. These histograms show, for each gray-level, the number of pixels with that intensity value in the image. This can be computed as in figure \ref{first_order_histogram}, where I is an image of size(N, M), I(x, y) the pixel located at x, y coordinates, i is a grayscale value, and $\delta(x, y)$ is the Kronecker delta function which returns 1 if x = y and 0 otherwise\cite{texture_analysis_review}.
+	
+	\begin{equation} \label{first_order_histogram}
+		h(i) = \sum_{x=0}^{N-1}\sum_{y=0}^{M-1}\delta(I(x,y), i)
+	\end{equation}
+	
+	To extract features from this histogram we need to compute some metrics on it. Some of these have been exemplified in figure \ref{first_order_metrics} but there are many more that can be applied.
+	\begin{equation} \label{first_order_metrics}
+	\begin{split}
+	Mean: \quad \mu = \sum_{i=0}^{G-1}i \cdot p(i) \\
+ 	Variance: \quad \sigma^2 = \sum_{i=0}^{G-1}(i-\mu)^2 \cdot p(i) \\
+ 	Skewness: \quad \mu_3 = \sigma^{-3} \cdot \sum_{i=0}^{G-1}(i-\mu)^3 \cdot p(i) \\
+ 	Kurtosis: \quad \mu_4 = \sigma^{-4} \cdot \sum_{i=0}^{G-1}(i-\mu)^4 \cdot p(i) - 3
+	\end{split}
+	\end{equation}
+	G represents the maximum value for the pixel intensity and p(i) the probability of finding that intensity in the image. Skewness is an indication of symmetry, kurtosis measures the flatness of the histogram and the mean and variance provide information about the average lighting conditions\cite{texture_analysis_review}.
+	
 	\subsection{Haralick's features}
 	This is a statistical method of texture analysis named after Robert Haralick, the author of the paper that first presented them\cite{haralick_features}. In a nutshell, they can be described as a series of statistics calculated over the Gray Level Co-occurence Matrix(GLCM). The author relies on the assumptions that there is a relationship between the texture and the extraction of discrete textural features is a fuzzy task. Based on this, he proposes an analysis of the spatial relationships between gray tones in images.
 	

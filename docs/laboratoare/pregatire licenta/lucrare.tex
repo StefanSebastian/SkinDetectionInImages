@@ -347,13 +347,19 @@
 	
 	\section{Texture analysis}
 	
-	Texture is a propriety of all existing surfaces and contains information about their structural composition. While easily identifiable by a human observer, it does not have a precise mathematical definition\cite{computer_vision_book}. Consequently, there are many choices for building a texture classification model depending on the author’s interpretation. A good example that illustrates the complexity of defining texture is the surface of wood, which contains intensity variations that despite being nonuniform can compose certain repeated patterns. Texture provides information about the spatial arrangement of intensities in an image\cite{computer_vision_book}. There are two main approaches in studying image texture: structural and statistical. 
+	Texture is a propriety of all existing surfaces and contains information about their structural composition. While easily identifiable by a human observer, it does not have a precise mathematical definition\cite{computer_vision_book}. Consequently, there are many choices for building a texture classification model depending on the author’s interpretation. A good example that illustrates the complexity of defining texture is the surface of wood, which contains intensity variations that despite being nonuniform can compose certain repeated patterns. Texture provides information about the spatial arrangement of intensities in an image\cite{computer_vision_book}. 
 	
-	The structural method sees texture as a composition of primitives called texels arranged in a regular or repeated manner. Take a chess board for example - all squares are repeated in a predictable way. These texels can be isolated using Voronoi polygons\cite{computer_vision_book}. 
+	The main approaches in studying image texture are: structural, statistical, model based and transform methods\cite{texture_analysis_review}. 
 	
-	In real life the second approach is much more common because finding and separating texels in natural textures is more difficult than computing some statistics on the gray levels of the image.
+	The structural method sees texture as a composition of primitives called texels(microtexture) arranged in a regular or repeated manner(macrotexture). Take a chess board for example - all squares are repeated in a predictable way. These texels can be isolated using Voronoi polygons\cite{computer_vision_book}. This approach is more useful for generating textures than analyzing them because in nature the difference between micro and macro textures is not very clear and the their variability is high.
 	
-	Its main use in skin detection is to reduce the false positive rate. I haven’t found any source that uses a texture model as a sole detector, possibly due to the fact that many surfaces with smooth texture can be misclassified as skin.
+	In real life the second approach is much more common because finding and separating texels in natural textures is more difficult than computing some statistics on the gray levels of the image. These have also been shown to perform better than the other approaches, mainly through the use of second order statistics\cite{texture_analysis_review}.
+	
+	Model based approaches try to represent texture through the use fractal and stochastic models. These have been shown to perform well on some natural textures, however they imply a high computation complexity and lack orientation invariance\cite{texture_analysis_review}.
+	
+	Transform methods include Fourier, Gabor and wavelet transforms. These approaches transform the image into a space of features relevant to texture, such as frequency or size\cite{texture_analysis_review}.
+	
+	The main use of texture analysis in skin detection is to reduce the false positive rate. I haven’t found any source that uses a texture model as a sole detector, possibly due to the fact that many surfaces with smooth texture can be misclassified as skin.
 	
 	\subsection{Local Binary Partition}
 	This is one of the simplest texture description methods. A simple algorithm is given in \cite{computer_vision_book}. To extract the features of a window you have to iterate all pixels and using the current pixel as the center compare it with eight neighbors (north, north-west, west, etc.) chosen on a circular path. If the compared pixel's value is greater than the center's append a "1", else append a "0" to a string. These string form binary numbers for which a histogram is created. The histogram counts the number of apparitions of each distinct number formed in the previous step. The histogram represents the textural features of the window. Multiple histograms can be compared using the $ L_1 $ distance(figure \ref{l1_distance}).

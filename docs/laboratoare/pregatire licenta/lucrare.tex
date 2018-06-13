@@ -419,6 +419,11 @@
 	\subsection{Model based methods}
 	Model based approaches try to represent texture through the use fractal and stochastic models. These have been shown to perform well on some natural textures, however they imply a high computation complexity and lack orientation invariance\cite{texture_analysis_review}.
 	
+	\subsubsection{Fractal models}
+	A fractal can be defined as a surface that repeats itself when observed at different scales. This is similar to natural occurring shapes such as clouds, trees, rivers, etc. Consequently, this model relies on the assumption that most textures have this property of self-similarity\cite{fractal_texture}.
+	
+	The main feature extracted by this model is the Fractal Dimension, which is used to measure the degree of roughness of a surface. The concept of a fractional dimension was defined by Hausdorff and Bescovitch in the following way: $ D = log(N_r)/log(1/r)$, and represents an indication of how detail changes in a pattern according to the scale of measurement. Here $N_r$ is the number of copies of the seed and r is the scaling factor. Starting from this equation, the FD can be estimated using various methods, such as: The Blanket Method or the Differential Box Counting Method\cite{fractal_texture}.
+	
 	\subsection{Transform methods}
 	Transform methods include Fourier, Gabor and wavelet transforms. These approaches transform the image into a space of features relevant to texture, such as frequency or size\cite{texture_analysis_review}.
 	

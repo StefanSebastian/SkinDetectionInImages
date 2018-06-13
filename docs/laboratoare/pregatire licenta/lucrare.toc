@@ -33,12 +33,16 @@
 \contentsline {subsubsection}{Single Gaussian}{16}{section*.18}
 \contentsline {subsubsection}{Gaussian Mixture Models}{17}{section*.19}
 \contentsline {section}{\numberline {2.4}Texture analysis}{17}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}Local Binary Partition}{18}{subsection.2.4.1}
-\contentsline {subsection}{\numberline {2.4.2}First-order histogram based features}{18}{subsection.2.4.2}
-\contentsline {subsection}{\numberline {2.4.3}Haralick's features}{19}{subsection.2.4.3}
-\contentsline {subsubsection}{Gray Level Co-Occurence Matrix}{19}{section*.20}
-\contentsline {subsubsection}{Statistics on GLCM}{20}{section*.21}
-\contentsline {subsection}{\numberline {2.4.4}Gabor features}{20}{subsection.2.4.4}
+\contentsline {subsection}{\numberline {2.4.1}Structural methods}{18}{subsection.2.4.1}
+\contentsline {subsubsection}{Voronoi tesselation}{18}{section*.20}
+\contentsline {subsection}{\numberline {2.4.2}Statistical methods}{18}{subsection.2.4.2}
+\contentsline {subsubsection}{Local Binary Partition}{18}{section*.21}
+\contentsline {subsubsection}{First-order histogram based features}{19}{section*.22}
+\contentsline {subsubsection}{Haralick's features}{19}{section*.23}
+\contentsline {subsection}{\numberline {2.4.3}Model based methods}{20}{subsection.2.4.3}
+\contentsline {subsection}{\numberline {2.4.4}Transform methods}{20}{subsection.2.4.4}
+\contentsline {subsubsection}{Gabor features}{21}{section*.25}
+\contentsline {subsection}{\numberline {2.4.5}Use in skin detection}{21}{subsection.2.4.5}
 \contentsline {chapter}{\numberline {3}Application development}{22}{chapter.3}
 \contentsline {section}{\numberline {3.1}Proposed model}{22}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}Datasets}{22}{subsection.3.1.1}

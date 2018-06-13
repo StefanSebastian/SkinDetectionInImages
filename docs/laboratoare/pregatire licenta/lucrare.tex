@@ -351,45 +351,47 @@
 	
 	The main approaches in studying image texture are: structural, statistical, model based and transform methods\cite{texture_analysis_review}. 
 	
-	The structural method sees texture as a composition of primitives called texels(microtexture) arranged in a regular or repeated manner(macrotexture). Take a chess board for example - all squares are repeated in a predictable way. These texels can be isolated using Voronoi polygons\cite{computer_vision_book}. This approach is more useful for generating textures than analyzing them because in nature the difference between micro and macro textures is not very clear and the their variability is high.
+	\subsection{Structural methods}
+	Structural methods texture as a composition of primitives called texels(microtexture) arranged in a regular or repeated manner(macrotexture). Take a chess board for example - all squares are repeated in a predictable way. This approach is more useful for generating textures than analyzing them because in nature the difference between micro and macro textures is not very clear and the their variability is high.
 	
-	In real life the second approach is much more common because finding and separating texels in natural textures is more difficult than computing some statistics on the gray levels of the image. These have also been shown to perform better than the other approaches, mainly through the use of second order statistics\cite{texture_analysis_review}.
+	\subsubsection{Voronoi tesselation}
+	The first step is extracting the texels from the image. The implementation of this part can vary depending on the types of textures that are analyzed. An example would be to use thresholding to isolate image regions corresponding to texels\cite{computer_vision_book}.
 	
-	Model based approaches try to represent texture through the use fractal and stochastic models. These have been shown to perform well on some natural textures, however they imply a high computation complexity and lack orientation invariance\cite{texture_analysis_review}.
+	In order to describe the relationships between the extracted regions we compute the Vornoi tesselation. This means finding all points in the image that are closer to the center of a texel than to the center of any other texels. For example, if S is the set of texel centers and P is a value in that set, then the Voronoi polygon of the point P is a polygonal region that covers all points closer to P than to any other point in S\cite{computer_vision_book}.
 	
-	Transform methods include Fourier, Gabor and wavelet transforms. These approaches transform the image into a space of features relevant to texture, such as frequency or size\cite{texture_analysis_review}.
+	The final step is extracting shape features from the Voronoi polygons and using them to group similar polygons into clusters. Each of these cluster defines a distinct textural region\cite{computer_vision_book}.
 	
-	The main use of texture analysis in skin detection is to reduce the false positive rate. I haven’t found any source that uses a texture model as a sole detector, possibly due to the fact that many surfaces with smooth texture can be misclassified as skin.
+	\subsection{Statistical methods}
+	In practice this approach is the most common because of its generality and performance. The main concept that these methods have in common is the computation of statistics on the relationships between pixel intensities. These have also been shown to perform better than the other approaches, mainly through the use of second order statistics\cite{texture_analysis_review}.
 	
-	\subsection{Local Binary Partition}
+	\subsubsection{Local Binary Partition}
 	This is one of the simplest texture description methods. A simple algorithm is given in \cite{computer_vision_book}. To extract the features of a window you have to iterate all pixels and using the current pixel as the center compare it with eight neighbors (north, north-west, west, etc.) chosen on a circular path. If the compared pixel's value is greater than the center's append a "1", else append a "0" to a string. These string form binary numbers for which a histogram is created. The histogram counts the number of apparitions of each distinct number formed in the previous step. The histogram represents the textural features of the window. Multiple histograms can be compared using the $ L_1 $ distance(figure \ref{l1_distance}).
 	
 	\begin{equation} \label{l1_distance}
-		L_1(H1, H2) = \sum_{i=1}^{n} |H1(i) - H2(i)|
+	L_1(H1, H2) = \sum_{i=1}^{n} |H1(i) - H2(i)|
 	\end{equation}
 	
-	\subsection{First-order histogram based features}
+	\subsubsection{First-order histogram based features}
 	This is a simple statistical approach that relies on first-order histograms. These histograms show, for each gray-level, the number of pixels with that intensity value in the image. This can be computed as in figure \ref{first_order_histogram}, where I is an image of size(N, M), I(x, y) the pixel located at x, y coordinates, i is a grayscale value, and $\delta(x, y)$ is the Kronecker delta function which returns 1 if x = y and 0 otherwise\cite{texture_analysis_review}.
 	
 	\begin{equation} \label{first_order_histogram}
-		h(i) = \sum_{x=0}^{N-1}\sum_{y=0}^{M-1}\delta(I(x,y), i)
+	h(i) = \sum_{x=0}^{N-1}\sum_{y=0}^{M-1}\delta(I(x,y), i)
 	\end{equation}
 	
 	To extract features from this histogram we need to compute some metrics on it. Some of these have been exemplified in figure \ref{first_order_metrics} but there are many more that can be applied.
 	\begin{equation} \label{first_order_metrics}
 	\begin{split}
 	Mean: \quad \mu = \sum_{i=0}^{G-1}i \cdot p(i) \\
- 	Variance: \quad \sigma^2 = \sum_{i=0}^{G-1}(i-\mu)^2 \cdot p(i) \\
- 	Skewness: \quad \mu_3 = \sigma^{-3} \cdot \sum_{i=0}^{G-1}(i-\mu)^3 \cdot p(i) \\
- 	Kurtosis: \quad \mu_4 = \sigma^{-4} \cdot \sum_{i=0}^{G-1}(i-\mu)^4 \cdot p(i) - 3
+	Variance: \quad \sigma^2 = \sum_{i=0}^{G-1}(i-\mu)^2 \cdot p(i) \\
+	Skewness: \quad \mu_3 = \sigma^{-3} \cdot \sum_{i=0}^{G-1}(i-\mu)^3 \cdot p(i) \\
+	Kurtosis: \quad \mu_4 = \sigma^{-4} \cdot \sum_{i=0}^{G-1}(i-\mu)^4 \cdot p(i) - 3
 	\end{split}
 	\end{equation}
 	G represents the maximum value for the pixel intensity and p(i) the probability of finding that intensity in the image. Skewness is an indication of symmetry, kurtosis measures the flatness of the histogram and the mean and variance provide information about the average lighting conditions\cite{texture_analysis_review}.
 	
-	\subsection{Haralick's features}
+	\subsubsection{Haralick's features}
 	This is a statistical method of texture analysis named after Robert Haralick, the author of the paper that first presented them\cite{haralick_features}. In a nutshell, they can be described as a series of statistics calculated over the Gray Level Co-occurence Matrix(GLCM). The author relies on the assumptions that there is a relationship between the texture and the extraction of discrete textural features is a fuzzy task. Based on this, he proposes an analysis of the spatial relationships between gray tones in images.
 	
-	\subsubsection{Gray Level Co-Occurence Matrix}
 	The basic descriptor for gray tone dependencies is the GLCM. Simply put, this is a matrix that tracks how many times a gray level (a pixel color converted to grayscale) appears in relation to another. This relationship is given by adjacency with an offset. By far, the most common type of GLCM is the one used for second order calculations, meaning that it takes into consideration groups of two pixels from the original image. A third order and further matrix is theoretically possible but computationally restrictive\cite{glcm_tutorial}.
 	
 	The distance between the considered pixels can be written as an offset (dx, dy), meaning that the second pixel's position is dx right and dy down in relation to the first. The Gray Level Co-Occurence Matrix, $C_d$ of image I, whose indexing is done by pixel intensities (i, j) can be computed as seen in figure \ref{glcm_eq}, which was presented in \cite{computer_vision_book}.
@@ -408,14 +410,19 @@
 	S_d(i, j) = C_d(i, j) + C_{-d}(i, j)
 	\end{equation}
 	
-	\subsubsection{Statistics on GLCM}
 	Relying on the assumption that gray-tone arrangement can describe texture, Haralick et al. defined a set of 14 measures of textural features as functions over the normalized, symmetric form of the GLCM. These are the: Angular Second Moment, Contrast, Correlation, Sum of Squares: Variance, Inverse Difference Moment, Sum Average, Sum Variance, Sum Entropy, Entropy, Difference Variance, Difference Entropy, Information Measures of Correlation(two of them) and the Maximal Correlation Coefficient. Their method of calculation and significance are explained in-depth in Haralick's paper\cite{haralick_features}.
 	
 	In a typical texture detection problem these statistics are calculated on a window of the given image. This allows the algorithm to identify several textures in the same image. The GLCM features are calculated on each window and then fed into a machine learning classifier which can then distinguish between differently textured areas.
 	
 	\todo{mention that this technique can measure coarseness roughness and directionality in one calculation?}
 	
-	\subsection{Gabor features}
+	\subsection{Model based methods}
+	Model based approaches try to represent texture through the use fractal and stochastic models. These have been shown to perform well on some natural textures, however they imply a high computation complexity and lack orientation invariance\cite{texture_analysis_review}.
+	
+	\subsection{Transform methods}
+	Transform methods include Fourier, Gabor and wavelet transforms. These approaches transform the image into a space of features relevant to texture, such as frequency or size\cite{texture_analysis_review}.
+	
+	\subsubsection{Gabor features}
 	These features, named after Dennis Gabor, are extracted using Gabor filters and have applications in texture segmentation, edge detection, document analysi, etc. Many vision scientists claim that these filters conform well to the mammalian visual system\cite{filter_eye_model}.
 	
 	Image analysis employs the two-dimensional kind of Gabor filters. These are formed as a product between a sinusoidal function and a Gaussian function: $h(x, y) = s(x, y) \cdot g(x', y') $. The complex sinusoid, also known as carrier can be written as equation \ref{complex_sinusoid} where U, V give the frequency of the function.
@@ -432,6 +439,9 @@
 	The previously exemplified form of a 2D Gabor filter is a simple yet efficient one, using elementary functions, and was introduced by Dunn et al. \cite{gabor_filter_example}.
 	
 	The combination of this functions allows Gabor filters to be invariant of rotation, scale and translation, a much desired property in image feature analysis. In general multiple Gabor filters forming a "filter bank" are applied to the same image to get a more complete representation of the desired features. These filters are obtained by tweaking the general formula's parameters, the most important of which are frequency and orientation. The values obtained from the concatenation of the filter bank's results are used as features and fed into a machine learning algorithm\cite{gabor_filter_machine_learning}.
+	
+	\subsection{Use in skin detection}
+	The main use of texture analysis in skin detection is to reduce the false positive rate. I haven’t found any source that uses a texture model as a sole detector, possibly due to the fact that many surfaces with smooth texture can be misclassified as skin.
 	
 	\chapter{Application development}
 	

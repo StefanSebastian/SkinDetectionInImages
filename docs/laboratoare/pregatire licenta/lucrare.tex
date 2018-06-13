@@ -35,7 +35,7 @@
 	\tableofcontents
 	\newpage
 	
-	\chapter{Introduction TODO}
+	\chapter{Introduction \todo{rewrite section}}
 	
 	\section{Introduction}
 	Skin detection means identifying pixels and regions in images which correspond to human skin. Starting from these regions we can build models that detect people or certain body parts.
@@ -451,7 +451,32 @@
 	\chapter{Application development}
 	
 	\section{Proposed model}
-	The model proposed by this paper is made up of three steps. The first step is image segmentation using the Quick shift algorithm. A Bayesian probability is then calculated for every pixel in the region and the average of these is compared to a threshold to determine if the superpixel's color is likely to be that of skin. Finally, a Support Vector Machine analyzes patches around each pixel and calculates Haralick features in order to classify the texture. The results from color and texture detection are then combined into the final result.
+	
+	\subsection{Overview}
+	The model proposed by this paper is made up of three steps and was designed to combine the most efficient detectors in all aspects of skin detection. 
+	
+	\subsubsection{Segmentation}
+	The first step is image segmentation using the Quick shift algorithm. I chose this algorithm due to its simplicity and ability to perform clustering without needing to know the number of clusters in advance. Furthermore, this approach allows for future performance optimization as it has been shown that a GPU implementation is possible\cite{quickshift_gpu}.
+	
+	I chose the classic input feature for segmentation, the 5-dimensional tuple $(f1, f2, f3, s \cdot x, s \cdot y)$ where $f1, f2, f3$ represent the color features in a certain color space (e.g. RGB) and x, y the coordinates of the pixel. The scaling factor, s, is a constant that can be used to adjust the importance of the spatial features. This was necessary because the pixel position value range scales with image dimension while the color features remain in the same range(0 - 255).
+	
+	This step extracts a list of superpixels containing the most dominant pixel in the region and all pixels linked to it, which is then fed into the color analysis module.
+	
+	\subsubsection{Color analysis}
+	This module uses Skin Probability Maps to analyze the color feature of each region identified by the segmentation module in the image. The main reasons for selecting this approach are its performance, being marked second in Kakumanu's survey\cite{survey_skin_color_modeling}, and speed.
+	
+	My color model is similar to the well known SPM method proposed by Jones and Rehg\cite{compaq} with a notable difference. In the classical approach the histogram bin size is determined before the training phase. This means the training must be redone if we wish to experiment with other sizes. 
+	
+	My approach is to count the number of pixels for each value and take into account a pixel's neighbors only during the evaluation phase. This means that whenever a probability is calculated the algorithm also computes the neighbors probabilities in the color space and choses the maximum value. This allows for the training to be done only once, however it also means that the model will have a slightly larger size. 
+	
+	Furthermore, when calculating the Bayesian probability the algorithm builds a "bin" around each pixel, meaning that the currently analyzed pixel is always at the center of its bin. Simply put, each probability computation takes into account the pixel and its closest neighbors. However, I found that, in practice, placing the analyzed pixel at the center of the bin does not affect the algorithm's performance noticeably.
+	
+	A Naive Bayesian probability is calculated for every pixel in each region and the average of these is compared to a threshold to determine if the superpixel's color is likely to be that of skin. Finally, a skin mask of black color is applied to all regions identified as skin and the image is saved to be used in the final step.
+	
+	\subsubsection{Texture analysis} \todo{expand}
+	Finally, a Support Vector Machine analyzes patches around each pixel and calculates Haralick features in order to classify the texture. The results from color and texture detection are then combined into the final result.
+	
+	\subsubsection{The final image} \todo{expand}
 	
 	\subsection{Datasets}
 	For this experiment I have used two databases. First, the Compaq dataset \cite{compaq}, which is one of the most cited in literature, contains ~13.000 images out of which ~4700 contain skin and was used for the skin color model. The images were downloaded using a web crawler then divided into skin and non-skin images. For every skin image a black and white mask was created by hand to mark the regions of interest.
@@ -478,6 +503,8 @@
 		\caption{Segmenting an image with different parameters}
 		\label{fig:segmentation}
 	\end{figure}
+
+	\todo{image scale}
 	
 	The most suitable area for texture analysis was also determined experimentally. As can be observed in figure \ref{fig:texture} the 5x5 window offers a good detection of skin areas while the true positive rate goes down drastically for larger ones.
 	
@@ -788,7 +815,7 @@
 		\label{feedback_view}
 	\end{figure}
 	
-	\chapter{Conclusions}
+	\chapter{Conclusions} \todo{write section}
 	
 	texture methods are few and not well documented smth smth most use their own data sets , hard to compare and evaluate
 	

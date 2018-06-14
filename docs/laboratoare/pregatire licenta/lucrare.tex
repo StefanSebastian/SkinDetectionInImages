@@ -390,17 +390,17 @@
 	G represents the maximum value for the pixel intensity and p(i) the probability of finding that intensity in the image. Skewness is an indication of symmetry, kurtosis measures the flatness of the histogram and the mean and variance provide information about the average lighting conditions\cite{texture_analysis_review}.
 	
 	\subsubsection{Haralick's features}
-	This is a statistical method of texture analysis named after Robert Haralick, the author of the paper that first presented them\cite{haralick_features}. In a nutshell, they can be described as a series of statistics calculated over the Gray Level Co-occurence Matrix(GLCM). The author relies on the assumptions that there is a relationship between the texture and the extraction of discrete textural features is a fuzzy task. Based on this, he proposes an analysis of the spatial relationships between gray tones in images.
+	This is a statistical method of texture analysis named after Robert Haralick, the author of the paper that first presented them\cite{haralick_features}. In a nutshell, they can be described as a series of statistics calculated over the Gray Level Co-occurrence Matrix(GLCM). The author relies on the assumptions that there is a relationship between the texture and the extraction of discrete textural features is a fuzzy task. Based on this, he proposes an analysis of the spatial relationships between gray tones in images.
 	
 	The basic descriptor for gray tone dependencies is the GLCM. Simply put, this is a matrix that tracks how many times a gray level (a pixel color converted to grayscale) appears in relation to another. This relationship is given by adjacency with an offset. By far, the most common type of GLCM is the one used for second order calculations, meaning that it takes into consideration groups of two pixels from the original image. A third order and further matrix is theoretically possible but computationally restrictive\cite{glcm_tutorial}.
 	
-	The distance between the considered pixels can be written as an offset (dx, dy), meaning that the second pixel's position is dx right and dy down in relation to the first. The Gray Level Co-Occurence Matrix, $C_d$ of image I, whose indexing is done by pixel intensities (i, j) can be computed as seen in figure \ref{glcm_eq}, which was presented in \cite{computer_vision_book}.
+	The distance between the considered pixels can be written as an offset (dx, dy), meaning that the second pixel's position is dx right and dy down in relation to the first. The Gray Level Co-Occurrence Matrix, $C_d$ of image I, whose indexing is done by pixel intensities (i, j) can be computed as seen in figure \ref{glcm_eq}, which was presented in \cite{computer_vision_book}.
 	
 	\begin{equation} \label{glcm_eq}
 	C_d(i, j) = | \{(r, c) | I(r, c) = i and I(r+dc, c + dc) = j\} |
 	\end{equation}
 	
-	There are some variations on the classical GLCM structure such as: the normalized gray level co-occurence matrix(figure \ref{normalized_glcm_eq}), that normalizes all values to the (0,1) interval allowing them to be seen as probabilities, and the symmetric gray level co-occurence matrix(figure \ref{symmetrical_glcm_eq}) which groups symmetric adjacencies.
+	There are some variations on the classical GLCM structure such as: the normalized gray level co-occurrence matrix(figure \ref{normalized_glcm_eq}), that normalizes all values to the (0,1) interval allowing them to be seen as probabilities, and the symmetric gray level co-occurrence matrix(figure \ref{symmetrical_glcm_eq}) which groups symmetric adjacencies.
 	
 	\begin{equation} \label{normalized_glcm_eq}
 	N_d(i, j) = \frac{C_d(i, j)}{\sum_{i}\sum_{j}C_d(i, j)}
@@ -413,8 +413,6 @@
 	Relying on the assumption that gray-tone arrangement can describe texture, Haralick et al. defined a set of 14 measures of textural features as functions over the normalized, symmetric form of the GLCM. These are the: Angular Second Moment, Contrast, Correlation, Sum of Squares: Variance, Inverse Difference Moment, Sum Average, Sum Variance, Sum Entropy, Entropy, Difference Variance, Difference Entropy, Information Measures of Correlation(two of them) and the Maximal Correlation Coefficient. Their method of calculation and significance are explained in-depth in Haralick's paper\cite{haralick_features}.
 	
 	In a typical texture detection problem these statistics are calculated on a window of the given image. This allows the algorithm to identify several textures in the same image. The GLCM features are calculated on each window and then fed into a machine learning classifier which can then distinguish between differently textured areas.
-	
-	\todo{mention that this technique can measure coarseness roughness and directionality in one calculation?}
 	
 	\subsection{Model based methods}
 	Model based approaches try to represent texture through the use fractal and stochastic models. These have been shown to perform well on some natural textures, however they imply a high computation complexity and lack orientation invariance\cite{texture_analysis_review}.
@@ -453,10 +451,12 @@
 	\section{Proposed model}
 	
 	\subsection{Overview}
-	The model proposed by this paper is made up of three steps and was designed to combine the most efficient detectors in all aspects of skin detection. 
+	The model proposed by this paper is made up of three steps and was designed to combine the most efficient detectors in all aspects of skin detection. There is a preprocessing step that is applied to all images, namely a resize operation to the (200, 200) dimension, with the purpose of reducing computation time.
 	
 	\subsubsection{Segmentation}
-	The first step is image segmentation using the Quick shift algorithm. I chose this algorithm due to its simplicity and ability to perform clustering without needing to know the number of clusters in advance. Furthermore, this approach allows for future performance optimization as it has been shown that a GPU implementation is possible\cite{quickshift_gpu}.
+	The first step is image segmentation, which consists of finding uniformly colored regions, with smooth borders and regular shapes. These attributes fit the description of skin regions well. By passing these patches to the color model we can ensure the results will not contain holes caused by some small variations in a skin region and their borders will follow the skin contours more naturally. 
+	
+	I chose the  Quick shift algorithm for this task due to its simplicity and ability to perform clustering without needing to know the number of clusters in advance. Furthermore, this approach allows for future performance optimization as it has been shown that a GPU implementation is possible\cite{quickshift_gpu}.
 	
 	I chose the classic input feature for segmentation, the 5-dimensional tuple $(f1, f2, f3, s \cdot x, s \cdot y)$ where $f1, f2, f3$ represent the color features in a certain color space (e.g. RGB) and x, y the coordinates of the pixel. The scaling factor, s, is a constant that can be used to adjust the importance of the spatial features. This was necessary because the pixel position value range scales with image dimension while the color features remain in the same range(0 - 255).
 	
@@ -473,10 +473,17 @@
 	
 	A Naive Bayesian probability is calculated for every pixel in each region and the average of these is compared to a threshold to determine if the superpixel's color is likely to be that of skin. Finally, a skin mask of black color is applied to all regions identified as skin and the image is saved to be used in the final step.
 	
-	\subsubsection{Texture analysis} \todo{expand}
-	Finally, a Support Vector Machine analyzes patches around each pixel and calculates Haralick features in order to classify the texture. The results from color and texture detection are then combined into the final result.
+	\subsubsection{Texture analysis}
+	The texture model employs Haralick's features as a descriptor. The main advantage of this approach is that important feature descriptors such as coarseness, roughness and directionality are all taken into account by these metrics\cite{haralick_features}. Consequently the textural features of an image patch are the Haralick features computed from the Gray Level Co-Occurrence Matrix with a distance of 1 in each of the four directions (horizontal, vertical, nw-se, ne-sw). The 13 features presented in the initial paper\cite{haralick_features} are calculated for each direction and the final feature vector is made up out of the mean value of each feature, having the size of (13, 1).
 	
-	\subsubsection{The final image} \todo{expand}
+	These features are fed into a Support Vector Machine classifier that tries to learn how to distinguish skin and non-skin textures. A SVM is a supervised machine learning algorithm used, in this case, for binary classification. This is an efficient model if we have the means to extract features about the desired concept (Haralick's texture descriptors) and tends to generalize well\cite{advantage_svm}.
+	
+	In order to extract only the skin-textured blocks from an image, the model performs texture analysis by building a window around each pixel. The textural features are extracted only from that window and if the SVM detects skin then the center pixel is classified as skin. The model uses a small window because skin-textured areas can have various shapes and sizes, and a large window would have a small acceptance rate for images with small patches of skin.
+	
+	Finally, a black mask is applied on all pixels identified as centers of skin texture regions and the image is saved to be processed in the next step.
+	
+	\subsubsection{The final image}
+	The final image built by the model is a combination of the two images obtained from color and texture analysis. The new skin mask is build as the intersection of the masks generated by the previous two steps. This means, that a pixel is classified as a skin pixel only if both the color and the texture models agree. This relies on the assumption that color and texture are complementary skin descriptors and their combination can reduce the false positive rate.
 	
 	\subsection{Datasets}
 	For this experiment I have used two databases. First, the Compaq dataset \cite{compaq}, which is one of the most cited in literature, contains ~13.000 images out of which ~4700 contain skin and was used for the skin color model. The images were downloaded using a web crawler then divided into skin and non-skin images. For every skin image a black and white mask was created by hand to mark the regions of interest.
@@ -664,7 +671,7 @@
 		\label{fig:gui}
 	\end{figure}
 	
-	\chapter{User manual}
+	\chapter{User manual} \todo{mention different proc; multiple ops at the same time}
 	\section{Introduction}
 	The goal of this application is to provide an easy-to-use and highly-configurable interface for training and evaluating skin detection models that share a core structure of image segmentation, color and texture analysis. The user can also test the created models on individual images. As the number of parameters for each task can be overwhelming the user can opt to use the default values that have already been set in each field.
 	

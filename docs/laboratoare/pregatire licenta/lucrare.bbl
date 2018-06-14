@@ -212,6 +212,12 @@ D.~Dunn, W.~E. Higgins, and J.~Wakeley, ``Texture segmentation using 2-d gabor
 S.~Berisha, ``Image classification using gabor filters and machine learning,''
   2009.
 
+\bibitem{advantage_svm}
+S.~Karamizadeh, S.~M. Abdullah, M.~Halimi, J.~Shayan, and M.~j.~Rajabi,
+  ``Advantage and drawback of support vector machine functionality,'' in {\em
+  2014 International Conference on Computer, Communications, and Control
+  Technology (I4CT)}, pp.~63--65, Sept 2014.
+
 \bibitem{sfa}
 J.~P.~B. Casati, D.~R. Moraes, and E.~L.~L. Rodrigues, ``Sfa: A human skin
   image database based on feret and ar facial images,'' {\em IX Workshop de

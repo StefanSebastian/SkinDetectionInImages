@@ -223,4 +223,10 @@ J.~P.~B. Casati, D.~R. Moraes, and E.~L.~L. Rodrigues, ``Sfa: A human skin
   image database based on feret and ar facial images,'' {\em IX Workshop de
   Visão Computacional, Rio de Janeiro}, 2013.
 
+\bibitem{pascal-voc-2007}
+M.~Everingham, L.~Van~Gool, C.~K.~I. Williams, J.~Winn, and A.~Zisserman, ``The
+  {PASCAL} {V}isual {O}bject {C}lasses {C}hallenge 2007 {(VOC2007)}
+  {R}esults.''
+  http://www.pascal-network.org/challenges/VOC/voc2007/workshop/index.html.
+
 \end{thebibliography}

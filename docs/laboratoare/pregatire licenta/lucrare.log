@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.06.2 (MiKTeX 2.9.6500 64-bit)  (format=lualatex 2018.6.9)  14 JUN 2018 17:12
+This is LuaTeX, Version 1.06.2 (MiKTeX 2.9.6500 64-bit)  (format=lualatex 2018.6.9)  14 JUN 2018 17:28
  restricted system commands enabled.
 **lucrare.tex
 (./lucrare.tex
@@ -33,7 +33,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.579 seconds
+luaotfload | main : initialization completed in 0.562 seconds
 Babel <3.15> and hyphenation patterns for 1 language(s) loaded.
 ("C:/Program Files/MiKTeX 2.9/tex/latex/base/report.cls"
 Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
@@ -1272,14 +1272,14 @@ Chapter 2.
 ] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17] [18] [19] [20]
 [21] [22]
 Chapter 3.
-<resources/without_qs.png, id=595, pagebox=cropbox, 334.24875pt x 501.875pt>
+<resources/without_qs.png, id=593, pagebox=cropbox, 334.24875pt x 501.875pt>
 File: resources/without_qs.png Graphic file (type png)
 <use resources/without_qs.png>
 Package luatex.def Info: resources/without_qs.png  used on input line 462. on in
 put line 462.
 Package luatex.def Info: Requested size: 136.57462pt x 205.0732pt on input line 
 462.
-<resources/with_qs.png, id=596, pagebox=cropbox, 334.24875pt x 501.875pt>
+<resources/with_qs.png, id=594, pagebox=cropbox, 334.24875pt x 501.875pt>
 File: resources/with_qs.png Graphic file (type png)
 <use resources/with_qs.png>
 Package luatex.def Info: resources/with_qs.png  used on input line 466. on input
@@ -1292,14 +1292,14 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 [23
 
 ] [24<./resources/without_qs.png><./resources/with_qs.png>]
-<resources/without_texture.png, id=616, pagebox=cropbox, 200.75pt x 200.75pt>
+<resources/without_texture.png, id=614, pagebox=cropbox, 200.75pt x 200.75pt>
 File: resources/without_texture.png Graphic file (type png)
 <use resources/without_texture.png>
 Package luatex.def Info: resources/without_texture.png  used on input line 506. 
 on input line 506.
 Package luatex.def Info: Requested size: 136.57462pt x 136.58476pt on input line
  506.
-<resources/with_texture.png, id=617, pagebox=cropbox, 200.75pt x 200.75pt>
+<resources/with_texture.png, id=615, pagebox=cropbox, 200.75pt x 200.75pt>
 File: resources/with_texture.png Graphic file (type png)
 <use resources/with_texture.png>
 Package luatex.def Info: resources/with_texture.png  used on input line 510. on 
@@ -1307,42 +1307,46 @@ input line 510.
 Package luatex.def Info: Requested size: 136.57462pt x 136.58476pt on input line
  510.
  [25<./resources/without_texture.png><./resources/with_texture.png>]
-<resources/segm_3_5.png, id=629, pagebox=cropbox, 200.24812pt x 150.5625pt>
+<resources/segm_3_5.png, id=628, pagebox=cropbox, 200.24812pt x 150.5625pt>
 File: resources/segm_3_5.png Graphic file (type png)
 <use resources/segm_3_5.png>
 Package luatex.def Info: resources/segm_3_5.png  used on input line 533. on inpu
 t line 533.
 Package luatex.def Info: Requested size: 136.57462pt x 102.69357pt on input line
  533.
-<resources/segm_2_10.png, id=630, pagebox=cropbox, 203.25937pt x 150.5625pt>
+<resources/segm_2_10.png, id=629, pagebox=cropbox, 203.25937pt x 150.5625pt>
 File: resources/segm_2_10.png Graphic file (type png)
 <use resources/segm_2_10.png>
 Package luatex.def Info: resources/segm_2_10.png  used on input line 537. on inp
 ut line 537.
 Package luatex.def Info: Requested size: 136.57462pt x 101.17041pt on input line
  537.
-<resources/segm_4_8.png, id=631, pagebox=cropbox, 203.25937pt x 150.5625pt>
+<resources/segm_4_8.png, id=630, pagebox=cropbox, 203.25937pt x 150.5625pt>
 File: resources/segm_4_8.png Graphic file (type png)
 <use resources/segm_4_8.png>
 Package luatex.def Info: resources/segm_4_8.png  used on input line 541. on inpu
 t line 541.
 Package luatex.def Info: Requested size: 136.57462pt x 101.17041pt on input line
  541.
-<resources/texture_5_5.png, id=633, pagebox=cropbox, 67.75313pt x 97.86563pt>
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<resources/texture_5_5.png, id=632, pagebox=cropbox, 67.75313pt x 97.86563pt>
 File: resources/texture_5_5.png Graphic file (type png)
 <use resources/texture_5_5.png>
 Package luatex.def Info: resources/texture_5_5.png  used on input line 555. on i
 nput line 555.
 Package luatex.def Info: Requested size: 136.57462pt x 197.28229pt on input line
  555.
-<resources/texture_7_7.png, id=634, pagebox=cropbox, 67.75313pt x 97.86563pt>
+<resources/texture_7_7.png, id=633, pagebox=cropbox, 67.75313pt x 97.86563pt>
 File: resources/texture_7_7.png Graphic file (type png)
 <use resources/texture_7_7.png>
 Package luatex.def Info: resources/texture_7_7.png  used on input line 559. on i
 nput line 559.
 Package luatex.def Info: Requested size: 136.57462pt x 197.28229pt on input line
  559.
-<resources/texture_35_35.png, id=635, pagebox=cropbox, 67.75313pt x 97.86563pt>
+<resources/texture_35_35.png, id=634, pagebox=cropbox, 67.75313pt x 97.86563pt>
 File: resources/texture_35_35.png Graphic file (type png)
 <use resources/texture_35_35.png>
 Package luatex.def Info: resources/texture_35_35.png  used on input line 563. on
@@ -1350,13 +1354,16 @@ Package luatex.def Info: resources/texture_35_35.png  used on input line 563. on
 Package luatex.def Info: Requested size: 136.57462pt x 197.28229pt on input line
  563.
 
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[26]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[26<./resources/segm_3_5.png><./resources/segm_2_10.png><./resources/segm_4_8.pn
-g>] [27<./resources/texture_5_5.png><./resources/texture_7_7.png><./resources/te
-xture_35_35.png>]
-<design/main_modules.png, id=657, pagebox=cropbox, 304.88907pt x 157.33781pt>
+[27<./resources/segm_3_5.png><./resources/segm_2_10.png><./resources/segm_4_8.pn
+g><./resources/texture_5_5.png><./resources/texture_7_7.png><./resources/texture
+_35_35.png>]
+<design/main_modules.png, id=656, pagebox=cropbox, 304.88907pt x 157.33781pt>
 File: design/main_modules.png Graphic file (type png)
 <use design/main_modules.png>
 Package luatex.def Info: design/main_modules.png  used on input line 609. on inp
@@ -1364,7 +1371,7 @@ ut line 609.
 Package luatex.def Info: Requested size: 304.88832pt x 157.33742pt on input line
  609.
  [28<./design/main_modules.png>]
-<design/image_segmentation.png, id=666, pagebox=cropbox, 315.42844pt x 228.10219
+<design/image_segmentation.png, id=665, pagebox=cropbox, 315.42844pt x 228.10219
 pt>
 File: design/image_segmentation.png Graphic file (type png)
 <use design/image_segmentation.png>
@@ -1372,18 +1379,14 @@ Package luatex.def Info: design/image_segmentation.png  used on input line 623.
 on input line 623.
 Package luatex.def Info: Requested size: 315.42766pt x 228.10161pt on input line
  623.
-<design/color_train.png, id=669, pagebox=cropbox, 404.26031pt x 268.75406pt>
+ [29<./design/image_segmentation.png>]
+<design/color_train.png, id=677, pagebox=cropbox, 404.26031pt x 268.75406pt>
 File: design/color_train.png Graphic file (type png)
 <use design/color_train.png>
 Package luatex.def Info: design/color_train.png  used on input line 639. on inpu
 t line 639.
 Package luatex.def Info: Requested size: 404.25932pt x 268.7534pt on input line 
 639.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[29<./design/image_segmentation.png>]
 <design/color_detect.png, id=678, pagebox=cropbox, 438.8897pt x 213.04594pt>
 File: design/color_detect.png Graphic file (type png)
 <use design/color_detect.png>
@@ -1391,15 +1394,23 @@ Package luatex.def Info: design/color_detect.png  used on input line 650. on inp
 ut line 650.
 Package luatex.def Info: Requested size: 438.88863pt x 213.04541pt on input line
  650.
- [30<./design/color_train.png><./design/color_detect.png>]
-<design/texture_train.png, id=685, pagebox=cropbox, 333.49594pt x 246.9225pt>
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[30<./design/color_train.png>]
+<design/texture_train.png, id=688, pagebox=cropbox, 333.49594pt x 246.9225pt>
 File: design/texture_train.png Graphic file (type png)
 <use design/texture_train.png>
 Package luatex.def Info: design/texture_train.png  used on input line 664. on in
 put line 664.
 Package luatex.def Info: Requested size: 333.49512pt x 246.92188pt on input line
  664.
-<design/texture_detect.png, id=686, pagebox=cropbox, 205.5178pt x 146.79843pt>
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<design/texture_detect.png, id=689, pagebox=cropbox, 205.5178pt x 146.79843pt>
 File: design/texture_detect.png Graphic file (type png)
 <use design/texture_detect.png>
 Package luatex.def Info: design/texture_detect.png  used on input line 673. on i
@@ -1407,19 +1418,21 @@ nput line 673.
 Package luatex.def Info: Requested size: 205.5173pt x 146.79807pt on input line 
 673.
 
-
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[31<./design/texture_train.png>]
-<design/evaluator.png, id=695, pagebox=cropbox, 263.48438pt x 95.6072pt>
+<design/evaluator.png, id=691, pagebox=cropbox, 263.48438pt x 95.6072pt>
 File: design/evaluator.png Graphic file (type png)
 <use design/evaluator.png>
 Package luatex.def Info: design/evaluator.png  used on input line 686. on input 
 line 686.
 Package luatex.def Info: Requested size: 263.48372pt x 95.60695pt on input line 
 686.
- [32<./design/texture_detect.png><./design/evaluator.png>]
-<design/gui.png, id=704, pagebox=cropbox, 497.60907pt x 219.06844pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[31<./design/color_detect.png>] [32<./design/texture_train.png><./design/texture
+_detect.png><./design/evaluator.png>]
+<design/gui.png, id=703, pagebox=cropbox, 497.60907pt x 219.06844pt>
 File: design/gui.png Graphic file (type png)
 <use design/gui.png>
 Package luatex.def Info: design/gui.png  used on input line 703. on input line 7
@@ -1433,7 +1446,7 @@ Overfull \hbox (42.36374pt too wide) in paragraph at lines 703--704
 
 [33<./design/gui.png>]
 Chapter 4.
-<manual/tab_view.png, id=709, pagebox=cropbox, 203.25937pt x 42.91031pt>
+<manual/tab_view.png, id=710, pagebox=cropbox, 203.25937pt x 42.91031pt>
 File: manual/tab_view.png Graphic file (type png)
 <use manual/tab_view.png>
 Package luatex.def Info: manual/tab_view.png  used on input line 716. on input l
@@ -1443,14 +1456,14 @@ Package luatex.def Info: Requested size: 203.25887pt x 42.91019pt on input line
 [34
 
 <./manual/tab_view.png>]
-<manual/detection_view.png, id=716, pagebox=cropbox, 718.93594pt x 363.60844pt>
+<manual/detection_view.png, id=717, pagebox=cropbox, 718.93594pt x 363.60844pt>
 File: manual/detection_view.png Graphic file (type png)
 <use manual/detection_view.png>
 Package luatex.def Info: manual/detection_view.png  used on input line 729. on i
 nput line 729.
 Package luatex.def Info: Requested size: 455.24411pt x 230.25075pt on input line
  729.
-<manual/evaluator_view.png, id=718, pagebox=cropbox, 557.08125pt x 385.44pt>
+<manual/evaluator_view.png, id=719, pagebox=cropbox, 557.08125pt x 385.44pt>
 File: manual/evaluator_view.png Graphic file (type png)
 <use manual/evaluator_view.png>
 Package luatex.def Info: manual/evaluator_view.png  used on input line 739. on i
@@ -1462,7 +1475,7 @@ Package luatex.def Info: Requested size: 455.24411pt x 314.98656pt on input line
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [35<./manual/detection_view.png>]
-<manual/color_model_train_view.png, id=725, pagebox=cropbox, 462.22687pt x 222.8
+<manual/color_model_train_view.png, id=726, pagebox=cropbox, 462.22687pt x 222.8
 325pt>
 File: manual/color_model_train_view.png Graphic file (type png)
 <use manual/color_model_train_view.png>
@@ -1471,7 +1484,7 @@ Package luatex.def Info: manual/color_model_train_view.png  used on input line 7
 Package luatex.def Info: Requested size: 455.24411pt x 219.46921pt on input line
  761.
  [36<./manual/evaluator_view.png>]
-<manual/texture_model_train_view.png, id=731, pagebox=cropbox, 467.49657pt x 237
+<manual/texture_model_train_view.png, id=732, pagebox=cropbox, 467.49657pt x 237
 .13594pt>
 File: manual/texture_model_train_view.png Graphic file (type png)
 <use manual/texture_model_train_view.png>
@@ -1483,7 +1496,7 @@ Package luatex.def Info: Requested size: 455.24411pt x 230.93341pt on input line
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<manual/segmentation_frame.png, id=732, pagebox=cropbox, 211.54031pt x 67.75313p
+<manual/segmentation_frame.png, id=733, pagebox=cropbox, 211.54031pt x 67.75313p
 t>
 File: manual/segmentation_frame.png Graphic file (type png)
 <use manual/segmentation_frame.png>
@@ -1496,7 +1509,7 @@ Underfull \hbox (badness 1565) in paragraph at lines 792--793
 []\TU/TimesNewRoman(0)/m/n/12 The ‘Use po-si-tion’ check-box in-di-cates
  []
 
-<manual/color_detection_frame.png, id=739, pagebox=cropbox, 306.39468pt x 90.337
+<manual/color_detection_frame.png, id=740, pagebox=cropbox, 306.39468pt x 90.337
 5pt>
 File: manual/color_detection_frame.png Graphic file (type png)
 <use manual/color_detection_frame.png>
@@ -1520,7 +1533,7 @@ Underfull \hbox (badness 4569) in paragraph at lines 807--808
  []
 
 [38<./manual/texture_model_train_view.png><./manual/color_detection_frame.png>]
-<manual/texture_detection_frame.png, id=746, pagebox=cropbox, 309.40594pt x 70.0
+<manual/texture_detection_frame.png, id=747, pagebox=cropbox, 309.40594pt x 70.0
 1157pt>
 File: manual/texture_detection_frame.png Graphic file (type png)
 <use manual/texture_detection_frame.png>
@@ -1538,7 +1551,7 @@ Underfull \hbox (badness 1057) in paragraph at lines 822--823
 \TU/TimesNewRoman(0)/m/n/12 but-ton you can se-lect the tex-ture
  []
 
-<manual/resize_frame.png, id=747, pagebox=cropbox, 215.30438pt x 64.74188pt>
+<manual/resize_frame.png, id=748, pagebox=cropbox, 215.30438pt x 64.74188pt>
 File: manual/resize_frame.png Graphic file (type png)
 <use manual/resize_frame.png>
 Package luatex.def Info: manual/resize_frame.png  used on input line 836. on inp
@@ -1546,7 +1559,7 @@ ut line 836.
 Package luatex.def Info: Requested size: 215.30385pt x 64.74171pt on input line 
 836.
 [39<./manual/texture_detection_frame.png><./manual/resize_frame.png>]
-<manual/feedback_view.png, id=758, pagebox=cropbox, 270.25969pt x 225.84375pt>
+<manual/feedback_view.png, id=759, pagebox=cropbox, 270.25969pt x 225.84375pt>
 File: manual/feedback_view.png Graphic file (type png)
 <use manual/feedback_view.png>
 Package luatex.def Info: manual/feedback_view.png  used on input line 854. on in
@@ -1584,14 +1597,14 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 866.
 )
 
 Here is how much of LuaTeX's memory you used:
- 29595 strings out of 494456
+ 29588 strings out of 494456
  125025,794899 words of node,token memory allocated
- 13473 words of node memory still in use:
-   244 hlist, 28 vlist, 2 rule, 20 disc, 18 local_par, 457 glue, 3 kern, 34 pena
-lty, 222 glyph, 893 attribute, 74 glue_spec, 893 attribute_list, 13 write, 12 sa
-ve_pos, 570 pdf_literal, 3 pdf_action nodes
-   avail lists: 2:517,3:195,4:61,5:120,6:48,7:3107,8:85,9:154,10:16,11:263,12:1
- 32490 multiletter control sequences out of 65536+200000
+ 11660 words of node memory still in use:
+   209 hlist, 24 vlist, 2 rule, 18 disc, 15 local_par, 391 glue, 3 kern, 31 pena
+lty, 208 glyph, 754 attribute, 74 glue_spec, 754 attribute_list, 11 write, 10 sa
+ve_pos, 475 pdf_literal, 3 pdf_action nodes
+   avail lists: 2:481,3:195,4:61,5:120,6:51,7:3433,8:85,9:118,10:16,11:265,12:1
+ 32483 multiletter control sequences out of 65536+200000
  73 fonts using 21526975 bytes
  62i,17n,83p,993b,899s stack positions out of 5000i,500n,10000p,200000b,50000s
 <c:/program files/miktex 2.9/fonts/opentype/public/lm/lmmono12-regular.otf><C:/W
@@ -1607,9 +1620,9 @@ pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Pro
 gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2
 .9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on lucrare.pdf (47 pages, 1287112 bytes).
+Output written on lucrare.pdf (47 pages, 1287787 bytes).
 
-PDF statistics: 869 PDF objects out of 1000 (max. 8388607)
+PDF statistics: 870 PDF objects out of 1000 (max. 8388607)
  230 named destinations out of 1000 (max. 131072)
  408 words of extra memory for PDF output out of 10000 (max. 100000000)
 

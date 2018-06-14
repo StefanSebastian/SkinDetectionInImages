@@ -48,28 +48,28 @@
 \contentsline {section}{\numberline {3.1}Proposed model}{23}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}Overview}{23}{subsection.3.1.1}
 \contentsline {subsubsection}{Segmentation}{23}{section*.28}
-\contentsline {subsubsection}{Color analysis}{24}{section*.29}
-\contentsline {subsubsection}{Texture analysis}{24}{section*.30}
-\contentsline {subsubsection}{The final image}{25}{section*.31}
+\contentsline {subsubsection}{Color analysis}{24}{section*.30}
+\contentsline {subsubsection}{Texture analysis}{25}{section*.31}
+\contentsline {subsubsection}{The final image}{25}{section*.32}
 \contentsline {subsection}{\numberline {3.1.2}Datasets}{25}{subsection.3.1.2}
-\contentsline {subsection}{\numberline {3.1.3}Parameters}{25}{subsection.3.1.3}
-\contentsline {subsection}{\numberline {3.1.4}Evaluation}{26}{subsection.3.1.4}
+\contentsline {subsection}{\numberline {3.1.3}Parameters}{26}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4}Evaluation}{27}{subsection.3.1.4}
 \contentsline {section}{\numberline {3.2}Implementation}{27}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}The image segmentation module}{28}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}The color detection module}{28}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}The texture analysis module}{29}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}The evaluator module}{30}{subsection.3.2.4}
-\contentsline {subsection}{\numberline {3.2.5}User interface}{31}{subsection.3.2.5}
-\contentsline {chapter}{\numberline {4}User manual}{33}{chapter.4}
-\contentsline {section}{\numberline {4.1}Introduction}{33}{section.4.1}
-\contentsline {section}{\numberline {4.2}Detection view}{33}{section.4.2}
-\contentsline {section}{\numberline {4.3}Evaluator view}{34}{section.4.3}
-\contentsline {section}{\numberline {4.4}Color model training view}{35}{section.4.4}
-\contentsline {section}{\numberline {4.5}Texture model training view}{36}{section.4.5}
-\contentsline {section}{\numberline {4.6}Common configuration frames}{36}{section.4.6}
-\contentsline {subsection}{\numberline {4.6.1}Segmentation}{36}{subsection.4.6.1}
-\contentsline {subsection}{\numberline {4.6.2}Color detection}{37}{subsection.4.6.2}
-\contentsline {subsection}{\numberline {4.6.3}Texture detection}{38}{subsection.4.6.3}
-\contentsline {subsection}{\numberline {4.6.4}Resize options}{38}{subsection.4.6.4}
-\contentsline {section}{\numberline {4.7}User Feedback}{38}{section.4.7}
-\contentsline {chapter}{\numberline {5}Conclusions}{40}{chapter.5}
+\contentsline {subsection}{\numberline {3.2.3}The texture analysis module}{30}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}The evaluator module}{31}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.5}User interface}{32}{subsection.3.2.5}
+\contentsline {chapter}{\numberline {4}User manual}{34}{chapter.4}
+\contentsline {section}{\numberline {4.1}Introduction}{34}{section.4.1}
+\contentsline {section}{\numberline {4.2}Detection view}{34}{section.4.2}
+\contentsline {section}{\numberline {4.3}Evaluator view}{35}{section.4.3}
+\contentsline {section}{\numberline {4.4}Color model training view}{36}{section.4.4}
+\contentsline {section}{\numberline {4.5}Texture model training view}{37}{section.4.5}
+\contentsline {section}{\numberline {4.6}Common configuration frames}{37}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}Segmentation}{37}{subsection.4.6.1}
+\contentsline {subsection}{\numberline {4.6.2}Color detection}{38}{subsection.4.6.2}
+\contentsline {subsection}{\numberline {4.6.3}Texture detection}{39}{subsection.4.6.3}
+\contentsline {subsection}{\numberline {4.6.4}Resize options}{39}{subsection.4.6.4}
+\contentsline {section}{\numberline {4.7}User Feedback}{39}{section.4.7}
+\contentsline {chapter}{\numberline {5}Conclusions}{41}{chapter.5}

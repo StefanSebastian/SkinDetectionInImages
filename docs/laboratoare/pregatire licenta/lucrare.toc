@@ -50,15 +50,15 @@
 \contentsline {subsubsection}{Segmentation}{23}{section*.28}
 \contentsline {subsubsection}{Color analysis}{24}{section*.30}
 \contentsline {subsubsection}{Texture analysis}{25}{section*.31}
-\contentsline {subsubsection}{The final image}{25}{section*.32}
-\contentsline {subsection}{\numberline {3.1.2}Datasets}{25}{subsection.3.1.2}
+\contentsline {subsubsection}{The final image}{26}{section*.33}
+\contentsline {subsection}{\numberline {3.1.2}Datasets}{26}{subsection.3.1.2}
 \contentsline {subsection}{\numberline {3.1.3}Parameters}{26}{subsection.3.1.3}
 \contentsline {subsection}{\numberline {3.1.4}Evaluation}{27}{subsection.3.1.4}
-\contentsline {section}{\numberline {3.2}Implementation}{27}{section.3.2}
+\contentsline {section}{\numberline {3.2}Implementation}{28}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}The image segmentation module}{28}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}The color detection module}{28}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}The texture analysis module}{30}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}The evaluator module}{31}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.2}The color detection module}{29}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}The texture analysis module}{31}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}The evaluator module}{32}{subsection.3.2.4}
 \contentsline {subsection}{\numberline {3.2.5}User interface}{32}{subsection.3.2.5}
 \contentsline {chapter}{\numberline {4}User manual}{34}{chapter.4}
 \contentsline {section}{\numberline {4.1}Introduction}{34}{section.4.1}

@@ -450,7 +450,7 @@
 	
 	\section{Proposed model}
 	
-	\subsection{Overview}
+	\subsection{Overview} \todo{add diagram somewhere}
 	The model proposed by this paper is made up of three steps and was designed to combine the most efficient detectors in all aspects of skin detection. There is a preprocessing step that is applied to all images, namely a resize operation to the (200, 200) dimension, with the purpose of reducing computation time.
 	
 	\subsubsection{Segmentation}
@@ -525,7 +525,11 @@
 	In order to get visual feedback from the model, I used the Pascal 2007 database\cite{pascal-voc-2007}. This dataset was built for an object detection competition and is quite varied. I selected a subset of images that contained people to use for testing my model. The reason for using this data set for tests is that the images are of a better quality than those present in Compaq or SFA.
 	
 	\subsection{Parameters}
+	
+	\subsubsection{Image segmentation}
 	For image segmentation I tried to find values for the sigma and tau parameters that produce regions as large as possible without distorting the contours. I chose the (3, 5) pair, which can be seen in comparison with other pairs in figure \ref{fig:segmentation}.
+	
+	The scaling factor for position features was set experimentally depending on my chosen image size (200, 200). I found the value of 0.5 to produce regions with the most accurate borders.
 	
 	\begin{figure}[h!]
 		\centering
@@ -544,10 +548,9 @@
 		\caption{Segmenting an image with different parameters}
 		\label{fig:segmentation}
 	\end{figure}
-
-	\todo{image scale}
 	
-	The most suitable area for texture analysis was also determined experimentally. As can be observed in figure \ref{fig:texture} the 5x5 window offers a good detection of skin areas while the true positive rate goes down drastically for larger ones.
+	\subsubsection{Texture analysis}
+	The most suitable area for texture analysis was also determined experimentally. As can be observed in figure \ref{fig:texture} the 5x5 window offers a good detection of skin areas while the true positive rate goes down drastically for larger ones. This can be explained by the fact that large patches can cover other surfaces bordering skin such as clothes, eyes, lips, etc.
 	
 	\begin{figure}[h!]
 		\centering
@@ -567,31 +570,76 @@
 		\label{fig:texture}
 	\end{figure}
 	
-	I tried building color models in RGB, HSV and YCrCb and concluded that Bayesian color analysis obtains roughly the same results regardless of the color space chosen. For every pixel, I chose the maximum probability on a distance of 4 (similar to the bin size used in \cite{compaq}) on every feature. The threshold value can be used to control the TPR/FPR ratio.
+	\subsubsection{Color analysis}
+	I tried building color models in RGB, HSV and YCrCb and concluded that Bayesian color analysis obtains roughly the same results regardless of the color space chosen(see table \ref{tab:color_space}). 
+	
+	For every pixel, I chose the maximum probability on a distance of 4 (similar to the bin size used in \cite{compaq}) on every feature. The threshold value can be used to control the TPR/FPR ratio.
+	
+	\begin{table}[h!]
+		\begin{center}
+			\caption{The best performing models for each tested color space}
+			\label{tab:color_space}
+			\begin{tabular}{c | c|c|c}
+				\textbf{Metrics} & \textbf{RGB} & \textbf{YCrCb} & \textbf{HSV} \\
+				\hline
+				TPR 	  & 0.828 & 0.817 & a \\
+				FPR 	  & 0.227 & 0.216 & b \\
+				Accuracy  & 0.933 & 0.927 & c \\
+				Precision & 0.506 & 0.515 & 1 \\
+			\end{tabular}
+		\end{center}
+	\end{table}
+	
+	\subsection{Training}
+	\todo{this section}
 	
 	\subsection{Evaluation}
+	
+	\subsubsection{Dataset}
 	The model was evaluated on the Compaq skin database in order to compare it with other approaches from literature. There is a difference however, in the number of images chosen for evaluation. While most references use a ~6000 image set for testing I used only 50 images due to time constraints.
 	
-	For each image in the testing set I calculated the True Positive Rate and the False Positive Rate by comparing each pixel from my output to the given mask and then I averaged the results.
-	\begin{equation}
-	\label{metrics}
-	TPR = \frac{TP}{TP + FN}, \,\,\, FPR = \frac{FP}{FP + TN}
-	\end{equation}
-	Equation \ref{metrics} shows how those metrics were calculated. TP, FP, TN and FN stand for the numbers of true positives, false positives, true negatives and false negatives, respectively.
+	\subsubsection{Performance metrics}
+	Evaluation is done at the level of each image by comparing every classified pixel with the manually drawn skin map. The results for each image are then averaged to get the final metrics for the data set. The model was evaluated by the following performance indicators: True Positive Rate, False Positive Rate, Accuracy and Precision.
+	
+	In order to compute those metrics we need to calculate the following values for each image:
+	\begin{itemize}
+		\item True Positives (TP) - the number of pixels correctly classified as skin
+		\item False Positives (FP) - the number of non-skin pixels misclassified as skin
+		\item True Negatives (TN) - the number of pixels correctly classified as non-skin
+		\item False Negatives (FN) - the number of skin pixels misclassified as non-skin
+	\end{itemize}
+
+	The performance metrics can be described as follows:
+	\begin{itemize}
+		\item True Positive Rate $TPR = TP / (TP + FN)$ - also called Recall, represents the number of skin pixels detected out of the total number of skin pixels in the image
+		\item False Positive Rate $FPR = FP / (FP + TN)$ - also called Fall-out, represents the probability of getting a false detection
+		\item Accuracy $ ACC = (TP + TN) / (TP + TN + FP + FN) $ - calculates the probability of the correct classification of a pixel 
+		\item Precision $ PPV = TP / (TP + FP) $ represents the number of actual skin pixels among all pixels classified as skin
+	\end{itemize}
+
+	\subsubsection{Results}
+	Some results of evaluating the proposed model on the Compaq dataset with the parameters set in the previous section and with different threshold values can be seen in table \ref{tab:results}.
 	
 	\begin{table}[h!]
 		\begin{center}
 			\caption{Evaluation of the proposed model on the Compaq dataset}
 			\label{tab:results}
-			\begin{tabular}{c|c|c}
-				\textbf{TPR} & \textbf{FPR} & \textbf{Threshold}\\
+			\begin{tabular}{c|c|c|c|c}
+				\textbf{Threshold} & \textbf{TPR} & \textbf{FPR} & \textbf{ACC} & \textbf{PPV} \\
 				\hline
-				86.57\% & 28.48\% & 0.1\\
-				76.29\% & 15.54\% & 0.25\\
-				81.59\% & 21.29\% & 0.167\\
+				0.05 & 0.896 & 0.364 & 0.943 & 0.405 \\
+				0.1 & 0.865 & 0.284 & 0.940 & 0.461 \\
+				0.16 & 0.816 & 0.212 & 0.928 & 0.523 \\
+				0.2 & 0.794 & 0.187 & 0.923 & 0.556 \\
+				0.4 & 0.671 & 0.086 & 0.882 & 0.683 \\
 			\end{tabular}
 		\end{center}
 	\end{table}
+	
+	As seen in the table all runs have a rather low precision, with an average of 50\%, and high false positive rate, around 20\%. This is an unresolved problem in skin detection, caused by a large number of skin-like surfaces. This problem can be avoided if detection is done in a controlled environment, like the anchorperson annotation application, but this is not always possible in real world problems.  Most models seen in research have a false positive rate of over 10\%. Papers that I have studied, claiming a smaller false acceptance are evaluated on either unavailable or very small datasets.
+	
+
+	\subsubsection{Comparison with related work}
 	
 	\section{Implementation}
 	The application is made up out of five main modules, pictured in figure \ref{fig:main_modules}: segmentation, $color_analysis$, $texture_analysis$, evaluator and $application_gui$. The first three provide the basic image processing operations, the evaluator provides an interface for detection and performance measurements while the top module offers a visual interface for user convenience. I will present them in detail in separate sections.

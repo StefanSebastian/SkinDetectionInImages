@@ -450,7 +450,7 @@
 	
 	\section{Proposed model}
 	
-	\subsection{Overview} \todo{add diagram somewhere}
+	\subsection{Overview}
 	The model proposed by this paper is made up of three steps and was designed to combine the most efficient detectors in all aspects of skin detection. There is a preprocessing step that is applied to all images, namely a resize operation to the (200, 200) dimension, with the purpose of reducing computation time.
 	
 	\subsubsection{Segmentation}
@@ -791,9 +791,11 @@
 		\label{fig:gui}
 	\end{figure}
 	
-	\chapter{User manual} \todo{mention different proc; multiple ops at the same time}
+	\chapter{User manual}
 	\section{Introduction}
 	The goal of this application is to provide an easy-to-use and highly-configurable interface for training and evaluating skin detection models that share a core structure of image segmentation, color and texture analysis. The user can also test the created models on individual images. As the number of parameters for each task can be overwhelming the user can opt to use the default values that have already been set in each field.
+	
+	The application does all computing intensive tasks in separate processes. This means the user can perform multiple operations, e.g. evaluate a model on the validation dataset and perform some single image detections on the same model, at the same time.
 	
 	The application has 4 main windows accessible through a tab-view set in the top-left corner. The windows, detailed in the following sections, are the Evaluator, Train SPM, Train texture and Detection windows.
 	

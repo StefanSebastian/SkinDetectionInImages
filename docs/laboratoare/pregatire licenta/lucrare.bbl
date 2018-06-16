@@ -1,9 +1,24 @@
 \begin{thebibliography}{10}
 
+\bibitem{internet_stats}
+``Internet world penetration rates by geographic regions - december 31, 2017.''
+  \url{https://www.internetworldstats.com/stats.htm}.
+\newblock Accessed: 2018-06-16.
+
+\bibitem{children_exposure}
+E.~Martellozzo, A.~Monaghan, J.~Adler, J.~Davidson, R.~Leyva, and M.~Horvath,
+  ``I wasn't sure it was normal to watch it,'' 01 2016.
+
 \bibitem{finding_naked_people}
 M.~M. Fleck, D.~A. Forsyth, and C.~Bregler, ``Finding naked people,'' in {\em
   Computer Vision --- ECCV '96} (B.~Buxton and R.~Cipolla, eds.), (Berlin,
   Heidelberg), pp.~593--602, Springer Berlin Heidelberg, 1996.
+
+\bibitem{pornography_filter_with_ratios}
+Y.~Chan, R.~Harvey, and D.~Smith, ``Building systems to block pornography,'' in
+  {\em Proceedings of the 1999 International Conference on Challenge of Image
+  Retrieval}, IM'99, (Swindon, UK), pp.~8--8, BCS Learning \& Development Ltd.,
+  1999.
 
 \bibitem{anchor_person_detection}
 B.~M. and R.~Amsaveni, ``Anchor person detection using haar-like feature
@@ -15,6 +30,13 @@ B.~M. and R.~Amsaveni, ``Anchor person detection using haar-like feature
   pleasure.''
   \url{https://news.xbox.com/en-us/2013/11/26/xbox-one-kinect-gesture-and-voice-guide/}.
 \newblock Accessed: 2018-05-03.
+
+\bibitem{rehabilitation_kinect}
+M.~Pedraza-Hueso, S.~Martín-Calzón, F.~J. Díaz-Pernas, and
+  M.~Martínez-Zarzuela, ``Rehabilitation using kinect-based games and virtual
+  reality,'' {\em Procedia Computer Science}, vol.~75, pp.~161 -- 168, 2015.
+\newblock 2015 International Conference Virtual and Augmented Reality in
+  Education.
 
 \bibitem{detecting_faces_a_survey}
 M.-H. Yang, D.~J. Kriegman, and N.~Ahuja, ``Detecting faces in images: A

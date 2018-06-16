@@ -45,12 +45,27 @@
 	The purpose of this paper is to present the best models currently employed in skin detection and to propose a new model that combines some state of the art detectors. To the best of my knowledge no method that combines image segmentation, color and texture analysis has been published in this area of research. For every approach in skin detection I included a theoretical introduction followed by some examples of its practical use in skin detection.
 	
 	\section{Applications}
-	One of the first applications in this field of study was scanning internet images in order to filter pornographic content \cite{finding_naked_people}. The model proposed in that paper scans the images for large areas of skin and then applies some geometrical analysis looking for elongated shapes.
 	
-	Another application was detecting anchorpersons in talk shows \cite{anchor_person_detection} for automatic annotation and storage. The data can be used for quickly finding videos containing specific persons or calculating how much time each anchorman was on stage. This is an ideal application for skin detection because news videos are usually shot indoors. Consequently, the environment can be set up so it won't contain objects with skin color tones.
+	\subsection{Pornography filtering}
+	It is a known fact that internet has become a commodity of modern life, with a word average global penetration rate of 54.4\%\cite{internet_stats}. This means that it's inevitable for a large number of children to have unrestricted access to the internet and to be exposed to harmful content. A study conducted in England\cite{children_exposure} on over a thousand people aged 11-16 has revealed that over half of them have been exposed to pornographic content. 
 	
-	Skin detection is usually an intermediary step for detecting more concrete body parts, so I will also present some applications of those methods. Face and hands detection is used to facilitate human computer interaction. By scanning gestures and reactions a software system can respond in a more convenient way to the user. For example the Kinect camera, which connects to the Xbox console,
-	allows the user to navigate menus using hand swipes \cite{kinect_control}. Face recognition, the next step after detection, is useful for automatic identification of people \cite{detecting_faces_a_survey} which has applications in security, such as unlocking your phone only when it scans your face, and monitoring certain areas, like the systems used by the Chinese government to fine jaywalkers caught on camera without human intervention \cite{jaywalkers_china}.
+	To avoid such scenarios various pornography filters have been created. Skin detection is a very useful step in implementing such an application because most pornographic images contain large areas of skin.
+	
+	One approach is described by Fleck et al. \cite{finding_naked_people}. The model proposed in that paper scans the images for large areas of skin and then applies some geometrical analysis looking for elongated shapes. This model was tested using 138 images of naked people and 1401 assorted images, some containing people but not naked. The system obtained a 52\% recall and 60\% precision against a large control set (1401 images).
+	
+	Another similar approach was presented by Chan et al.\cite{pornography_filter_with_ratios}. The first step was skin extraction based on color which was followed by computing some high level features such as: the ratio of skin area to image area, the ratio of the largest skin segment to the image area and the number of skin segments in the image.
+	
+	\subsection{Anchorperson detection}
+	Another application that was created in practice is anchorperson detection in talk shows \cite{anchor_person_detection} for automatic annotation and storage. The data can be used for quickly finding videos containing specific persons, calculating how much time each anchorman was on stage or other data mining tasks. This is an ideal application for skin detection because news videos are usually shot indoors in a controlled environment. Consequently, the background can be set up so it won't contain objects with skin color tones.
+	
+	\subsection{Preprocessing for complex systems}
+	While skin detection does not have many direct applications, it is usually an intermediary step for detecting more concrete body parts, so I will also present some applications of those methods.
+	
+	Face and hands detection is used to facilitate human computer interaction. By scanning gestures and reactions a software system can respond in a more convenient way to the user. For example the Kinect camera, which connects to the Xbox console, allows the user to navigate menus using hand swipes \cite{kinect_control}. 
+	
+	Aside from convenience gesture recognition systems can be very helpful for people that are aging or recovering after an accident or disease. Applications such as the one presented by Pedraza-Hueso et al. \cite{rehabilitation_kinect}, are designed to help these types of people get into a better physical shape. Typically they run on a console like Kinect or Wii and take the form of games. These consoles make the users stand-up and perform different types of motions while playing. The main advantages of using such an application are: availability (users can do their exercises at any time in their own home), price (typically much lower than hiring a therapist) and entertainment (applications usually take the form of games which stimulate the user).
+	
+	Face recognition, the next step after detection, means automatic identification of people in images or videos\cite{detecting_faces_a_survey}. This has applications in security, such as unlocking your phone only when it scans your face, and monitoring certain areas, like the systems used by the Chinese government to fine jaywalkers caught on camera without human intervention \cite{jaywalkers_china}. A trivial yet very popular use of face recognition is automatically tagging your friends in photos on social networks.
 	
 	\chapter{Theoretical background}
 	
@@ -588,10 +603,10 @@
 			\begin{tabular}{c | c|c|c}
 				\textbf{Metrics} & \textbf{RGB} & \textbf{YCrCb} & \textbf{HSV} \\
 				\hline
-				TPR 	  & 0.828 & 0.817 & a \\
-				FPR 	  & 0.227 & 0.216 & b \\
-				Accuracy  & 0.933 & 0.927 & c \\
-				Precision & 0.506 & 0.515 & 1 \\
+				TPR 	  & 0.828 & 0.817 & 0.815 \\
+				FPR 	  & 0.227 & 0.216 & 0.209 \\
+				Accuracy  & 0.933 & 0.927 & 0.929 \\
+				Precision & 0.506 & 0.515 & 0.522 \\
 			\end{tabular}
 		\end{center}
 	\end{table}

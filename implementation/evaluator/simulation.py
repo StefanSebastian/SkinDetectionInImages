@@ -83,8 +83,10 @@ class Evaluator:
             result = self.__process_image_evaluation(test_image, image_index)
             self.logger.log("\nComparing results")
             stats = Stats.get_stats(expected_image, result, image_index)
+            raw_stats = Stats.get_raw_stats(expected_image, result)
             self.logger.log(str(stats))
             self.__append_results(stats)
+            self.__append_raw_stats(raw_stats)
         self.logger.log_done()
 
     def __process_image_evaluation(self, image, image_index):
@@ -125,6 +127,10 @@ class Evaluator:
     def __append_results(self, stats):
         with open(self.config.results_path + '/' + "results.txt", "a") as myfile:
             myfile.write(stats.get_as_csv())
+
+    def __append_raw_stats(self, raw_stats):
+        with open(self.config.results_path + '/' + "raw_stats.txt", "a") as myfile:
+            myfile.write(str(raw_stats[0]) + ',' + str(raw_stats[1]) + ',' + str(raw_stats[2]) + ',' + str(raw_stats[3]))
 
     def __dump_config(self):
         with open(self.config.results_path + '/' + "initial_config.txt", "w") as file:

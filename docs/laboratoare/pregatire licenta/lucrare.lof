@@ -1,0 +1,28 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Color analysis with and without segmentation\relax }}{27}{figure.caption.34}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Detection with and without texture analysis\relax }}{28}{figure.caption.37}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Graphical overview of the model\relax }}{29}{figure.caption.39}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Segmenting an image with different parameters\relax }}{30}{figure.caption.41}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Texture detection with different windows\relax }}{30}{figure.caption.43}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Some detection examples. Skin is marked with a black mask.\relax }}{33}{figure.caption.51}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Main modules\relax }}{35}{figure.caption.54}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Image segmentation module\relax }}{36}{figure.caption.55}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Color detector training submodule\relax }}{36}{figure.caption.56}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Color detection submodule\relax }}{37}{figure.caption.57}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Texture detector trainer submodule\relax }}{38}{figure.caption.58}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Texture analysis submodule\relax }}{38}{figure.caption.59}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces The evaluator module\relax }}{39}{figure.caption.60}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces The user interface module\relax }}{40}{figure.caption.61}
+\contentsline {figure}{\numberline {3.15}{\ignorespaces The tab-view main menu\relax }}{40}{figure.caption.62}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Detection view\relax }}{41}{figure.caption.63}
+\contentsline {figure}{\numberline {3.17}{\ignorespaces Evaluator view\relax }}{42}{figure.caption.64}
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Color model training view\relax }}{43}{figure.caption.65}
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Texture model training view\relax }}{43}{figure.caption.66}
+\contentsline {figure}{\numberline {3.20}{\ignorespaces Segmentation\relax }}{44}{figure.caption.68}
+\contentsline {figure}{\numberline {3.21}{\ignorespaces Segmentation\relax }}{44}{figure.caption.70}
+\contentsline {figure}{\numberline {3.22}{\ignorespaces Segmentation\relax }}{44}{figure.caption.72}
+\contentsline {figure}{\numberline {3.23}{\ignorespaces Segmentation\relax }}{45}{figure.caption.74}
+\contentsline {figure}{\numberline {3.24}{\ignorespaces Feedback view\relax }}{46}{figure.caption.75}
+\addvspace {10\p@ }

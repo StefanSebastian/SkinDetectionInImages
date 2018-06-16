@@ -54,14 +54,9 @@ class Stats:
     @staticmethod
     def get_stats(expected_image, actual_image, image_index):
         """
-        Using data from SFA database
         by convention the expected image has every non-skin pixel set in black
 
         actual_image has every predicted skin pixel set in black
-        :param image_index:
-        :param expected_image:
-        :param actual_image:
-        :return:
         """
         true_positive = 0
         true_negative = 0
@@ -99,4 +94,33 @@ class Stats:
                      accuracy,
                      precision,
                      recall)
+
+    @staticmethod
+    def get_raw_stats(expected_image, actual_image):
+        """
+        by convention the expected image has every non-skin pixel set in black
+
+        actual_image has every predicted skin pixel set in black
+        """
+        true_positive = 0
+        true_negative = 0
+        false_positive = 0
+        false_negative = 0
+
+        rows = actual_image.shape[0]
+        cols = actual_image.shape[1]
+
+        for x_pixel in range(rows):
+            for y_pixel in range(cols):
+                if np.all(actual_image[x_pixel, y_pixel] == 0) and not np.all(expected_image[x_pixel, y_pixel] == 0):
+                    true_positive += 1
+                if np.all(actual_image[x_pixel, y_pixel] == 0) and np.all(expected_image[x_pixel, y_pixel] == 0):
+                    false_positive += 1
+                if not np.all(actual_image[x_pixel, y_pixel] == 0) and np.all(expected_image[x_pixel, y_pixel] == 0):
+                    true_negative += 1
+                if not np.all(actual_image[x_pixel, y_pixel] == 0) and not np.all(
+                                expected_image[x_pixel, y_pixel] == 0):
+                    false_negative += 1
+
+        return true_positive, false_positive, true_negative, false_negative
 

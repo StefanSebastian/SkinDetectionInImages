@@ -37,7 +37,7 @@
 			
 			\vspace{8cm}
 			
-			\textbf{LUCRARE DE DIPLOMÃ}
+			\textbf{DIPLOMA THESIS}
 			
 			\vspace{1cm}
 			\Huge\textbf{{TITLUL LUCRÃRII DE DIPLOMÃ}}
@@ -46,12 +46,12 @@
 		\end{center}
 		\vspace{6cm}
 		
-		\hspace*{0.8cm}Coordonator  Științific: \hfill  Absolvent: \hspace*{0.8cm} \\    
-		\textbf{Prof. Dr. PRENUME NUME \hfill  \textbf{PRENUME NUME}}
+		\hspace*{0.8cm}Supervisor: \hfill  Author: \hspace*{0.8cm} \\    
+		\textbf{titlu oficial Mircea Ioan-Gabriel \hfill  \textbf{Sebastian Ștefan}}
 		
 		\vspace{2cm}
 		\begin{center}
-			\Large{2009}
+			\Large{2018}
 		\end{center}
 	\end{titlepage}  
 	
@@ -685,6 +685,35 @@
 	\end{table}
 	
 	As seen in the table all runs have a rather low precision, with an average of 50\%, and high false positive rate, around 20\%. This is an unresolved problem in skin detection, caused by a large number of skin-like surfaces. This problem can be avoided if detection is done in a controlled environment, like the anchorperson annotation application, but this is not always possible in real world problems.  Most models seen in research have a false positive rate of over 10\%. Papers that I have studied, claiming a smaller false acceptance are evaluated on either unavailable or very small datasets.
+	
+	\subsubsection{Detection examples}
+	\begin{figure}[h!]
+		\centering
+		\begin{subfigure}[b]{0.4\linewidth}
+			\includegraphics[width=\linewidth]{example_runs/1_in.png}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.4\linewidth}
+			\includegraphics[width=\linewidth]{example_runs/1_out.png}
+		\end{subfigure}
+	
+		
+		\begin{subfigure}[b]{0.4\linewidth}
+			\includegraphics[width=\linewidth]{example_runs/2_in.png}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.4\linewidth}
+			\includegraphics[width=\linewidth]{example_runs/2_out.png}
+		\end{subfigure}
+	
+		\begin{subfigure}[b]{0.4\linewidth}
+			\includegraphics[width=\linewidth]{example_runs/3_in.png}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.4\linewidth}
+			\includegraphics[width=\linewidth]{example_runs/3_out.png}
+		\end{subfigure}
+	
+		\caption{Some detection examples. Skin is marked with a black mask.}
+		\label{fig:example_detection}
+	\end{figure}
 
 	\subsubsection{Comparison with related work}
 	

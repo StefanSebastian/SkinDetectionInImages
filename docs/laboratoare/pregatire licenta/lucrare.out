@@ -1,4 +1,4 @@
-\BOOKMARK [0][-]{chapter.1}{Introduction rewrite section}{}% 1
+\BOOKMARK [0][-]{chapter.1}{Introduction rename this or the other}{}% 1
 \BOOKMARK [1][-]{section.1.1}{Introduction}{chapter.1}% 2
 \BOOKMARK [1][-]{section.1.2}{Applications}{chapter.1}% 3
 \BOOKMARK [2][-]{subsection.1.2.1}{Pornography filtering}{section.1.2}% 4
@@ -38,16 +38,15 @@
 \BOOKMARK [2][-]{subsection.3.2.3}{The texture analysis module}{section.3.2}% 38
 \BOOKMARK [2][-]{subsection.3.2.4}{The evaluator module}{section.3.2}% 39
 \BOOKMARK [2][-]{subsection.3.2.5}{User interface}{section.3.2}% 40
-\BOOKMARK [0][-]{chapter.4}{User manual}{}% 41
-\BOOKMARK [1][-]{section.4.1}{Introduction}{chapter.4}% 42
-\BOOKMARK [1][-]{section.4.2}{Detection view}{chapter.4}% 43
-\BOOKMARK [1][-]{section.4.3}{Evaluator view}{chapter.4}% 44
-\BOOKMARK [1][-]{section.4.4}{Color model training view}{chapter.4}% 45
-\BOOKMARK [1][-]{section.4.5}{Texture model training view}{chapter.4}% 46
-\BOOKMARK [1][-]{section.4.6}{Common configuration frames}{chapter.4}% 47
-\BOOKMARK [2][-]{subsection.4.6.1}{Segmentation}{section.4.6}% 48
-\BOOKMARK [2][-]{subsection.4.6.2}{Color detection}{section.4.6}% 49
-\BOOKMARK [2][-]{subsection.4.6.3}{Texture detection}{section.4.6}% 50
-\BOOKMARK [2][-]{subsection.4.6.4}{Resize options}{section.4.6}% 51
-\BOOKMARK [1][-]{section.4.7}{User Feedback}{chapter.4}% 52
-\BOOKMARK [0][-]{chapter.5}{Conclusions}{}% 53
+\BOOKMARK [1][-]{section.3.3}{User manual}{chapter.3}% 41
+\BOOKMARK [2][-]{subsection.3.3.1}{Introduction}{section.3.3}% 42
+\BOOKMARK [2][-]{subsection.3.3.2}{Detection view}{section.3.3}% 43
+\BOOKMARK [2][-]{subsection.3.3.3}{Evaluator view}{section.3.3}% 44
+\BOOKMARK [2][-]{subsection.3.3.4}{Color model training view}{section.3.3}% 45
+\BOOKMARK [2][-]{subsection.3.3.5}{Texture model training view}{section.3.3}% 46
+\BOOKMARK [2][-]{subsection.3.3.6}{Common configuration frames}{section.3.3}% 47
+\BOOKMARK [2][-]{subsection.3.3.7}{User Feedback}{section.3.3}% 48
+\BOOKMARK [0][-]{chapter.4}{Conclusions}{}% 49
+\BOOKMARK [1][-]{section.4.1}{State of research}{chapter.4}% 50
+\BOOKMARK [1][-]{section.4.2}{Proposed model's results}{chapter.4}% 51
+\BOOKMARK [1][-]{section.4.3}{Future developments}{chapter.4}% 52

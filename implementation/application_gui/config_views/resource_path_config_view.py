@@ -60,19 +60,19 @@ class ResourcePathFrame(Frame):
             .grid(row=3, column=0)
 
     def browse_test_path_in(self):
-        self.test_path_in_res = filedialog.askopenfilename()
+        self.test_path_in_res = filedialog.askdirectory()
         self.test_path_in.config(
-            text=FileUtils.get_filename_from_path(self.test_path_in_res))
+            text=FileUtils.get_filename_from_path(self.test_path_in_res.split('/')[-1]))
 
     def browse_test_path_expected(self):
-        self.test_path_expected_res = filedialog.askopenfilename()
+        self.test_path_expected_res = filedialog.askdirectory()
         self.test_path_expected.config(
-            text=FileUtils.get_filename_from_path(self.test_path_expected_res))
+            text=FileUtils.get_filename_from_path(self.test_path_expected_res.split('/')[-1]))
 
     def browse_results_path(self):
-        self.results_path_res = filedialog.askopenfilename()
+        self.results_path_res = filedialog.askdirectory()
         self.results_path.config(
-            text=FileUtils.get_filename_from_path(self.results_path_res))
+            text=FileUtils.get_filename_from_path(self.results_path_res.split('/')[-1]))
 
     def browse_logging_path(self):
         self.logging_path_res = filedialog.askopenfilename()

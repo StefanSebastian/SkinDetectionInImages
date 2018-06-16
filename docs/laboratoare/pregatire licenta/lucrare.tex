@@ -58,14 +58,15 @@
 	\tableofcontents
 	\newpage
 	
-	\chapter{Introduction \todo{rewrite section}}
+	\chapter{Introduction \todo{rename this or the other}}
 	
 	\section{Introduction}
-	Skin detection means identifying pixels and regions in images which correspond to human skin. Starting from these regions we can build models that detect people or certain body parts.
 	
-	There are many challenges in creating a good skin detector. One of the most challenging aspects is handling illumination. While the human eye can easily distinguish the same color in varying degrees of brightness this is not a trivial task for computers. The second aspect we must consider are the variety of skin tones. A good model should be able to handle people of all races. Another thing to note is the fact that there are a lot of objects and materials that resemble skin such as leather, wood, sand etc. Consequently, most models have a rather large false positive rate (around 10\%).
+	The problem tackled in this paper is skin detection in images. Skin detection, as a field of research,  means identifying pixels and regions in images which correspond to human skin. Starting from these regions we can build models that detect people or certain body parts. The problem statement is a simple one however its application comes with a lot of challenges such as: various illumination conditions, multiple possible skin colors, presence of objects that resemble skin.
 	
-	The purpose of this paper is to present the best models currently employed in skin detection and to propose a new model that combines some state of the art detectors. To the best of my knowledge no method that combines image segmentation, color and texture analysis has been published in this area of research. For every approach in skin detection I included a theoretical introduction followed by some examples of its practical use in skin detection.
+	As a consequence of all these factors most models found in research have a rather high false positive rate, of around 10\%. The goal of this paper is to present the current status of research in this area and propose a new model that focuses on classification performance rather than computation speed in the attempt to reduce the false positive rate. In this regard, I tried to combine multiple state-of-the-art techniques to see if I could obtain a more accurate detector than the classical color-based approaches.
+	
+	The model presented in this paper is a combination of three proven skin detection techniques. First of all, the input image is segmented using the Quick shift algorithm. The result of this step is a list of regions that are homogeneous in shape and color avoiding the issue of having holes in skin-like regions. These blocks have their color analyzed using Skin Probability Maps that rely on Bayes' Theorem, a classical approach that identifies most skin-colored regions. To further reduce false acceptance rate, a texture analysis module is used. Haralick's statistical features are computed on a window around each pixel of the image and passed into a Support Vector Machine classifier. The pixels marked by both the color and the texture models are used to build the final skin mask. To my best knowledge, this combination of techniques has not yet been tested in research.
 	
 	\section{Applications}
 	
@@ -91,6 +92,10 @@
 	Face recognition, the next step after detection, means automatic identification of people in images or videos\cite{detecting_faces_a_survey}. This has applications in security, such as unlocking your phone only when it scans your face, and monitoring certain areas, like the systems used by the Chinese government to fine jaywalkers caught on camera without human intervention \cite{jaywalkers_china}. A trivial yet very popular use of face recognition is automatically tagging your friends in photos on social networks.
 	
 	\chapter{Theoretical background}
+	\todo{some kind of introduction in the topic?}
+	
+	There are many challenges in creating a good skin detector. One of the most challenging aspects is handling illumination. While the human eye can easily distinguish the same color in varying degrees of brightness this is not a trivial task for computers. The second aspect we must consider are the variety of skin tones. A good model should be able to handle people of all races. Another thing to note is the fact that there are a lot of objects and materials that resemble skin such as leather, wood, sand etc. Consequently, most models have a rather large false positive rate (around 10\%).
+	
 	
 	\section{Related work}
 	The subject of skin detection has been of interest for researchers due to its many applications. I could not include all the important papers in this domain due to the sheer number but I tried to cover the most relevant ones, in terms of popularity and results, for each aspect of skin detection.
@@ -274,7 +279,6 @@
 	
 	Some advantages of Quick shift are simplicity of implementation, speed (O($N^2$)), ability to work on any type of data and the control of fragmentation with the given parameters\cite{mode_seeking}. 
 	
-	\newpage
 	\section{Skin detection by color}
 	Skin pixel detection by color means classifying a pixel while considering only its color features. A first step in applying this approach is selecting a color space.
 	
@@ -857,9 +861,9 @@
 		\caption{The user interface module}
 		\label{fig:gui}
 	\end{figure}
-	
-	\chapter{User manual}
-	\section{Introduction}
+
+	\section{User manual}
+	\subsection{Introduction}
 	The goal of this application is to provide an easy-to-use and highly-configurable interface for training and evaluating skin detection models that share a core structure of image segmentation, color and texture analysis. The user can also test the created models on individual images. As the number of parameters for each task can be overwhelming the user can opt to use the default values that have already been set in each field.
 	
 	The application does all computing intensive tasks in separate processes. This means the user can perform multiple operations, e.g. evaluate a model on the validation dataset and perform some single image detections on the same model, at the same time.
@@ -871,21 +875,21 @@
 		\includegraphics{manual/tab_view.png}
 		\caption{The tab-view main menu}
 	\end{figure}
-
-	\section{Detection view}
+	
+	\subsection{Detection view}
 	This view allows the user to test the model on individual images and get visual feedback. The resulting image will be displayed on the screen with a black mask that marks the identified pixels. This window provides a quick way to evaluate a model or to make a demonstration.
 	
 	If you want to apply the model to a single image you must specify the detection parameters, or go with the default ones, provide a path to the input image (bottom frame on the left side of the screen) and click ‘Start experiment’. The initial image and the result will be displayed on the frames on the right side of the screen. The other configuration frames are explained in detail in section \ref{configuration_frames}. 
 	
 	On the middle of the screen, below the buttons for controlling the experiment, you will see updates of the detection process. A progress bar will follow the time consuming operations: segmentation, color and texture analysis.
-
+	
 	\begin{figure}[h!]
 		\centering
 		\includegraphics[width=\linewidth]{manual/detection_view.png}
 		\caption{Detection view}
 	\end{figure}
-
-	\section{Evaluator view}
+	
+	\subsection{Evaluator view}
 	
 	This screen allows the user to evaluate the performance of the final model and follow the progress in real time. The selected model can be configured in various ways which will be presented in detail in the common configurations section \ref{configuration_frames}.
 	
@@ -894,7 +898,7 @@
 		\includegraphics[width=\linewidth]{manual/evaluator_view.png}
 		\caption{Evaluator view}
 	\end{figure}
-
+	
 	The application applies the selected model to images from the provided folders. Input images can have any size and name. Masks should have the same size and name as their corresponding input and should mark skin pixels in black (0, 0, 0). The paths where execution logs and run results are stored are also customizable.
 	
 	To begin evaluation you must press ‘Start experiment’. The frame below the button displays information about the currently processed picture, the operation in progress and evaluation results. 
@@ -904,7 +908,7 @@
 	After each picture is analyzed by the model, the performance metrics(true positive rate, false positive rate, true negative rate, false negative rate, accuracy, precision and recall) are displayed on the screen and saved to a file.
 	The application builds a csv file containing metrics from each processed picture, that can be used to obtain overall results. A dump of the initial configuration is done in the file $initial_config.txt$ for documentation purposes.
 	
-	\section{Color model training view}
+	\subsection{Color model training view}
 	This window is used to train a Bayesian color detection model. You can select a color space, the path to input data (a folder which should contain the following subfolders: train\textunderscore images – images containing skin, train\textunderscore images\textunderscore ns – images not containing skin, train\textunderscore masks – masks for images containing skin), the name of the model and the path to the folder where it will be stored. 
 	
 	The model, consisting of a map of pixel values and their count, is stored alongside color space meta data in a .pkl file, which can be later imported by the application for evaluation.
@@ -916,8 +920,8 @@
 		\includegraphics[width=\linewidth]{manual/color_model_train_view.png}
 		\caption{Color model training view}
 	\end{figure}
-
-	\section{Texture model training view}
+	
+	\subsection{Texture model training view}
 	The process of training a texture detector is simple. You must select folders with images of skin, images not containing skin and a path to store the resulting model.
 	
 	After pressing ‘Start experiment’ the training begins and you will see updates for feature extraction and machine learning analysis. First, the process builds a list of features and tags (skin/non-skin) from positive and negative images. Then, those features are analyzed by a SVM algorithm and the resulting model is stored in a .pkl file. That file contains the SVM's result, the serialized function for feature extraction and the tag used to identify skin texture.
@@ -927,11 +931,11 @@
 		\includegraphics[width=\linewidth]{manual/texture_model_train_view.png}
 		\caption{Texture model training view}
 	\end{figure}
-
-	\section{Common configuration frames} \label{configuration_frames}
+	
+	\subsection{Common configuration frames} \label{configuration_frames}
 	Some or all of these model configuration frames are present on multiple views. For this reason they are presented in a single section.
 	
-	\subsection{Segmentation}
+	\subsubsection{Segmentation}
 	
 	\begin{wrapfigure}{r}{0.5\textwidth}
 		\begin{center}
@@ -939,14 +943,14 @@
 		\end{center}
 		\caption{Segmentation}
 	\end{wrapfigure}
-
+	
 	The segmentation frame is used for tuning the parameters of the quickshift image segmentation algorithm. 
 	
 	Sigma controls the shape of the superpixels and Tau the size, and you can set them by typing in their adjacent textboxes. 
 	
 	The ‘Use position’ checkbox indicates whether the algorithm should consider pixel position in image as a feature for density calculation. If this box remains unchecked the density function will consider only the color space information.
 	
-	\subsection{Color detection}
+	\subsubsection{Color detection}
 	
 	\begin{wrapfigure}{r}{0.6\textwidth}
 		\begin{center}
@@ -954,9 +958,9 @@
 		\end{center}
 		\caption{Segmentation}
 	\end{wrapfigure}
-
+	
 	This frame provides configurations for the color detection module.
-
+	
 	The SPM model is a pickle (.pkl) file generated from the Train SPM view. This indicates which color model should be selected for Bayesian probability calculations. 
 	
 	The detection threshold is a value between 0 and 1 which indicates at what probability to start considering pixels as skin. Consequently all pixels or clusters for which the model calculates a probability higher than the threshold are classified as skin pixels.
@@ -966,14 +970,14 @@
 	
 	The neighbor area represents the considered neighbors during the computation of a pixel's skin probability. The final probability is taken as the maximum value obtained by exploring the color space in every direction on a distance limited by this parameter. 
 	
-	\subsection{Texture detection}
+	\subsubsection{Texture detection}
 	\begin{wrapfigure}{r}{0.6\textwidth}
 		\begin{center}
 			\includegraphics[]{manual/texture_detection_frame.png}
 		\end{center}
 		\caption{Segmentation}
 	\end{wrapfigure}
-
+	
 	By clicking on the ‘Browse model’ button you can select the texture analysis model, which is a SVM classifier stored as a pickle file. This model is generated from the 'Train texture' window.
 	
 	From the ‘Detection type’ dropdown you can select the texture detection strategy:
@@ -984,7 +988,7 @@
 	
 	The size of these windows is set from the ‘Detection area’ text field.
 	
-	\subsection{Resize options}
+	\subsubsection{Resize options}
 	
 	\begin{wrapfigure}{r}{0.5\textwidth}
 		\begin{center}
@@ -992,12 +996,12 @@
 		\end{center}
 		\caption{Segmentation}
 	\end{wrapfigure}
-
+	
 	If you wish to resize the image you must check the ‘Resize image’ box and then specify the given parameters. This is usually done for increasing computation speed.
 	
 	If you do not check the box then the image will be processed in its original size.
 	
-	\section{User Feedback}
+	\subsection{User Feedback}
 	
 	The feedback view can be seen in figure \ref{feedback_view} and is present on each window. It is a text box that displays feedback from the application. It also contains the 'Start experiment' and 'Stop experiment' button which control the process associated with the view: detection, evaluation or training.
 	
@@ -1010,10 +1014,24 @@
 		\caption{Feedback view}
 		\label{feedback_view}
 	\end{figure}
+
+	\chapter{Conclusions}
 	
-	\chapter{Conclusions} \todo{write section}
+	\section{State of research}
+	Skin detection has been a topic of interest in research for many years and it is still active. Color analysis, being the fastest technique and the one offering the best recall is the base of almost skin detector in literature. Its drawback, the rather high false detection rate, is usually ignored or mitigated with either a texture detector or segmentation pre-processing step. I haven't encountered a model that uses both, possibly due to the trade-off in computation time.
 	
-	texture methods are few and not well documented smth smth most use their own data sets , hard to compare and evaluate
+	A pressing issue in the field is the lack of a modern, large and diverse dataset to be used as a standard for evaluating models. The Compaq database, which is currently the most popular, was composed in the 90s and most images have a rather low quality. The SFA and other similar face-oriented databases, contain humans in a controlled environment, usually in the same position, with only the face and sometimes hands as skin regions. A lot of papers claiming to have greatly reduced the false acceptance rate use either very small or self-built unavailable datasets. This is the main reasons that make it difficult to accurately compare and evaluate skin detection models.
+	
+	\section{Proposed model's results}
+	
+	The proposed model obtains acceptable but slightly weaker results than the state-of-the-art techniques. Consequently, it has not achieved its goal of considerably reducing the large false positive rate currently associated with skin detection models. The reasons for this could be the resizing step which forces the selection of a smaller texture detection window or the use of a small dataset for evaluation in comparison to other models. Both of these compromises have been taken due to time constraints. This indicates the proposed model is unfit for real-time detection tasks but could be a valid approach for data mining processes.
+	
+	\section{Future developments}
+	A big issue in the current form of the model is the computation time, which forced me to take some decision that might have impacted classification performance. Consequently this would be the top candidate for optimization. Some solutions in this direction are implementing the image processing algorithms on the GPU (an example for Quick shift was provided by Fulkerson\cite{quickshift_gpu}) and take advantage of multithreading whenever possible (for example during evaluation).
+	
+	Another area of improvement is in texture detection. Upon analysis of the visual feedback, the current texture model does not provide an improvement as large as expected. Some alternative texture analysis techniques such as Gabor filters could be tested.
+	
+	Even though I tried to cover the most important directions of skin analysis, there are some aspects I didn't consider. For example, the addition of a shape based model could help further reduce false acceptance rate.
 	
 	\newpage
 	\bibliography{references}

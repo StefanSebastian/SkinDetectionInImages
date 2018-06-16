@@ -23,15 +23,38 @@
 \usepackage{todonotes}
 \usepackage{wrapfig}
 
+\usepackage[utf8]{inputenc} % romanian characters
+
 \begin{document}
 	\listoftodos
 	
-	\title{Skin detection in images using machine learning techniques for color and texture recognition}
-	\author{Stefan Sebastian}
-	\date{\today}
-	\maketitle
+	\begin{titlepage}
+		
+		\begin{center}
+			\Large{{BABEȘ-BOLYAI UNIVERSITY CLUJ-NAPOCA}}
+			\newline
+			\Large{{FACULTY OF MATHEMATICS AND COMPUTER SCIENCE}}
+			
+			\vspace{8cm}
+			
+			\textbf{LUCRARE DE DIPLOMÃ}
+			
+			\vspace{1cm}
+			\Huge\textbf{{TITLUL LUCRÃRII DE DIPLOMÃ}}
+			\fontsize{12}{14}
+			
+		\end{center}
+		\vspace{6cm}
+		
+		\hspace*{0.8cm}Coordonator  Științific: \hfill  Absolvent: \hspace*{0.8cm} \\    
+		\textbf{Prof. Dr. PRENUME NUME \hfill  \textbf{PRENUME NUME}}
+		
+		\vspace{2cm}
+		\begin{center}
+			\Large{2009}
+		\end{center}
+	\end{titlepage}  
 	
-	\newpage
 	\tableofcontents
 	\newpage
 	
@@ -126,12 +149,12 @@
  	\subsection{Models using segmentation}
  	Frerk and Al-Hamadi\cite{superpixels_applied_1} proposed a method that applies image segmentation combined with a Bayesian SPM. The first step is calculating the probability for each pixel in an image and creating \(P_I\), the pixel probability image. The color and position of each pixel is used as input for a SLIC algorithm, an adaptation of k-means, that calculates the superpixels. The parameter k for segmentation is set to be the number of pixels in the image divided by \(30^2\), so that all regions have a size of approximatively 30x30. A probability is then computed for each superpixel and compared to a threshold.
  	
- 	In \cite{superpixels_applied_2} a similar approach to \cite{superpixels_applied_1} is taken. Firstly, a segmentation is performed (using the Quick shift algorithm) and superpixels are extracted. A probability is calculated for each superpixel as the average of its component pixels probabilities. Then, a CRF(Conditional Random Field) method is used in order to obtain smoother skin regions. A CRF is a probabilistic method that works with graph based structures and models a distribution of type $P(y|x)$. The pair considered in this article is color difference and boundary length between neighboring superpixels. This model was tested on the Compaq database and obtained a 91.17\% TP rate and 13.12\% FP rate.
+ 	Poudel et al.\cite{superpixels_applied_2} took a similar approach to Frerk and Al-Hamadi's\cite{superpixels_applied_1} work. Firstly, a segmentation is performed (using the Quick shift algorithm) and superpixels are extracted. A probability is calculated for each superpixel as the average of its component pixels probabilities. Then, a CRF(Conditional Random Field) method is used in order to obtain smoother skin regions. A CRF is a probabilistic method that works with graph based structures and models a distribution of type $P(y|x)$. The pair considered in this article is color difference and boundary length between neighboring superpixels. This model was tested on the Compaq database and obtained a 91.17\% TP rate and 13.12\% FP rate.
  	
  	\subsection{Models using textural features}
  	
  	\subsubsection{Haralick features}
- 	\cite{color_texture_ann} presents a model based on Artificial Neural Networks that analyzes both color and textural features. The color features used are the mean color, the standard deviation and the skewness. These are calculated for each channel (R, G, B). The inputs for the ANN also include the following textural information: Entropy, Energy, Contrast and Homogeneity, which are computed from the Gray-Level Co-Occurrence Matrix. The network has three layers: an input layer, a hidden layer (with 50 neurons) and an output layer. The model was trained on 300 images (80x80 px) of skin and non-skin textures and tested on 100, obtaining a 96\% accuracy in classifying whether an image is a skin patch or not.
+ 	El Abbadi et al.\cite{color_texture_ann} presented a model based on Artificial Neural Networks that analyzes both color and textural features. The color features used are the mean color, the standard deviation and the skewness. These are calculated for each channel (R, G, B). The inputs for the ANN also include the following textural information: Entropy, Energy, Contrast and Homogeneity, which are computed from the Gray-Level Co-Occurrence Matrix. The network has three layers: an input layer, a hidden layer (with 50 neurons) and an output layer. The model was trained on 300 images (80x80 px) of skin and non-skin textures and tested on 100, obtaining a 96\% accuracy in classifying whether an image is a skin patch or not.
  	
  	Medjram et al.\cite{texture_svm} proposed another method that combines color and texture information. The first step is converting the initial image to the YCbCr color space. Skin regions are identified using thresholding like the following: \(77 <= Cb <= 127, 133 <= Cr <= 173\). Secondly, the image is sharpened in order to enhance its texture. The features considered from the GLCM are Contrast, Homogeneity and Energy, calculated over a 5x5 matrix. The last step is applying a Support Vector Machine classifier on the initial image to classify texture patches. They do not provide any performance metrics only a remark that the model performs well after being tested on hundreds of internet images.
  	
@@ -729,9 +752,9 @@
 	\subsection{The color detection module}
 	This module can be divided into two submodules: training, figure \ref{fig:color_train}, and detection, figure \ref{fig:color_detect}.
 	
-	In order to train a color detection model you must call the $train_spm_model$ static method which takes a SPMTrainConfiguration object. The configurable fields are the database (SFA or Compaq), the color space (RGB, HSV, YCrCb) and paths for resources. 
+	In order to train a color detection model you must call the $train\_spm\_model$ static method which takes a SPMTrainConfiguration object. The configurable fields are the database (SFA or Compaq), the color space (RGB, HSV, YCrCb) and paths for resources. 
 	
-	Depending on the value of the database parameter the trainer creates either a SfaComponentExtractor or a CompaqComponentExtractor. Both of these classes provide a method $extract_components()$ that returns a BayesSPMComponents object, which encapsulates: the number of skin and non-skin pixels, a map with the number of apparitions for each pixel and a map with the number of apparitions as skin.
+	Depending on the value of the database parameter the trainer creates either a SfaComponentExtractor or a CompaqComponentExtractor. Both of these classes provide a method $extract\_components$ that returns a BayesSPMComponents object, which encapsulates: the number of skin and non-skin pixels, a map with the number of apparitions for each pixel and a map with the number of apparitions as skin.
 	
 	The resulting model, a SPMModel object, is serialized into a file. It contains the selected color space and the components extracted on the previous step.
 	

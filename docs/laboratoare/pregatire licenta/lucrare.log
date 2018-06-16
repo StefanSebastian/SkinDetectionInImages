@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.06.2 (MiKTeX 2.9.6500 64-bit)  (format=lualatex 2018.6.9)  16 JUN 2018 13:24
+This is LuaTeX, Version 1.06.2 (MiKTeX 2.9.6500 64-bit)  (format=lualatex 2018.6.9)  16 JUN 2018 14:22
  restricted system commands enabled.
 **lucrare.tex
 (./lucrare.tex
@@ -33,7 +33,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.580 seconds
+luaotfload | main : initialization completed in 0.651 seconds
 Babel <3.15> and hyphenation patterns for 1 language(s) loaded.
 ("C:/Program Files/MiKTeX 2.9/tex/latex/base/report.cls"
 Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
@@ -1070,39 +1070,46 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \WF@box=\box63
 \WF@everypar=\toks36
 Package: wrapfig 2003/01/31  v 3.6
+)
+("C:/Program Files/MiKTeX 2.9/tex/latex/base/inputenc.sty"
+Package: inputenc 2015/03/17 v1.2c Input encoding file
+\inpenc@prehook=\toks37
+\inpenc@posthook=\toks38
+
+
+Package inputenc Warning: inputenc package ignored with utf8 based engines.
+
 ) (./lucrare.aux)
 \openout1 = lucrare.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
 \AtBeginShipoutBox=\box64
-Package hyperref Info: Link coloring OFF on input line 26.
-
-("C:/Program Files/MiKTeX 2.9/tex/latex/hyperref/nameref.sty"
+Package hyperref Info: Link coloring OFF on input line 28.
+ ("C:/Program Files/MiKTeX 2.9/tex/latex/hyperref/nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
-
 ("C:/Program Files/MiKTeX 2.9/tex/generic/oberdiek/gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count308
 )
-LaTeX Info: Redefining \ref on input line 26.
-LaTeX Info: Redefining \pageref on input line 26.
-LaTeX Info: Redefining \nameref on input line 26.
+LaTeX Info: Redefining \ref on input line 28.
+LaTeX Info: Redefining \pageref on input line 28.
+LaTeX Info: Redefining \nameref on input line 28.
 
 (./lucrare.out) (./lucrare.out)
 \@outlinefile=\write4
@@ -1116,12 +1123,12 @@ LaTeX Info: Redefining \nameref on input line 26.
 \scratchbox=\box65
 \nofMPsegments=\count310
 \nofMParguments=\count311
-\everyMPshowfont=\toks37
+\everyMPshowfont=\toks39
 \MPscratchCnt=\count312
 \MPscratchDim=\dimen280
 \MPnumerator=\count313
 \makeMPintoPDFobject=\count314
-\everyMPtoPDFconversion=\toks38
+\everyMPtoPDFconversion=\toks40
 ) ("C:/Program Files/MiKTeX 2.9/tex/latex/oberdiek/epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -1145,63 +1152,63 @@ Package caption Info: End \AtBeginDocument code.
 .................................................
 \symlegacymaths=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 26.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 26.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 26.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 26.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 26.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 26.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 26.
-LaTeX Font Info:    Redeclaring math accent \check on input line 26.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 26.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 26.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 26.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 26.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 26.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 26.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 26.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 26.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 26.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 26.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 26.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 26.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 26.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 26.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 26.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 26.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 28.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 28.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 28.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 28.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 28.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 28.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 28.
+LaTeX Font Info:    Redeclaring math accent \check on input line 28.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 28.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 28.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 28.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 28.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 28.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 28.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 28.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 28.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 28.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 28.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 28.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 28.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 28.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 28.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 28.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 28.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 26.
+(Font)              `operators' in the math version `normal' on input line 28.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/TimesNewRoman(0)/m/n on input line 26
+(Font)                  OT1/cmr/m/n --> TU/TimesNewRoman(0)/m/n on input line 28
 .
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 26.
+(Font)              `operators' in the math version `bold' on input line 28.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/m/n on input line 2
-6.
+8.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/m/n on i
-nput line 26.
+nput line 28.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmr/m/it --> TU/TimesNewRoman(0)/m/it on input line 
-26.
+28.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/bx/n on input line 
-26.
+28.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 26.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 28.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 26.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 28.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/bx/n on 
-input line 26.
+input line 28.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> TU/TimesNewRoman(0)/bx/it on input lin
-e 26.
+e 28.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/bx/n on input line 26.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/bx/n on input line 28.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/bx/n on input line 26.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/bx/n on input line 28.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1261,7 +1268,7 @@ warning  (pdf backend): ignoring duplicate destination with the name 'page.1'
 Chapter 1.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\todo' on input line 38.
+(hyperref)                removing `\todo' on input line 61.
 
 [3
 
@@ -1275,17 +1282,17 @@ Chapter 3.
 <resources/without_qs.png, id=622, pagebox=cropbox, 334.24875pt x 501.875pt>
 File: resources/without_qs.png Graphic file (type png)
 <use resources/without_qs.png>
-Package luatex.def Info: resources/without_qs.png  used on input line 477. on in
-put line 477.
+Package luatex.def Info: resources/without_qs.png  used on input line 500. on in
+put line 500.
 Package luatex.def Info: Requested size: 136.57462pt x 205.0732pt on input line 
-477.
+500.
 <resources/with_qs.png, id=623, pagebox=cropbox, 334.24875pt x 501.875pt>
 File: resources/with_qs.png Graphic file (type png)
 <use resources/with_qs.png>
-Package luatex.def Info: resources/with_qs.png  used on input line 481. on input
- line 481.
+Package luatex.def Info: resources/with_qs.png  used on input line 504. on input
+ line 504.
 Package luatex.def Info: Requested size: 136.57462pt x 205.0732pt on input line 
-481.
+504.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1295,87 +1302,87 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <resources/without_texture.png, id=643, pagebox=cropbox, 200.75pt x 200.75pt>
 File: resources/without_texture.png Graphic file (type png)
 <use resources/without_texture.png>
-Package luatex.def Info: resources/without_texture.png  used on input line 521. 
-on input line 521.
+Package luatex.def Info: resources/without_texture.png  used on input line 544. 
+on input line 544.
 Package luatex.def Info: Requested size: 136.57462pt x 136.58476pt on input line
- 521.
+ 544.
 <resources/with_texture.png, id=644, pagebox=cropbox, 200.75pt x 200.75pt>
 File: resources/with_texture.png Graphic file (type png)
 <use resources/with_texture.png>
-Package luatex.def Info: resources/with_texture.png  used on input line 525. on 
-input line 525.
+Package luatex.def Info: resources/with_texture.png  used on input line 548. on 
+input line 548.
 Package luatex.def Info: Requested size: 136.57462pt x 136.58476pt on input line
- 525.
+ 548.
  [26<./resources/without_texture.png><./resources/with_texture.png>]
 <resources/model_overview.png, id=653, pagebox=cropbox, 624.08156pt x 246.9225pt
 >
 File: resources/model_overview.png Graphic file (type png)
 <use resources/model_overview.png>
-Package luatex.def Info: resources/model_overview.png  used on input line 536. o
-n input line 536.
+Package luatex.def Info: resources/model_overview.png  used on input line 559. o
+n input line 559.
 Package luatex.def Info: Requested size: 455.24411pt x 180.12381pt on input line
- 536.
+ 559.
  [27<./resources/model_overview.png>]
 <resources/segm_3_5.png, id=667, pagebox=cropbox, 200.24812pt x 150.5625pt>
 File: resources/segm_3_5.png Graphic file (type png)
 <use resources/segm_3_5.png>
-Package luatex.def Info: resources/segm_3_5.png  used on input line 558. on inpu
-t line 558.
+Package luatex.def Info: resources/segm_3_5.png  used on input line 581. on inpu
+t line 581.
 Package luatex.def Info: Requested size: 136.57462pt x 102.69357pt on input line
- 558.
+ 581.
 <resources/segm_2_10.png, id=668, pagebox=cropbox, 203.25937pt x 150.5625pt>
 File: resources/segm_2_10.png Graphic file (type png)
 <use resources/segm_2_10.png>
-Package luatex.def Info: resources/segm_2_10.png  used on input line 562. on inp
-ut line 562.
+Package luatex.def Info: resources/segm_2_10.png  used on input line 585. on inp
+ut line 585.
 Package luatex.def Info: Requested size: 136.57462pt x 101.17041pt on input line
- 562.
+ 585.
 <resources/segm_4_8.png, id=669, pagebox=cropbox, 203.25937pt x 150.5625pt>
 File: resources/segm_4_8.png Graphic file (type png)
 <use resources/segm_4_8.png>
-Package luatex.def Info: resources/segm_4_8.png  used on input line 566. on inpu
-t line 566.
+Package luatex.def Info: resources/segm_4_8.png  used on input line 589. on inpu
+t line 589.
 Package luatex.def Info: Requested size: 136.57462pt x 101.17041pt on input line
- 566.
+ 589.
 <resources/texture_5_5.png, id=671, pagebox=cropbox, 67.75313pt x 97.86563pt>
 File: resources/texture_5_5.png Graphic file (type png)
 <use resources/texture_5_5.png>
-Package luatex.def Info: resources/texture_5_5.png  used on input line 579. on i
-nput line 579.
+Package luatex.def Info: resources/texture_5_5.png  used on input line 602. on i
+nput line 602.
 Package luatex.def Info: Requested size: 136.57462pt x 197.28229pt on input line
- 579.
+ 602.
 <resources/texture_7_7.png, id=672, pagebox=cropbox, 67.75313pt x 97.86563pt>
 File: resources/texture_7_7.png Graphic file (type png)
 <use resources/texture_7_7.png>
-Package luatex.def Info: resources/texture_7_7.png  used on input line 583. on i
-nput line 583.
+Package luatex.def Info: resources/texture_7_7.png  used on input line 606. on i
+nput line 606.
 Package luatex.def Info: Requested size: 136.57462pt x 197.28229pt on input line
- 583.
+ 606.
 <resources/texture_35_35.png, id=673, pagebox=cropbox, 67.75313pt x 97.86563pt>
 File: resources/texture_35_35.png Graphic file (type png)
 <use resources/texture_35_35.png>
-Package luatex.def Info: resources/texture_35_35.png  used on input line 587. on
- input line 587.
+Package luatex.def Info: resources/texture_35_35.png  used on input line 610. on
+ input line 610.
 Package luatex.def Info: Requested size: 136.57462pt x 197.28229pt on input line
- 587.
+ 610.
  [28<./resources/segm_3_5.png><./resources/segm_2_10.png><./resources/segm_4_8.p
 ng><./resources/texture_5_5.png><./resources/texture_7_7.png><./resources/textur
 e_35_35.png>] [29] [30] [31]
 <design/main_modules.png, id=724, pagebox=cropbox, 304.88907pt x 157.33781pt>
 File: design/main_modules.png Graphic file (type png)
 <use design/main_modules.png>
-Package luatex.def Info: design/main_modules.png  used on input line 710. on inp
-ut line 710.
+Package luatex.def Info: design/main_modules.png  used on input line 733. on inp
+ut line 733.
 Package luatex.def Info: Requested size: 304.88832pt x 157.33742pt on input line
- 710.
+ 733.
 <design/image_segmentation.png, id=726, pagebox=cropbox, 315.42844pt x 228.10219
 pt>
 File: design/image_segmentation.png Graphic file (type png)
 <use design/image_segmentation.png>
-Package luatex.def Info: design/image_segmentation.png  used on input line 724. 
-on input line 724.
+Package luatex.def Info: design/image_segmentation.png  used on input line 747. 
+on input line 747.
 Package luatex.def Info: Requested size: 315.42766pt x 228.10161pt on input line
- 724.
+ 747.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1384,50 +1391,50 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <design/color_train.png, id=737, pagebox=cropbox, 404.26031pt x 268.75406pt>
 File: design/color_train.png Graphic file (type png)
 <use design/color_train.png>
-Package luatex.def Info: design/color_train.png  used on input line 740. on inpu
-t line 740.
+Package luatex.def Info: design/color_train.png  used on input line 763. on inpu
+t line 763.
 Package luatex.def Info: Requested size: 404.25932pt x 268.7534pt on input line 
-740.
+763.
  [33<./design/image_segmentation.png><./design/color_train.png>]
 <design/color_detect.png, id=742, pagebox=cropbox, 438.8897pt x 213.04594pt>
 File: design/color_detect.png Graphic file (type png)
 <use design/color_detect.png>
-Package luatex.def Info: design/color_detect.png  used on input line 751. on inp
-ut line 751.
+Package luatex.def Info: design/color_detect.png  used on input line 774. on inp
+ut line 774.
 Package luatex.def Info: Requested size: 438.88863pt x 213.04541pt on input line
- 751.
+ 774.
 <design/texture_train.png, id=745, pagebox=cropbox, 333.49594pt x 246.9225pt>
 File: design/texture_train.png Graphic file (type png)
 <use design/texture_train.png>
-Package luatex.def Info: design/texture_train.png  used on input line 765. on in
-put line 765.
+Package luatex.def Info: design/texture_train.png  used on input line 788. on in
+put line 788.
 Package luatex.def Info: Requested size: 333.49512pt x 246.92188pt on input line
- 765.
+ 788.
  [34<./design/color_detect.png>]
 <design/texture_detect.png, id=753, pagebox=cropbox, 205.5178pt x 146.79843pt>
 File: design/texture_detect.png Graphic file (type png)
 <use design/texture_detect.png>
-Package luatex.def Info: design/texture_detect.png  used on input line 774. on i
-nput line 774.
+Package luatex.def Info: design/texture_detect.png  used on input line 797. on i
+nput line 797.
 Package luatex.def Info: Requested size: 205.5173pt x 146.79807pt on input line 
-774.
+797.
  [35<./design/texture_train.png><./design/texture_detect.png>]
 <design/evaluator.png, id=761, pagebox=cropbox, 263.48438pt x 95.6072pt>
 File: design/evaluator.png Graphic file (type png)
 <use design/evaluator.png>
-Package luatex.def Info: design/evaluator.png  used on input line 787. on input 
-line 787.
+Package luatex.def Info: design/evaluator.png  used on input line 810. on input 
+line 810.
 Package luatex.def Info: Requested size: 263.48372pt x 95.60695pt on input line 
-787.
+810.
 <design/gui.png, id=763, pagebox=cropbox, 497.60907pt x 219.06844pt>
 File: design/gui.png Graphic file (type png)
 <use design/gui.png>
-Package luatex.def Info: design/gui.png  used on input line 804. on input line 8
-04.
+Package luatex.def Info: design/gui.png  used on input line 827. on input line 8
+27.
 Package luatex.def Info: Requested size: 497.60785pt x 219.06789pt on input line
- 804.
+ 827.
 
-Overfull \hbox (42.36374pt too wide) in paragraph at lines 804--805
+Overfull \hbox (42.36374pt too wide) in paragraph at lines 827--828
  [][] 
  []
 
@@ -1439,27 +1446,27 @@ Chapter 4.
 <manual/tab_view.png, id=774, pagebox=cropbox, 203.25937pt x 42.91031pt>
 File: manual/tab_view.png Graphic file (type png)
 <use manual/tab_view.png>
-Package luatex.def Info: manual/tab_view.png  used on input line 819. on input l
-ine 819.
+Package luatex.def Info: manual/tab_view.png  used on input line 842. on input l
+ine 842.
 Package luatex.def Info: Requested size: 203.25887pt x 42.91019pt on input line 
-819.
+842.
 [38
 
 <./manual/tab_view.png>]
 <manual/detection_view.png, id=781, pagebox=cropbox, 718.93594pt x 363.60844pt>
 File: manual/detection_view.png Graphic file (type png)
 <use manual/detection_view.png>
-Package luatex.def Info: manual/detection_view.png  used on input line 832. on i
-nput line 832.
+Package luatex.def Info: manual/detection_view.png  used on input line 855. on i
+nput line 855.
 Package luatex.def Info: Requested size: 455.24411pt x 230.25075pt on input line
- 832.
+ 855.
 <manual/evaluator_view.png, id=783, pagebox=cropbox, 557.08125pt x 385.44pt>
 File: manual/evaluator_view.png Graphic file (type png)
 <use manual/evaluator_view.png>
-Package luatex.def Info: manual/evaluator_view.png  used on input line 842. on i
-nput line 842.
+Package luatex.def Info: manual/evaluator_view.png  used on input line 865. on i
+nput line 865.
 Package luatex.def Info: Requested size: 455.24411pt x 314.98656pt on input line
- 842.
+ 865.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1470,18 +1477,18 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: manual/color_model_train_view.png Graphic file (type png)
 <use manual/color_model_train_view.png>
 Package luatex.def Info: manual/color_model_train_view.png  used on input line 8
-64. on input line 864.
+87. on input line 887.
 Package luatex.def Info: Requested size: 455.24411pt x 219.46921pt on input line
- 864.
+ 887.
  [40<./manual/evaluator_view.png>]
 <manual/texture_model_train_view.png, id=797, pagebox=cropbox, 467.49657pt x 237
 .13594pt>
 File: manual/texture_model_train_view.png Graphic file (type png)
 <use manual/texture_model_train_view.png>
 Package luatex.def Info: manual/texture_model_train_view.png  used on input line
- 875. on input line 875.
+ 898. on input line 898.
 Package luatex.def Info: Requested size: 455.24411pt x 230.93341pt on input line
- 875.
+ 898.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -1490,12 +1497,12 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 t>
 File: manual/segmentation_frame.png Graphic file (type png)
 <use manual/segmentation_frame.png>
-Package luatex.def Info: manual/segmentation_frame.png  used on input line 886. 
-on input line 886.
+Package luatex.def Info: manual/segmentation_frame.png  used on input line 909. 
+on input line 909.
 Package luatex.def Info: Requested size: 211.53978pt x 67.75294pt on input line 
-886.
+909.
 [41<./manual/color_model_train_view.png><./manual/segmentation_frame.png>]
-Underfull \hbox (badness 1565) in paragraph at lines 895--896
+Underfull \hbox (badness 1565) in paragraph at lines 918--919
 []\TU/TimesNewRoman(0)/m/n/12 The ‘Use po-si-tion’ check-box in-di-cates
  []
 
@@ -1503,22 +1510,22 @@ Underfull \hbox (badness 1565) in paragraph at lines 895--896
 5pt>
 File: manual/color_detection_frame.png Graphic file (type png)
 <use manual/color_detection_frame.png>
-Package luatex.def Info: manual/color_detection_frame.png  used on input line 90
-1. on input line 901.
+Package luatex.def Info: manual/color_detection_frame.png  used on input line 92
+4. on input line 924.
 Package luatex.def Info: Requested size: 306.39394pt x 90.33727pt on input line 
-901.
+924.
 
-Overfull \hbox (33.2447pt too wide) in paragraph at lines 901--902
+Overfull \hbox (33.2447pt too wide) in paragraph at lines 924--925
  [] 
  []
 
 
-Underfull \hbox (badness 3179) in paragraph at lines 908--909
+Underfull \hbox (badness 3179) in paragraph at lines 931--932
 []\TU/TimesNewRoman(0)/m/n/12 The SPM model is a pickle
  []
 
 
-Underfull \hbox (badness 4569) in paragraph at lines 910--911
+Underfull \hbox (badness 4569) in paragraph at lines 933--934
 []\TU/TimesNewRoman(0)/m/n/12 The de-tec-tion thresh-old is a
  []
 
@@ -1528,34 +1535,34 @@ Underfull \hbox (badness 4569) in paragraph at lines 910--911
 File: manual/texture_detection_frame.png Graphic file (type png)
 <use manual/texture_detection_frame.png>
 Package luatex.def Info: manual/texture_detection_frame.png  used on input line 
-920. on input line 920.
+943. on input line 943.
 Package luatex.def Info: Requested size: 309.40518pt x 70.01138pt on input line 
-920.
+943.
 
-Overfull \hbox (36.25595pt too wide) in paragraph at lines 920--921
+Overfull \hbox (36.25595pt too wide) in paragraph at lines 943--944
  [] 
  []
 
 
-Underfull \hbox (badness 1057) in paragraph at lines 925--926
+Underfull \hbox (badness 1057) in paragraph at lines 948--949
 \TU/TimesNewRoman(0)/m/n/12 but-ton you can se-lect the tex-ture
  []
 
 <manual/resize_frame.png, id=813, pagebox=cropbox, 215.30438pt x 64.74188pt>
 File: manual/resize_frame.png Graphic file (type png)
 <use manual/resize_frame.png>
-Package luatex.def Info: manual/resize_frame.png  used on input line 939. on inp
-ut line 939.
+Package luatex.def Info: manual/resize_frame.png  used on input line 962. on inp
+ut line 962.
 Package luatex.def Info: Requested size: 215.30385pt x 64.74171pt on input line 
-939.
+962.
 [43<./manual/texture_detection_frame.png><./manual/resize_frame.png>]
 <manual/feedback_view.png, id=823, pagebox=cropbox, 270.25969pt x 225.84375pt>
 File: manual/feedback_view.png Graphic file (type png)
 <use manual/feedback_view.png>
-Package luatex.def Info: manual/feedback_view.png  used on input line 957. on in
-put line 957.
+Package luatex.def Info: manual/feedback_view.png  used on input line 980. on in
+put line 980.
 Package luatex.def Info: Requested size: 270.25902pt x 225.84319pt on input line
- 957.
+ 980.
  [44<./manual/feedback_view.png>]
 Chapter 5.
 [45
@@ -1576,27 +1583,27 @@ s://news.xbox.com/en-[]us/2013/11/26/
 [46
 
 ] [47] [48] [49]) [50]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 969.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 969.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 992.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 992.
  (./lucrare.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 969.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 969.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 992.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 992.
 Package rerunfilecheck Info: File `lucrare.out' has not changed.
 (rerunfilecheck)             Checksum: C416FB5AB3053C70B1C14B832E2B3C1A;3668.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 969.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 992.
 )
 
 Here is how much of LuaTeX's memory you used:
- 29612 strings out of 494456
+ 29609 strings out of 494456
  125025,794899 words of node,token memory allocated
  6734 words of node memory still in use:
    117 hlist, 16 vlist, 2 rule, 6 disc, 9 local_par, 213 glue, 1 kern, 15 penalt
 y, 86 glyph, 476 attribute, 74 glue_spec, 476 attribute_list, 7 write, 6 save_po
 s, 285 pdf_literal, 4 pdf_action nodes
    avail lists: 2:488,3:188,4:61,5:124,6:56,7:3488,8:89,9:192,10:16,11:277,12:1
- 32481 multiletter control sequences out of 65536+200000
- 73 fonts using 21526975 bytes
- 62i,17n,83p,993b,899s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 32486 multiletter control sequences out of 65536+200000
+ 58 fonts using 18483239 bytes
+ 62i,17n,83p,993b,903s stack positions out of 5000i,500n,10000p,200000b,50000s
 <c:/program files/miktex 2.9/fonts/opentype/public/lm/lmmono12-regular.otf><C:/W
 INDOWS/Fonts/timesi.ttf><C:/WINDOWS/Fonts/times.ttf><C:/WINDOWS/Fonts/timesbd.tt
 f><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Pro
@@ -1610,7 +1617,7 @@ pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Pro
 gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2
 .9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on lucrare.pdf (52 pages, 1375674 bytes).
+Output written on lucrare.pdf (52 pages, 1376207 bytes).
 
 PDF statistics: 940 PDF objects out of 1000 (max. 8388607)
  250 named destinations out of 1000 (max. 131072)

@@ -506,8 +506,12 @@
 	
 	\chapter{Proposed model}
 	
+	This chapter describes the model proposed by this paper. It contains details related to choice of parameters and particular design decisions. These are followed by a presentation of the training and evaluation methodologies alongside the datasets used for them. It ends with an overview of the results and a comparison with other models found in literature.
+	
 	\section{Overview}
-	The model proposed by this paper is made up of three steps and was designed to combine the most efficient detectors in all aspects of skin detection. There is a preprocessing step that is applied to all images, namely a resize operation to the (200, 200) dimension, with the purpose of reducing computation time.
+	This paper proposes a model for skin detection that tries to tackle the issue of high false acceptance rates that characterize most models available in research. Consequently it is more suited for data-mining tasks rather than real-time detection applications.
+	
+	The model proposed by this paper is made up of three steps and was designed to combine the most efficient detectors in all aspects of skin detection with the purpose of filtering as many false detections as possible. There is a preprocessing step that is applied to all images, namely a resize operation to the (200, 200) dimension, with the purpose of reducing computation time.
 	
 	\subsection{Segmentation}
 	The first step is image segmentation, which consists of finding uniformly colored regions, with smooth borders and regular shapes. These attributes fit the description of skin regions well. By passing these patches to the color model we can ensure the results will not contain holes caused by some small variations in a skin region and their borders will follow the skin contours more naturally.
@@ -765,6 +769,7 @@
 	I have only used a subset of 50 images, all containing some patches of skin, for evaluation due to its computation time, while most models use around 6000 images. The images selected for my model could have been not very representative for the dataset. Furthermore, when experimenting with augmenting my testing set with around 30 non-skin images I noticed a small (2\%) increase in performance. This suggests that on a dataset similar to that used by compared models, 2000 skin and 4000 non-skin images, performance may increase considerably.
 	
 	\chapter{Application development}
+	In this chapter all details related to the application implemented for the model presented in the previous chapter are presented. The first section is focused on design and contains a breakdown of every module. It also notes the technologies used and their purpose. The second section presents the functionalities of the application in a user friendly way.
 	
 	\section{Implementation}
 	The application is made up out of five main modules, pictured in figure \ref{fig:main_modules}: segmentation, $color_analysis$, $texture_analysis$, evaluator and $application_gui$. The first three provide the basic image processing operations, the evaluator provides an interface for detection and performance measurements while the top module offers a visual interface for user convenience. I will present them in detail in separate sections.
@@ -1032,6 +1037,7 @@
 	\end{figure}
 
 	\chapter{Conclusions}
+	This chapter gives contains remarks on the current state of research in skin detection and what could be improved. It also presents the conclusions of the experiment described in this paper and offers some directions of improvement.
 	
 	\section{State of research}
 	Skin detection has been a topic of interest in research for many years and it is still active. Color analysis, being the fastest technique and the one offering the best recall is the base of almost skin detector in literature. Its drawback, the rather high false detection rate, is usually ignored or mitigated with either a texture detector or segmentation pre-processing step. I haven't encountered a model that uses both, possibly due to the trade-off in computation time.

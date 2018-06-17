@@ -130,7 +130,7 @@ class Evaluator:
 
     def __append_raw_stats(self, raw_stats):
         with open(self.config.results_path + '/' + "raw_stats.txt", "a") as myfile:
-            myfile.write(str(raw_stats[0]) + ',' + str(raw_stats[1]) + ',' + str(raw_stats[2]) + ',' + str(raw_stats[3]))
+            myfile.write(str(raw_stats[0]) + ',' + str(raw_stats[1]) + ',' + str(raw_stats[2]) + ',' + str(raw_stats[3]) +'\n')
 
     def __dump_config(self):
         with open(self.config.results_path + '/' + "initial_config.txt", "w") as file:

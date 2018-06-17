@@ -58,24 +58,7 @@ class Stats:
 
         actual_image has every predicted skin pixel set in black
         """
-        true_positive = 0
-        true_negative = 0
-        false_positive = 0
-        false_negative = 0
-
-        rows = actual_image.shape[0]
-        cols = actual_image.shape[1]
-
-        for x_pixel in range(rows):
-            for y_pixel in range(cols):
-                if np.all(actual_image[x_pixel, y_pixel] == 0) and not np.all(expected_image[x_pixel, y_pixel] == 0):
-                    true_positive += 1
-                if np.all(actual_image[x_pixel, y_pixel] == 0) and np.all(expected_image[x_pixel, y_pixel] == 0):
-                    false_positive += 1
-                if not np.all(actual_image[x_pixel, y_pixel] == 0) and np.all(expected_image[x_pixel, y_pixel] == 0):
-                    true_negative += 1
-                if not np.all(actual_image[x_pixel, y_pixel] == 0) and not np.all(expected_image[x_pixel, y_pixel] == 0):
-                    false_negative += 1
+        true_positive, false_positive, true_negative, false_negative = Stats.get_raw_stats(expected_image, actual_image)
 
         precision = safe_div(true_positive, (true_positive + false_positive))
         recall = safe_div(true_positive, (true_positive + false_negative))
@@ -98,6 +81,7 @@ class Stats:
     @staticmethod
     def get_raw_stats(expected_image, actual_image):
         """
+        Gets raw stats for an image : true_positive, false_positive, true_negative, false_negative
         by convention the expected image has every non-skin pixel set in black
 
         actual_image has every predicted skin pixel set in black

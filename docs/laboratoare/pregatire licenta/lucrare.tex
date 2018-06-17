@@ -60,15 +60,26 @@
 	\listoftables
 	\newpage
 	
-	\chapter{Introduction \todo{rename this or the other}}
+	\chapter{Introduction}
 	
-	\section{Introduction} \todo{remove first person}
+	\section{Overview}
 	
 	The problem tackled in this paper is skin detection in images. Skin detection, as a field of research,  means identifying pixels and regions in images which correspond to human skin. Starting from these regions we can build models that detect people or certain body parts. The problem statement is a simple one however its application comes with a lot of challenges such as: various illumination conditions, multiple possible skin colors, presence of objects that resemble skin.
 	
-	As a consequence of all these factors most models found in research have a rather high false positive rate, of around 10\%. The goal of this paper is to present the current status of research in this area and propose a new model that focuses on classification performance rather than computation speed in the attempt to reduce the false positive rate. In this regard, I tried to combine multiple state-of-the-art techniques to see if I could obtain a more accurate detector than the classical color-based approaches.
+	As a consequence of all these factors most models found in research have a rather high false positive rate, of around 10\%. The goal of this paper is to present the current status of research in this area and propose a new model that focuses on classification performance rather than computation speed in the attempt to reduce the false positive rate. In this regard, the method described in this paper tries to combine multiple state-of-the-art techniques to determine if it can obtain a more accurate detector than the classical color-based approaches.
 	
 	The model presented in this paper is a combination of three proven skin detection techniques. First of all, the input image is segmented using the Quick shift algorithm. The result of this step is a list of regions that are homogeneous in shape and color avoiding the issue of having holes in skin-like regions. These blocks have their color analyzed using Skin Probability Maps that rely on Bayes' Theorem, a classical approach that identifies most skin-colored regions. To further reduce false acceptance rate, a texture analysis module is used. Haralick's statistical features are computed on a window around each pixel of the image and passed into a Support Vector Machine classifier. The pixels marked by both the color and the texture models are used to build the final skin mask. To my best knowledge, this combination of techniques has not yet been tested in research.
+	
+	\section{The main chapters}
+	Next, the main chapters along with a brief overview will be presented.
+	
+	The second chapter focuses on the theoretical background of the subject. It starts with the presentation of the problem statement which is followed by a list of state-of-the-art solutions found in literature. This related work section is organized by the main approach used in the papers. Afterwards a theoretical overview of the main solution modules is given in the following order: image segmentation, skin color analysis, texture detection.
+	
+	The third chapter gives a detailed presentation of the model proposed by this paper. It is focused on the particular choices of building it, such as the selected parameters and feature extraction functions, rather than the underlying theory which is explained in the previous chapter. Next, training and evaluation methodologies and the datasets used for each are described. The model's results are presented at the end of the chapter, alongside a comparison with other approaches found in literature.
+	
+	The fourth chapter focuses on the concrete implementation of the proposed model. It contains all details related to technologies used and application design. The first section presents the breakdown of the program into modules and the implementation decisions for each of them. The second section provides a user manual which describes the application's functionalities in depth.
+	
+	The last chapter contains the conclusions. It presents the current state of research in skin detection, a short evaluation of the proposed model and proposals for future improvements to it.
 	
 	\section{Applications}
 	
@@ -750,9 +761,10 @@
 	
 	My algorithm resizes every image to increase performance. However, this means that it must use a smaller window for texture analysis which might not be enough to get relevant textural features.
 	
-	I have only used a subset of 50 images for evaluation due to its computation time, while most models use from 2000 to 6000 images. The images selected for my model could have been not very representative for the dataset.
+	I have only used a subset of 50 images, all containing some patches of skin, for evaluation due to its computation time, while most models use around 6000 images. The images selected for my model could have been not very representative for the dataset. Furthermore, when experimenting with augmenting my testing set with around 30 non-skin images I noticed a small (2\%) increase in performance. This suggests that on a dataset similar to that used by compared models, 2000 skin and 4000 non-skin images, performance may increase considerably.
 	
 	\chapter{Application development}
+	
 	\section{Implementation}
 	The application is made up out of five main modules, pictured in figure \ref{fig:main_modules}: segmentation, $color_analysis$, $texture_analysis$, evaluator and $application_gui$. The first three provide the basic image processing operations, the evaluator provides an interface for detection and performance measurements while the top module offers a visual interface for user convenience. I will present them in detail in separate sections.
 	

@@ -777,9 +777,11 @@
 	\subsection{Technologies used}
 	
 	\subsubsection{General}
-	The application is implemented entirely in the Python programming language, which is a high-level language with dynamic types. Furthermore it has a rich ecosystem with mature frameworks relevant to machine learning and image processing. Even though it does not offer a performance as good as lower level languages, Python shines through its simplicity and various libraries.
+	The application is implemented entirely in the Python programming language, which is a high-level language with dynamic types. Furthermore it has a rich ecosystem with mature frameworks relevant to machine learning and image processing. Even though it does not offer a performance as good as lower level languages, Python shines through its simplicity and numerous libraries.
 	
 	For simple use of tuples the python namedtuple module was used. This is basically a way to assign names to tuple fields. The reason for using tuples is to set dictionary keys, which are required to be immutable values. The two named tuples used in the application are pixel position (x, y components) and color features.
+	
+	Model serialization and deserialization is done using the python pickle module. This is a very simple yet efficient serializer, suited for tasks that don't require complex serialization logic.
 	
 	\subsubsection{Image processing}
 	OpenCV\cite{opencv} is a very popular library for image manipulation. In this project OpenCV was used for some trivial image processing tasks such as: reading and writing images to a folder, conversions between color spaces and applying masks to images. 
@@ -792,7 +794,7 @@
 	The machine learning classifier employed by the model was a Support Vector Machine taken from the sk\_learn framework\cite{sklearn}. This library offers simple and efficient data analysis tools focused on accessibility.
 	
 	\subsubsection{GUI}
-	The Graphical Interface is implemented using the TkInter framework\cite{tkinter}. This is the most used GUI in Python and with the most available resources. Another advantage of this framework is the simplicity of building interfaces. Every window can be defined in a class and then they can be composed in a tree-like structure and reused in multiple parts of the application.
+	The Graphical Interface is implemented using the TkInter framework\cite{tkinter}. This is the most used GUI in Python and with the most available resources. Another advantage of this framework is the simplicity of building interfaces. Every window can be defined in a class and then they can be composed in a tree-like structure and reused in multiple parts of the application. TkInter also provides portability for the main Operating Systems and comes with a native look for each.
 	
 	In order to get a responsive UI the threading and multiprocessing modules are used. Whenever a new process (like detection or evaluation) is started a new process is created for it. The application also creates a new thread that communicates with that process and updates the UI widgets.
 	
@@ -872,6 +874,8 @@
 	The evaluator module has a simple structure, as seen in figure \ref{fig:evaluator}. The Evaluator class contains methods for evaluating a model(run\_simulation) and for applying it to an image(run\_detection). It takes as input a RunConfiguration object which contains informations about the desired skin and texture models and segmentation parameters.
 	
 	In order to evaluate the model some quality measures are applied for each analyzed picture. These methods include the false positive rate, true positive rate, precision, accuracy and recall and are implemented by the Stats class.
+	
+	The results are logged and also saved to a file in the csv (Comma-separated Values) format for later analysis.
 	
 	\begin{figure}[h!]
 		\centering

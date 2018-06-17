@@ -77,18 +77,18 @@
 \contentsline {subsection}{\numberline {4.1.3}The color detection module}{39}{subsection.4.1.3}
 \contentsline {subsection}{\numberline {4.1.4}The texture analysis module}{40}{subsection.4.1.4}
 \contentsline {subsection}{\numberline {4.1.5}The evaluator module}{41}{subsection.4.1.5}
-\contentsline {subsection}{\numberline {4.1.6}User interface}{42}{subsection.4.1.6}
+\contentsline {subsection}{\numberline {4.1.6}User interface}{43}{subsection.4.1.6}
 \contentsline {section}{\numberline {4.2}User manual}{43}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Introduction}{43}{subsection.4.2.1}
 \contentsline {subsection}{\numberline {4.2.2}Detection view}{44}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Evaluator view}{45}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.3}Evaluator view}{44}{subsection.4.2.3}
 \contentsline {subsection}{\numberline {4.2.4}Color model training view}{46}{subsection.4.2.4}
-\contentsline {subsection}{\numberline {4.2.5}Texture model training view}{46}{subsection.4.2.5}
+\contentsline {subsection}{\numberline {4.2.5}Texture model training view}{47}{subsection.4.2.5}
 \contentsline {subsection}{\numberline {4.2.6}Common configuration frames}{47}{subsection.4.2.6}
 \contentsline {subsubsection}{Segmentation}{47}{section*.54}
-\contentsline {subsubsection}{Color detection}{47}{section*.56}
+\contentsline {subsubsection}{Color detection}{48}{section*.56}
 \contentsline {subsubsection}{Texture detection}{48}{section*.58}
-\contentsline {subsubsection}{Resize options}{48}{section*.60}
+\contentsline {subsubsection}{Resize options}{49}{section*.60}
 \contentsline {subsection}{\numberline {4.2.7}User Feedback}{49}{subsection.4.2.7}
 \contentsline {chapter}{\numberline {5}Conclusions}{50}{chapter.5}
 \contentsline {section}{\numberline {5.1}State of research}{50}{section.5.1}

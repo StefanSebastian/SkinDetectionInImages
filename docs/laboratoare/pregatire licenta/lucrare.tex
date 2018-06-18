@@ -62,12 +62,11 @@
 	\hrule
 	\vspace{0.5cm}	
 	
-	\todo{reformulate} reformulate this paragraph
-	The subject of this thesis is the problem of skin detection in images. The goal of this paper is to provide an analysis of the current state of research in this area, present the theoretical foundations required to build a skin detector and to propose a new model, focused on overcoming the obstacles presented above and reducing the false detection rate.
+	The subject of this thesis is the problem of human skin detection in images. The goals are to provide an analysis of the current state of research in this area, present the theoretical foundations required to build a skin detector and to propose a new model, focused on reducing the false detection rate.
 	
-	With the increase of computing power in recent years, complex data analysis tasks, such as image detection are now viable. A popular field of image analysis concerns identifying humans or body parts.  Some applications of this field include: hand gesture recognition, pornography filtering, video data indexing, face detection, etc. 
+	With the current evolution in computing power, a lot of complex image analysis tasks are now viable for consumer devices. These include human computer interaction systems such as face detection, hand sign recognition or gesture analysis, monitoring systems and data mining for human related features. Most of these types of systems use skin detection as preprocessing step, because the presence and shape of skin provide a good indication of the presence location of a person. Consequently there is a need for fast and accurate human skin models.
 	
-	The goal of this paper is to propose an algorithm that improves the high false acceptance rate typical of skin detectors found in research. The motivation behind this is that most skin detectors focus on computation speed rather than performance. Consequently there is a lack of accurate skin models for tasks where computation speed is not crucial, such as data mining.
+	This paper proposes an algorithm that aims to improve the high false acceptance rate typical of skin detectors found in research. The motivation behind this is that most skin detectors focus on computation speed rather than performance. Consequently there is a lack of accurate skin models for tasks where computation speed is not crucial, such as data mining.
 	
 	The proposed model analyzes color information on regions detected through image segmentation and then applies a texture filter to further reduce false acceptance rate. Images are segmented using the Quick shift algorithm which takes into account pixel color and position features. For each of the resulting superpixels an average skin probability is computed using Skin Probability Maps. Haralick's textural features are calculated on a window around each pixel and classified with a Support Vector Machine. Finally, the results of the color and texture models are intersected. 
 	
@@ -87,14 +86,13 @@
 	
 	This chapter introduces the topic of skin detection with its applications, the motivation behind the proposed model, alongside an overview of its main components, and the outline of the following chapters.
 	
-	\section{The topic of skin detection}
-	The problem tackled in this paper is skin detection in images. Skin detection, as a field of research,  means identifying pixels and regions in images which correspond to human skin. Starting from these regions we can build models that detect people or certain body parts. 
+	The problem tackled in this paper is skin detection in images. Skin detection, as a field of research,  means identifying pixels and regions in images which correspond to human skin. The goal of skin identification is usually to build a more complex model, like a face or hand gesture detector.
 	
-	The problem statement is a simple one however its application comes with a lot of challenges such as: various illumination conditions, multiple possible skin colors (due to different ethnicities, skin diseases, scars), presence of objects that resemble skin (sand, wood, leather, etc.). Next, some practical applications of this topic will be presented.
+	The problem statement is a simple one however its application comes with a lot of challenges such as: various illumination conditions, multiple possible skin colors, presence of objects that resemble skin.
 	
-	\subsection{Applications}
+	\section{Applications of skin detection}
 	
-	\subsubsection{Pornography filtering}
+	\subsection{Pornography filtering}
 	It is a known fact that internet has become a commodity of modern life, with a word average global penetration rate of 54.4\%\cite{internet_stats}. This means that it's inevitable for a large number of children to have unrestricted access to the internet and to be exposed to harmful content. A study conducted in England\cite{children_exposure} on over a thousand people aged 11-16 has revealed that over half of them have been exposed to pornographic content. 
 	
 	To avoid such scenarios various pornography filters have been created. Skin detection is a very useful step in implementing such an application because most pornographic images contain large areas of skin.
@@ -103,10 +101,10 @@
 	
 	Another similar approach was presented by Chan et al.\cite{pornography_filter_with_ratios}. The first step was skin extraction based on color which was followed by computing some high level features such as: the ratio of skin area to image area, the ratio of the largest skin segment to the image area and the number of skin segments in the image.
 	
-	\subsubsection{Anchorperson detection}
+	\subsection{Anchorperson detection}
 	Another application that was created in practice is anchorperson detection in talk shows \cite{anchor_person_detection} for automatic annotation and storage. The data can be used for quickly finding videos containing specific persons, calculating how much time each anchorman was on stage or other data mining tasks. This is an ideal application for skin detection because news videos are usually shot indoors in a controlled environment. Consequently, the background can be set up so it won't contain objects with skin color tones.
 	
-	\subsubsection{Preprocessing for complex systems}
+	\subsection{Preprocessing for complex systems}
 	While skin detection does not have many direct applications, it is usually an intermediary step for detecting more concrete body parts, so I will also present some applications of those methods.
 	
 	Face and hands detection is used to facilitate human computer interaction. By scanning gestures and reactions a software system can respond in a more convenient way to the user. For example the Kinect camera, which connects to the Xbox console, allows the user to navigate menus using hand swipes \cite{kinect_control}. 
@@ -116,7 +114,7 @@
 	Face recognition, the next step after detection, means automatic identification of people in images or videos\cite{detecting_faces_a_survey}. This has applications in security, such as unlocking your phone only when it scans your face, and monitoring certain areas, like the systems used by the Chinese government to fine jaywalkers caught on camera without human intervention \cite{jaywalkers_china}. A trivial yet very popular use of face recognition is automatically tagging your friends in photos on social networks.
 	
 	\section{Motivation}
-	As a consequence of all the difficulties of building an accurate skin model, noted at the beginning of the chapter, and the fact that most use cases of skin detection need real time response times, most skin detectors use only the color features and have a rather high false positive rate, of over 10\%\cite{survey_skin_color_modeling}. 
+	As a consequence of all the difficulties of building an accurate skin model, briefly noted at the beginning of the chapter, and the fact that most use cases of skin detection need real time response times, most skin detectors use only the color features and have a rather high false positive rate, of over 10\%\cite{survey_skin_color_modeling}. 
 	
 	This paper proposes a new model that focuses on classification performance rather than computation speed in the attempt to reduce the false positive rate. In this regard, the method described in this paper tries to combine multiple state-of-the-art techniques to determine if it can obtain a more accurate detector than the classical color-based approaches. This would also fill a gap of skin detectors oriented for analysis tasks, that don't rely on real time responses.
 	
@@ -141,9 +139,11 @@
 	\chapter{Theoretical background}
 	This chapter provides the theoretical background necessary for creating a skin detector. It starts with an introduction of the topic and its challenges. This is followed by a review of the best-performing models available in research. Afterwards, the next three sections introduce the theoretical concepts on which the proposed model relies.
 	
-	Skin detection in images is the problem of identifying pixels or regions (groups of pixels) in an image that correspond to human skin. This is most often a preprocessing step for more complex detectors of specific body parts. Some of these applications are created for data-mining and require more precise answers while other try to provide real-time detection which means it is imperative to have fast response times. This means the model designer should take into account the specific area in which it will be used and consider the trade-off between speed and accuracy. Although the problem statement is quite simple and doesn't require a lot of domain knowledge, the practical applications have a lot of challenges to overcome.
+	Skin detection in images is the problem of identifying pixels or regions in an image that correspond to human skin. This is most often a preprocessing step for more complex detectors of specific body parts. Some of these applications are created for data-mining and require more precise answers while other try to provide real-time detection which means it is imperative to have fast response times. This means the model designer should take into account the specific area in which it will be used and consider the trade-off between speed and accuracy.
 	
-	A good skin detector should provide solutions to overcome the following issues. First of all, one of the most challenging aspects is handling illumination. While the human eye can easily distinguish the same color in varying degrees of brightness this is not a trivial task for computers. The second aspect to be considered are the variety of skin tones. A good model should be able to handle people of all races. Another thing to note is the fact that there are a lot of objects and materials that resemble skin such as leather, wood, sand etc. Consequently, most models have a rather large false positive rate (around 10\%).
+	In order to obtain a skin model some features need to be computed. The most reliable and widely adopted is the skin color. Models built on this feature are the most popular because of their speed and robustness to scaling and rotation\cite{survey_skin_color_modeling}. Texture is another useful feature that can describe skin. However, the fact that skin does not have a very distinct textural pattern means that a texture classifier alone is usually not enough. Shape could be another feature, however it is rarely used in practice because skin patches can have irregular forms.
+	
+	Although the problem statement is quite simple and doesn't require a lot of domain knowledge, the practical applications have a lot of challenges to overcome. A good skin detector should provide solutions for the following issues\cite{survey_skin_color_modeling}. First of all, one of the most challenging aspects is handling illumination. While the human eye can easily distinguish the same color in varying degrees of brightness this is not a trivial task for computers. The second aspect to be considered are the variety of skin tones. A good model should be able to handle people of all races. Another thing to note is the fact that there are a lot of objects and materials that resemble skin such as leather, wood, sand etc. Consequently, most models have a rather large false positive rate (over 10\%).
 	
 	\section{Related work}
 	The subject of skin detection has been of interest for researchers due to its many applications. I could not include all the important papers in this domain due to the sheer number but I tried to cover the most relevant ones, in terms of popularity and results, for each aspect of skin detection.

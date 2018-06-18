@@ -62,7 +62,15 @@
 	\hrule
 	\vspace{0.5cm}	
 	
-	aici textul abstractului
+	The subject of this paper is the problem of skin detection in images. With the increase of computing power in recent years, complex data analysis tasks, such as image detection are now viable. A popular field of image analysis concerns identifying humans or body parts.  Some applications of this field include: hand gesture recognition, pornography filtering, video data indexing, face detection, etc. 
+	
+	The goal of this paper is to propose an algorithm that improves the high false acceptance rate typical of skin detectors found in research. The motivation behind this is that most skin detectors focus on computation speed rather than performance. Consequently there is a lack of accurate skin models for tasks where computation speed is not crucial, such as data mining.
+	
+	The proposed model analyzes color information on regions detected through image segmentation and then applies a texture filter to further reduce false acceptance rate. Images are segmented using the Quick shift algorithm which takes into account pixel color and position features. For each of the resulting superpixels an average skin probability is computed using Skin Probability Maps. Haralick's textural features are calculated on a window around each pixel and classified with a Support Vector Machine. Finally, the results of the color and texture models are intersected. 
+	
+	TODO results
+	
+	To my best knowledge, a skin detection model using image segmentation, color and texture information has not yet been published in this area of research. This work is the result of my own activity. I have neither given nor received unauthorized assistance on this work.
 	
 	
 	\tableofcontents
@@ -74,24 +82,21 @@
 	
 	\chapter{Introduction}
 	
-	\section{Overview}
-	
 	The problem tackled in this paper is skin detection in images. Skin detection, as a field of research,  means identifying pixels and regions in images which correspond to human skin. Starting from these regions we can build models that detect people or certain body parts. The problem statement is a simple one however its application comes with a lot of challenges such as: various illumination conditions, multiple possible skin colors, presence of objects that resemble skin.
 	
-	As a consequence of all these factors most models found in research have a rather high false positive rate, of around 10\%. The goal of this paper is to present the current status of research in this area and propose a new model that focuses on classification performance rather than computation speed in the attempt to reduce the false positive rate. In this regard, the method described in this paper tries to combine multiple state-of-the-art techniques to determine if it can obtain a more accurate detector than the classical color-based approaches.
+	The goal of this paper is to provide an analysis of the current state of research in this area, present the theoretical foundations required to build a skin detector and to propose a new model, focused on overcoming the obstacles presented above and reducing the false detection rate.
 	
-	The model presented in this paper is a combination of three proven skin detection techniques. First of all, the input image is segmented using the Quick shift algorithm. The result of this step is a list of regions that are homogeneous in shape and color avoiding the issue of having holes in skin-like regions. These blocks have their color analyzed using Skin Probability Maps that rely on Bayes' Theorem, a classical approach that identifies most skin-colored regions. To further reduce false acceptance rate, a texture analysis module is used. Haralick's statistical features are computed on a window around each pixel of the image and passed into a Support Vector Machine classifier. The pixels marked by both the color and the texture models are used to build the final skin mask. To my best knowledge, this combination of techniques has not yet been tested in research.
+	\section{Motivation}
+	As a consequence of all the difficulties of building an accurate skin model and the fact that most use cases of skin detection need real time response times, most skin detectors use only the color features and have a rather high false positive rate, of over 10\%\cite{survey_skin_color_modeling}. 
 	
-	\section{The main chapters}
-	Next, the main chapters along with a brief overview will be presented.
+	This paper proposes a new model that focuses on classification performance rather than computation speed in the attempt to reduce the false positive rate. In this regard, the method described in this paper tries to combine multiple state-of-the-art techniques to determine if it can obtain a more accurate detector than the classical color-based approaches. This would also fill a gap of skin detectors oriented for analysis tasks, that don't rely on real time responses.
 	
-	The second chapter focuses on the theoretical background of the subject. It starts with the presentation of the problem statement which is followed by a list of state-of-the-art solutions found in literature. This related work section is organized by the main approach used in the papers. Afterwards a theoretical overview of the main solution modules is given in the following order: image segmentation, skin color analysis, texture detection.
+	\section{Solution overview}
+	The model presented in this paper is a combination of three proven skin detection techniques, concerning image segmentation, color analysis and texture filters. The personal contribution is given by combining these techniques into an unified model and examining its behavior.
 	
-	The third chapter gives a detailed presentation of the model proposed by this paper. It is focused on the particular choices of building it, such as the selected parameters and feature extraction functions, rather than the underlying theory which is explained in the previous chapter. Next, training and evaluation methodologies and the datasets used for each are described. The model's results are presented at the end of the chapter, alongside a comparison with other approaches found in literature.
+	First of all, the input image is segmented using the Quick shift algorithm. The result of this step is a list of regions that are homogeneous in shape and color avoiding the issue of having holes in skin-like regions. These blocks have their color analyzed using Skin Probability Maps that rely on Bayes' Theorem, a classical approach that identifies most skin-colored regions. However, this means using a naive Bayes classifier, because it relies on the assumption that color is the only relevant feature. 
 	
-	The fourth chapter focuses on the concrete implementation of the proposed model. It contains all details related to technologies used and application design. The first section presents the breakdown of the program into modules and the implementation decisions for each of them. The second section provides a user manual which describes the application's functionalities in depth.
-	
-	The last chapter contains the conclusions. It presents the current state of research in skin detection, a short evaluation of the proposed model and proposals for future improvements to it.
+	To further reduce false acceptance rate, a texture analysis module is used. Haralick's statistical features are computed on a window around each pixel of the image and passed into a Support Vector Machine classifier. The pixels marked by both the color and the texture models are used to build the final skin mask.
 	
 	\section{Applications}
 	
@@ -115,6 +120,17 @@
 	Aside from convenience gesture recognition systems can be very helpful for people that are aging or recovering after an accident or disease. Applications such as the one presented by Pedraza-Hueso et al. \cite{rehabilitation_kinect}, are designed to help these types of people get into a better physical shape. Typically they run on a console like Kinect or Wii and take the form of games. These consoles make the users stand-up and perform different types of motions while playing. The main advantages of using such an application are: availability (users can do their exercises at any time in their own home), price (typically much lower than hiring a therapist) and entertainment (applications usually take the form of games which stimulate the user).
 	
 	Face recognition, the next step after detection, means automatic identification of people in images or videos\cite{detecting_faces_a_survey}. This has applications in security, such as unlocking your phone only when it scans your face, and monitoring certain areas, like the systems used by the Chinese government to fine jaywalkers caught on camera without human intervention \cite{jaywalkers_china}. A trivial yet very popular use of face recognition is automatically tagging your friends in photos on social networks.
+	
+	\section{Thesis outline}
+	Next, the main chapters along with a brief overview will be presented.
+	
+	\textbf{The second chapter} focuses on the theoretical background of the subject. It starts with the presentation of the problem statement which is followed by a list of state-of-the-art solutions found in literature. This related work section is organized by the main approach used in the papers. Afterwards a theoretical overview of the main solution modules is given in the following order: image segmentation, skin color analysis, texture detection.
+	
+	\textbf{Chapter 3} gives a detailed presentation of the model proposed by this paper. It is focused on the particular choices of building it, such as the selected parameters and feature extraction functions, rather than the underlying theory which is explained in the previous chapter. Next, training and evaluation methodologies and the datasets used for each are described. The model's results are presented at the end of the chapter, alongside a comparison with other approaches found in literature.
+	
+	\textbf{Chapter 4} focuses on the concrete implementation of the proposed model. It contains all details related to technologies used and application design. The first section presents the breakdown of the program into modules and the implementation decisions for each of them. The second section provides a user manual which describes the application's functionalities in depth.
+	
+	\textbf{The last chapter} contains the conclusions. It presents the current state of research in skin detection, a short evaluation of the proposed model and proposals for future improvements to it.
 	
 	\chapter{Theoretical background}
 	This chapter provides the theoretical background necessary for creating a skin detector. It starts with an introduction of the topic and its challenges. This is followed by a review of the best-performing models available in research. Afterwards, the next three sections introduce the theoretical concepts on which the proposed model relies.

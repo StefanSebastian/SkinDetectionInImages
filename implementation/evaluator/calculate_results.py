@@ -62,7 +62,7 @@ class Stats:
 
         precision = safe_div(true_positive, (true_positive + false_positive))
         recall = safe_div(true_positive, (true_positive + false_negative))
-        accuracy = safe_div((true_positive + true_negative), (true_positive + true_negative + false_negative + false_negative))
+        accuracy = safe_div((true_positive + true_negative), (true_positive + true_negative + false_negative + false_positive))
 
         true_positive_rate = safe_div(true_positive, (true_positive + false_negative))
         false_positive_rate = safe_div(false_positive, (false_positive + true_negative))

@@ -27,6 +27,7 @@
 
 \begin{document}
 	\pagenumbering{gobble}% Remove page numbers (and reset to 1)
+	\listoftodos
 	
 	\begin{titlepage}
 		
@@ -62,6 +63,7 @@
 	\hrule
 	\vspace{0.5cm}	
 	
+	\todo{reformulate} reformulate this paragraph
 	The subject of this paper is the problem of skin detection in images. With the increase of computing power in recent years, complex data analysis tasks, such as image detection are now viable. A popular field of image analysis concerns identifying humans or body parts.  Some applications of this field include: hand gesture recognition, pornography filtering, video data indexing, face detection, etc. 
 	
 	The goal of this paper is to propose an algorithm that improves the high false acceptance rate typical of skin detectors found in research. The motivation behind this is that most skin detectors focus on computation speed rather than performance. Consequently there is a lack of accurate skin models for tasks where computation speed is not crucial, such as data mining.
@@ -725,16 +727,16 @@
 			\begin{tabular}{c|c|c|c|c}
 				\textbf{Threshold} & \textbf{TPR} & \textbf{FPR} & \textbf{ACC} & \textbf{PPV} \\
 				\hline
-				0.05 & 0.896 & 0.364 & 0.943 & 0.405 \\
-				0.1 & 0.865 & 0.284 & 0.940 & 0.461 \\
-				0.16 & 0.816 & 0.212 & 0.928 & 0.523 \\
-				0.2 & 0.794 & 0.187 & 0.923 & 0.556 \\
-				0.4 & 0.671 & 0.086 & 0.882 & 0.683 \\
+				
+				0.1 & 87.77\% & 21.95\% & 78.69\% & 22.15\% \\
+				0.15 & 85.17\% & 16.41\% & 83.69\% & 26.97\% \\
+				0.3 & 74.66\% & 8.25\% & 90.61\% & 39.17\% \\
+		
 			\end{tabular}
 		\end{center}
 	\end{table}
 	
-	As seen in the table all runs have a rather low precision, with an average of 50\%, and high false positive rate, around 20\%. This is an unresolved problem in skin detection, caused by a large number of skin-like surfaces. This problem can be avoided if detection is done in a controlled environment, like the anchorperson annotation application, but this is not always possible in real world problems.  Most models seen in research have a false positive rate of over 10\%. Papers that I have studied, claiming a smaller false acceptance are evaluated on either unavailable or very small datasets.
+	As seen in the table all runs have a rather low precision, with an average of around 30\%. This is proportional to the number of false positives and is an unresolved problem in skin detection, caused by a large number of skin-like surfaces. This problem can be avoided if detection is done in a controlled environment, like the anchorperson annotation application, but this is not always possible in real world problems.  Most models seen in research have a false positive rate of over 10\%. Papers that I have studied, claiming a smaller false acceptance are evaluated on either unavailable or very small datasets.
 
 	\subsection{Comparison with related work}
 	
@@ -747,7 +749,7 @@
 			\begin{tabular}{c|c|c}
 				\textbf{Model} & \textbf{TPR} & \textbf{FPR} \\
 				\hline
-				My model & 81.6\% & 21.2\% \\
+				My model & 85.17\% & 16.41\% \\
 				SPM model (Jones and Rehg\cite{compaq}) & 90\% & 14.2\% \\
 				Mixture of Gaussians (Jones and Rehg\cite{compaq}) & 80\% & 9.5\% \\
 				Single Gaussian CbCr (Lee and Yoo\cite{gaussian_applied}) & 90\% & 33.3\% \\
@@ -765,7 +767,7 @@
 	
 	My algorithm resizes every image to increase performance. However, this means that it must use a smaller window for texture analysis which might not be enough to get relevant textural features.
 	
-	I have only used a subset of 50 images, all containing some patches of skin, for evaluation due to its computation time, while most models use around 6000 images. The images selected for my model could have been not very representative for the dataset. Furthermore, when experimenting with augmenting my testing set with around 30 non-skin images I noticed a small (2\%) increase in performance. This suggests that on a dataset similar to that used by compared models, 2000 skin and 4000 non-skin images, performance may increase considerably.
+	I have only used a subset of 150 images, 50 containing patches of skin, for evaluation due to its computation time, while most models use around 6000 images (2000 skin and 4000 non-skin). The images selected for my model could have been not very representative for the dataset. Furthermore, when experimenting with increasing the testing set I have noticed improvements in performance. This suggests that on a dataset similar to that used by compared models, 2000 skin and 4000 non-skin images, performance may increase considerably.
 	
 	\newpage
 	\subsection{Detection examples}
@@ -1093,7 +1095,7 @@
 	
 	\section{Proposed model's results}
 	
-	The proposed model obtains acceptable but slightly weaker results than the state-of-the-art techniques. Consequently, it has not achieved its goal of considerably reducing the large false positive rate currently associated with skin detection models. The reasons for this could be the resizing step which forces the selection of a smaller texture detection window or the use of a small dataset for evaluation in comparison to other models. Both of these compromises have been taken due to time constraints. This indicates the proposed model is unfit for real-time detection tasks but could be a valid approach for data mining processes.
+	The proposed model obtains similar but slightly weaker results than the state-of-the-art techniques. Consequently, it has not achieved its goal of considerably reducing the large false positive rate currently associated with skin detection models. The reasons for this could be the resizing step which forces the selection of a smaller texture detection window or the use of a small dataset for evaluation in comparison to other models. Both of these compromises have been taken due to time constraints. This indicates the proposed model is unfit for real-time detection tasks but could be a valid approach for data mining processes.
 	
 	\section{Future developments}
 	A big issue in the current form of the model is the computation time, which forced me to take some decision that might have impacted classification performance. Consequently this would be the top candidate for optimization. Some solutions in this direction are implementing the image processing algorithms on the GPU (an example for Quick shift was provided by Fulkerson\cite{quickshift_gpu}) and take advantage of multithreading whenever possible (for example during evaluation).

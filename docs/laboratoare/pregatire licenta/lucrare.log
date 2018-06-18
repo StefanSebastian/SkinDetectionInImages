@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.06.2 (MiKTeX 2.9.6500 64-bit)  (format=lualatex 2018.6.9)  18 JUN 2018 20:47
+This is LuaTeX, Version 1.06.2 (MiKTeX 2.9.6500 64-bit)  (format=lualatex 2018.6.9)  18 JUN 2018 21:02
  restricted system commands enabled.
 **lucrare.tex
 (./lucrare.tex
@@ -33,7 +33,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.737 seconds
+luaotfload | main : initialization completed in 0.946 seconds
 Babel <3.15> and hyphenation patterns for 1 language(s) loaded.
 ("C:/Program Files/MiKTeX 2.9/tex/latex/base/report.cls"
 Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
@@ -1498,21 +1498,24 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <design/evaluator.png, id=902, pagebox=cropbox, 263.48438pt x 95.6072pt>
 File: design/evaluator.png Graphic file (type png)
 <use design/evaluator.png>
-Package luatex.def Info: design/evaluator.png  used on input line 917. on input 
-line 917.
+Package luatex.def Info: design/evaluator.png  used on input line 915. on input 
+line 915.
 Package luatex.def Info: Requested size: 263.48372pt x 95.60695pt on input line 
-917.
+915.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 [37<./design/color_detect.png>] [38<./design/texture_train.png><./design/texture
 _detect.png><./design/evaluator.png>]
 <design/gui.png, id=913, pagebox=cropbox, 497.60907pt x 219.06844pt>
 File: design/gui.png Graphic file (type png)
 <use design/gui.png>
-Package luatex.def Info: design/gui.png  used on input line 934. on input line 9
-34.
+Package luatex.def Info: design/gui.png  used on input line 932. on input line 9
+32.
 Package luatex.def Info: Requested size: 497.60785pt x 219.06789pt on input line
- 934.
+ 932.
 
-Overfull \hbox (42.36374pt too wide) in paragraph at lines 934--935
+Overfull \hbox (42.36374pt too wide) in paragraph at lines 932--933
  [][] 
  []
 
@@ -1520,120 +1523,112 @@ Overfull \hbox (42.36374pt too wide) in paragraph at lines 934--935
 <manual/tab_view.png, id=919, pagebox=cropbox, 203.25937pt x 42.91031pt>
 File: manual/tab_view.png Graphic file (type png)
 <use manual/tab_view.png>
-Package luatex.def Info: manual/tab_view.png  used on input line 949. on input l
-ine 949.
+Package luatex.def Info: manual/tab_view.png  used on input line 947. on input l
+ine 947.
 Package luatex.def Info: Requested size: 203.25887pt x 42.91019pt on input line 
-949.
+947.
 <manual/detection_view.png, id=921, pagebox=cropbox, 718.93594pt x 363.60844pt>
 File: manual/detection_view.png Graphic file (type png)
 <use manual/detection_view.png>
-Package luatex.def Info: manual/detection_view.png  used on input line 962. on i
-nput line 962.
+Package luatex.def Info: manual/detection_view.png  used on input line 960. on i
+nput line 960.
 Package luatex.def Info: Requested size: 455.24411pt x 230.25075pt on input line
- 962.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<manual/evaluator_view.png, id=923, pagebox=cropbox, 557.08125pt x 385.44pt>
+ 960.
+ [40<./manual/tab_view.png><./manual/detection_view.png>]
+<manual/evaluator_view.png, id=928, pagebox=cropbox, 557.08125pt x 385.44pt>
 File: manual/evaluator_view.png Graphic file (type png)
 <use manual/evaluator_view.png>
-Package luatex.def Info: manual/evaluator_view.png  used on input line 972. on i
-nput line 972.
+Package luatex.def Info: manual/evaluator_view.png  used on input line 970. on i
+nput line 970.
 Package luatex.def Info: Requested size: 455.24411pt x 314.98656pt on input line
- 972.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[40<./manual/tab_view.png>] [41<./manual/detection_view.png><./manual/evaluator_
-view.png>]
-<manual/color_model_train_view.png, id=933, pagebox=cropbox, 462.22687pt x 222.8
+ 970.
+[41<./manual/evaluator_view.png>]
+<manual/color_model_train_view.png, id=934, pagebox=cropbox, 462.22687pt x 222.8
 325pt>
 File: manual/color_model_train_view.png Graphic file (type png)
 <use manual/color_model_train_view.png>
 Package luatex.def Info: manual/color_model_train_view.png  used on input line 9
-94. on input line 994.
+92. on input line 992.
 Package luatex.def Info: Requested size: 455.24411pt x 219.46921pt on input line
- 994.
- [42<./manual/color_model_train_view.png>]
-<manual/texture_model_train_view.png, id=938, pagebox=cropbox, 467.49657pt x 237
+ 992.
+<manual/texture_model_train_view.png, id=935, pagebox=cropbox, 467.49657pt x 237
 .13594pt>
 File: manual/texture_model_train_view.png Graphic file (type png)
 <use manual/texture_model_train_view.png>
 Package luatex.def Info: manual/texture_model_train_view.png  used on input line
- 1005. on input line 1005.
+ 1003. on input line 1003.
 Package luatex.def Info: Requested size: 455.24411pt x 230.93341pt on input line
- 1005.
-<manual/segmentation_frame.png, id=939, pagebox=cropbox, 211.54031pt x 67.75313p
+ 1003.
+ [42<./manual/color_model_train_view.png>]
+<manual/segmentation_frame.png, id=940, pagebox=cropbox, 211.54031pt x 67.75313p
 t>
 File: manual/segmentation_frame.png Graphic file (type png)
 <use manual/segmentation_frame.png>
-Package luatex.def Info: manual/segmentation_frame.png  used on input line 1016.
- on input line 1016.
+Package luatex.def Info: manual/segmentation_frame.png  used on input line 1014.
+ on input line 1014.
 Package luatex.def Info: Requested size: 211.53978pt x 67.75294pt on input line 
-1016.
+1014.
 
-Underfull \hbox (badness 1565) in paragraph at lines 1025--1026
+Underfull \hbox (badness 1565) in paragraph at lines 1023--1024
 []\TU/TimesNewRoman(0)/m/n/12 The ‘Use po-si-tion’ check-box in-di-cates
  []
 
-[43<./manual/texture_model_train_view.png><./manual/segmentation_frame.png>]
-<manual/color_detection_frame.png, id=945, pagebox=cropbox, 306.39468pt x 90.337
+<manual/color_detection_frame.png, id=941, pagebox=cropbox, 306.39468pt x 90.337
 5pt>
 File: manual/color_detection_frame.png Graphic file (type png)
 <use manual/color_detection_frame.png>
 Package luatex.def Info: manual/color_detection_frame.png  used on input line 10
-31. on input line 1031.
+29. on input line 1029.
 Package luatex.def Info: Requested size: 306.39394pt x 90.33727pt on input line 
-1031.
+1029.
 
-Overfull \hbox (33.2447pt too wide) in paragraph at lines 1031--1032
+Overfull \hbox (33.2447pt too wide) in paragraph at lines 1029--1030
  [] 
  []
 
-
-Underfull \hbox (badness 3179) in paragraph at lines 1038--1039
+[43<./manual/texture_model_train_view.png><./manual/segmentation_frame.png>]
+Underfull \hbox (badness 3179) in paragraph at lines 1036--1037
 []\TU/TimesNewRoman(0)/m/n/12 The SPM model is a pickle
  []
 
 
-Underfull \hbox (badness 4569) in paragraph at lines 1040--1041
+Underfull \hbox (badness 4569) in paragraph at lines 1038--1039
 []\TU/TimesNewRoman(0)/m/n/12 The de-tec-tion thresh-old is a
  []
 
-<manual/texture_detection_frame.png, id=946, pagebox=cropbox, 309.40594pt x 70.0
+<manual/texture_detection_frame.png, id=948, pagebox=cropbox, 309.40594pt x 70.0
 1157pt>
 File: manual/texture_detection_frame.png Graphic file (type png)
 <use manual/texture_detection_frame.png>
 Package luatex.def Info: manual/texture_detection_frame.png  used on input line 
-1050. on input line 1050.
+1048. on input line 1048.
 Package luatex.def Info: Requested size: 309.40518pt x 70.01138pt on input line 
-1050.
+1048.
 
-Overfull \hbox (36.25595pt too wide) in paragraph at lines 1050--1051
+Overfull \hbox (36.25595pt too wide) in paragraph at lines 1048--1049
  [] 
  []
 
 
-Underfull \hbox (badness 1057) in paragraph at lines 1055--1056
+Underfull \hbox (badness 1057) in paragraph at lines 1053--1054
 \TU/TimesNewRoman(0)/m/n/12 but-ton you can se-lect the tex-ture
  []
 
-[44<./manual/color_detection_frame.png><./manual/texture_detection_frame.png>]
-<manual/resize_frame.png, id=954, pagebox=cropbox, 215.30438pt x 64.74188pt>
+<manual/resize_frame.png, id=949, pagebox=cropbox, 215.30438pt x 64.74188pt>
 File: manual/resize_frame.png Graphic file (type png)
 <use manual/resize_frame.png>
-Package luatex.def Info: manual/resize_frame.png  used on input line 1069. on in
-put line 1069.
+Package luatex.def Info: manual/resize_frame.png  used on input line 1067. on in
+put line 1067.
 Package luatex.def Info: Requested size: 215.30385pt x 64.74171pt on input line 
-1069.
-<manual/feedback_view.png, id=956, pagebox=cropbox, 270.25969pt x 225.84375pt>
+1067.
+[44<./manual/color_detection_frame.png><./manual/texture_detection_frame.png>]
+<manual/feedback_view.png, id=958, pagebox=cropbox, 270.25969pt x 225.84375pt>
 File: manual/feedback_view.png Graphic file (type png)
 <use manual/feedback_view.png>
-Package luatex.def Info: manual/feedback_view.png  used on input line 1087. on i
-nput line 1087.
+Package luatex.def Info: manual/feedback_view.png  used on input line 1085. on i
+nput line 1085.
 Package luatex.def Info: Requested size: 270.25902pt x 225.84319pt on input line
- 1087.
+ 1085.
 
 [45<./manual/resize_frame.png><./manual/feedback_view.png>]
 Chapter 5.
@@ -1655,23 +1650,23 @@ s://news.xbox.com/en-[]us/2013/11/26/
 [48
 
 ] [49] [50] [51]) [52]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1114.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1114.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1112.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1112.
  (./lucrare.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1114.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1114.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1112.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1112.
 Package rerunfilecheck Info: File `lucrare.out' has not changed.
 (rerunfilecheck)             Checksum: 85509D72B220ED31B52C3F5D030CF760;4651.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1114.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1112.
 )
 
 Here is how much of LuaTeX's memory you used:
  29623 strings out of 494456
- 125025,794899 words of node,token memory allocated
+ 125023,794899 words of node,token memory allocated
  812 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 2 glue, 1 kern, 59 attribute, 74 glue_spec, 59 attr
 ibute_list, 1 write, 5 pdf_action nodes
-   avail lists: 2:590,3:231,4:77,5:116,6:72,7:3881,8:93,9:272,10:16,11:294,12:1
+   avail lists: 2:590,3:231,4:77,5:116,6:71,7:3882,8:93,9:273,10:16,11:292,12:1
  32437 multiletter control sequences out of 65536+200000
  58 fonts using 18483239 bytes
  62i,17n,77p,993b,631s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1688,9 +1683,9 @@ pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Pro
 gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2
 .9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on lucrare.pdf (59 pages, 1824002 bytes).
+Output written on lucrare.pdf (59 pages, 1824291 bytes).
 
-PDF statistics: 1089 PDF objects out of 1200 (max. 8388607)
+PDF statistics: 1090 PDF objects out of 1200 (max. 8388607)
  268 named destinations out of 1000 (max. 131072)
  552 words of extra memory for PDF output out of 10000 (max. 100000000)
 

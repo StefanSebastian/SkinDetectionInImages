@@ -908,9 +908,7 @@
 	
 	The evaluator module has a simple structure, as seen in figure \ref{fig:evaluator}. The Evaluator class contains methods for evaluating a model(run\_simulation) and for applying it to an image(run\_detection). It takes as input a RunConfiguration object which contains informations about the desired skin and texture models and segmentation parameters.
 	
-	In order to evaluate the model some quality measures are applied for each analyzed picture. These methods include the false positive rate, true positive rate, precision, accuracy and recall and are implemented by the Stats class.
-	
-	The results are logged and also saved to a file in the csv (Comma-separated Values) format for later analysis.
+	In order to evaluate the model some quality measures are applied for each analyzed picture. These methods include the false positive rate, true positive rate, precision, accuracy and recall and are implemented by the Stats class. The results are logged and also saved to a file in the csv (Comma-separated Values) format for later analysis.
 	
 	\begin{figure}[h!]
 		\centering

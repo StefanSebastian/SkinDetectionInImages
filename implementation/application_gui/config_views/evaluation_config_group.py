@@ -77,6 +77,6 @@ class EvaluationConfigFrame(Frame):
         self.configuration.test_path_in = test_path_in
         self.configuration.test_path_expected = test_path_exp
         self.configuration.results_path = test_path_res
-        self.configuration.test_path_logging = test_path_log
+        self.configuration.logging_path = test_path_log
 
         return self.configuration

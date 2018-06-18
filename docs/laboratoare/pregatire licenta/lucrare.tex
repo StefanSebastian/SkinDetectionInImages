@@ -26,7 +26,7 @@
 \usepackage[utf8]{inputenc} % romanian characters
 
 \begin{document}
-	\listoftodos
+	\pagenumbering{gobble}% Remove page numbers (and reset to 1)
 	
 	\begin{titlepage}
 		
@@ -53,12 +53,24 @@
 		\begin{center}
 			\Large{2018}
 		\end{center}
-	\end{titlepage}  
+	\end{titlepage}
+
+
+	\cleardoublepage
+	ABSTRACT
+	\vspace{0.5cm}	
+	\hrule
+	\vspace{0.5cm}	
+	
+	aici textul abstractului
+	
 	
 	\tableofcontents
 	\listoffigures
 	\listoftables
 	\newpage
+	
+	\pagenumbering{arabic}
 	
 	\chapter{Introduction}
 	
@@ -707,35 +719,6 @@
 	\end{table}
 	
 	As seen in the table all runs have a rather low precision, with an average of 50\%, and high false positive rate, around 20\%. This is an unresolved problem in skin detection, caused by a large number of skin-like surfaces. This problem can be avoided if detection is done in a controlled environment, like the anchorperson annotation application, but this is not always possible in real world problems.  Most models seen in research have a false positive rate of over 10\%. Papers that I have studied, claiming a smaller false acceptance are evaluated on either unavailable or very small datasets.
-	
-	\subsection{Detection examples}
-	\begin{figure}[h!]
-		\centering
-		\begin{subfigure}[b]{0.4\linewidth}
-			\includegraphics[width=\linewidth]{example_runs/1_in.png}
-		\end{subfigure}
-		\begin{subfigure}[b]{0.4\linewidth}
-			\includegraphics[width=\linewidth]{example_runs/1_out.png}
-		\end{subfigure}
-	
-		
-		\begin{subfigure}[b]{0.4\linewidth}
-			\includegraphics[width=\linewidth]{example_runs/2_in.png}
-		\end{subfigure}
-		\begin{subfigure}[b]{0.4\linewidth}
-			\includegraphics[width=\linewidth]{example_runs/2_out.png}
-		\end{subfigure}
-	
-		\begin{subfigure}[b]{0.4\linewidth}
-			\includegraphics[width=\linewidth]{example_runs/3_in.png}
-		\end{subfigure}
-		\begin{subfigure}[b]{0.4\linewidth}
-			\includegraphics[width=\linewidth]{example_runs/3_out.png}
-		\end{subfigure}
-	
-		\caption{Some detection examples. Skin is marked with a black mask.}
-		\label{fig:example_detection}
-	\end{figure}
 
 	\subsection{Comparison with related work}
 	
@@ -743,7 +726,7 @@
 	
 	\begin{table}[h!]
 		\begin{center}
-			\caption{Evaluation of the proposed model on the Compaq dataset}
+			\caption{Comparison of the proposed model with related work}
 			\label{tab:results_comparison}
 			\begin{tabular}{c|c|c}
 				\textbf{Model} & \textbf{TPR} & \textbf{FPR} \\
@@ -767,6 +750,36 @@
 	My algorithm resizes every image to increase performance. However, this means that it must use a smaller window for texture analysis which might not be enough to get relevant textural features.
 	
 	I have only used a subset of 50 images, all containing some patches of skin, for evaluation due to its computation time, while most models use around 6000 images. The images selected for my model could have been not very representative for the dataset. Furthermore, when experimenting with augmenting my testing set with around 30 non-skin images I noticed a small (2\%) increase in performance. This suggests that on a dataset similar to that used by compared models, 2000 skin and 4000 non-skin images, performance may increase considerably.
+	
+	\newpage
+	\subsection{Detection examples}
+	\begin{figure}[h!]
+		\centering
+		\begin{subfigure}[b]{0.4\linewidth}
+			\includegraphics[width=\linewidth]{example_runs/1_in.png}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.4\linewidth}
+			\includegraphics[width=\linewidth]{example_runs/1_out.png}
+		\end{subfigure}
+		
+		
+		\begin{subfigure}[b]{0.4\linewidth}
+			\includegraphics[width=\linewidth]{example_runs/2_in.png}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.4\linewidth}
+			\includegraphics[width=\linewidth]{example_runs/2_out.png}
+		\end{subfigure}
+		
+		\begin{subfigure}[b]{0.4\linewidth}
+			\includegraphics[width=\linewidth]{example_runs/3_in.png}
+		\end{subfigure}
+		\begin{subfigure}[b]{0.4\linewidth}
+			\includegraphics[width=\linewidth]{example_runs/3_out.png}
+		\end{subfigure}
+		
+		\caption{Some detection examples. Skin is marked with a black mask.}
+		\label{fig:example_detection}
+	\end{figure}
 	
 	\chapter{Application development}
 	In this chapter all details related to the application implemented for the model presented in the previous chapter are presented. The first section is focused on design and contains a breakdown of every module. It also notes the technologies used and their purpose. The second section presents the functionalities of the application in a user friendly way.

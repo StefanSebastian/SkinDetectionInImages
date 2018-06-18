@@ -1,96 +1,96 @@
-\contentsline {chapter}{\numberline {1}Introduction}{6}{chapter.1}
-\contentsline {section}{\numberline {1.1}Overview}{6}{section.1.1}
-\contentsline {section}{\numberline {1.2}The main chapters}{6}{section.1.2}
-\contentsline {section}{\numberline {1.3}Applications}{7}{section.1.3}
-\contentsline {subsection}{\numberline {1.3.1}Pornography filtering}{7}{subsection.1.3.1}
-\contentsline {subsection}{\numberline {1.3.2}Anchorperson detection}{8}{subsection.1.3.2}
-\contentsline {subsection}{\numberline {1.3.3}Preprocessing for complex systems}{8}{subsection.1.3.3}
-\contentsline {chapter}{\numberline {2}Theoretical background}{9}{chapter.2}
-\contentsline {section}{\numberline {2.1}Related work}{9}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Models using color analysis}{10}{subsection.2.1.1}
-\contentsline {subsubsection}{Skin Probability Maps}{10}{section*.5}
-\contentsline {subsubsection}{Gaussian Models}{10}{section*.6}
-\contentsline {subsubsection}{Elliptical boundary model}{11}{section*.7}
-\contentsline {subsubsection}{Explicit thresholding}{11}{section*.8}
-\contentsline {subsubsection}{Hidden Markov Models}{12}{section*.9}
-\contentsline {subsection}{\numberline {2.1.2}Models using segmentation}{12}{subsection.2.1.2}
-\contentsline {subsection}{\numberline {2.1.3}Models using textural features}{13}{subsection.2.1.3}
-\contentsline {subsubsection}{Haralick features}{13}{section*.10}
-\contentsline {subsubsection}{Gabor wavelet transforms}{13}{section*.11}
-\contentsline {subsubsection}{Contourlet-Based Analysis}{13}{section*.12}
-\contentsline {subsection}{\numberline {2.1.4}Models using shape information}{14}{subsection.2.1.4}
-\contentsline {section}{\numberline {2.2}Image segmentation}{14}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Thresholding}{15}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Edge detection}{15}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}Clustering}{16}{subsection.2.2.3}
-\contentsline {subsubsection}{K-means}{16}{section*.13}
-\contentsline {subsubsection}{Mode seeking. The Quick shift algorithm}{16}{section*.14}
-\contentsline {section}{\numberline {2.3}Skin detection by color}{17}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Color spaces}{18}{subsection.2.3.1}
-\contentsline {subsubsection}{RGB}{18}{section*.16}
-\contentsline {subsubsection}{Normalized RGB}{18}{section*.17}
-\contentsline {subsubsection}{HSI, HSV, HSL}{18}{section*.18}
-\contentsline {subsubsection}{YCbCr}{19}{section*.19}
-\contentsline {subsection}{\numberline {2.3.2}Explicit thresholding}{19}{subsection.2.3.2}
-\contentsline {subsection}{\numberline {2.3.3}Skin Probability Map}{19}{subsection.2.3.3}
-\contentsline {subsection}{\numberline {2.3.4}Gaussian classifiers}{20}{subsection.2.3.4}
-\contentsline {subsubsection}{Single Gaussian}{21}{section*.20}
-\contentsline {subsubsection}{Gaussian Mixture Models}{21}{section*.21}
-\contentsline {section}{\numberline {2.4}Texture analysis}{22}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}Structural methods}{22}{subsection.2.4.1}
-\contentsline {subsubsection}{Voronoi tesselation}{22}{section*.22}
-\contentsline {subsection}{\numberline {2.4.2}Statistical methods}{22}{subsection.2.4.2}
-\contentsline {subsubsection}{Local Binary Partition}{23}{section*.23}
-\contentsline {subsubsection}{First-order histogram based features}{23}{section*.24}
-\contentsline {subsubsection}{Haralick's features}{24}{section*.25}
-\contentsline {subsection}{\numberline {2.4.3}Model based methods}{25}{subsection.2.4.3}
-\contentsline {subsubsection}{Fractal models}{25}{section*.26}
-\contentsline {subsection}{\numberline {2.4.4}Transform methods}{25}{subsection.2.4.4}
-\contentsline {subsubsection}{Gabor features}{25}{section*.27}
-\contentsline {subsection}{\numberline {2.4.5}Use in skin detection}{26}{subsection.2.4.5}
-\contentsline {chapter}{\numberline {3}Proposed model}{27}{chapter.3}
-\contentsline {section}{\numberline {3.1}Overview}{27}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Segmentation}{27}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Color analysis}{28}{subsection.3.1.2}
-\contentsline {subsection}{\numberline {3.1.3}Texture analysis}{29}{subsection.3.1.3}
-\contentsline {subsection}{\numberline {3.1.4}The final image}{29}{subsection.3.1.4}
-\contentsline {section}{\numberline {3.2}Datasets}{30}{section.3.2}
-\contentsline {section}{\numberline {3.3}Parameters}{31}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Image segmentation}{31}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Texture analysis}{31}{subsection.3.3.2}
-\contentsline {subsection}{\numberline {3.3.3}Color analysis}{31}{subsection.3.3.3}
-\contentsline {section}{\numberline {3.4}Training}{32}{section.3.4}
-\contentsline {section}{\numberline {3.5}Evaluation}{33}{section.3.5}
-\contentsline {subsection}{\numberline {3.5.1}Dataset}{33}{subsection.3.5.1}
-\contentsline {subsection}{\numberline {3.5.2}Performance metrics}{33}{subsection.3.5.2}
-\contentsline {subsection}{\numberline {3.5.3}Results}{33}{subsection.3.5.3}
-\contentsline {subsection}{\numberline {3.5.4}Detection examples}{34}{subsection.3.5.4}
-\contentsline {subsection}{\numberline {3.5.5}Comparison with related work}{34}{subsection.3.5.5}
-\contentsline {chapter}{\numberline {4}Application development}{37}{chapter.4}
-\contentsline {section}{\numberline {4.1}Implementation}{37}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Technologies used}{37}{subsection.4.1.1}
-\contentsline {subsubsection}{General}{37}{section*.37}
-\contentsline {subsubsection}{Image processing}{38}{section*.38}
-\contentsline {subsubsection}{Texture analysis}{38}{section*.39}
-\contentsline {subsubsection}{GUI}{38}{section*.40}
-\contentsline {subsection}{\numberline {4.1.2}The image segmentation module}{39}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}The color detection module}{39}{subsection.4.1.3}
-\contentsline {subsection}{\numberline {4.1.4}The texture analysis module}{40}{subsection.4.1.4}
-\contentsline {subsection}{\numberline {4.1.5}The evaluator module}{41}{subsection.4.1.5}
-\contentsline {subsection}{\numberline {4.1.6}User interface}{43}{subsection.4.1.6}
-\contentsline {section}{\numberline {4.2}User manual}{43}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Introduction}{43}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Detection view}{44}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Evaluator view}{44}{subsection.4.2.3}
-\contentsline {subsection}{\numberline {4.2.4}Color model training view}{46}{subsection.4.2.4}
-\contentsline {subsection}{\numberline {4.2.5}Texture model training view}{47}{subsection.4.2.5}
-\contentsline {subsection}{\numberline {4.2.6}Common configuration frames}{47}{subsection.4.2.6}
-\contentsline {subsubsection}{Segmentation}{47}{section*.54}
-\contentsline {subsubsection}{Color detection}{48}{section*.56}
-\contentsline {subsubsection}{Texture detection}{48}{section*.58}
-\contentsline {subsubsection}{Resize options}{49}{section*.60}
-\contentsline {subsection}{\numberline {4.2.7}User Feedback}{49}{subsection.4.2.7}
-\contentsline {chapter}{\numberline {5}Conclusions}{50}{chapter.5}
-\contentsline {section}{\numberline {5.1}State of research}{50}{section.5.1}
-\contentsline {section}{\numberline {5.2}Proposed model's results}{50}{section.5.2}
-\contentsline {section}{\numberline {5.3}Future developments}{51}{section.5.3}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Overview}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}The main chapters}{1}{section.1.2}
+\contentsline {section}{\numberline {1.3}Applications}{2}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Pornography filtering}{2}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Anchorperson detection}{3}{subsection.1.3.2}
+\contentsline {subsection}{\numberline {1.3.3}Preprocessing for complex systems}{3}{subsection.1.3.3}
+\contentsline {chapter}{\numberline {2}Theoretical background}{4}{chapter.2}
+\contentsline {section}{\numberline {2.1}Related work}{4}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Models using color analysis}{5}{subsection.2.1.1}
+\contentsline {subsubsection}{Skin Probability Maps}{5}{section*.4}
+\contentsline {subsubsection}{Gaussian Models}{5}{section*.5}
+\contentsline {subsubsection}{Elliptical boundary model}{6}{section*.6}
+\contentsline {subsubsection}{Explicit thresholding}{6}{section*.7}
+\contentsline {subsubsection}{Hidden Markov Models}{7}{section*.8}
+\contentsline {subsection}{\numberline {2.1.2}Models using segmentation}{7}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Models using textural features}{8}{subsection.2.1.3}
+\contentsline {subsubsection}{Haralick features}{8}{section*.9}
+\contentsline {subsubsection}{Gabor wavelet transforms}{8}{section*.10}
+\contentsline {subsubsection}{Contourlet-Based Analysis}{8}{section*.11}
+\contentsline {subsection}{\numberline {2.1.4}Models using shape information}{9}{subsection.2.1.4}
+\contentsline {section}{\numberline {2.2}Image segmentation}{9}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Thresholding}{10}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Edge detection}{10}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Clustering}{11}{subsection.2.2.3}
+\contentsline {subsubsection}{K-means}{11}{section*.12}
+\contentsline {subsubsection}{Mode seeking. The Quick shift algorithm}{11}{section*.13}
+\contentsline {section}{\numberline {2.3}Skin detection by color}{12}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Color spaces}{13}{subsection.2.3.1}
+\contentsline {subsubsection}{RGB}{13}{section*.15}
+\contentsline {subsubsection}{Normalized RGB}{13}{section*.16}
+\contentsline {subsubsection}{HSI, HSV, HSL}{13}{section*.17}
+\contentsline {subsubsection}{YCbCr}{14}{section*.18}
+\contentsline {subsection}{\numberline {2.3.2}Explicit thresholding}{14}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}Skin Probability Map}{14}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.4}Gaussian classifiers}{15}{subsection.2.3.4}
+\contentsline {subsubsection}{Single Gaussian}{16}{section*.19}
+\contentsline {subsubsection}{Gaussian Mixture Models}{16}{section*.20}
+\contentsline {section}{\numberline {2.4}Texture analysis}{17}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Structural methods}{17}{subsection.2.4.1}
+\contentsline {subsubsection}{Voronoi tesselation}{17}{section*.21}
+\contentsline {subsection}{\numberline {2.4.2}Statistical methods}{17}{subsection.2.4.2}
+\contentsline {subsubsection}{Local Binary Partition}{18}{section*.22}
+\contentsline {subsubsection}{First-order histogram based features}{18}{section*.23}
+\contentsline {subsubsection}{Haralick's features}{19}{section*.24}
+\contentsline {subsection}{\numberline {2.4.3}Model based methods}{20}{subsection.2.4.3}
+\contentsline {subsubsection}{Fractal models}{20}{section*.25}
+\contentsline {subsection}{\numberline {2.4.4}Transform methods}{20}{subsection.2.4.4}
+\contentsline {subsubsection}{Gabor features}{20}{section*.26}
+\contentsline {subsection}{\numberline {2.4.5}Use in skin detection}{21}{subsection.2.4.5}
+\contentsline {chapter}{\numberline {3}Proposed model}{22}{chapter.3}
+\contentsline {section}{\numberline {3.1}Overview}{22}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Segmentation}{22}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Color analysis}{23}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}Texture analysis}{24}{subsection.3.1.3}
+\contentsline {subsection}{\numberline {3.1.4}The final image}{24}{subsection.3.1.4}
+\contentsline {section}{\numberline {3.2}Datasets}{25}{section.3.2}
+\contentsline {section}{\numberline {3.3}Parameters}{26}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}Image segmentation}{26}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Texture analysis}{26}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Color analysis}{26}{subsection.3.3.3}
+\contentsline {section}{\numberline {3.4}Training}{27}{section.3.4}
+\contentsline {section}{\numberline {3.5}Evaluation}{28}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Dataset}{28}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}Performance metrics}{28}{subsection.3.5.2}
+\contentsline {subsection}{\numberline {3.5.3}Results}{28}{subsection.3.5.3}
+\contentsline {subsection}{\numberline {3.5.4}Comparison with related work}{29}{subsection.3.5.4}
+\contentsline {subsection}{\numberline {3.5.5}Detection examples}{31}{subsection.3.5.5}
+\contentsline {chapter}{\numberline {4}Application development}{32}{chapter.4}
+\contentsline {section}{\numberline {4.1}Implementation}{32}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Technologies used}{32}{subsection.4.1.1}
+\contentsline {subsubsection}{General}{32}{section*.36}
+\contentsline {subsubsection}{Image processing}{33}{section*.37}
+\contentsline {subsubsection}{Texture analysis}{33}{section*.38}
+\contentsline {subsubsection}{GUI}{33}{section*.39}
+\contentsline {subsection}{\numberline {4.1.2}The image segmentation module}{34}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}The color detection module}{34}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.4}The texture analysis module}{35}{subsection.4.1.4}
+\contentsline {subsection}{\numberline {4.1.5}The evaluator module}{36}{subsection.4.1.5}
+\contentsline {subsection}{\numberline {4.1.6}User interface}{38}{subsection.4.1.6}
+\contentsline {section}{\numberline {4.2}User manual}{38}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Introduction}{38}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Detection view}{39}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Evaluator view}{39}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Color model training view}{41}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Texture model training view}{42}{subsection.4.2.5}
+\contentsline {subsection}{\numberline {4.2.6}Common configuration frames}{42}{subsection.4.2.6}
+\contentsline {subsubsection}{Segmentation}{42}{section*.53}
+\contentsline {subsubsection}{Color detection}{43}{section*.55}
+\contentsline {subsubsection}{Texture detection}{43}{section*.57}
+\contentsline {subsubsection}{Resize options}{44}{section*.59}
+\contentsline {subsection}{\numberline {4.2.7}User Feedback}{44}{subsection.4.2.7}
+\contentsline {chapter}{\numberline {5}Conclusions}{45}{chapter.5}
+\contentsline {section}{\numberline {5.1}State of research}{45}{section.5.1}
+\contentsline {section}{\numberline {5.2}Proposed model's results}{45}{section.5.2}
+\contentsline {section}{\numberline {5.3}Future developments}{46}{section.5.3}

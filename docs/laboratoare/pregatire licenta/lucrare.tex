@@ -27,7 +27,6 @@
 
 \begin{document}
 	\pagenumbering{gobble}% Remove page numbers (and reset to 1)
-	\listoftodos
 	
 	\begin{titlepage}
 		
@@ -64,13 +63,15 @@
 	\vspace{0.5cm}	
 	
 	\todo{reformulate} reformulate this paragraph
-	The subject of this paper is the problem of skin detection in images. With the increase of computing power in recent years, complex data analysis tasks, such as image detection are now viable. A popular field of image analysis concerns identifying humans or body parts.  Some applications of this field include: hand gesture recognition, pornography filtering, video data indexing, face detection, etc. 
+	The subject of this thesis is the problem of skin detection in images. The goal of this paper is to provide an analysis of the current state of research in this area, present the theoretical foundations required to build a skin detector and to propose a new model, focused on overcoming the obstacles presented above and reducing the false detection rate.
+	
+	With the increase of computing power in recent years, complex data analysis tasks, such as image detection are now viable. A popular field of image analysis concerns identifying humans or body parts.  Some applications of this field include: hand gesture recognition, pornography filtering, video data indexing, face detection, etc. 
 	
 	The goal of this paper is to propose an algorithm that improves the high false acceptance rate typical of skin detectors found in research. The motivation behind this is that most skin detectors focus on computation speed rather than performance. Consequently there is a lack of accurate skin models for tasks where computation speed is not crucial, such as data mining.
 	
 	The proposed model analyzes color information on regions detected through image segmentation and then applies a texture filter to further reduce false acceptance rate. Images are segmented using the Quick shift algorithm which takes into account pixel color and position features. For each of the resulting superpixels an average skin probability is computed using Skin Probability Maps. Haralick's textural features are calculated on a window around each pixel and classified with a Support Vector Machine. Finally, the results of the color and texture models are intersected. 
 	
-	TODO results
+	The model achieves similar results to state-of-the-art detectors but it does not fulfill the goal of severely reducing false acceptance rate. However, the results are not conclusive because it was evaluated on a smaller dataset due to time constraints.
 	
 	To my best knowledge, a skin detection model using image segmentation, color and texture information has not yet been published in this area of research. This work is the result of my own activity. I have neither given nor received unauthorized assistance on this work.
 	
@@ -84,12 +85,38 @@
 	
 	\chapter{Introduction}
 	
-	The problem tackled in this paper is skin detection in images. Skin detection, as a field of research,  means identifying pixels and regions in images which correspond to human skin. Starting from these regions we can build models that detect people or certain body parts. The problem statement is a simple one however its application comes with a lot of challenges such as: various illumination conditions, multiple possible skin colors, presence of objects that resemble skin.
+	This chapter introduces the topic of skin detection with its applications, the motivation behind the proposed model, alongside an overview of its main components, and the outline of the following chapters.
 	
-	The goal of this paper is to provide an analysis of the current state of research in this area, present the theoretical foundations required to build a skin detector and to propose a new model, focused on overcoming the obstacles presented above and reducing the false detection rate.
+	\section{The topic of skin detection}
+	The problem tackled in this paper is skin detection in images. Skin detection, as a field of research,  means identifying pixels and regions in images which correspond to human skin. Starting from these regions we can build models that detect people or certain body parts. 
+	
+	The problem statement is a simple one however its application comes with a lot of challenges such as: various illumination conditions, multiple possible skin colors (due to different ethnicities, skin diseases, scars), presence of objects that resemble skin (sand, wood, leather, etc.). Next, some practical applications of this topic will be presented.
+	
+	\subsection{Applications}
+	
+	\subsubsection{Pornography filtering}
+	It is a known fact that internet has become a commodity of modern life, with a word average global penetration rate of 54.4\%\cite{internet_stats}. This means that it's inevitable for a large number of children to have unrestricted access to the internet and to be exposed to harmful content. A study conducted in England\cite{children_exposure} on over a thousand people aged 11-16 has revealed that over half of them have been exposed to pornographic content. 
+	
+	To avoid such scenarios various pornography filters have been created. Skin detection is a very useful step in implementing such an application because most pornographic images contain large areas of skin.
+	
+	One approach is described by Fleck et al. \cite{finding_naked_people}. The model proposed in that paper scans the images for large areas of skin and then applies some geometrical analysis looking for elongated shapes. This model was tested using 138 images of naked people and 1401 assorted images, some containing people but not naked. The system obtained a 52\% recall and 60\% precision against a large control set (1401 images).
+	
+	Another similar approach was presented by Chan et al.\cite{pornography_filter_with_ratios}. The first step was skin extraction based on color which was followed by computing some high level features such as: the ratio of skin area to image area, the ratio of the largest skin segment to the image area and the number of skin segments in the image.
+	
+	\subsubsection{Anchorperson detection}
+	Another application that was created in practice is anchorperson detection in talk shows \cite{anchor_person_detection} for automatic annotation and storage. The data can be used for quickly finding videos containing specific persons, calculating how much time each anchorman was on stage or other data mining tasks. This is an ideal application for skin detection because news videos are usually shot indoors in a controlled environment. Consequently, the background can be set up so it won't contain objects with skin color tones.
+	
+	\subsubsection{Preprocessing for complex systems}
+	While skin detection does not have many direct applications, it is usually an intermediary step for detecting more concrete body parts, so I will also present some applications of those methods.
+	
+	Face and hands detection is used to facilitate human computer interaction. By scanning gestures and reactions a software system can respond in a more convenient way to the user. For example the Kinect camera, which connects to the Xbox console, allows the user to navigate menus using hand swipes \cite{kinect_control}. 
+	
+	Aside from convenience gesture recognition systems can be very helpful for people that are aging or recovering after an accident or disease. Applications such as the one presented by Pedraza-Hueso et al. \cite{rehabilitation_kinect}, are designed to help these types of people get into a better physical shape. Typically they run on a console like Kinect or Wii and take the form of games. These consoles make the users stand-up and perform different types of motions while playing. The main advantages of using such an application are: availability (users can do their exercises at any time in their own home), price (typically much lower than hiring a therapist) and entertainment (applications usually take the form of games which stimulate the user).
+	
+	Face recognition, the next step after detection, means automatic identification of people in images or videos\cite{detecting_faces_a_survey}. This has applications in security, such as unlocking your phone only when it scans your face, and monitoring certain areas, like the systems used by the Chinese government to fine jaywalkers caught on camera without human intervention \cite{jaywalkers_china}. A trivial yet very popular use of face recognition is automatically tagging your friends in photos on social networks.
 	
 	\section{Motivation}
-	As a consequence of all the difficulties of building an accurate skin model and the fact that most use cases of skin detection need real time response times, most skin detectors use only the color features and have a rather high false positive rate, of over 10\%\cite{survey_skin_color_modeling}. 
+	As a consequence of all the difficulties of building an accurate skin model, noted at the beginning of the chapter, and the fact that most use cases of skin detection need real time response times, most skin detectors use only the color features and have a rather high false positive rate, of over 10\%\cite{survey_skin_color_modeling}. 
 	
 	This paper proposes a new model that focuses on classification performance rather than computation speed in the attempt to reduce the false positive rate. In this regard, the method described in this paper tries to combine multiple state-of-the-art techniques to determine if it can obtain a more accurate detector than the classical color-based approaches. This would also fill a gap of skin detectors oriented for analysis tasks, that don't rely on real time responses.
 	
@@ -99,29 +126,6 @@
 	First of all, the input image is segmented using the Quick shift algorithm. The result of this step is a list of regions that are homogeneous in shape and color avoiding the issue of having holes in skin-like regions. These blocks have their color analyzed using Skin Probability Maps that rely on Bayes' Theorem, a classical approach that identifies most skin-colored regions. However, this means using a naive Bayes classifier, because it relies on the assumption that color is the only relevant feature. 
 	
 	To further reduce false acceptance rate, a texture analysis module is used. Haralick's statistical features are computed on a window around each pixel of the image and passed into a Support Vector Machine classifier. The pixels marked by both the color and the texture models are used to build the final skin mask.
-	
-	\section{Applications}
-	
-	\subsection{Pornography filtering}
-	It is a known fact that internet has become a commodity of modern life, with a word average global penetration rate of 54.4\%\cite{internet_stats}. This means that it's inevitable for a large number of children to have unrestricted access to the internet and to be exposed to harmful content. A study conducted in England\cite{children_exposure} on over a thousand people aged 11-16 has revealed that over half of them have been exposed to pornographic content. 
-	
-	To avoid such scenarios various pornography filters have been created. Skin detection is a very useful step in implementing such an application because most pornographic images contain large areas of skin.
-	
-	One approach is described by Fleck et al. \cite{finding_naked_people}. The model proposed in that paper scans the images for large areas of skin and then applies some geometrical analysis looking for elongated shapes. This model was tested using 138 images of naked people and 1401 assorted images, some containing people but not naked. The system obtained a 52\% recall and 60\% precision against a large control set (1401 images).
-	
-	Another similar approach was presented by Chan et al.\cite{pornography_filter_with_ratios}. The first step was skin extraction based on color which was followed by computing some high level features such as: the ratio of skin area to image area, the ratio of the largest skin segment to the image area and the number of skin segments in the image.
-	
-	\subsection{Anchorperson detection}
-	Another application that was created in practice is anchorperson detection in talk shows \cite{anchor_person_detection} for automatic annotation and storage. The data can be used for quickly finding videos containing specific persons, calculating how much time each anchorman was on stage or other data mining tasks. This is an ideal application for skin detection because news videos are usually shot indoors in a controlled environment. Consequently, the background can be set up so it won't contain objects with skin color tones.
-	
-	\subsection{Preprocessing for complex systems}
-	While skin detection does not have many direct applications, it is usually an intermediary step for detecting more concrete body parts, so I will also present some applications of those methods.
-	
-	Face and hands detection is used to facilitate human computer interaction. By scanning gestures and reactions a software system can respond in a more convenient way to the user. For example the Kinect camera, which connects to the Xbox console, allows the user to navigate menus using hand swipes \cite{kinect_control}. 
-	
-	Aside from convenience gesture recognition systems can be very helpful for people that are aging or recovering after an accident or disease. Applications such as the one presented by Pedraza-Hueso et al. \cite{rehabilitation_kinect}, are designed to help these types of people get into a better physical shape. Typically they run on a console like Kinect or Wii and take the form of games. These consoles make the users stand-up and perform different types of motions while playing. The main advantages of using such an application are: availability (users can do their exercises at any time in their own home), price (typically much lower than hiring a therapist) and entertainment (applications usually take the form of games which stimulate the user).
-	
-	Face recognition, the next step after detection, means automatic identification of people in images or videos\cite{detecting_faces_a_survey}. This has applications in security, such as unlocking your phone only when it scans your face, and monitoring certain areas, like the systems used by the Chinese government to fine jaywalkers caught on camera without human intervention \cite{jaywalkers_china}. A trivial yet very popular use of face recognition is automatically tagging your friends in photos on social networks.
 	
 	\section{Thesis outline}
 	Next, the main chapters along with a brief overview will be presented.

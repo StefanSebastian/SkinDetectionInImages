@@ -731,9 +731,11 @@
 			\begin{tabular}{c|c|c|c|c}
 				\textbf{Threshold} & \textbf{TPR} & \textbf{FPR} & \textbf{ACC} & \textbf{PPV} \\
 				\hline
-				
+				0.05 & 89.43\% & 31.55\% & 69.84\% & 16.78\% \\
 				0.1 & 87.77\% & 21.95\% & 78.69\% & 22.15\% \\
 				0.15 & 85.17\% & 16.41\% & 83.69\% & 26.97\% \\
+				0.2 & 81.99\% & 12.80\% & 86.84\% & 31.29\% \\
+				0.25 & 78.33\% & 10.17\% & 89.06\% & 35.40\% \\
 				0.3 & 74.66\% & 8.25\% & 90.61\% & 39.17\% \\
 		
 			\end{tabular}
@@ -908,7 +910,7 @@
 	
 	The evaluator module has a simple structure, as seen in figure \ref{fig:evaluator}. The Evaluator class contains methods for evaluating a model(run\_simulation) and for applying it to an image(run\_detection). It takes as input a RunConfiguration object which contains informations about the desired skin and texture models and segmentation parameters.
 	
-	In order to evaluate the model some quality measures are applied for each analyzed picture. These methods include the false positive rate, true positive rate, precision, accuracy and recall and are implemented by the Stats class. The results are logged and also saved to a file in the csv (Comma-separated Values) format for later analysis.
+	In order to evaluate the model some quality measures are applied for each analyzed picture. These measurements include the number of true positives, false positives, true negatives, false negatives and are implemented by the Stats class. The results are logged and also saved to a file in the csv (Comma-separated Values) format for later analysis.
 	
 	\begin{figure}[h!]
 		\centering

@@ -15,11 +15,6 @@ Opencv library.
 \newblock \url{https://opencv.org/}.
 \newblock Accessed: 2018-06-08.
 
-\bibitem[\protect\astroncite{skl}{}]{sklearn}
-Scikit library.
-\newblock \url{http://scikit-learn.org/stable/index.html}.
-\newblock Accessed: 2018-06-08.
-
 \bibitem[\protect\astroncite{tki}{}]{tkinter}
 Tkinter library.
 \newblock \url{https://wiki.python.org/moin/TkInter}.
@@ -255,6 +250,14 @@ Pedraza-Hueso, M., Martín-Calzón, S., Díaz-Pernas, F.~J., and
 \newblock {\em Procedia Computer Science}, 75:161 -- 168.
 \newblock 2015 International Conference Virtual and Augmented Reality in
   Education.
+
+\bibitem[\protect\astroncite{Pedregosa et~al.}{2011}]{scikit-learn}
+Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel,
+  O., Blondel, M., Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J.,
+  Passos, A., Cournapeau, D., Brucher, M., Perrot, M., and Duchesnay, E.
+  (2011).
+\newblock Scikit-learn: Machine learning in {P}ython.
+\newblock {\em Journal of Machine Learning Research}, 12:2825--2830.
 
 \bibitem[\protect\astroncite{Poudel et~al.}{2013}]{superpixels_applied_2}
 Poudel, R.~P., Zhang, J.~J., Liu, D., and Nait-Charif, H. (2013).

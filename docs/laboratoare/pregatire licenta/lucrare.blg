@@ -4,12 +4,10 @@ Database file #1: references.bib
 Warning--to sort, need author or key in internet_stats
 Warning--to sort, need author or key in opencv
 Warning--to sort, need author or key in numpy
-Warning--to sort, need author or key in sklearn
 Warning--to sort, need author or key in tkinter
 Warning--empty year in internet_stats
 Warning--empty year in numpy
 Warning--empty year in opencv
-Warning--empty year in sklearn
 Warning--empty year in tkinter
 Warning--empty year in bayes_theorem
 Warning--empty booktitle in gabor_filter_machine_learning
@@ -22,4 +20,4 @@ Warning--empty year in gaussian_mixtures
 Warning--empty journal in fractal_texture
 Warning--empty year in kinect_control
 Warning--empty year in threshold_cluster
-(There were 21 warnings)
+(There were 19 warnings)

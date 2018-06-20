@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.06.2 (MiKTeX 2.9.6500 64-bit)  (format=lualatex 2018.6.9)  20 JUN 2018 21:54
+This is LuaTeX, Version 1.06.2 (MiKTeX 2.9.6500 64-bit)  (format=lualatex 2018.6.9)  20 JUN 2018 22:02
  restricted system commands enabled.
 **lucrare.tex
 (./lucrare.tex
@@ -33,7 +33,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 0.600 seconds
+luaotfload | main : initialization completed in 0.610 seconds
 Babel <3.15> and hyphenation patterns for 1 language(s) loaded.
 ("C:/Program Files/MiKTeX 2.9/tex/latex/base/report.cls"
 Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
@@ -1702,13 +1702,13 @@ Chapter 5.
 che/generic/fonts/otl/lmmono12-regular.luc) [52
 
 ]
-Underfull \hbox (badness 1178) in paragraph at lines 105--110
+Underfull \hbox (badness 1178) in paragraph at lines 100--105
 \TU/TimesNewRoman(0)/m/n/12 PAS-CAL Vi-sual Ob-ject Classes Chal-lenge 2007 (VO
 C2007) Re-sults.  []$\TU/lmtt/m/n/12 http://www.
  []
 
 
-Underfull \hbox (badness 1371) in paragraph at lines 150--153
+Underfull \hbox (badness 1371) in paragraph at lines 145--148
 []\TU/TimesNewRoman(0)/m/n/12 Hall-Beyer, M. (2017).  Glcm tex-ture: A tu-to-ri
 al.  https://prism.ucal-gary.ca/han-
  []
@@ -1730,7 +1730,7 @@ Here is how much of LuaTeX's memory you used:
  822 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 2 glue, 1 kern, 59 attribute, 76 glue_spec, 59 attr
 ibute_list, 1 write, 5 pdf_action nodes
-   avail lists: 2:593,3:196,4:77,5:116,6:73,7:4184,8:87,9:273,10:13,11:302,12:1
+   avail lists: 2:593,3:196,4:77,5:117,6:73,7:4184,8:87,9:273,10:13,11:302,12:1
  32898 multiletter control sequences out of 65536+200000
  58 fonts using 18483239 bytes
  62i,17n,77p,999b,631s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1747,9 +1747,9 @@ pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Pro
 gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2
 .9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on lucrare.pdf (64 pages, 1903811 bytes).
+Output written on lucrare.pdf (64 pages, 1903913 bytes).
 
-PDF statistics: 1134 PDF objects out of 1200 (max. 8388607)
+PDF statistics: 1133 PDF objects out of 1200 (max. 8388607)
  280 named destinations out of 1000 (max. 131072)
  568 words of extra memory for PDF output out of 10000 (max. 100000000)
 

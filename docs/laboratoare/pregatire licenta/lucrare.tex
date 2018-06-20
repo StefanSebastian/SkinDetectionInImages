@@ -992,8 +992,25 @@
 		\caption{Skin detection sequence diagram}
 		\label{fig:detection_sequence}
 	\end{figure}
+
+	The image evaluation sequence diagram is omitted because it is very similar to the detection process applied to multiple images. The main difference is that after detection, a comparison is made between the given mask and the model's result.
 	
+	\clearpage
+	\subsubsection{Texture model trainer}
+	The sequence diagram for the texture model training use case can be seen in figure \ref{fig:texture_sequence}. 
 	
+	The user has to select folder for model training, one for images of skin and one for images not containing skin, and to provide a path where to store the resulting model. The application creates a new process responsible for training the texture model and dispatches a request to it with the training data location.
+	
+	The TextureModelTrainer component requests a set of features and labels from the TrainDataPreparer. The latter reads the training data and loops over each image to get its features from the  feature extraction component. After the trainer receives all textural features it uses them to train a Support Vector Machine. The resulting model is stored to a configured location and the GUI receives a message indicating the process has finished, which is then displayed on the screen.
+	
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[]{design/sequence_texture_train.png}
+		\caption{Texture model training sequence diagram}
+		\label{fig:texture_sequence}
+	\end{figure}
+	
+	The sequence diagram of training the color model is not presented as it resembles the one illustrated in this section.
 	
 	\clearpage
 	\section{User manual}

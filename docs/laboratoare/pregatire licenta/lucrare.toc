@@ -83,19 +83,20 @@
 \contentsline {subsection}{\numberline {4.2.2}Use cases}{40}{subsection.4.2.2}
 \contentsline {subsection}{\numberline {4.2.3}Sequence diagrams}{41}{subsection.4.2.3}
 \contentsline {subsubsection}{Image skin detection}{41}{section*.50}
-\contentsline {section}{\numberline {4.3}User manual}{42}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Introduction}{42}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Detection view}{42}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}Evaluator view}{42}{subsection.4.3.3}
-\contentsline {subsection}{\numberline {4.3.4}Color model training view}{44}{subsection.4.3.4}
-\contentsline {subsection}{\numberline {4.3.5}Texture model training view}{44}{subsection.4.3.5}
-\contentsline {subsection}{\numberline {4.3.6}Common configuration frames}{45}{subsection.4.3.6}
-\contentsline {subsubsection}{Segmentation}{45}{section*.57}
-\contentsline {subsubsection}{Color detection}{46}{section*.59}
-\contentsline {subsubsection}{Texture detection}{46}{section*.61}
-\contentsline {subsubsection}{Resize options}{47}{section*.63}
-\contentsline {subsection}{\numberline {4.3.7}User Feedback}{47}{subsection.4.3.7}
-\contentsline {chapter}{\numberline {5}Conclusions}{49}{chapter.5}
-\contentsline {section}{\numberline {5.1}State of research}{49}{section.5.1}
-\contentsline {section}{\numberline {5.2}Proposed model's results}{49}{section.5.2}
-\contentsline {section}{\numberline {5.3}Future developments}{50}{section.5.3}
+\contentsline {subsubsection}{Texture model trainer}{42}{section*.52}
+\contentsline {section}{\numberline {4.3}User manual}{43}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Introduction}{43}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Detection view}{43}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Evaluator view}{43}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}Color model training view}{45}{subsection.4.3.4}
+\contentsline {subsection}{\numberline {4.3.5}Texture model training view}{45}{subsection.4.3.5}
+\contentsline {subsection}{\numberline {4.3.6}Common configuration frames}{46}{subsection.4.3.6}
+\contentsline {subsubsection}{Segmentation}{46}{section*.59}
+\contentsline {subsubsection}{Color detection}{47}{section*.61}
+\contentsline {subsubsection}{Texture detection}{47}{section*.63}
+\contentsline {subsubsection}{Resize options}{48}{section*.65}
+\contentsline {subsection}{\numberline {4.3.7}User Feedback}{48}{subsection.4.3.7}
+\contentsline {chapter}{\numberline {5}Conclusions}{50}{chapter.5}
+\contentsline {section}{\numberline {5.1}State of research}{50}{section.5.1}
+\contentsline {section}{\numberline {5.2}Proposed model's results}{50}{section.5.2}
+\contentsline {section}{\numberline {5.3}Future developments}{51}{section.5.3}

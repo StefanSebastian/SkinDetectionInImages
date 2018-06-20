@@ -37,7 +37,7 @@ class TrainTextureConfigFrame(Frame):
                                        text=FileUtils.get_filename_from_path(self.configuration.path_neg))
         self.path_negative_in.grid(row=1, column=1)
         Button(self,
-               text="Path to input data",
+               text="Path to negative examples",
                command=self.browse_negative_path) \
             .grid(row=1, column=0, sticky="w")
 

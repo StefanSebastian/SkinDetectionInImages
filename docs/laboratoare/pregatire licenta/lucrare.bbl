@@ -49,6 +49,11 @@ C.~Geib, ``If you jaywalk in china, facial recognition means you’ll walk away
   \url{https://futurism.com/facial-recognition-china-social-credit/}.
 \newblock Accessed: 2018-05-03.
 
+\bibitem{survey_skin_color_modeling}
+P.~Kakumanu, S.~Makrogiannis, and N.~Bourbakis, ``A survey of skin-color
+  modeling and detection methods,'' {\em Pattern Recognition}, vol.~40,
+  pp.~1106–--1122, 2007.
+
 \bibitem{compaq}
 M.~J. Jones and J.~M. Rehg, ``Statistical color models with applications to
   skin detection,'' {\em International Journal of Computer Vision}, vol.~46,
@@ -82,15 +87,15 @@ Y.~Dai and Y.~Nakano, ``Face-texture model based on sgld and its application in
 C.Wang and M.Brandstein, ``Multi-source face tracking with audio and visual
   data,'' {\em IEEE MMSP}, p.~168, 1999.
 
-\bibitem{rca_threshold}
-G.~Gomez and E.~F. Morales, ``Automatic feature construction and a simple rule
-  induction algorithm for skin detection,'' {\em Proceedings of Workshop on
-  Machine Learning in Computer Vision}, pp.~31–--38, 2002.
-
 \bibitem{i_threshold_applied}
 Brand, J., and Mason, ``A comparative assessment of three approaches to
   pixellevel human skin-detection,'' {\em In Proc. of the International
   Conference on Pattern Recognition}, vol.~1, pp.~1056--1059, 2000.
+
+\bibitem{rca_threshold}
+G.~Gomez and E.~F. Morales, ``Automatic feature construction and a simple rule
+  induction algorithm for skin detection,'' {\em Proceedings of Workshop on
+  Machine Learning in Computer Vision}, pp.~31–--38, 2002.
 
 \bibitem{hmm}
 L.~Sigal, S.~Sclaroff, and V.~Athitsos, ``Skin color-based video segmentation
@@ -182,11 +187,6 @@ A.~Frich, ``Color management guide.''
 V.~Vezhnevets, V.~Sazonov, and A.~Andreeva, ``A survey on pixel-based skin
   color detection techniques,'' {\em GRAPHICON03}, pp.~85--92, 2003.
 
-\bibitem{survey_skin_color_modeling}
-P.~Kakumanu, S.~Makrogiannis, and N.~Bourbakis, ``A survey of skin-color
-  modeling and detection methods,'' {\em Pattern Recognition}, vol.~40,
-  pp.~1106–--1122, 2007.
-
 \bibitem{threshold_cluster}
 J.~Yang, W.~Lu, and A.~Waibel, ``Skin-color modeling and adaptation,'' {\em
   ACCV98}.
@@ -260,8 +260,9 @@ M.~Everingham, L.~Van~Gool, C.~K.~I. Williams, J.~Winn, and A.~Zisserman, ``The
 \newblock Accessed: 2018-06-08.
 
 \bibitem{mahotas}
-``Mahotas library.'' \url{https://mahotas.readthedocs.io/en/latest/}.
-\newblock Accessed: 2018-06-08.
+L.~Coelho, ``Mahotas: Open source software for scriptable computer vision,''
+  {\em Journal of Open Research Software. 1(1), p.e3. DOI:
+  http://doi.org/10.5334/jors.ac}, 2013.
 
 \bibitem{sklearn}
 ``Scikit library.'' \url{http://scikit-learn.org/stable/index.html}.

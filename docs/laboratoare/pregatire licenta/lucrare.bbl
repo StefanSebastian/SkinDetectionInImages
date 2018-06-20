@@ -1,12 +1,5 @@
 \begin{thebibliography}{}
 
-\bibitem[\protect\astroncite{kin}{}]{kinect_control}
-The complete list of kinect gesture and voice commands for your referencing
-  pleasure.
-\newblock
-  \url{https://news.xbox.com/en-us/2013/11/26/xbox-one-kinect-gesture-and-voice-guide/}.
-\newblock Accessed: 2018-05-03.
-
 \bibitem[\protect\astroncite{int}{}]{internet_stats}
 Internet world penetration rates by geographic regions - december 31, 2017.
 \newblock \url{https://www.internetworldstats.com/stats.htm}.
@@ -267,6 +260,12 @@ Pedraza-Hueso, M., Martín-Calzón, S., Díaz-Pernas, F.~J., and
 Poudel, R.~P., Zhang, J.~J., Liu, D., and Nait-Charif, H. (2013).
 \newblock Skin color detection using region-based approach.
 \newblock {\em International Journal of Image Processing (IJIP)}, 7(4).
+
+\bibitem[\protect\astroncite{Pterneas}{}]{kinect_control}
+Pterneas, V.
+\newblock Implementing kinect gestures.
+\newblock \url{https://pterneas.com/2014/01/27/implementing-kinect-gestures/}.
+\newblock Accessed: 2018-05-03.
 
 \bibitem[\protect\astroncite{Saxen and Al-Hamadi}{2014}]{superpixels_applied_1}
 Saxen, F. and Al-Hamadi, A. (2014).

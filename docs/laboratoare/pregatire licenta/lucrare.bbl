@@ -1,275 +1,338 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{}
 
-\bibitem{internet_stats}
-``Internet world penetration rates by geographic regions - december 31, 2017.''
-  \url{https://www.internetworldstats.com/stats.htm}.
-\newblock Accessed: 2018-06-08.
-
-\bibitem{children_exposure}
-E.~Martellozzo, A.~Monaghan, J.~Adler, J.~Davidson, R.~Leyva, and M.~Horvath,
-  ``I wasn't sure it was normal to watch it,'' 01 2016.
-
-\bibitem{finding_naked_people}
-M.~M. Fleck, D.~A. Forsyth, and C.~Bregler, ``Finding naked people,'' in {\em
-  Computer Vision --- ECCV '96} (B.~Buxton and R.~Cipolla, eds.), (Berlin,
-  Heidelberg), pp.~593--602, Springer Berlin Heidelberg, 1996.
-
-\bibitem{pornography_filter_with_ratios}
-Y.~Chan, R.~Harvey, and D.~Smith, ``Building systems to block pornography,'' in
-  {\em Proceedings of the 1999 International Conference on Challenge of Image
-  Retrieval}, IM'99, (Swindon, UK), pp.~8--8, BCS Learning \& Development Ltd.,
-  1999.
-
-\bibitem{anchor_person_detection}
-B.~M. and R.~Amsaveni, ``Anchor person detection using haar-like feature
-  extraction from news videos,'' {\em International Journal of Computer
-  Applications}, vol.~153, no.~9, pp.~23--27, 2016.
-
-\bibitem{kinect_control}
-``The complete list of kinect gesture and voice commands for your referencing
-  pleasure.''
+\bibitem[\protect\astroncite{kin}{}]{kinect_control}
+The complete list of kinect gesture and voice commands for your referencing
+  pleasure.
+\newblock
   \url{https://news.xbox.com/en-us/2013/11/26/xbox-one-kinect-gesture-and-voice-guide/}.
 \newblock Accessed: 2018-05-03.
 
-\bibitem{rehabilitation_kinect}
-M.~Pedraza-Hueso, S.~Martín-Calzón, F.~J. Díaz-Pernas, and
-  M.~Martínez-Zarzuela, ``Rehabilitation using kinect-based games and virtual
-  reality,'' {\em Procedia Computer Science}, vol.~75, pp.~161 -- 168, 2015.
+\bibitem[\protect\astroncite{int}{}]{internet_stats}
+Internet world penetration rates by geographic regions - december 31, 2017.
+\newblock \url{https://www.internetworldstats.com/stats.htm}.
+\newblock Accessed: 2018-06-08.
+
+\bibitem[\protect\astroncite{num}{}]{numpy}
+Numpy library.
+\newblock \url{http://www.numpy.org/}.
+\newblock Accessed: 2018-06-08.
+
+\bibitem[\protect\astroncite{ope}{}]{opencv}
+Opencv library.
+\newblock \url{https://opencv.org/}.
+\newblock Accessed: 2018-06-08.
+
+\bibitem[\protect\astroncite{skl}{}]{sklearn}
+Scikit library.
+\newblock \url{http://scikit-learn.org/stable/index.html}.
+\newblock Accessed: 2018-06-08.
+
+\bibitem[\protect\astroncite{tki}{}]{tkinter}
+Tkinter library.
+\newblock \url{https://wiki.python.org/moin/TkInter}.
+\newblock Accessed: 2018-06-08.
+
+\bibitem[\protect\astroncite{Abbadi et~al.}{2013}]{color_texture_ann}
+Abbadi, N. K.~E., Dahir, N., and Alkareem, Z.~A. (2013).
+\newblock Skin texture recognition using neural networks.
+\newblock {\em CoRR}, abs/1311.6049.
+
+\bibitem[\protect\astroncite{Andrew~Ellinor}{}]{bayes_theorem}
+Andrew~Ellinor, Christopher~Williams, A.~S.
+\newblock Bayes' theorem and conditional probability.
+\newblock \url{https://brilliant.org/wiki/bayes-theorem/}.
+\newblock Accessed: 2018-06-08.
+
+\bibitem[\protect\astroncite{Berisha}{2009}]{gabor_filter_machine_learning}
+Berisha, S. (2009).
+\newblock Image classification using gabor filters and machine learning.
+
+\bibitem[\protect\astroncite{Brand et~al.}{2000}]{i_threshold_applied}
+Brand, J., and Mason (2000).
+\newblock A comparative assessment of three approaches to pixellevel human
+  skin-detection.
+\newblock {\em In Proc. of the International Conference on Pattern
+  Recognition}, 1:1056--1059.
+
+\bibitem[\protect\astroncite{Casati et~al.}{2013}]{sfa}
+Casati, J. P.~B., Moraes, D.~R., and Rodrigues, E. L.~L. (2013).
+\newblock Sfa: A human skin image database based on feret and ar facial images.
+\newblock {\em IX Workshop de Visão Computacional, Rio de Janeiro}.
+
+\bibitem[\protect\astroncite{Chai and Ngan}{1999}]{cr_cb_threshold}
+Chai, D. and Ngan, K.~N. (1999).
+\newblock Face segmentation using skin-color map in videophone applications.
+\newblock {\em IEEE TRANSACTIONS ON CIRCUITS AND SYSTEMS FOR VIDEO TECHNOLOGY},
+  9(4):551–--564.
+
+\bibitem[\protect\astroncite{Chan
+  et~al.}{1999}]{pornography_filter_with_ratios}
+Chan, Y., Harvey, R., and Smith, D. (1999).
+\newblock Building systems to block pornography.
+\newblock In {\em Proceedings of the 1999 International Conference on Challenge
+  of Image Retrieval}, IM'99, pages 8--8, Swindon, UK. BCS Learning \&
+  Development Ltd.
+
+\bibitem[\protect\astroncite{Chow and
+  Kaneko}{1972}]{segmentation_thresh_multiple}
+Chow, C.~K. and Kaneko, T. (1972).
+\newblock Automatic boundary detection of the left ventricle from
+  cineangiograms.
+\newblock {\em Computers and Biomedical Research}, 5(4):388--410.
+
+\bibitem[\protect\astroncite{Coelho}{2013}]{mahotas}
+Coelho, L. (2013).
+\newblock Mahotas: Open source software for scriptable computer vision.
+\newblock {\em Journal of Open Research Software. 1(1), p.e3. DOI:
+  http://doi.org/10.5334/jors.ac}.
+
+\bibitem[\protect\astroncite{C.Wang and M.Brandstein}{1999}]{i_threshold}
+C.Wang and M.Brandstein (1999).
+\newblock Multi-source face tracking with audio and visual data.
+\newblock {\em IEEE MMSP}, page 168.
+
+\bibitem[\protect\astroncite{Dai and Nakano}{1996}]{yiq_threshold}
+Dai, Y. and Nakano, Y. (1996).
+\newblock Face-texture model based on sgld and its application in face
+  detection in a color scene.
+\newblock {\em Pattern Recognition}, 29(6):1007–--1017.
+
+\bibitem[\protect\astroncite{Dass et~al.}{2012}]{image_segmentation_techniques}
+Dass, R., Priyanka, and Devi, S. (2012).
+\newblock Image segmentation techniques.
+\newblock {\em IJECT}, 3(1).
+
+\bibitem[\protect\astroncite{Dunn et~al.}{1994}]{gabor_filter_example}
+Dunn, D., Higgins, W.~E., and Wakeley, J. (1994).
+\newblock Texture segmentation using 2-d gabor elementary functions.
+\newblock {\em IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  16(2):130--149.
+
+\bibitem[\protect\astroncite{Everingham et~al.}{}]{pascal-voc-2007}
+Everingham, M., Van~Gool, L., Williams, C. K.~I., Winn, J., and Zisserman, A.
+\newblock The {PASCAL} {V}isual {O}bject {C}lasses {C}hallenge 2007 {(VOC2007)}
+  {R}esults.
+\newblock
+  \url{http://www.pascal-network.org/challenges/VOC/voc2007/workshop/index.html}.
+
+\bibitem[\protect\astroncite{Fleck et~al.}{1996}]{finding_naked_people}
+Fleck, M.~M., Forsyth, D.~A., and Bregler, C. (1996).
+\newblock Finding naked people.
+\newblock In Buxton, B. and Cipolla, R., editors, {\em Computer Vision --- ECCV
+  '96}, pages 593--602, Berlin, Heidelberg. Springer Berlin Heidelberg.
+
+\bibitem[\protect\astroncite{Fotouhi et~al.}{2009}]{contourlet_texture}
+Fotouhi, M., Rohban, M.~H., and Kasaei, S. (2009).
+\newblock Skin detection using contourlet-based texture analysis.
+\newblock In {\em 2009 Fourth International Conference on Digital
+  Telecommunications}, pages 59--64.
+
+\bibitem[\protect\astroncite{Frich}{}]{color_management_guide}
+Frich, A.
+\newblock Color management guide.
+\newblock \url{https://www.color-management-guide.com/color-spaces.html/}.
+\newblock Accessed: 2018-04-07.
+
+\bibitem[\protect\astroncite{Fulkerson and Soatto}{2010}]{quickshift_gpu}
+Fulkerson, B. and Soatto, S. (2010).
+\newblock Really quick shift: Image segmentation on a gpu.
+\newblock In {\em In Proceedings of the Workshop on Computer Vision using GPUs,
+  held with the European Conference on Computer Vision}.
+
+\bibitem[\protect\astroncite{Geib}{}]{jaywalkers_china}
+Geib, C.
+\newblock If you jaywalk in china, facial recognition means you’ll walk away
+  with a fine.
+\newblock \url{https://futurism.com/facial-recognition-china-social-credit/}.
+\newblock Accessed: 2018-05-03.
+
+\bibitem[\protect\astroncite{Gomez and Morales}{2002}]{rca_threshold}
+Gomez, G. and Morales, E.~F. (2002).
+\newblock Automatic feature construction and a simple rule induction algorithm
+  for skin detection.
+\newblock {\em Proceedings of Workshop on Machine Learning in Computer Vision},
+  pages 31–--38.
+
+\bibitem[\protect\astroncite{Hall-Beyer}{2017}]{glcm_tutorial}
+Hall-Beyer, M. (2017).
+\newblock Glcm texture: A tutorial.
+\newblock https://prism.ucalgary.ca/handle/1880/51900.
+
+\bibitem[\protect\astroncite{Haralick et~al.}{1973}]{haralick_features}
+Haralick, R.~M., Shanmugam, K., and Dinstein, I. (1973).
+\newblock Textural features for image classification.
+\newblock {\em IEEE Transactions on Systems, Man, and Cybernetics},
+  SMC-3(6):610--621.
+
+\bibitem[\protect\astroncite{Jiang et~al.}{2007}]{texture_gabor_wavelet}
+Jiang, Z., Yao, M., and Jiang, W. (2007).
+\newblock Skin detection using color, texture and space information.
+\newblock {\em Fuzzy Systems and Knowledge Discovery}.
+
+\bibitem[\protect\astroncite{Jones and Rehg}{2002}]{compaq}
+Jones, M.~J. and Rehg, J.~M. (2002).
+\newblock Statistical color models with applications to skin detection.
+\newblock {\em International Journal of Computer Vision}, 46:81–--96.
+
+\bibitem[\protect\astroncite{Kakumanu
+  et~al.}{2007}]{survey_skin_color_modeling}
+Kakumanu, P., Makrogiannis, S., and Bourbakis, N. (2007).
+\newblock A survey of skin-color modeling and detection methods.
+\newblock {\em Pattern Recognition}, 40:1106–--1122.
+
+\bibitem[\protect\astroncite{Karamizadeh et~al.}{2014}]{advantage_svm}
+Karamizadeh, S., Abdullah, S.~M., Halimi, M., Shayan, J., and j.~Rajabi, M.
+  (2014).
+\newblock Advantage and drawback of support vector machine functionality.
+\newblock In {\em 2014 International Conference on Computer, Communications,
+  and Control Technology (I4CT)}, pages 63--65.
+
+\bibitem[\protect\astroncite{Kovac et~al.}{2003}]{rgb_threshold}
+Kovac, J., Peer, P., and Solina, F. (2003).
+\newblock Human skin colour clustering for face detection.
+\newblock {\em EUROCON}.
+
+\bibitem[\protect\astroncite{Kruppa et~al.}{2002}]{skin_detection_shape}
+Kruppa, H., Bauer, M.~A., and Schiele, B. (2002).
+\newblock Skin patch detection in real-world images.
+\newblock In Van~Gool, L., editor, {\em Pattern Recognition}, pages 109--116,
+  Berlin, Heidelberg. Springer Berlin Heidelberg.
+
+\bibitem[\protect\astroncite{Lee and Yoo}{2002}]{gaussian_applied}
+Lee, J.~Y. and Yoo, S.~I. (2002).
+\newblock An elliptical boundary model for skin color detection.
+\newblock In {\em In Proc. of the 2002 International Conference on Imaging
+  Science, Systems, and Technology}.
+
+\bibitem[\protect\astroncite{M. and Amsaveni}{2016}]{anchor_person_detection}
+M., B. and Amsaveni, R. (2016).
+\newblock Anchor person detection using haar-like feature extraction from news
+  videos.
+\newblock {\em International Journal of Computer Applications}, 153(9):23--27.
+
+\bibitem[\protect\astroncite{Mar\^{c}elja}{1980}]{filter_eye_model}
+Mar\^{c}elja, S. (1980).
+\newblock Mathematical description of the responses of simple cortical
+  cells$\ast$.
+\newblock {\em J. Opt. Soc. Am.}, 70(11):1297--1300.
+
+\bibitem[\protect\astroncite{Martellozzo et~al.}{2016}]{children_exposure}
+Martellozzo, E., Monaghan, A., Adler, J., Davidson, J., Leyva, R., and Horvath,
+  M. (2016).
+\newblock I wasn't sure it was normal to watch it.
+
+\bibitem[\protect\astroncite{Materka and
+  Strzelecki}{1998}]{texture_analysis_review}
+Materka, A. and Strzelecki, M. (1998).
+\newblock Texture analysis methods - a review.
+
+\bibitem[\protect\astroncite{McGonagle et~al.}{}]{gaussian_mixtures}
+McGonagle, J., Tembo, V., and Chumbley, A.
+\newblock Gaussian mixture model.
+\newblock \url{https://brilliant.org/wiki/gaussian-mixture-model/}.
+\newblock Accessed: 2018-04-09.
+
+\bibitem[\protect\astroncite{Nakagawa and
+  Rosenfeld}{1979}]{experiments_on_thresholding}
+Nakagawa, Y. and Rosenfeld, A. (1979).
+\newblock Some experiments on variable thresholding.
+\newblock {\em Pattern Recognition}, 11:191--204.
+
+\bibitem[\protect\astroncite{Navas and
+  Vasquez~Espinosa}{1997}]{fractal_texture}
+Navas, W. and Vasquez~Espinosa, R. (1997).
+\newblock Analysis of texture using the fractal model.
+
+\bibitem[\protect\astroncite{Pal and Pal}{1993}]{review_on_image_segm_tech}
+Pal, N.~R. and Pal, S.~K. (1993).
+\newblock A review on image segmentation techniques.
+\newblock {\em Pattern Recognition}, 26(9).
+
+\bibitem[\protect\astroncite{Panwar}{2012}]{hand_detection_shape}
+Panwar, M. (2012).
+\newblock Hand gesture recognition based on shape parameters.
+\newblock In {\em 2012 International Conference on Computing, Communication and
+  Applications}, pages 1--6.
+
+\bibitem[\protect\astroncite{Pedraza-Hueso
+  et~al.}{2015}]{rehabilitation_kinect}
+Pedraza-Hueso, M., Martín-Calzón, S., Díaz-Pernas, F.~J., and
+  Martínez-Zarzuela, M. (2015).
+\newblock Rehabilitation using kinect-based games and virtual reality.
+\newblock {\em Procedia Computer Science}, 75:161 -- 168.
 \newblock 2015 International Conference Virtual and Augmented Reality in
   Education.
 
-\bibitem{detecting_faces_a_survey}
-M.-H. Yang, D.~J. Kriegman, and N.~Ahuja, ``Detecting faces in images: A
-  survey,'' {\em IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE
-  INTELLIGENCE}, vol.~24, no.~1, pp.~34--58, 2002.
+\bibitem[\protect\astroncite{Poudel et~al.}{2013}]{superpixels_applied_2}
+Poudel, R.~P., Zhang, J.~J., Liu, D., and Nait-Charif, H. (2013).
+\newblock Skin color detection using region-based approach.
+\newblock {\em International Journal of Image Processing (IJIP)}, 7(4).
 
-\bibitem{jaywalkers_china}
-C.~Geib, ``If you jaywalk in china, facial recognition means you’ll walk away
-  with a fine.''
-  \url{https://futurism.com/facial-recognition-china-social-credit/}.
-\newblock Accessed: 2018-05-03.
+\bibitem[\protect\astroncite{Saxen and Al-Hamadi}{2014}]{superpixels_applied_1}
+Saxen, F. and Al-Hamadi, A. (2014).
+\newblock Superpixels for skin segmentation.
+\newblock {\em Workshop Farbbildverarbeitung, At Wuppertal}, 20.
 
-\bibitem{survey_skin_color_modeling}
-P.~Kakumanu, S.~Makrogiannis, and N.~Bourbakis, ``A survey of skin-color
-  modeling and detection methods,'' {\em Pattern Recognition}, vol.~40,
-  pp.~1106–--1122, 2007.
+\bibitem[\protect\astroncite{Segaran}{2007}]{programming_collective_intelligence}
+Segaran, T. (2007).
+\newblock {\em Programming Collective Intelligence}.
+\newblock O'Reilly, first edition.
 
-\bibitem{compaq}
-M.~J. Jones and J.~M. Rehg, ``Statistical color models with applications to
-  skin detection,'' {\em International Journal of Computer Vision}, vol.~46,
-  pp.~81–--96, 2002.
+\bibitem[\protect\astroncite{Senthilkumaran and
+  Rajesh}{2009}]{edge_detection_survey}
+Senthilkumaran, N. and Rajesh, R. (2009).
+\newblock Edge detection techniques for image segmentation – a survey of soft
+  computing approaches.
+\newblock {\em International Journal of Recent Trends in Engineering}, 1(2).
 
-\bibitem{gaussian_applied}
-J.~Y. Lee and S.~I. Yoo, ``An elliptical boundary model for skin color
-  detection,'' in {\em In Proc. of the 2002 International Conference on Imaging
-  Science, Systems, and Technology}, 2002.
+\bibitem[\protect\astroncite{Shapiro and Stockman}{2001}]{computer_vision_book}
+Shapiro, L.~G. and Stockman, G.~C. (2001).
+\newblock {\em Computer Vision}.
+\newblock New Jersey, Prentice-Hall.
 
-\bibitem{Yang99gaussianmixture}
-M.~hsuan Yang and N.~Ahuja, ``Gaussian mixture model for human skin color and
-  its applications in image and video databases,'' in {\em Proceedings of SPIE
-  ’99 (San Jose CA)}, pp.~458--466, 1999.
+\bibitem[\protect\astroncite{Sigal et~al.}{2004}]{hmm}
+Sigal, L., Sclaroff, S., and Athitsos, V. (2004).
+\newblock Skin color-based video segmentation under time-varying illumination.
+\newblock {\em IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE},
+  26(7).
 
-\bibitem{rgb_threshold}
-J.~Kovac, P.~Peer, and F.~Solina, ``Human skin colour clustering for face
-  detection,'' {\em EUROCON}, 2003.
+\bibitem[\protect\astroncite{Sofiane et~al.}{2014}]{texture_svm}
+Sofiane, M., Chaouki, B.~M., and Yamina, M.~B. (2014).
+\newblock Improved skin detection using colour space and texture.
+\newblock {\em International Journal of Computer and Information Engineering},
+  8(12).
 
-\bibitem{cr_cb_threshold}
-D.~Chai and K.~N. Ngan, ``Face segmentation using skin-color map in videophone
-  applications,'' {\em IEEE TRANSACTIONS ON CIRCUITS AND SYSTEMS FOR VIDEO
-  TECHNOLOGY}, vol.~9, no.~4, pp.~551–--564, 1999.
+\bibitem[\protect\astroncite{Vedaldi and Soatto}{2008}]{mode_seeking}
+Vedaldi, A. and Soatto, S. (2008).
+\newblock Quick shift and kernel methods for mode seeking.
+\newblock {\em Computer Vision – ECCV 2008}, 5305.
 
-\bibitem{yiq_threshold}
-Y.~Dai and Y.~Nakano, ``Face-texture model based on sgld and its application in
-  face detection in a color scene,'' {\em Pattern Recognition}, vol.~29, no.~6,
-  pp.~1007–--1017, 1996.
+\bibitem[\protect\astroncite{Vezhnevets
+  et~al.}{2003}]{survey_color_detection_techniques}
+Vezhnevets, V., Sazonov, V., and Andreeva, A. (2003).
+\newblock A survey on pixel-based skin color detection techniques.
+\newblock {\em GRAPHICON03}, pages 85--92.
 
-\bibitem{i_threshold}
-C.Wang and M.Brandstein, ``Multi-source face tracking with audio and visual
-  data,'' {\em IEEE MMSP}, p.~168, 1999.
+\bibitem[\protect\astroncite{Wang and Tan}{2000}]{face_detection_shape}
+Wang, J. and Tan, T. (2000).
+\newblock A new face detection method based on shape information.
+\newblock {\em Pattern Recognition Letters}, 21(6):463 -- 471.
 
-\bibitem{i_threshold_applied}
-Brand, J., and Mason, ``A comparative assessment of three approaches to
-  pixellevel human skin-detection,'' {\em In Proc. of the International
-  Conference on Pattern Recognition}, vol.~1, pp.~1056--1059, 2000.
+\bibitem[\protect\astroncite{Yang et~al.}{}]{threshold_cluster}
+Yang, J., Lu, W., and Waibel, A.
+\newblock Skin-color modeling and adaptation.
+\newblock {\em ACCV98}.
 
-\bibitem{rca_threshold}
-G.~Gomez and E.~F. Morales, ``Automatic feature construction and a simple rule
-  induction algorithm for skin detection,'' {\em Proceedings of Workshop on
-  Machine Learning in Computer Vision}, pp.~31–--38, 2002.
+\bibitem[\protect\astroncite{Yang and Ahuja}{1999}]{Yang99gaussianmixture}
+Yang, M.-H. and Ahuja, N. (1999).
+\newblock Gaussian mixture model for human skin color and its applications in
+  image and video databases.
+\newblock In {\em Proceedings of SPIE ’99 (San Jose CA)}, pages 458--466.
 
-\bibitem{hmm}
-L.~Sigal, S.~Sclaroff, and V.~Athitsos, ``Skin color-based video segmentation
-  under time-varying illumination,'' {\em IEEE TRANSACTIONS ON PATTERN ANALYSIS
-  AND MACHINE INTELLIGENCE}, vol.~26, no.~7, 2004.
-
-\bibitem{superpixels_applied_1}
-F.~Saxen and A.~Al-Hamadi, ``Superpixels for skin segmentation,'' {\em Workshop
-  Farbbildverarbeitung, At Wuppertal}, vol.~20, 2014.
-
-\bibitem{superpixels_applied_2}
-R.~P. Poudel, J.~J. Zhang, D.~Liu, and H.~Nait-Charif, ``Skin color detection
-  using region-based approach,'' {\em International Journal of Image Processing
-  (IJIP)}, vol.~7, no.~4, 2013.
-
-\bibitem{color_texture_ann}
-N.~K.~E. Abbadi, N.~Dahir, and Z.~A. Alkareem, ``Skin texture recognition using
-  neural networks,'' {\em CoRR}, vol.~abs/1311.6049, 2013.
-
-\bibitem{texture_svm}
-M.~Sofiane, B.~M. Chaouki, and M.~B. Yamina, ``Improved skin detection using
-  colour space and texture,'' {\em International Journal of Computer and
-  Information Engineering}, vol.~8, no.~12, 2014.
-
-\bibitem{texture_gabor_wavelet}
-Z.~Jiang, M.~Yao, and W.~Jiang, ``Skin detection using color, texture and space
-  information,'' {\em Fuzzy Systems and Knowledge Discovery}, 2007.
-
-\bibitem{contourlet_texture}
-M.~Fotouhi, M.~H. Rohban, and S.~Kasaei, ``Skin detection using
-  contourlet-based texture analysis,'' in {\em 2009 Fourth International
-  Conference on Digital Telecommunications}, pp.~59--64, July 2009.
-
-\bibitem{face_detection_shape}
-J.~Wang and T.~Tan, ``A new face detection method based on shape information,''
-  {\em Pattern Recognition Letters}, vol.~21, no.~6, pp.~463 -- 471, 2000.
-
-\bibitem{hand_detection_shape}
-M.~Panwar, ``Hand gesture recognition based on shape parameters,'' in {\em 2012
-  International Conference on Computing, Communication and Applications},
-  pp.~1--6, Feb 2012.
-
-\bibitem{skin_detection_shape}
-H.~Kruppa, M.~A. Bauer, and B.~Schiele, ``Skin patch detection in real-world
-  images,'' in {\em Pattern Recognition} (L.~Van~Gool, ed.), (Berlin,
-  Heidelberg), pp.~109--116, Springer Berlin Heidelberg, 2002.
-
-\bibitem{computer_vision_book}
-L.~G. Shapiro and G.~C. Stockman, {\em Computer Vision}.
-\newblock New Jersey, Prentice-Hall, 2001.
-
-\bibitem{image_segmentation_techniques}
-R.~Dass, Priyanka, and S.~Devi, ``Image segmentation techniques,'' {\em IJECT},
-  vol.~3, no.~1, 2012.
-
-\bibitem{segmentation_thresh_multiple}
-C.~K. Chow and T.~Kaneko, ``Automatic boundary detection of the left ventricle
-  from cineangiograms,'' {\em Computers and Biomedical Research}, vol.~5,
-  no.~4, pp.~388--410, 1972.
-
-\bibitem{review_on_image_segm_tech}
-N.~R. Pal and S.~K. Pal, ``A review on image segmentation techniques,'' {\em
-  Pattern Recognition}, vol.~26, no.~9, 1993.
-
-\bibitem{experiments_on_thresholding}
-Y.~Nakagawa and A.~Rosenfeld, ``Some experiments on variable thresholding,''
-  {\em Pattern Recognition}, vol.~11, pp.~191--204, 1979.
-
-\bibitem{edge_detection_survey}
-N.~Senthilkumaran and R.~Rajesh, ``Edge detection techniques for image
-  segmentation – a survey of soft computing approaches,'' {\em International
-  Journal of Recent Trends in Engineering}, vol.~1, no.~2, 2009.
-
-\bibitem{mode_seeking}
-A.~Vedaldi and S.~Soatto, ``Quick shift and kernel methods for mode seeking,''
-  {\em Computer Vision – ECCV 2008}, vol.~5305, 2008.
-
-\bibitem{quickshift_gpu}
-B.~Fulkerson and S.~Soatto, ``Really quick shift: Image segmentation on a
-  gpu,'' in {\em In Proceedings of the Workshop on Computer Vision using GPUs,
-  held with the European Conference on Computer Vision}, 2010.
-
-\bibitem{color_management_guide}
-A.~Frich, ``Color management guide.''
-  \url{https://www.color-management-guide.com/color-spaces.html/}.
-\newblock Accessed: 2018-04-07.
-
-\bibitem{survey_color_detection_techniques}
-V.~Vezhnevets, V.~Sazonov, and A.~Andreeva, ``A survey on pixel-based skin
-  color detection techniques,'' {\em GRAPHICON03}, pp.~85--92, 2003.
-
-\bibitem{threshold_cluster}
-J.~Yang, W.~Lu, and A.~Waibel, ``Skin-color modeling and adaptation,'' {\em
-  ACCV98}.
-
-\bibitem{programming_collective_intelligence}
-T.~Segaran, {\em Programming Collective Intelligence}.
-\newblock O'Reilly, first~ed., 2007.
-
-\bibitem{bayes_theorem}
-A.~S. Andrew~Ellinor, Christopher~Williams, ``Bayes' theorem and conditional
-  probability.'' \url{https://brilliant.org/wiki/bayes-theorem/}.
-\newblock Accessed: 2018-06-08.
-
-\bibitem{gaussian_mixtures}
-J.~McGonagle, V.~Tembo, and A.~Chumbley, ``Gaussian mixture model.''
-  \url{https://brilliant.org/wiki/gaussian-mixture-model/}.
-\newblock Accessed: 2018-04-09.
-
-\bibitem{texture_analysis_review}
-A.~Materka and M.~Strzelecki, ``Texture analysis methods - a review,'' 01 1998.
-
-\bibitem{haralick_features}
-R.~M. Haralick, K.~Shanmugam, and I.~Dinstein, ``Textural features for image
-  classification,'' {\em IEEE Transactions on Systems, Man, and Cybernetics},
-  vol.~SMC-3, pp.~610--621, Nov 1973.
-
-\bibitem{glcm_tutorial}
-M.~Hall-Beyer, ``Glcm texture: A tutorial.''
-  https://prism.ucalgary.ca/handle/1880/51900, March 2017.
-
-\bibitem{fractal_texture}
-W.~Navas and R.~Vasquez~Espinosa, ``Analysis of texture using the fractal
-  model,'' 03 1997.
-
-\bibitem{filter_eye_model}
-S.~Mar\^{c}elja, ``Mathematical description of the responses of simple cortical
-  cells$\ast$,'' {\em J. Opt. Soc. Am.}, vol.~70, pp.~1297--1300, Nov 1980.
-
-\bibitem{gabor_filter_example}
-D.~Dunn, W.~E. Higgins, and J.~Wakeley, ``Texture segmentation using 2-d gabor
-  elementary functions,'' {\em IEEE Transactions on Pattern Analysis and
-  Machine Intelligence}, vol.~16, pp.~130--149, Feb 1994.
-
-\bibitem{gabor_filter_machine_learning}
-S.~Berisha, ``Image classification using gabor filters and machine learning,''
-  2009.
-
-\bibitem{advantage_svm}
-S.~Karamizadeh, S.~M. Abdullah, M.~Halimi, J.~Shayan, and M.~j.~Rajabi,
-  ``Advantage and drawback of support vector machine functionality,'' in {\em
-  2014 International Conference on Computer, Communications, and Control
-  Technology (I4CT)}, pp.~63--65, Sept 2014.
-
-\bibitem{sfa}
-J.~P.~B. Casati, D.~R. Moraes, and E.~L.~L. Rodrigues, ``Sfa: A human skin
-  image database based on feret and ar facial images,'' {\em IX Workshop de
-  Visão Computacional, Rio de Janeiro}, 2013.
-
-\bibitem{pascal-voc-2007}
-M.~Everingham, L.~Van~Gool, C.~K.~I. Williams, J.~Winn, and A.~Zisserman, ``The
-  {PASCAL} {V}isual {O}bject {C}lasses {C}hallenge 2007 {(VOC2007)}
-  {R}esults.''
-  \url{http://www.pascal-network.org/challenges/VOC/voc2007/workshop/index.html}.
-
-\bibitem{opencv}
-``Opencv library.'' \url{https://opencv.org/}.
-\newblock Accessed: 2018-06-08.
-
-\bibitem{numpy}
-``Numpy library.'' \url{http://www.numpy.org/}.
-\newblock Accessed: 2018-06-08.
-
-\bibitem{mahotas}
-L.~Coelho, ``Mahotas: Open source software for scriptable computer vision,''
-  {\em Journal of Open Research Software. 1(1), p.e3. DOI:
-  http://doi.org/10.5334/jors.ac}, 2013.
-
-\bibitem{sklearn}
-``Scikit library.'' \url{http://scikit-learn.org/stable/index.html}.
-\newblock Accessed: 2018-06-08.
-
-\bibitem{tkinter}
-``Tkinter library.'' \url{https://wiki.python.org/moin/TkInter}.
-\newblock Accessed: 2018-06-08.
+\bibitem[\protect\astroncite{Yang et~al.}{2002}]{detecting_faces_a_survey}
+Yang, M.-H., Kriegman, D.~J., and Ahuja, N. (2002).
+\newblock Detecting faces in images: A survey.
+\newblock {\em IEEE TRANSACTIONS ON PATTERN ANALYSIS AND MACHINE INTELLIGENCE},
+  24(1):34--58.
 
 \end{thebibliography}

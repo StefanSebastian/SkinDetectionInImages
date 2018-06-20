@@ -914,9 +914,11 @@
 	\subsubsection{The texture analysis module}
 	Similarly to the previous module, texture analysis can be divided into two submodules, one for training, figure \ref{fig:texture_train}, and one for detection, figure \ref{fig:texture_detect}.
 	
-	The model used in skin texture detection, TextureModel, has an attribute for extracting textural features from images (feature\_extractor), one for classifying those values (classifier), and label for interpreting the classifier's results (skin\_label). This model is trained by a HaralickModelTrainer which its parameters from a TextureTrainConfig object.
+	The model used in skin texture detection, TextureModel, has an attribute for extracting textural features from images (feature\_extractor), one for classifying those values (classifier), and label for interpreting the classifier's results (skin\_label). This model is trained by a HaralickModelTrainer which gets its parameters from a TextureTrainConfig object.
 	
-	In this project I only implemented a model based on Haralick's features but the design allows incorporating other methods. The HaralickModel extends the basic TextureModel and overrides the feature extraction method. It is trained by a HaralickModelTrainer which injects a HaralickFeatureExtractor, which encapsulates the feature extraction method taken from the mahotas library, and SvmClassifier, which trains a Support Vector Machine classifier using the sk\_learn library. The model trainer is also responsible for selecting a method of preparing the input data, in this case using the TrainDataPreparer class, which computes Haralick's features and appends the corresponding label.
+	In this project there is only one implemented model based on Haralick's features but the design allows incorporating other methods. The HaralickModel extends the basic TextureModel and overrides the feature extraction method. It is trained by a HaralickModelTrainer which injects a feature extraction object and a classifier into the model. 
+	
+	The selected feature extractor is a HaralickFeatureExtractor, which encapsulates Haralick's method taken from the mahotas library. The chosen classifier is returned by SvmClassifier's static method (train\_svm\_classifier) which trains a Support Vector Machine model using the sk\_learn library. The model trainer is also responsible for selecting a method of preparing the input data, in this case using the TrainDataPreparer class, which computes Haralick's features and appends the corresponding label.
 	
 	\begin{figure}[h!]
 		\centering
@@ -949,7 +951,7 @@
 	
 	\subsubsection{User interface}
 	
-	The user interface was build using the tkinter library. This framework was designed to create modular applications. Consequently every window can be composed out of multiple frames, which are reusable components. The main views used in the application are visible in figure \ref{fig:gui}. The various configuration frames were left out of the diagram to avoid clutter.
+	The user interface was build using the TkInter library. This framework was designed to create modular applications. Consequently every window can be composed out of multiple frames, which are reusable components. The main views used in the application are visible in figure \ref{fig:gui}. The various configuration frames were left out of the diagram to avoid clutter.
 	
 	MainView is a tab-view component which is provides links to the application's main windows: color model training, texture model training, model evaluation, detection of a picture.
 	
@@ -983,7 +985,7 @@
 	\subsubsection{Image skin detection}
 	This section illustrates the use case of skin detection for an image. The sequence diagram associated with this flow can be seen below, in figure \ref{fig:detection_sequence}. 
 	
-	First, the user uploads the desired model, selects the image on which detection will be run and sets some tweaking parameters. After pressing start, a new evaluator is created in a separate process and a message is dispatched with the desired image. The evaluator calls three components: segmentation, represented by the quick shift algorithm, which returns a list of superpixels, color analysis, which uses SPM techniques on the superpixels from the previous call, and texture detection, which returns a texture mask for the initial image. The evaluator then combines the resulting masks and sends a message back to the GUI (DetectionWindow) which displays the results.
+	First, the user uploads the desired model, selects the image on which detection will be run and sets some tweaking parameters. After pressing start, a new evaluator is created in a separate process and a message is dispatched with the desired image. The evaluator calls three components: \textbf{segmentation}, represented by the quick shift algorithm, which returns a list of superpixels, \textbf{color analysis}, which uses SPM techniques on the superpixels from the previous call, and \textbf{texture detection}, which returns a texture mask for the initial image. The evaluator then combines the resulting masks and sends a message back to the GUI (DetectionWindow) which displays the results.
 	
 	\begin{figure}[h!]
 		\centering
@@ -1041,7 +1043,7 @@
 	
 	\subsection{Evaluator view}
 	
-	This screen allows the user to evaluate the performance of the final model and follow the progress in real time. The selected model can be configured in various ways which will be presented in detail in the common configurations section \ref{configuration_frames}.
+	This screen allows the user to evaluate the performance of the final model and follow the progress in real time. The selected model can be configured in various ways which will be presented in detail in the common configurations section.
 	
 	\begin{figure}[h!]
 		\centering
@@ -1056,7 +1058,7 @@
 	A progress bar will indicate the status of each action applied to the image. The main actions are, in order: image segmentation (consisting of density computation, neighbor linking and superpixel extraction), color detection (Bayes SPM), texture analysis (Haralick feature, combination of results and metrics calculation. Images obtained for each step (color, texture and their combination) are all saved in the results folder, to facilitate the identification of cases for which the model does not perform as expected.
 	
 	After each picture is analyzed by the model, the performance metrics(true positive rate, false positive rate, true negative rate, false negative rate, accuracy, precision and recall) are displayed on the screen and saved to a file.
-	The application builds a csv file containing metrics from each processed picture, that can be used to obtain overall results. A dump of the initial configuration is done in the file $initial_config.txt$ for documentation purposes.
+	The application builds a csv file containing metrics from each processed picture, that can be used to obtain overall results. A dump of the initial configuration is done in the file $initial\_config.txt$ for documentation purposes.
 	
 	\subsection{Color model training view}
 	This window is used to train a Bayesian color detection model. You can select a color space, the path to input data (a folder which should contain the following subfolders: train\textunderscore images – images containing skin, train\textunderscore images\textunderscore ns – images not containing skin, train\textunderscore masks – masks for images containing skin), the name of the model and the path to the folder where it will be stored. 
@@ -1175,10 +1177,10 @@
 	
 	\section{Proposed model's results}
 	
-	The proposed model obtains similar but slightly weaker results than the state-of-the-art techniques. Consequently, it has not achieved its goal of considerably reducing the large false positive rate currently associated with skin detection models. The reasons for this could be the resizing step which forces the selection of a smaller texture detection window or the use of a small dataset for evaluation in comparison to other models. Both of these compromises have been taken due to time constraints. This indicates the proposed model is unfit for real-time detection tasks but could be a valid approach for data mining processes.
+	The proposed model obtains similar but slightly worse results than the state-of-the-art techniques. Consequently, it has not achieved its goal of considerably reducing the large false positive rate currently associated with skin detection models. The reasons for this could be the resizing step which forces the selection of a smaller texture detection window or the use of a small dataset for evaluation in comparison to other models. Both of these compromises have been taken due to time constraints. This indicates the proposed model is unfit for real-time detection tasks but could be a valid approach for data mining processes.
 	
 	\section{Future developments}
-	A big issue in the current form of the model is the computation time, which forced me to take some decision that might have impacted classification performance. Consequently this would be the top candidate for optimization. Some solutions in this direction are implementing the image processing algorithms on the GPU (an example for Quick shift was provided by Fulkerson\cite{quickshift_gpu}) and take advantage of multithreading whenever possible (for example during evaluation).
+	A big issue in the current form of the model is the computation time, which forced me to take some decision that might have impacted classification performance. Consequently this would be the top candidate for optimization. Some solutions in this direction are implementing the image processing algorithms on the GPU (an example for Quick shift was provided by Fulkerson \cite{quickshift_gpu}) and take advantage of multithreading whenever possible (for example during evaluation).
 	
 	Another area of improvement is in texture detection. Upon analysis of the visual feedback, the current texture model does not provide an improvement as large as expected. Some alternative texture analysis techniques such as Gabor filters could be tested.
 	

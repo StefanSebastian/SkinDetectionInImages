@@ -1,25 +1,5 @@
 \begin{thebibliography}{}
 
-\bibitem[\protect\astroncite{int}{}]{internet_stats}
-Internet world penetration rates by geographic regions - december 31, 2017.
-\newblock \url{https://www.internetworldstats.com/stats.htm}.
-\newblock Accessed: 2018-06-08.
-
-\bibitem[\protect\astroncite{num}{}]{numpy}
-Numpy library.
-\newblock \url{http://www.numpy.org/}.
-\newblock Accessed: 2018-06-08.
-
-\bibitem[\protect\astroncite{ope}{}]{opencv}
-Opencv library.
-\newblock \url{https://opencv.org/}.
-\newblock Accessed: 2018-06-08.
-
-\bibitem[\protect\astroncite{tki}{}]{tkinter}
-Tkinter library.
-\newblock \url{https://wiki.python.org/moin/TkInter}.
-\newblock Accessed: 2018-06-08.
-
 \bibitem[\protect\astroncite{Abbadi et~al.}{2013}]{color_texture_ann}
 Abbadi, N. K.~E., Dahir, N., and Alkareem, Z.~A. (2013).
 \newblock Skin texture recognition using neural networks.
@@ -34,6 +14,11 @@ Andrew~Ellinor, Christopher~Williams, A.~S.
 \bibitem[\protect\astroncite{Berisha}{2009}]{gabor_filter_machine_learning}
 Berisha, S. (2009).
 \newblock Image classification using gabor filters and machine learning.
+
+\bibitem[\protect\astroncite{Bradski}{2000}]{opencv}
+Bradski, G. (2000).
+\newblock {The OpenCV Library}.
+\newblock {\em Dr. Dobb's Journal of Software Tools}.
 
 \bibitem[\protect\astroncite{Brand et~al.}{2000}]{i_threshold_applied}
 Brand, J., and Mason (2000).
@@ -152,6 +137,11 @@ Haralick, R.~M., Shanmugam, K., and Dinstein, I. (1973).
 \newblock {\em IEEE Transactions on Systems, Man, and Cybernetics},
   SMC-3(6):610--621.
 
+\bibitem[\protect\astroncite{Hughes}{2000}]{tkinter}
+Hughes, P. (2000).
+\newblock Python and tkinter programming.
+\newblock {\em Linux J.}, 2000(77es).
+
 \bibitem[\protect\astroncite{Jiang et~al.}{2007}]{texture_gabor_wavelet}
 Jiang, Z., Yao, M., and Jiang, W. (2007).
 \newblock Skin detection using color, texture and space information.
@@ -220,6 +210,13 @@ McGonagle, J., Tembo, V., and Chumbley, A.
 \newblock \url{https://brilliant.org/wiki/gaussian-mixture-model/}.
 \newblock Accessed: 2018-04-09.
 
+\bibitem[\protect\astroncite{Miniwatts Marketing Group}{}]{internet_stats}
+Miniwatts Marketing Group.
+\newblock Internet world penetration rates by geographic regions - december 31,
+  2017.
+\newblock \url{https://www.internetworldstats.com/stats.htm}.
+\newblock Accessed: 2018-06-08.
+
 \bibitem[\protect\astroncite{Nakagawa and
   Rosenfeld}{1979}]{experiments_on_thresholding}
 Nakagawa, Y. and Rosenfeld, A. (1979).
@@ -230,6 +227,11 @@ Nakagawa, Y. and Rosenfeld, A. (1979).
   Vasquez~Espinosa}{1997}]{fractal_texture}
 Navas, W. and Vasquez~Espinosa, R. (1997).
 \newblock Analysis of texture using the fractal model.
+
+\bibitem[\protect\astroncite{Oliphant}{2006}]{numpy}
+Oliphant, T. (2006).
+\newblock {\em Guide to NumPy}.
+\newblock USA: Trelgol Publishing.
 
 \bibitem[\protect\astroncite{Pal and Pal}{1993}]{review_on_image_segm_tech}
 Pal, N.~R. and Pal, S.~K. (1993).

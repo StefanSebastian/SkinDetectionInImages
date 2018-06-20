@@ -1,14 +1,6 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: lucrare.aux
 The style file: apa.bst
 Database file #1: references.bib
-Warning--to sort, need author or key in internet_stats
-Warning--to sort, need author or key in opencv
-Warning--to sort, need author or key in numpy
-Warning--to sort, need author or key in tkinter
-Warning--empty year in internet_stats
-Warning--empty year in numpy
-Warning--empty year in opencv
-Warning--empty year in tkinter
 Warning--empty year in bayes_theorem
 Warning--empty booktitle in gabor_filter_machine_learning
 Warning--empty year in pascal-voc-2007
@@ -17,7 +9,8 @@ Warning--empty year in jaywalkers_china
 Warning--empty journal in children_exposure
 Warning--empty journal in texture_analysis_review
 Warning--empty year in gaussian_mixtures
+Warning--empty year in internet_stats
 Warning--empty journal in fractal_texture
 Warning--empty year in kinect_control
 Warning--empty year in threshold_cluster
-(There were 19 warnings)
+(There were 12 warnings)

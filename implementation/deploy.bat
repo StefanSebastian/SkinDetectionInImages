@@ -1,0 +1,1 @@
+pyinstaller --hidden-import sklearn.neighbors.typedefs --noconsole start.py

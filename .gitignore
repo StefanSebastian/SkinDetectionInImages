@@ -10,3 +10,7 @@ licenta/resources
 *.pdf
 *.docx
 *.txt
+
+implementation/build
+implementation/dist
+implementation/start.spec

@@ -37,12 +37,12 @@
 			\Large{{UNIVERSITATEA BABEȘ-BOLYAI CLUJ-NAPOCA}}
 			\Large{{FACULTATEA DE MATEMATICĂ ȘI INFORMATICĂ}}
 			
-			\vspace{8cm}
+			\vspace{4cm}
 			
-			\textbf{LUCRARE DE DIPLOMÃ}
+			\textbf{LUCRARE DE DIPLOMĂ}
 			
 			\vspace{1cm}
-			\Huge\textbf{{TITLUL GABIPLS}}
+			\Huge\textbf{{O ABORDARE HIBRIDĂ BAZATĂ PE CARACTERSISTICI DE CULOARE ȘI TEXTURĂ PENTRU SEGMENTAREA PIELII UMANE ÎN IMAGINI}}
 			\fontsize{12}{14}
 			
 		\end{center}
@@ -64,19 +64,19 @@
 			\newline
 			\Large{{FACULTY OF MATHEMATICS AND COMPUTER SCIENCE}}
 			
-			\vspace{8cm}
+			\vspace{4cm}
 			
 			\textbf{DIPLOMA THESIS}
 			
 			\vspace{1cm}
-			\Huge\textbf{{TITLUL LUCRÃRII DE DIPLOMÃ}}
+			\Huge\textbf{{A HYBRID APPROACH BASED ON COLOR AND TEXTURE FEATURES FOR HUMAN SKIN SEGMENTATION}}
 			\fontsize{12}{14}
 			
 		\end{center}
 		\vspace{6cm}
 		
 		\hspace*{0.8cm}Supervisor: \hfill  Author: \hspace*{0.8cm} \\    
-		\textbf{Dr. Mircea Ioan-Gabriel, Assistant \hfill  \textbf{Sebastian Ștefan}}
+		\textbf{Dr. Mircea Ioan-Gabriel, Assistant \hfill  \textbf{Ștefan Sebastian}}
 		
 		\vspace{2cm}
 		\begin{center}
@@ -96,7 +96,7 @@
 	
 	This paper proposes an algorithm that aims to improve the high false acceptance rate typical of skin detectors found in research. The motivation behind this is that most skin detectors focus on computation speed rather than performance. Consequently there is a lack of accurate skin models for tasks where computation speed is not crucial, such as data mining.
 	
-	The proposed model analyzes color information on regions detected through image segmentation and then applies a texture filter to further reduce false acceptance rate. Images are segmented using the Quick shift algorithm which takes into account pixel color and position features. For each of the resulting superpixels an average skin probability is computed using Skin Probability Maps. Haralick's textural features are calculated on a window around each pixel and classified with a Support Vector Machine. Finally, the results of the color and texture models are intersected. 
+	The proposed model is a hybrid of already proven techniques. It analyzes color information on regions detected through image segmentation and then applies a texture filter to further reduce false acceptance rate. Images are segmented using the Quick shift algorithm which takes into account pixel color and position features. For each of the resulting superpixels an average skin probability is computed using Skin Probability Maps. Haralick's textural features are calculated on a window around each pixel and classified with a Support Vector Machine. Finally, the results of the color and texture models are intersected. 
 	
 	The model achieves similar results to state-of-the-art detectors but it does not fulfill the goal of severely reducing false acceptance rate. However, the results are not conclusive because evaluation was done on a smaller dataset due to time constraints.
 	
@@ -272,6 +272,7 @@
  	
  	This model was tested on a data set of 653 images resized to 150x100 resolution. The authors report an improvement over the classical color model by up to 25\% in the error rate value.
  
+ 	\clearpage
 	\section{Image segmentation}
 	Image segmentation is a technique for dividing an image into several regions that contain similar pixels. These partitions are often called super-pixels and represent an abstraction layer over the initial image. They can be characterized by color, border or shape(circle, ellipse, polygon, etc.) \cite{computer_vision_book}. The main purpose of segmentation is to represent areas of interest in an image such as faces, fields, buildings, etc, and usually serves as a preparation step for a more complex detection algorithm.
 	
@@ -354,7 +355,8 @@
 	When calculating the density we limit our search to a 3$\sigma$ window because the contributions for pixels further away should be small \cite{quickshift_gpu}.
 	
 	Some advantages of Quick shift are simplicity of implementation, speed (O($N^2$)), ability to work on any type of data and the control of fragmentation with the given parameters \cite{mode_seeking}. 
-	
+
+	\clearpage	
 	\section{Skin detection by color}
 	Skin pixel detection by color means classifying a pixel while considering only its color features. A first step in applying this approach is selecting a color space.
 	
@@ -463,6 +465,7 @@
 	
 	The number of Gaussians, N, is also an important aspect. The most common values used in research fall into the 2 to 16 range \cite{survey_skin_color_modeling}, the idea behind choosing a larger number is to account for various conditions of illumination.
 	
+	\clearpage
 	\section{Texture analysis}
 	
 	Texture is a propriety of all existing surfaces and contains information about their structural composition. While easily identifiable by a human observer, it does not have a precise mathematical definition \cite{computer_vision_book}. Consequently, there are many choices for building a texture classification model depending on the author’s interpretation. A good example that illustrates the complexity of defining texture is the surface of wood, which contains intensity variations that despite being nonuniform can compose certain repeated patterns. Texture provides information about the spatial arrangement of intensities in an image \cite{computer_vision_book}. 
@@ -782,7 +785,7 @@
 			\begin{tabular}{c|c|c}
 				\textbf{Model} & \textbf{TPR} & \textbf{FPR} \\
 				\hline
-				My model & 85.17\% & 16.41\% \\
+				Proposed model & 85.17\% & 16.41\% \\
 				SPM model (Jones and Rehg \cite{compaq}) & 90\% & 14.2\% \\
 				Mixture of Gaussians (Jones and Rehg \cite{compaq}) & 80\% & 9.5\% \\
 				Single Gaussian CbCr (Lee and Yoo \cite{gaussian_applied}) & 90\% & 33.3\% \\
@@ -874,7 +877,7 @@
 	\end{figure}
 
 	\subsubsection{The image segmentation module}
-	An overview of this module can be seen in figure \ref{fig:image_segmentation}. The segmentation functionality is provided by the QuickshiftSegmentation class, which exposes two public methods, apply(image) and $get_superpixels(image)$, and takes the sigma and tau parameters in the constructor. The first method applies Quick shift segmentation on the image and returns an image where regions are visible, being colored with the same value as the root pixel. The second method returns a map containing all identified regions. The keys are roots pixels and the values their corresponding superpixels. 
+	An overview of this module can be seen in figure \ref{fig:image_segmentation}. The segmentation functionality is provided by the QuickshiftSegmentation class, which exposes two public methods, apply(image) and $get\_superpixels(image)$, and takes the sigma and tau parameters in the constructor. The first method applies Quick shift segmentation on the image and returns an image where regions are visible, being colored with the same value as the root pixel. The second method returns a map containing all identified regions. The keys are roots pixels and the values their corresponding superpixels. 
 	
 	Regions are represented by the Superpixel class whose fields are: the initial image, position of the root pixel and a list of positions of all corresponding pixels.
 	
@@ -968,7 +971,8 @@
 		\caption{The user interface module}
 		\label{fig:gui}
 	\end{figure}
-
+	
+	\clearpage
 	\subsection{Use cases}
 	The main use cases are illustrated in figure \ref{fig:use_cases}. These are the hybrid model training, which includes the color and texture model training, model evaluation and detection on particular images. In order to evaluate a model the user should train it first. Also, it is recommended to evaluate the model before using it for other tasks.
 	
@@ -1086,6 +1090,7 @@
 		\caption{Texture model training view}
 	\end{figure}
 	
+	\clearpage
 	\subsection{Common configuration frames} \label{configuration_frames}
 	Some or all of these model configuration frames are present on multiple views. For this reason they are presented in a single section.
 	

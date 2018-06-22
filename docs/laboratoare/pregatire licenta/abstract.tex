@@ -1,0 +1,50 @@
+% !TeX program = lualatex
+
+\documentclass[12pt]{report}
+
+\usepackage{url}
+\usepackage{hyperref}
+
+\usepackage{graphicx} % images
+\usepackage{subcaption}
+
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+
+\linespread{1.25} % the equivalent of 1.5 line spacing from msword
+
+% margins
+\usepackage[a4paper, left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry} 
+
+\usepackage{amsmath}
+
+\usepackage[]{algorithm2e}
+
+\usepackage{todonotes}
+\usepackage{wrapfig}
+\usepackage{afterpage} % image positioning
+
+\usepackage[utf8]{inputenc} % romanian characters
+
+\usepackage[numbers]{natbib}
+
+\begin{document}
+	\pagenumbering{gobble}% Remove page numbers (and reset to 1)
+
+	ABSTRACT
+	\vspace{0.5cm}	
+	\hrule
+	\vspace{0.5cm}	
+	
+	The subject of this thesis is the problem of human skin detection in images. The goals are to provide an analysis of the current state of research in this area, present the theoretical foundations required to build a skin detector and to propose a new model, focused on reducing the false detection rate.
+	
+	With the current evolution in computing power, a lot of complex image analysis tasks are now viable for consumer devices. These include human computer interaction systems such as face detection, hand sign recognition or gesture analysis, monitoring systems and data mining for human related features. Most of these types of systems use skin detection as a preprocessing step, because the presence and shape of skin provide a good indication of the presence or location of a person. Consequently there is a need for fast and accurate human skin models.
+	
+	This paper proposes an algorithm that aims to improve the high false acceptance rate typical of skin detectors found in research. The motivation behind this is that most skin detectors focus on computation speed rather than performance. Consequently there is a lack of accurate skin models for tasks where computation speed is not crucial, such as data mining.
+	
+	The proposed model is a hybrid of already proven techniques. It analyzes color information on regions detected through image segmentation and then applies a texture filter to further reduce false acceptance rate. Images are segmented using the Quick shift algorithm which takes into account pixel color and position features. For each of the resulting superpixels an average skin probability is computed using Skin Probability Maps. Haralick's textural features are calculated on a window around each pixel and classified with a Support Vector Machine. Finally, the results of the color and texture models are intersected. 
+	
+	The model achieves similar results to state-of-the-art detectors but it does not fulfill the goal of severely reducing false acceptance rate. However, the results are not conclusive because evaluation was done on a smaller dataset due to time constraints.
+	
+	To my best knowledge, a skin detection model using image segmentation, color and texture information has not yet been published in this area of research. This work is the result of my own activity. I have neither given nor received unauthorized assistance on this work.
+\end{document}

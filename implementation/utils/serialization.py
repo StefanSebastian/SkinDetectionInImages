@@ -1,5 +1,6 @@
 import pickle
 from pickle import PicklingError
+from pickle import UnpicklingError
 
 from sklearn.externals import joblib
 
@@ -37,6 +38,9 @@ class SerializationUtils:
                 return pickle.load(file)
         except EOFError as e:
             self.logger.log(str(e) + " for " + name)
+            raise e
+        except UnpicklingError as e:
+            self.logger.log("Unpickling error. Could not load model.")
             raise e
 
     def load_joblib_object(self, name):

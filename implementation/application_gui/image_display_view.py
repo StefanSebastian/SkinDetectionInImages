@@ -3,6 +3,8 @@ from tkinter.ttk import Frame, Label
 from PIL import Image
 from PIL.ImageTk import PhotoImage
 
+from application_gui.validation_exception import ValidationError
+
 
 class ImageDisplayFrame(Frame):
     def __init__(self, parent):
@@ -35,8 +37,11 @@ class ImageDisplayFrame(Frame):
         self.set_image(path, self.output_image_frame)
 
     def set_image(self, path, frame):
-        load = Image.open(path)
-        resized = load.resize((200, 200))
-        render = PhotoImage(resized)
-        frame.config(image=render)
-        frame.image = render
+        try:
+            load = Image.open(path)
+            resized = load.resize((200, 200))
+            render = PhotoImage(resized)
+            frame.config(image=render)
+            frame.image = render
+        except OSError:
+            raise ValidationError("OS Error", ["Can't open given image"])
